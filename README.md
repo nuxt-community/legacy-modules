@@ -1,36 +1,18 @@
-# Nuxt Modules
+# 📦 Nuxt Modules
 
-⚡️ Under Heavy improvements, Please use [old](https://github.com/fandogh/nuxt-modules/tree/old) branch for now.
+<p align="center"><img align="center" src="http://imgur.com/V4LtoII.png"/></p>
+<p align="center">
+  <a href="https://circleci.com/gh/nuxt/nuxt-modules">
+    <img alt="" src="https://img.shields.io/circleci/project/github/nuxt/nuxt-modules/master.svg?style=flat-square">
+  </a>
+  <a href="https://github.com/nuxt/nuxt-modules"><img src="https://img.shields.io/npm/l/nuxt.svg?style=flat-square" alt="License"></a>
+  <a href="https://gitter.im/nuxt/nuxt.js"><img src="https://img.shields.io/badge/GITTER-join%20chat-green.svg?style=flat-square" alt="Gitter"></a>
+  <a href="https://donorbox.org/nuxt"><img src="https://img.shields.io/badge/Support%20us-donate-41B883.svg?style=flat-square" alt="Support us"></a>
+</p>
 
-Amazing things coming soon :) 
+## 🛑 Under heavy development, Please use [nuxt-helpers](https://github.com/fandogh/nuxt-modules) as an alternative for now.
 
-## Getting started
-
-1- Install nuxt-modules package:
-```bash
-# YARN
-yarn add nuxt-modules
-
-# NPM
-npm install nuxt-modules
-
-```
-
-2- Change your `nuxt.config.js`:
-
-```js
-const NuxtModules = require('nuxt-modules');
-
-module.exports = NuxtModules([
-    /* modules here */
-], {
-    // Your nuxt config
-})
-```
-
-**3- Add `.nuxt-modules` to your `.gitignore` file**
-
-## Available modules
+## Official Modules
 - [axios](modules/axios)
 - [bootstrap](modules/bootstrap-vue)
 - [toast](modules/toast)
@@ -42,12 +24,16 @@ module.exports = NuxtModules([
 - [manifest](modules/manifest)
 - [vendor](modules/vendor)
 
-
-# Modules Development Guide [WIP]
+# Modules Development Guide
 Nuxt has powerful SDK which allows you write your own modules and share them with community.
 
-See [MODULES](MODULES.md) 
+Learn More: [Modules Development Guide](MODULES.md)
 
+## Alpha Testing
+Nuxt.js modules system is not released yet. So until then you can use a wrapper to preview nuxt modules.
 
+Learn More: [Alpha Testing](ALPHA.md)
 
+## License
+[MIT License](LICENSE.md) - Nuxt.js 2017
 
