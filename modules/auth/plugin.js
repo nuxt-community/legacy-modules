@@ -3,122 +3,122 @@
  * Keeps logged-in user's state
  */
 
-import Cookie from 'cookie';
-import Cookies from 'js-cookie';
-import {setToken, $get, $post} from './axios'; // Axios is a peer plugin dependency
+import Cookie from 'cookie'
+import Cookies from 'js-cookie'
+import {setToken, $get, $post} from './axios' // Axios is a peer plugin dependency
 
-const inBrowser = typeof window !== 'undefined';
-const SSR = global.__VUE_SSR_CONTEXT__;
+const inBrowser = typeof window !== 'undefined'
+const SSR = global.__VUE_SSR_CONTEXT__
 
-function AuthStore(opts) {
-    const self = this;
-    opts = opts || {};
+function AuthStore (opts) {
+  const self = this
+  opts = opts || {}
 
     // ----------------------------------------
     // Default State
     // ----------------------------------------
-    this.defaultState = {
-        user: Object.assign({roles: [], scope: [], name: null}, opts.default_user),
-        loggedIn: false,
-        token: null
-    };
+  this.defaultState = {
+    user: Object.assign({roles: [], scope: [], name: null}, opts.default_user),
+    loggedIn: false,
+    token: null
+  }
 
     // ----------------------------------------
     // State
     // ----------------------------------------
-    this.state = Object.assign({}, self.defaultState);
+  this.state = Object.assign({}, self.defaultState)
 
     // ----------------------------------------
     // Getters
     // ----------------------------------------
-    this.getters = {};
+  this.getters = {}
 
     // ----------------------------------------
     // Mutations
     // ----------------------------------------
-    this.mutations = {
+  this.mutations = {
 
-        setUser(state, user) {
+    setUser (state, user) {
             // Fill user with defaults data
-            state.user = Object.assign({}, self.defaultState.user, user);
+      state.user = Object.assign({}, self.defaultState.user, user)
 
             // Set actual loggedIn status
-            state.loggedIn = Boolean(user);
-        },
+      state.loggedIn = Boolean(user)
+    },
 
-        setToken(state, token) {
-            state.token = token;
+    setToken (state, token) {
+      state.token = token
 
             // Setup axios
-            setToken(token);
+      setToken(token)
 
             // Store token in cookies
-            if (inBrowser) {
-                if (!token) {
-                    return Cookies.remove('token', opts.tokenCookie);
-                }
-                Cookies.set('token', token, opts.tokenCookie);
-            }
+      if (inBrowser) {
+        if (!token) {
+          return Cookies.remove('token', opts.tokenCookie)
         }
+        Cookies.set('token', token, opts.tokenCookie)
+      }
+    }
 
-    };
+  }
 
     // ----------------------------------------
     // Actions
     // ----------------------------------------
-    this.actions = {
+  this.actions = {
 
-        loadToken(ctx) {
+    loadToken (ctx) {
             // Try to extract token from cookies
-            const cookieStr = inBrowser ? document.cookie : SSR.req.headers.cookie;
-            const cookies = Cookie.parse(cookieStr || '') || {};
-            const token = cookies.token;
+      const cookieStr = inBrowser ? document.cookie : SSR.req.headers.cookie
+      const cookies = Cookie.parse(cookieStr || '') || {}
+      const token = cookies.token
 
-            ctx.commit('setToken', token);
-        },
+      ctx.commit('setToken', token)
+    },
 
-        fetch(ctx) {
+    fetch (ctx) {
             // Load user token
-            ctx.dispatch('loadToken');
+      ctx.dispatch('loadToken')
 
             // No token
-            if (!ctx.state.token) {
-                return;
-            }
+      if (!ctx.state.token) {
+        return
+      }
 
             // Get user profile
-            return $get('/auth/user').then(userData => {
-                ctx.commit('setUser', userData.user);
-            }).catch(() => {
-                return ctx.dispatch('logout');
-            });
-        },
+      return $get('/auth/user').then(userData => {
+        ctx.commit('setUser', userData.user)
+      }).catch(() => {
+        return ctx.dispatch('logout')
+      })
+    },
 
-        login(ctx, {fields, endpoint = '/auth/login', session = false}) {
-            return $post(endpoint, fields).then(tokenData => {
+    login (ctx, {fields, endpoint = '/auth/login', session = false}) {
+      return $post(endpoint, fields).then(tokenData => {
                 // Session tokens
-                if (session) {
-                    opts.tokenCookie = null;
-                }
-                ctx.commit('setToken', tokenData.token || tokenData.id_token);
-                return ctx.dispatch('fetch');
-            });
-        },
+        if (session) {
+          opts.tokenCookie = null
+        }
+        ctx.commit('setToken', tokenData.token || tokenData.id_token)
+        return ctx.dispatch('fetch')
+      })
+    },
 
-        logout(ctx) {
+    logout (ctx) {
             // Unload user profile
-            ctx.commit('setUser', null);
+      ctx.commit('setUser', null)
 
             // Server side logout
-            return $get('/auth/logout').then(() => {
+      return $get('/auth/logout').then(() => {
                 // Unset token
-                ctx.commit('setToken', null);
-            }).catch(() => {
+        ctx.commit('setToken', null)
+      }).catch(() => {
                 // Unset token
-                ctx.commit('setToken', null);
-            });
-        }
-    };
+        ctx.commit('setToken', null)
+      })
+    }
+  }
 }
 
-export default AuthStore;
+export default AuthStore

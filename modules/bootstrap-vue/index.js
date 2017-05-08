@@ -1,4 +1,4 @@
 module.exports.meta = {
-    plugin: true,
-    vendor: ['bootstrap-vue']
-};
+  plugin: true,
+  vendor: ['bootstrap-vue']
+}
