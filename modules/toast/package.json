@@ -1,0 +1,9 @@
+{
+  "name": "@nuxtjs/toast",
+  "version": "0.0.1-0",
+  "license": "MIT",
+  "main": "index.js",
+  "dependencies": {
+    "mini-toastr": "^0.6.5"
+  }
+}

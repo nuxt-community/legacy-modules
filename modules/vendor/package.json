@@ -1,0 +1,9 @@
+{
+  "name": "@nuxtjs/vendor",
+  "version": "0.0.1-0",
+  "license": "MIT",
+  "main": "index.js",
+  "dependencies": {
+    "fs-extra": "^3.0.1"
+  }
+}

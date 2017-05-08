@@ -1,0 +1,9 @@
+{
+  "name": "@nuxtjs/offline",
+  "version": "0.0.1-0",
+  "license": "MIT",
+  "main": "index.js",
+  "dependencies": {
+    "offline-plugin": "^4.7.0"
+  }
+}

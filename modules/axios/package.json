@@ -1,0 +1,9 @@
+{
+  "name": "@nuxtjs/axios",
+  "version": "0.0.1-0",
+  "license": "MIT",
+  "main": "index.js",
+  "dependencies": {
+    "axios": "^0.16.1"
+  }
+}
