@@ -1,4 +1,5 @@
 const _ = require('lodash')
+const path = require('path')
 
 // https://github.com/NekR/offline-plugin/blob/master/docs/examples/SPA.md
 // https://github.com/NekR/offline-plugin-pwa
@@ -47,6 +48,15 @@ function useOffline (nuxt) {
 }
 
 module.exports.meta = {
-  ssr: false,
-  plugin: nuxt => useOffline(nuxt)
+  name: 'nuxt-offline',
+  plugin: nuxt => {
+    if (!useOffline(nuxt)) {
+      return
+    }
+
+    return {
+      src: path.resolve(__dirname, 'plugin.js'),
+      ssr: false
+    }
+  }
 }

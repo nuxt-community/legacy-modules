@@ -29,3 +29,4 @@ module.exports = NuxtModules({
     ]
 })
 ```
+3- Add `nuxt-modules` to `.gitignore` file.

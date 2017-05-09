@@ -24,5 +24,6 @@ function extendBuild () {
 }
 
 module.exports.meta = {
+  name: 'nuxt-optimize',
   extendBuild: extendBuild
 }

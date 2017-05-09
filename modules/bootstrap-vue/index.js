@@ -1,4 +1,7 @@
+const path = require('path')
+
 module.exports.meta = {
-  plugin: true,
+  name: 'nuxt-bootstrap-vue',
+  plugin: path.resolve(__dirname, 'plugin.js'),
   vendor: ['bootstrap-vue']
 }

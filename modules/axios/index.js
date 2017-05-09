@@ -1,4 +1,5 @@
 const chalk = require('chalk')
+const path = require('path')
 
 function printURL (title, url, prefix) {
   /* eslint-disable no-console */
@@ -33,6 +34,7 @@ module.exports = (nuxt) => {
 }
 
 module.exports.meta = {
-  plugin: true,
+  name: 'nuxt-axios',
+  plugin: path.resolve(__dirname, 'plugin.js'),
   vendor: ['axios']
 }

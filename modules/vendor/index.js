@@ -22,3 +22,7 @@ module.exports = (nuxt) => {
     fs.ensureSymlinkSync(src, dst, 'junction')
   })
 }
+
+module.exports.meta = {
+  name: 'nuxt-vendor'
+}

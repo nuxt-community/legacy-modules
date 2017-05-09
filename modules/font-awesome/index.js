@@ -9,5 +9,6 @@ module.exports = (nuxt) => {
 }
 
 module.exports.meta = {
+  name: 'nuxt-font-awesome',
   vendor: ['font-awesome']
 }

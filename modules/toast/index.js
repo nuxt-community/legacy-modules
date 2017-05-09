@@ -1,5 +1,9 @@
+const path = require('path')
 module.exports.meta = {
-  plugin: true,
-  ssr: false,
+  name: 'nuxt-toast',
+  plugin: {
+    src: path.resolve(__dirname, 'plugin.js'),
+    ssr: false
+  },
   vendor: ['mini-toastr']
 }

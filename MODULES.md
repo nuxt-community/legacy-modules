@@ -41,21 +41,32 @@ Meta option allows easily extending and adding more compatibilities to your modu
 In order to use meta you can attach it to your module exports:
 
 ```js
+const path = require('path')
+
 module.exports.meta = {
+    // Name of module (REQUIRED)
+    name: 'my-awesome-module',
+    
     // Vendor packages will be added to vendor.js bundle file
     vendor: [],
+ 
+    // Plugin can be also an array for multi plugin modules
+    // This can be also a single string
+    plugin: {
+        // Source of plugin file to be copied to project
+        src: path.resolve(__dirname, 'plugin.js'),
 
-    // Boolean indicating this module has a plugin (or a function (nuxt) => Boolean) 
-    plugin: true,
-    
-    // Just copy plugin without adding to plugins option, see auth module
-    copyOnly: false,
-    
-    // Don't add this plugin for SSR
-    ssr: false,
+        // Just copy plugin without adding to plugins option, see auth module
+        copyOnly: false,
+        
+        // Don't add this plugin for SSR
+        ssr: false,    
+    },
     
     // Allows extending and customizing webpack config for Client and SSR 
-    extendBuild: ({isClient, isServer}) => { }
+    extendBuild: ({isClient, isServer}) => { 
+        
+    }
 }
 ````
 
