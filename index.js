@@ -115,8 +115,8 @@ function install(nuxt, module) {
     fs.copySync(src, dst)
 
     // Add to nuxt plugins
-    if (copyOnly !== false) {
-      nuxt.plugins.push({src, ssr})
+    if (!copyOnly) {
+      nuxt.plugins.push({src: dst, ssr})
     }
   })
 
