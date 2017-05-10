@@ -10,7 +10,7 @@
     "lint": "eslint --ext .js,.vue modules",
     "lint-fix": "eslint --ext .js,.vue --fix",
     "postinstall": "npm run bootstrap",
-    "publish": "npm run lerna -- publish --conventional-commits --skip-git"
+    "publish": "npm run lerna -- publish --conventional-commits"
   },
   "contributors": [
     "Pooya Parsa <pooya@pi0.ir>"
