@@ -1,6 +1,6 @@
 {
   "name": "nuxt-modules",
-  "version": "0.10.0",
+  "version": "0.11.0",
   "description": "Nuxt Helpers",
   "repository": "https://github.com/fandogh/nuxt-helpers",
   "main": "index.js",
