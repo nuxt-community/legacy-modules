@@ -1,6 +1,6 @@
 {
   "name": "nuxt-modules",
-  "version": "0.11.2",
+  "version": "0.11.3",
   "description": "Nuxt Modules",
   "repository": "https://github.com/nuxt/nuxt-modules",
   "main": "index.js",
@@ -9,7 +9,6 @@
     "bootstrap": "npm run lerna -- bootstrap",
     "lint": "eslint --ext .js,.vue modules",
     "lint-fix": "eslint --ext .js,.vue --fix",
-    "postinstall": "npm run bootstrap",
     "publish": "npm run lerna -- publish --conventional-commits"
   },
   "contributors": [
