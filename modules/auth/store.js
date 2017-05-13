@@ -5,7 +5,7 @@
 
 import Cookie from 'cookie'
 import Cookies from 'js-cookie'
-import {setToken, $get, $post} from './axios' // Axios is a peer plugin dependency
+import {setToken, $get, $post, $delete} from './axios' // Axios is a peer plugin dependency
 
 const inBrowser = typeof window !== 'undefined'
 const SSR = global.__VUE_SSR_CONTEXT__
@@ -105,12 +105,15 @@ function AuthStore (opts) {
       })
     },
 
-    logout (ctx) {
+    logout (ctx, {endpoint = '/auth/logout', appendToken = false}) {
             // Unload user profile
       ctx.commit('setUser', null)
 
+            // Append token
+      if (appendToken) endpoint = endpoint + `/${ctx.state.token}`
+
             // Server side logout
-      return $get('/auth/logout').then(() => {
+      return $delete(endpoint).then(() => {
                 // Unset token
         ctx.commit('setToken', null)
       }).catch(() => {
