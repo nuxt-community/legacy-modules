@@ -16,7 +16,7 @@
 - [axios](modules/axios)
 - [bootstrap](modules/bootstrap-vue)
 - [toast](modules/toast)
-- [auth](modules/auth-store)
+- [auth](modules/auth)
 - [font-awesome](modules/font-awesome)
 - [meta](modules/meta)
 - [optimize](modules/optimize)
