@@ -109,8 +109,8 @@ function AuthStore (opts) {
             // Unload user profile
       ctx.commit('setUser', null)
 
-            // Create logout endpoint
-      const endpoint = endpoint + appendToken ? `/${ctx.state.token}` : ''
+            // Append token
+      if (appendToken) endpoint = endpoint + `/${ctx.state.token}`
 
             // Server side logout
       return $delete(endpoint).then(() => {
