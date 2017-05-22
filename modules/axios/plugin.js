@@ -17,12 +17,14 @@ function onError (e) {
   }
 
   let response = {}
+  let status = 500
   if (e.response) {
     response = e.response.data
+    status = e.response.status
   }
 
   throw Object.assign({
-    statusCode: 500,
+    statusCode: status,
     message: 'Request error'
   }, response)
 }
