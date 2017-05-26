@@ -23,6 +23,7 @@
 - [offline](modules/offline)
 - [manifest](modules/manifest)
 - [vendor](modules/vendor)
+- [google-analytics](modules/google-analytics)
 
 # Modules Development Guide
 Nuxt has powerful SDK which allows you write your own npm modules and share them with community.
