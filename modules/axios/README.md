@@ -1,12 +1,12 @@
 # Axios
-This plugin is a wrapper around [axios](https://github.com/mzabriskie/axios). It tries to resolve and make easier lot's of ajax tasks specially with SSR.
-So you can use **$get('profile')** instead of `(await Axios.get('http://server/api/profile')).data`.
+This plugin is a wrapper around [axios](https://github.com/mzabriskie/axios). 
 
-- Uses optionally custom URL when executing requests in server-side.
+- Sets default base URL.
 - Handles all HTTP exceptions and prevents server side unhandled promise exceptions.
-- Injects `$get`,`$post`,... into vue context instances so requests can be done out-of-the-box.
-- Exposes `setToken` function so we can easily and globally set authentication tokens.
-- Throws *nuxt-friendly* exceptions if needed.
+- Injects `$get`,`$post`,... into vue context instances so requests can be done easily.
+- Exposes `setToken` function to `$axios` so we can easily and globally set authentication tokens.
+- Throws *nuxt-friendly* exceptions.
+- Automatically enables `withCredentials` when requesting to default base URL.
 
 ## Setup
 - Add `@nuxtjs/axios` dependency using yarn or npm to your project
@@ -19,7 +19,7 @@ So you can use **$get('profile')** instead of `(await Axios.get('http://server/a
 
 ## Usage
 
-### Using inside `asyncData`
+### Inside `asyncData`
 ```js
 async asyncData({app: {$axios}}) {
   const {data} = await $axios.get('http://icanhazip.com')
@@ -29,7 +29,7 @@ async asyncData({app: {$axios}}) {
 }
 ```
 
-### Using inside component methods
+### Inside component methods
 ```js
 async mounted() {
   const {data} = await this.$get('http://icanhazip.com')
