@@ -1,6 +1,6 @@
 {
   "name": "@nuxtjs/modules",
-  "version": "0.11.4",
+  "version": "0.12.0",
   "description": "Nuxt Modules",
   "repository": "https://github.com/nuxt/nuxt-modules",
   "main": "index.js",
