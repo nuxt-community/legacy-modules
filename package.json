@@ -1,6 +1,6 @@
 {
   "name": "@nuxtjs/modules",
-  "version": "0.11.3",
+  "version": "0.11.4",
   "description": "Nuxt Modules",
   "repository": "https://github.com/nuxt/nuxt-modules",
   "main": "index.js",
@@ -9,7 +9,7 @@
     "bootstrap": "npm run lerna -- bootstrap",
     "lint": "eslint --ext .js,.vue modules",
     "lint-fix": "eslint --ext .js,.vue --fix",
-    "publish": "npm run lerna -- publish --conventional-commits"
+    "lerna-publish": "npm run lerna -- publish --conventional-commits"
   },
   "contributors": [
     "Pooya Parsa <pooya@pi0.ir>"
