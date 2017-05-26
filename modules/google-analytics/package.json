@@ -1,0 +1,9 @@
+{
+  "name": "@nuxtjs/google-analytics",
+  "version": "0.0.0",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "main": "index.js"
+}
