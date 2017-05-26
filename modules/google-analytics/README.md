@@ -3,6 +3,8 @@ Add Google Analytics to your nuxt.js application.
 This plugins automatically sends first page and route change events to google analytics.
 
 **Note:** google analytics is not enabled in dev mode.
+You can set environment variable `NODE_ENV` to `production` for testing in dev mode. 
+
 
 ## Setup
 - Add `@nuxtjs/google-analytics` dependency using yarn or npm to your project
