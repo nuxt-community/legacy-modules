@@ -9,11 +9,14 @@
     "bootstrap": "npm run lerna -- bootstrap",
     "lint": "eslint --ext .js,.vue modules",
     "lint-fix": "eslint --ext .js,.vue --fix",
-    "lerna-publish": "npm run lerna -- publish --conventional-commits --only-updated"
+    "publish": "npm run lerna -- publish --conventional-commits --only-updated --skip-git"
   },
   "contributors": [
     "Pooya Parsa <pooya@pi0.ir>"
   ],
+  "publishConfig": {
+    "access": "public"
+  },
   "license": "MIT",
   "dependencies": {
     "chalk": "^1.1.3",

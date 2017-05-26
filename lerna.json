@@ -3,6 +3,17 @@
   "packages": [
     "modules/*"
   ],
+  "changelog": {
+    "repo": "nuxt/modules",
+    "labels": {
+      "tag: deps": ":house: Upgrade Dependencies",
+      "tag: breaking": ":boom: Breaking Change",
+      "tag: feat": ":rocket: New Feature",
+      "tag: fix": ":bug: Bug Fix",
+      "tag: cleanup": ":nail_care: Polish",
+      "tag: docs": ":memo: Documentation"
+    }
+  },
   "version": "independent",
   "commands": {
     "publish": {
