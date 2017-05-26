@@ -14,7 +14,7 @@ function getAxios() {
 Vue.mixin({
   computed: {
     $axios() {
-      return getAxios.call(this)()
+      return getAxios.call(this)
     }
   },
   methods: {
