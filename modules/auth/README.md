@@ -1,21 +1,14 @@
-## Auth Store
+# Auth Store (WIP)
 
-#### 💡 Usage
-
-- Add `auth` module
-
+## Setup
+- Add `@nuxtjs/auth` dependency using yarn or npm to your project
+- Add `@nuxtjs/auth` module to `nuxt.config.js`
 ```js
-// store/auth.js
+  modules: [
+    '@nuxtjs/auth'
+  ]
+````
 
-import AuthStore from '~/.nuxt-modules/auth';
-
-const authStore = new AuthStore({ /*opts*/ });
-
-// Your customizations
-
-export default authStore;
-```
-
-**Options**
+## Options
 - **default_user** : Default fields for `state.auth.user`. (overrides using Object.assign when logged-in).
 - **token_cookie** : Token cookie opts. (see [js-cookie docs](https://github.com/js-cookie/js-cookie) for more info)

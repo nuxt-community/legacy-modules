@@ -1,12 +1,16 @@
 ## Toast
 Easy toasts for your app using [mini-toastr](https://github.com/se-panfilov/mini-toastr).
 
-#### 💡 Usage
+## Setup
+- Add `@nuxtjs/toast` dependency using yarn or npm to your project
+- Add `@nuxtjs/toast` module to `nuxt.config.js`:
+```js
+  modules: [
+   '@nuxtjs/toast'
+  ]
+````
 
-- Add `toast` module
-
-Then you can define notification in your routes or components:
-
+## Usage
 ```js
 export default {
    methods:{

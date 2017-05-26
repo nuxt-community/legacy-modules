@@ -13,13 +13,13 @@ window.onNuxtReady(() => {
     onUpdateReady: () => {
       log('Update Ready')
 
-            // Tells to new SW to take control immediately
+      // Tells to new SW to take control immediately
       OfflinePluginRuntime.applyUpdate()
     },
     onUpdated: () => {
       log('Updated')
 
-            // Reload the web page to load into the new version
+      // Reload the web page to load into the new version
       window.location.reload()
     },
     onUpdateFailed: () => {
@@ -28,6 +28,6 @@ window.onNuxtReady(() => {
   })
 })
 
-function log (msg) {
+function log(msg) {
   console.log('[SW] ', msg) // eslint-disable-line no-console
 }

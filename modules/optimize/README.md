@@ -1,11 +1,12 @@
-## Optimize
-**This module is not stable yet.**
+# Optimize (WIP)
 
-- Normalizes names to `app` and `vendor` and sets assets public path to `/assets`.
 - Adds [cssnano](https://cssnano.co) to postcss.
-- (TODO) Modernize SSR bundle with less transforms.
 
-#### 💡 Usage
- 
-- Add `cssnano` to package.json
-- Add `optimize` module
+## Setup
+- Add `@nuxtjs/optimize` dependency using yarn or npm to your project
+- Add `@nuxtjs/optimize` module to `nuxt.config.js`:
+```js
+  modules: [
+   '@nuxtjs/optimize'
+  ]
+````

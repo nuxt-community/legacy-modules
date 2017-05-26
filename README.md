@@ -10,7 +10,7 @@
   <a href="https://donorbox.org/nuxt"><img src="https://img.shields.io/badge/Support%20us-donate-41B883.svg?style=flat-square" alt="Support us"></a>
 </p>
 
-## 🛑 Under heavy development, Please use [nuxt-helpers](https://github.com/fandogh/nuxt-modules) as an alternative for now.
+## 🛑 Under development.
 
 ## Official Modules
 - [axios](modules/axios)
@@ -25,14 +25,8 @@
 - [vendor](modules/vendor)
 
 # Modules Development Guide
-Nuxt has powerful SDK which allows you write your own modules and share them with community.
-
-Learn More: [Modules Development Guide](MODULES.md)
-
-## Alpha Testing
-Nuxt.js modules system is not released yet. So until then you can use a wrapper to preview nuxt modules.
-
-Learn More: [Alpha Testing](ALPHA.md)
+Nuxt has powerful SDK which allows you write your own npm modules and share them with community.
+[Guide Coming Soon]
 
 ## License
 [MIT License](LICENSE.md) - Nuxt.js 2017

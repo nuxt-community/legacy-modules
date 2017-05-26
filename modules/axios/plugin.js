@@ -5,115 +5,87 @@ const inBrowser = typeof window !== 'undefined'
 
 const API_URL = inBrowser ? (process.env.API_URL_BROWSER || '') : (process.env.API_URL || 'http://localhost:3000')
 
-// Create new axios instance
-const axios = Axios.create({
-  baseURL: API_URL + (process.env.API_PREFIX || '/api')
-})
-
-// Throw nice http errors & keep SSR safe
-function onError (e) {
-  if (!inBrowser) {
-    return {}
-  }
-
-  let response = {}
-  let status = 500
-  if (e.response) {
-    response = e.response.data
-    status = e.response.status
-  }
-
-  throw Object.assign({
-    statusCode: status,
-    message: 'Request error'
-  }, response)
+// Try to get axios from components context, fallback to global Axios else
+function getAxios() {
+  return (this && this.$root && this.$root.$options.$axios) ? this.$root.$options.$axios : Axios
 }
 
-// Wap promise
-function wrapPromise (p) {
-  return p.then(res => {
-    return res.data || {}
-  }).catch(onError)
-}
-
-// Opts Enhancer
-function wrapOpts (opts = {}, _url) {
-  const url = _url || opts.url || ''
-
-  if (opts.withCredentials === undefined) {
-        // Send credentials only to relative and API Backend requests
-    if (!/^https?:\/\//i.test(url) || url.indexOf(process.env.API_URL_BROWSER) === 0 || url.indexOf(process.env.API_URL) === 0) {
-      opts.withCredentials = true
+// Vue Component Mixins
+Vue.mixin({
+  computed: {
+    $axios() {
+      return getAxios.call(this)()
+    }
+  },
+  methods: {
+    // opts
+    $request(opts) {
+      return getAxios.call(this).request(opts);
+    },
+    // url, opts
+    $get(url, opts) {
+      return getAxios.call(this).get(url, opts);
+    },
+    $delete(url, opts) {
+      return getAxios.call(this).delete(url, opts);
+    },
+    $head(url, opts) {
+      return getAxios.call(this).head(url, opts);
+    },
+    // url, data, opts
+    $post(url, data, opts) {
+      return getAxios.call(this).post(url, data, opts);
+    },
+    $put(url, data, opts) {
+      return getAxios.call(this).put(url, data, opts);
+    },
+    $patch(url, data, opts) {
+      return getAxios.call(this).patch(url, data, opts);
     }
   }
+})
 
-  return opts
-}
-
-// Create wrappers
-// https://github.com/mzabriskie/axios#request-method-aliases
-export const $request = function (opts) {
-  return wrapPromise(axios.request(wrapOpts(opts)))
-}
-
-export const $get = function (url, opts) {
-  return wrapPromise(axios.get(url, wrapOpts(opts, url)))
-}
-
-export const $delete = function (url, opts) {
-  return wrapPromise(axios.delete(url, wrapOpts(opts, url)))
-}
-
-export const $head = function (url, opts) {
-  return wrapPromise(axios.head(url, wrapOpts(opts, url)))
-}
-
-export const $post = function (url, data, opts) {
-  return wrapPromise(axios.post(url, data, wrapOpts(opts, url)))
-}
-
-export const $put = function (url, data, opts) {
-  return wrapPromise(axios.put(url, data, wrapOpts(opts, url)))
-}
-
-export const $patch = function (url, data, opts) {
-  return wrapPromise(axios.patch(url, data, wrapOpts(opts, url)))
-}
-
-// ----------------------------------------
-// Vue Plugin
-// ----------------------------------------
-const VueAxios = {
-  install (Vue) {
-        // Globally register as $http
-    Vue.prototype.$http = axios
-
-        // Mixins
-    Vue.mixin({
-      methods: {
-        $request,
-        $get,
-        $delete,
-        $head,
-        $post,
-        $put,
-        $patch
-      }
-    })
+// Send credentials only to relative and API Backend requests
+const withCredentials = config => {
+  if (config.withCredentials === undefined) {
+    if (!/^https?:\/\//i.test(config.url) || config.url.indexOf(process.env.API_URL_BROWSER) === 0 || config.url.indexOf(process.env.API_URL) === 0) {
+      config.withCredentials = true
+    }
   }
-
+  return config
 }
 
-// ----------------------------------------
-// Install vue plugin
-// ----------------------------------------
-Vue.use(VueAxios)
-
-// ----------------------------------------
-// setToken module
-// ----------------------------------------
-export const setToken = function (token) {
-  axios.defaults.headers.common.Authorization = token ? `Bearer ${token}` : null
+// Nuxt friendly http errors
+const handleError = error => {
+  // const response = error.response || {}
+  // const config = error.config || {}
+  // TODO: Add integration with vue notification and nuxt.$error
+  // Avoid promise rejections in SSR context
+  return inBrowser? Promise.reject(error) : error
 }
 
-export default axios
+// Set requests token
+function setToken(token, type = 'Bearer') {
+  if (!token) {
+    delete this.defaults.headers.common.Authorization;
+    return
+  }
+  this.defaults.headers.common.Authorization = (type ? type + ' ' : '') + token
+}
+
+export default ({app}) => {
+  // Create new axios instance
+  const axios = Axios.create({
+    baseURL: API_URL + (process.env.API_PREFIX || '/api')
+  })
+
+  // Setup instance interceptors
+  axios.interceptors.request.use(withCredentials);
+  axios.interceptors.response.use(undefined, handleError);
+
+  // Make accessible using {this,$nuxt}.$root.$options.$axios
+  app.$axios = axios
+
+  // setToken helper
+  axios.setToken = setToken.bind(axios)
+}

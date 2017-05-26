@@ -1,10 +1,7 @@
 const path = require('path')
 
-module.exports.meta = {
-  name: 'nuxt-auth',
-  vendor: ['cookie', 'js-cookie'],
-  plugin: {
-    src: path.resolve(__dirname, 'store.js'),
-    copyOnly: true
-  }
+module.exports = function nuxtAuth(options) {
+  // TODO: Add store: path.resolve(__dirname, 'store.js')
 }
+
+module.exports.meta = require('./package.json')

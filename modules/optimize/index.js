@@ -1,26 +1,25 @@
 const cssnano = require('cssnano')
 
+const path = require('path')
+
+module.exports = function nuxtOptimize(options) {
+  // Register plugin
+  this.addPlugin({src: path.resolve(__dirname, 'plugin.js'), options})
+
+}
+
+module.exports.meta = require('./package.json')
+
+
 module.exports = (nuxt) => {
-    // Better filenames
-  if (!nuxt.build.filenames) {
-    nuxt.build.filenames = {
-      vendor: 'vendor.[hash].js',
-      app: 'app.[chunkhash].js'
-    }
-  }
-
-    // Better Public path
-  if (!nuxt.build.publicPath) {
-    nuxt.build.publicPath = '/assets/'
-  }
-
-    // Add cssnano
+  // TODO
+  // Add cssnano
   nuxt.build.postcss.push(cssnano(nuxt.build.cssnano))
 }
 
-function extendBuild () {
-    // Modernize SSR bundle with less transforms
-    // TODO
+function extendBuild() {
+  // Modernize SSR bundle with less transforms
+  // TODO
 }
 
 module.exports.meta = {

@@ -1,6 +1,17 @@
 const fs = require('fs-extra')
 const path = require('path')
 
+const path = require('path')
+
+module.exports = function nuxtAxios(options) {
+  // Register plugin
+  this.addPlugin({src: path.resolve(__dirname, 'plugin.js'), options})
+
+}
+
+module.exports.meta = require('./package.json')
+
+
 module.exports = (nuxt) => {
   if (!nuxt.vendor) {
     return

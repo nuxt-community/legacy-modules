@@ -1,4 +1,4 @@
-## Axios
+# Axios
 This plugin is a wrapper around [axios](https://github.com/mzabriskie/axios). It tries to resolve and make easier lot's of ajax tasks specially with SSR.
 So you can use **$get('profile')** instead of `(await Axios.get('http://server/api/profile')).data`.
 
@@ -6,32 +6,38 @@ So you can use **$get('profile')** instead of `(await Axios.get('http://server/a
 - Handles all HTTP exceptions and prevents server side unhandled promise exceptions.
 - Injects `$get`,`$post`,... into vue context instances so requests can be done out-of-the-box.
 - Exposes `setToken` function so we can easily and globally set authentication tokens.
-- Returns empty object if request fails.
 - Throws *nuxt-friendly* exceptions if needed.
 
-#### 💡 Usage
-
-- Add `axios` module
-
+## Setup
+- Add `@nuxtjs/axios` dependency using yarn or npm to your project
+- Add `@nuxtjs/axios` module to `nuxt.config.js`:
 ```js
-import {$get} from '~/nuxt-modules/axios';
+  modules: [
+    '@nuxtjs/axios'
+  ]
+````
 
-async data() {
-    let {profile} = await $get('profile');
-    return {profile}
+## Usage
+
+### Using inside `asyncData`
+```js
+async asyncData({app: {$axios}}) {
+  const {data} = await $axios.get('http://icanhazip.com')
+  return {
+    ip: data
+  }
 }
 ```
 
-Or In any other function: (This does not needs importing axios plugin)
-
+### Using inside component methods
 ```js
-mounted() {
-    let {profile} = await this.$get('profile');
-    return {profile}
+async mounted() {
+  const {data} = await this.$get('http://icanhazip.com')
+  this.ip = data
 }
 ```
 
-**Customization**
+## Customization
 
 Customization can be done using shared environment variables.
 

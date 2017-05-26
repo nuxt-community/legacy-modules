@@ -1,6 +1,4 @@
-## Manifest
-**This module is not stable yet.**
-
+# Manifest
 Adds [Web App Manifest](https://developer.mozilla.org/en-US/docs/Web/Manifest) with no pain.
 
 - Creates `static/manifest.json`
@@ -10,15 +8,19 @@ Adds [Web App Manifest](https://developer.mozilla.org/en-US/docs/Web/Manifest) w
 - Adds `<meta name=theme-color>` to pages if not exits.
 - Adds title to pages if not exits.
 
-#### 💡 Usage
- 
-- Add `manifest` module
+## Setup
+- Add `@nuxtjs/manifest` dependency using yarn or npm to your project
+- Add `@nuxtjs/manifest` module to `nuxt.config.js`:
+```js
+  modules: [
+   '@nuxtjs/manifest'
+  ]
+````
 - Add `static/icon.png` for your app icon.
 - Add additional options to `nuxt.manifest` to override defaults:
-
 ```js
-manifest:{
-    name:'My Awesome App',
-    dir:'rtl'
-}
+  manifest: {
+      name: 'My Awesome App',
+      dir: 'rtl'
+  }
 ```

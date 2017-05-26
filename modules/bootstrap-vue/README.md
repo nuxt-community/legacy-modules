@@ -1,12 +1,17 @@
-## Bootstrap
+# BootstrapVue
 With [bootstrap-vue](https://github.com/bootstrap-vue/bootstrap-vue) you can easily use standard bootstrap 4 components with your app.
 (you need to add bootstrap package in your package.json too)
 
-#### 💡 Usage
+## Setup
+- Add `@nuxtjs/bootstrap-vue` dependency using yarn or npm to your project
+- Add `@nuxtjs/bootstrap-vue` module to `nuxt.config.js`:
+```js
+  modules: [
+    '@nuxtjs/bootstrap-vue'
+  ]
+````
 
-- Add `bootstrap-vue` to `package.json`
-- Add `bootstrap-vue` module
-
+## Usage
 ```vue
 <template>
     <b-alert show>

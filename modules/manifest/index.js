@@ -4,12 +4,12 @@ const _ = require('lodash')
 
 // https://developer.mozilla.org/en-US/docs/Web/Manifest
 
-module.exports = (nuxt) => {
-  nuxt.manifest = nuxt.manifest || {}
+module.exports = function nuxtManifest(options) {
+  this.options.manifest = this.options.manifest || {}
 
   /* eslint-disable camelcase */
-  const default_name = nuxt.manifest.name || nuxt.head.title ||
-        process.env.npm_package_description || process.env.npm_package_name
+  const default_name = this.options.manifest.name || this.options.head.title ||
+    process.env.npm_package_description || process.env.npm_package_name
   const defaults = {
     name: default_name,
     short_name: default_name,
@@ -28,37 +28,31 @@ module.exports = (nuxt) => {
   }
 
   // Write manifest.json
-  const manifest = _.defaultsDeep({}, nuxt.manifest, defaults)
+  // TODO: write into .nuxt/dist instead
+  const manifest = _.defaultsDeep({}, this.options.manifest, defaults)
   const manifestFileName = 'manifest.json'
-  const manifestFilePath = path.resolve(nuxt.rootDir, 'static', manifestFileName)
+  const manifestFilePath = path.resolve(this.options.rootDir, 'static', manifestFileName)
   fs.writeFileSync(manifestFilePath, JSON.stringify(manifest), 'utf8')
 
   // Add manifest meta
-  if (!_.find(nuxt.head.link, {rel: 'manifest'})) {
-    nuxt.head.link.push({rel: 'manifest', href: '/' + manifestFileName})
+  if (!_.find(this.options.head.link, {rel: 'manifest'})) {
+    this.options.head.link.push({rel: 'manifest', href: '/' + manifestFileName})
   }
 
   // Add favicon
-  if (!_.find(nuxt.head.link, {rel: 'shortcut icon'})) {
-    nuxt.head.link.push({rel: 'shortcut icon', href: '/' + manifest.icons[0].src})
+  if (!_.find(this.options.head.link, {rel: 'shortcut icon'})) {
+    this.options.head.link.push({rel: 'shortcut icon', href: '/' + manifest.icons[0].src})
   }
 
   // Set title
-  if (manifest.name && !nuxt.head.title) {
-    nuxt.head.title = manifest.name
+  if (manifest.name && !this.options.head.title) {
+    this.options.head.title = manifest.name
   }
 
   // Add description meta
-  if (manifest.description && !_.find(nuxt.head.meta, {name: 'description'})) {
-    nuxt.head.meta.push({name: 'description', content: manifest.description})
-  }
-
-  // Add theme-color meta
-  if (manifest.theme_color && !_.find(nuxt.head.meta, {name: 'theme-color'})) {
-    nuxt.head.meta.push({name: 'theme-color', content: manifest.theme_color})
+  if (manifest.description && !_.find(this.options.head.meta, {name: 'description'})) {
+    this.options.head.meta.push({name: 'description', content: manifest.description})
   }
 }
 
-module.exports.meta = {
-  name: 'nuxt-manifest'
-}
+module.exports.meta = require('./package.json')

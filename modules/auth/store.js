@@ -5,54 +5,50 @@
 
 import Cookie from 'cookie'
 import Cookies from 'js-cookie'
-import {setToken, $get, $post, $delete} from './axios' // Axios is a peer plugin dependency
 
 const inBrowser = typeof window !== 'undefined'
 const SSR = global.__VUE_SSR_CONTEXT__
 
-function AuthStore (opts) {
+function AuthStore(opts) {
   const self = this
   opts = opts || {}
 
-    // ----------------------------------------
-    // Default State
-    // ----------------------------------------
-  this.defaultState = {
-    user: Object.assign({roles: [], scope: [], name: null}, opts.default_user),
-    loggedIn: false,
-    token: null
+  // ----------------------------------------
+  // State
+  // ----------------------------------------
+  this.state = () => {
+    return {
+      user: Object.assign({roles: [], scope: [], name: null}, opts.default_user),
+      loggedIn: false,
+      token: null
+    }
   }
 
-    // ----------------------------------------
-    // State
-    // ----------------------------------------
-  this.state = Object.assign({}, self.defaultState)
-
-    // ----------------------------------------
-    // Getters
-    // ----------------------------------------
+  // ----------------------------------------
+  // Getters
+  // ----------------------------------------
   this.getters = {}
 
-    // ----------------------------------------
-    // Mutations
-    // ----------------------------------------
+  // ----------------------------------------
+  // Mutations
+  // ----------------------------------------
   this.mutations = {
 
     setUser (state, user) {
-            // Fill user with defaults data
+      // Fill user with defaults data
       state.user = Object.assign({}, self.defaultState.user, user)
 
-            // Set actual loggedIn status
+      // Set actual loggedIn status
       state.loggedIn = Boolean(user)
     },
 
     setToken (state, token) {
       state.token = token
 
-            // Setup axios
+      // Setup axios
       setToken(token)
 
-            // Store token in cookies
+      // Store token in cookies
       if (inBrowser) {
         if (!token) {
           return Cookies.remove('token', opts.tokenCookie)
@@ -63,13 +59,13 @@ function AuthStore (opts) {
 
   }
 
-    // ----------------------------------------
-    // Actions
-    // ----------------------------------------
+  // ----------------------------------------
+  // Actions
+  // ----------------------------------------
   this.actions = {
 
     loadToken (ctx) {
-            // Try to extract token from cookies
+      // Try to extract token from cookies
       const cookieStr = inBrowser ? document.cookie : SSR.req.headers.cookie
       const cookies = Cookie.parse(cookieStr || '') || {}
       const token = cookies.token
@@ -78,15 +74,15 @@ function AuthStore (opts) {
     },
 
     fetch (ctx) {
-            // Load user token
+      // Load user token
       ctx.dispatch('loadToken')
 
-            // No token
+      // No token
       if (!ctx.state.token) {
         return
       }
 
-            // Get user profile
+      // Get user profile
       return $get('/auth/user').then(userData => {
         ctx.commit('setUser', userData.user)
       }).catch(() => {
@@ -96,7 +92,7 @@ function AuthStore (opts) {
 
     login (ctx, {fields, endpoint = '/auth/login', session = false}) {
       return $post(endpoint, fields).then(tokenData => {
-                // Session tokens
+        // Session tokens
         if (session) {
           opts.tokenCookie = null
         }
@@ -106,18 +102,18 @@ function AuthStore (opts) {
     },
 
     logout (ctx, {endpoint = '/auth/logout', appendToken = false}) {
-            // Unload user profile
+      // Unload user profile
       ctx.commit('setUser', null)
 
-            // Append token
+      // Append token
       if (appendToken) endpoint = endpoint + `/${ctx.state.token}`
 
-            // Server side logout
+      // Server side logout
       return $delete(endpoint).then(() => {
-                // Unset token
+        // Unset token
         ctx.commit('setToken', null)
       }).catch(() => {
-                // Unset token
+        // Unset token
         ctx.commit('setToken', null)
       })
     }
