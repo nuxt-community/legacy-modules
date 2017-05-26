@@ -9,7 +9,7 @@
     "bootstrap": "npm run lerna -- bootstrap",
     "lint": "eslint --ext .js,.vue modules",
     "lint-fix": "eslint --ext .js,.vue --fix",
-    "lerna-publish": "npm run lerna -- publish --conventional-commits"
+    "lerna-publish": "npm run lerna -- publish --conventional-commits --only-updated"
   },
   "contributors": [
     "Pooya Parsa <pooya@pi0.ir>"
