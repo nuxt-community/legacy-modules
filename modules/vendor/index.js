@@ -1,30 +1,19 @@
 const fs = require('fs-extra')
 const path = require('path')
 
-const path = require('path')
-
 module.exports = function nuxtAxios(options) {
-  // Register plugin
-  this.addPlugin({src: path.resolve(__dirname, 'plugin.js'), options})
-
-}
-
-module.exports.meta = require('./package.json')
-
-
-module.exports = (nuxt) => {
-  if (!nuxt.vendor) {
+  if (!this.options.vendor) {
     return
   }
 
-  const vendorDir = path.resolve(nuxt.rootDir, 'static', 'vendor')
-  const nodeModulesDir = path.resolve(nuxt.rootDir, 'node_modules')
+  const vendorDir = path.resolve(this.options.rootDir, 'static', 'vendor')
+  const nodeModulesDir = path.resolve(this.options.rootDir, 'node_modules')
 
-    // Ensure static/vendor directory exists
+  // Ensure static/vendor directory exists
   fs.ensureDirSync(vendorDir)
 
-    // Link vendors
-  nuxt.vendor.forEach(vendor => {
+  // Link vendors
+  this.options.vendor.forEach(vendor => {
     const src = path.resolve(nodeModulesDir, vendor)
     const dst = path.resolve(vendorDir, vendor)
 
@@ -34,6 +23,4 @@ module.exports = (nuxt) => {
   })
 }
 
-module.exports.meta = {
-  name: 'nuxt-vendor'
-}
+module.exports.meta = require('./package.json')
