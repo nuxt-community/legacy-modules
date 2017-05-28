@@ -24,6 +24,7 @@
 - [manifest](modules/manifest)
 - [vendor](modules/vendor)
 - [google-analytics](modules/google-analytics)
+- [google-tag-manager](modules/google-tag-manager)
 
 # Modules Development Guide
 Nuxt has powerful SDK which allows you write your own npm modules and share them with community.
