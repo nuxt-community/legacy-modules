@@ -28,7 +28,7 @@
 - [google-tag-manager](modules/google-tag-manager)
 
 # Modules Development Guide
-Nuxt has powerful SDK which allows you write your own npm modules and share them with community.
+Nuxt has a powerful SDK which allows you write your own npm modules and share them with the community.
 [Guide Coming Soon]
 
 ## License
