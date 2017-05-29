@@ -11,7 +11,7 @@ const defaults = {
 }
 
 module.exports = function nuxtTagManager(options) {
-  let currentOptions = _.defaultsDeep({}, defaults, options)
+  let currentOptions = _.defaultsDeep(options,defaults)
 
   // Don't include when no GTM id is given OR on dev mode
   if(!currentOptions.id || (this.options.dev && process.env.NODE_ENV !== 'production')) {
