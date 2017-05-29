@@ -1,5 +1,10 @@
-# Manifest
-Adds [XML browser configuration](https://msdn.microsoft.com/en-us/library/bg183312\(v=vs.85\).aspx) with no pain.
+# BrowserConfig
+Adds [XML browser configuration](https://msdn.microsoft.com/en-us/library/bg183312\(v=vs.85\).aspx) support.
+(Useful for internet explorer and Edge)
+
+> Browser configuration files (also known as browserconfig) can be used to define pinned site customizations, 
+> such as tile backgrounds, badge updates, and tile notifications. Browser configuration files let you set 
+> these customizations using external XML files rather than metadata within the HTML markup of a webpage.
 
 - Creates `static/browserconfig.xml`
 - Adds `<meta name=msapplication-config>` to pages if not exits.
