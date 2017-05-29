@@ -3,6 +3,11 @@
   "version": "1.0.0",
   "license": "MIT",
   "main": "index.js",
+  "repository": "https://github.com/nuxt/modules",
+  "homepage": "https://github.com/nuxt/modules/tree/master/modules/optimize",
+  "publishConfig": {
+    "access": "public"
+  },
   "dependencies": {
     "cssnano": "^3.10.0"
   }

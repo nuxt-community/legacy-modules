@@ -2,5 +2,13 @@
   "name": "@nuxtjs/manifest",
   "version": "1.0.0",
   "license": "MIT",
-  "main": "index.js"
+  "main": "index.js",
+  "repository": "https://github.com/nuxt/modules",
+  "homepage": "https://github.com/nuxt/modules/tree/master/modules/manifest",
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "lodash": "^4.17.4"
+  }
 }

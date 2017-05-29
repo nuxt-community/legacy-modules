@@ -3,6 +3,11 @@
   "version": "1.0.1",
   "license": "MIT",
   "main": "index.js",
+  "repository": "https://github.com/nuxt/modules",
+  "homepage": "https://github.com/nuxt/modules/tree/master/modules/axios",
+  "publishConfig": {
+    "access": "public"
+  },
   "dependencies": {
     "axios": "^0.16.1"
   }
