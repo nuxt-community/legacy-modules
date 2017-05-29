@@ -1,4 +1,4 @@
-const fs = require('fs-extra')
+const _ = require('lodash')
 const path = require('path')
 const defaults = {
   id: null,
@@ -11,18 +11,18 @@ const defaults = {
 }
 
 module.exports = function nuxtTagManager(options) {
-  let options = _.defaultsDeep({}, defaults, options)
+  let currentOptions = _.defaultsDeep({}, defaults, options)
 
   // Don't include when no GTM id is given OR on dev mode
-  if(!options.id || (this.options.dev && process.env.NODE_ENV !== 'production')) {
+  if(!currentOptions.id || (this.options.dev && process.env.NODE_ENV !== 'production')) {
     return
   }
 
   // Build the <script> URL
-  let queryParams    = options.env.gtm_auth && options.env.gtm_preview ? options.env : {}
-      queryParams.id = options.id
-  if (options.layer)
-      queryParams.l  = options.layer
+  let queryParams    = currentOptions.env.gtm_auth && currentOptions.env.gtm_preview ? currentOptions.env : {}
+      queryParams.id = currentOptions.id
+  if (currentOptions.layer)
+      queryParams.l  = currentOptions.layer
 
   let queryString =_.reduce(queryParams, function(result, value, key) {
 		return (!_.isNull(value) && !_.isUndefined(value)) ? (result += key + '=' + value + '&') : result;
@@ -30,12 +30,12 @@ module.exports = function nuxtTagManager(options) {
 
   // Add google tag manager script to head
   this.options.head.script.push({
-    src: (options.scriptURL || '//www.googletagmanager.com/gtm.js') + '?' + queryString,
+    src: (currentOptions.scriptURL || '//www.googletagmanager.com/gtm.js') + '?' + queryString,
     async: true
   })
 
   // Register plugin
-  this.addPlugin({src: path.resolve(__dirname, 'plugin.js'), ssr: false, options})
+  this.addPlugin({src: path.resolve(__dirname, 'plugin.js'), ssr: false, currentOptions})
 }
 
 module.exports.meta = require('./package.json')

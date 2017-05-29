@@ -21,7 +21,8 @@ You can set environment variable `NODE_ENV` to `production` for testing in dev m
           gtm_preview:     '...',
           gtm_cookies_win: '...'
         }
+        scriptURL: '//example.com'
       }
     },
   ]
-````
+```
