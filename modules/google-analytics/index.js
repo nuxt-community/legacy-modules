@@ -1,7 +1,7 @@
 const fs = require('fs-extra')
 const path = require('path')
 
-module.exports = function nuxtAxios(options) {
+module.exports = function nuxtAnalytics(options) {
   // Don't include on dev mode
   if (this.options.dev && process.env.NODE_ENV !== 'production') {
     return
