@@ -14,11 +14,12 @@ You can set environment variable `NODE_ENV` to `production` for testing in dev m
    {
       src: '@nuxtjs/google-tag-manager',
       options: {
+        id:    'GTM-XXXXXXX', // (required)
         layer: 'dataLayer',
-        id:  'UA-XXXXXXXX-X',
         env: {
-          id:   '...',
-          auth: '...'
+          gtm_auth:        '...',
+          gtm_preview:     '...',
+          gtm_cookies_win: '...'
         }
       }
     },
