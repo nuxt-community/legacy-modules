@@ -3,6 +3,11 @@
   "version": "1.0.0",
   "license": "MIT",
   "main": "index.js",
+  "repository": "https://github.com/nuxt/modules",
+  "homepage": "https://github.com/nuxt/modules/tree/master/modules/toast",
+  "publishConfig": {
+    "access": "public"
+  },
   "dependencies": {
     "mini-toastr": "^0.6.5"
   }

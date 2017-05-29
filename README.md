@@ -22,6 +22,7 @@
 - [optimize](modules/optimize)
 - [offline](modules/offline)
 - [manifest](modules/manifest)
+- [browserconfig](modules/browserconfig)
 - [vendor](modules/vendor)
 - [google-analytics](modules/google-analytics)
 - [google-tag-manager](modules/google-tag-manager)

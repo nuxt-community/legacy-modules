@@ -1,0 +1,12 @@
+{
+  "name": "@nuxtjs/browserconfig",
+  "version": "0.0.0",
+  "license": "MIT",
+  "main": "index.js",
+  "repository": "https://github.com/nuxt/modules",
+  "homepage": "https://github.com/nuxt/modules/tree/master/modules/browserconfig",
+  "dependencies": {
+    "data2xml": "^1.2.5",
+    "lodash": "^4.17.4"
+  }
+}
