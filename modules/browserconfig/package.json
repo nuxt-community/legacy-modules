@@ -1,0 +1,9 @@
+{
+  "name": "@nuxtjs/browserconfig",
+  "version": "1.0.0",
+  "license": "MIT",
+  "main": "index.js",
+  "dependencies": {
+    "data2xml": "^1.2.5"
+  }
+}
