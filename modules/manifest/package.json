@@ -1,6 +1,6 @@
 {
   "name": "@nuxtjs/manifest",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "license": "MIT",
   "main": "index.js",
   "repository": "https://github.com/nuxt/modules",
@@ -9,8 +9,8 @@
     "access": "public"
   },
   "dependencies": {
-    "hash-sum": "^1.0.2",
     "fs-extra": "^3.0.1",
+    "hash-sum": "^1.0.2",
     "lodash": "^4.17.4"
   }
 }
