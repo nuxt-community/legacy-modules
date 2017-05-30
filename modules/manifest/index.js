@@ -25,7 +25,7 @@ module.exports = function nuxtManifest(options) {
     start_url: '/',
     display: 'standalone',
     background_color: '#ffffff',
-    theme_color: '#3f51b5'
+    theme_color: (this.options.loading && this.options.loading.color) || '#3f51b5'
   }
 
   // Write manifest.json
