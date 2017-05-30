@@ -24,3 +24,4 @@ Adds [Web App Manifest](https://developer.mozilla.org/en-US/docs/Web/Manifest) w
       dir: 'rtl'
   }
 ```
+- Add `static/manifest.*.json` to `.gitignore` file.

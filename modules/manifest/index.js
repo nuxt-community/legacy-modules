@@ -1,6 +1,7 @@
-const fs = require('fs')
+const fs = require('fs-extra')
 const path = require('path')
 const _ = require('lodash')
+const hash = require('hash-sum')
 
 // https://developer.mozilla.org/en-US/docs/Web/Manifest
 
@@ -29,14 +30,16 @@ module.exports = function nuxtManifest(options) {
 
   // Write manifest.json
   const manifest = _.defaultsDeep({}, this.options.manifest, defaults)
-  const manifestFileName = 'manifest.json'
-  const distDir = this.options.dev ? 'static' : '.nuxt/dist'
+  const manifestFileName = `manifest.${hash(manifest)}.json`
+  const distDir = 'static' //this.options.dev ? 'static' : '.nuxt/dist'
   const manifestFilePath = path.resolve(this.options.rootDir, distDir, manifestFileName)
+  fs.ensureDirSync(path.resolve(this.options.rootDir, distDir))
   fs.writeFileSync(manifestFilePath, JSON.stringify(manifest), 'utf8')
 
   // Add manifest meta
   if (!_.find(this.options.head.link, {rel: 'manifest'})) {
-    this.options.head.link.push({rel: 'manifest', href: '/' + manifestFileName})
+    const manifestURL = `/${manifestFileName}` //(this.options.dev ? '/' : this.options.build.publicPath ) + manifestFileName
+    this.options.head.link.push({rel: 'manifest', href: manifestURL})
   }
 
   // Add favicon
