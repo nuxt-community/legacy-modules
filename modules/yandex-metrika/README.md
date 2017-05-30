@@ -2,6 +2,8 @@
 Add Yandex Metrika to your nuxt.js application.
 This plugins automatically sends first page and route change events to yandex metrika.
 
+[Documetation for Ya.Metrika](https://yandex.com/support/metrica/code/counter-initialize.xml)
+
 **Note:** yandex metrika is not enabled in dev mode.
 You can set environment variable `NODE_ENV` to `production` for testing in dev mode.
 
