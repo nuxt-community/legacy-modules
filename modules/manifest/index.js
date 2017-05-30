@@ -17,7 +17,7 @@ module.exports = function nuxtManifest(options) {
     icons: [
       {
         src: 'icon.png',
-        sizes: '192x192',
+        sizes: '512x512',
         type: 'image/png'
       }
     ],
@@ -28,10 +28,10 @@ module.exports = function nuxtManifest(options) {
   }
 
   // Write manifest.json
-  // TODO: write into .nuxt/dist instead
   const manifest = _.defaultsDeep({}, this.options.manifest, defaults)
   const manifestFileName = 'manifest.json'
-  const manifestFilePath = path.resolve(this.options.rootDir, 'static', manifestFileName)
+  const distDir = this.options.dev ? 'static' : '.nuxt/dist'
+  const manifestFilePath = path.resolve(this.options.rootDir, distDir, manifestFileName)
   fs.writeFileSync(manifestFilePath, JSON.stringify(manifest), 'utf8')
 
   // Add manifest meta
@@ -52,6 +52,11 @@ module.exports = function nuxtManifest(options) {
   // Add description meta
   if (manifest.description && !_.find(this.options.head.meta, {name: 'description'})) {
     this.options.head.meta.push({name: 'description', content: manifest.description})
+  }
+
+  // Add theme-color meta
+  if (manifest.description && !_.find(this.options.head.meta, {name: 'theme-color'})) {
+    this.options.head.meta.push({name: 'theme-color', content: manifest.theme_color})
   }
 }
 
