@@ -9,7 +9,7 @@ No need to mess with DNS or deploy just to have others test out your changes. [l
 - Use the API to test web hooks
 - Test your UI in cloud browsers
 
-**Note** This module is only enabled on dev mode.
+**Note** This module is only enabled in dev mode.
   
 ## Setup
 - Add `@nuxtjs/localtunnel` dependency using yarn or npm to your project
@@ -20,8 +20,8 @@ No need to mess with DNS or deploy just to have others test out your changes. [l
   ]
 ````
 
-on next start, you will something like this in terminal that can be shared with the world:
-
+On next dev, you will something like this in terminal that can be shared with the world:
+```
 > Open http://127.0.0.1:3000
 > Open https://starter.localtunnel.me for external access
-
+```
