@@ -17,6 +17,10 @@ module.exports = function nuxtLocaltunnel(options) {
   }
 
   const tunnel = localtunnel(port, opts, (err, tunnel) => {
+    if (err) {
+      console.error('[nuxt][local tunnel] ' + err);
+      return
+    }
     console.log('> Open ' + tunnel.url + ' for external access')
   });
 }
