@@ -6,6 +6,7 @@ Adds [Web App Manifest](https://developer.mozilla.org/en-US/docs/Web/Manifest) w
 - Adds `<link rel=favicon>` to pages if not exits.
 - Adds `<meta name=description>` to pages if not exits.
 - Adds `<meta name=theme-color>` to pages if not exits.
+- Adds `<html lang=>` lang to pages if not exits.
 - Adds title to pages if not exits.
 
 ## Setup

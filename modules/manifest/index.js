@@ -26,7 +26,8 @@ module.exports = function nuxtManifest(options) {
     start_url: '/',
     display: 'standalone',
     background_color: '#ffffff',
-    theme_color: (this.options.loading && this.options.loading.color) || '#3f51b5'
+    theme_color: (this.options.loading && this.options.loading.color) || '#3f51b5',
+    lang: 'en'
   }
 
   // Write manifest.json
@@ -65,6 +66,14 @@ module.exports = function nuxtManifest(options) {
   // Add theme-color meta
   if (manifest.description && !_.find(this.options.head.meta, {name: 'theme-color'})) {
     this.options.head.meta.push({name: 'theme-color', content: manifest.theme_color})
+  }
+
+  // Add lang to html tag
+  if (manifest.lang && !(this.options.head.htmlAttrs && this.options.head.htmlAttrs.lang)) {
+    if (!this.options.head.htmlAttrs) {
+      this.options.head.htmlAttrs = {}
+    }
+    this.options.head.htmlAttrs.lang = manifest.lang
   }
 }
 
