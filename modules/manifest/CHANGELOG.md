@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.2.0"></a>
+# [1.2.0](https://github.com/nuxt/modules/compare/@nuxtjs/manifest@1.1.1...@nuxtjs/manifest@1.2.0) (2017-06-02)
+
+
+### Features
+
+* **meta:** add apple-touch-icon ([c74ffa4](https://github.com/nuxt/modules/commit/c74ffa4))
+
+
+
+
 <a name="1.1.1"></a>
 ## [1.1.1](https://github.com/nuxt/modules/compare/@nuxtjs/manifest@1.1.0...@nuxtjs/manifest@1.1.1) (2017-05-31)
 
