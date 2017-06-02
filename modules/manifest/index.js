@@ -35,8 +35,10 @@ module.exports = function nuxtManifest(options) {
   const manifestFileName = `manifest.${hash(manifest)}.json`
   const distDir = 'static' //this.options.dev ? 'static' : '.nuxt/dist'
   const manifestFilePath = path.resolve(this.options.rootDir, distDir, manifestFileName)
-  fs.ensureDirSync(path.resolve(this.options.rootDir, distDir))
-  fs.writeFileSync(manifestFilePath, JSON.stringify(manifest), 'utf8')
+  if (!fs.existsSync(manifestFilePath)) {
+    fs.ensureDirSync(path.resolve(this.options.rootDir, distDir))
+    fs.writeFileSync(manifestFilePath, JSON.stringify(manifest), 'utf8')
+  }
 
   // Add manifest meta
   if (!_.find(this.options.head.link, {rel: 'manifest'})) {
