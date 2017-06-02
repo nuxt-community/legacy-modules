@@ -7,8 +7,8 @@ module.exports = function nuxtComponentCache(options) {
   }
 
   // Create placeholder
-  if (typeof this.options.build.ssr !== 'object') {
-    this.options.ssr = {}
+  if (typeof this.options.build.ssr !== 'object' || this.options.build.ssr === null) {
+    this.options.build.ssr = {}
   }
 
   // Disable if cache explicitly provided in project
