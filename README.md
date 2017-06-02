@@ -28,6 +28,8 @@
 - [google-tag-manager](modules/google-tag-manager)
 - [yandex-metrika](modules/yandex-metrika)
 - [localtunnel](modules/localtunnel)
+- [workbox](modules/workbox)
+- [component-cache](modules/component-cache)
 
 # Modules Development Guide
 Nuxt has a powerful SDK which allows you write your own npm modules and share them with the community.
