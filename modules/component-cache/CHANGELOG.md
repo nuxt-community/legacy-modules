@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.1.2"></a>
+## [0.1.2](https://github.com/nuxt/modules/compare/@nuxtjs/component-cache@0.1.1...@nuxtjs/component-cache@0.1.2) (2017-06-02)
+
+
+### Bug Fixes
+
+* **component-cache:** null ssr ([528ec4c](https://github.com/nuxt/modules/commit/528ec4c))
+
+
+
+
 <a name="0.1.1"></a>
 ## [0.1.1](https://github.com/nuxt/modules/compare/@nuxtjs/component-cache@0.1.0...@nuxtjs/component-cache@0.1.1) (2017-06-02)
 
