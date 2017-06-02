@@ -11,9 +11,10 @@ module.exports = function nuxtManifest(options) {
   /* eslint-disable camelcase */
   const default_name = this.options.manifest.name || this.options.head.title ||
     process.env.npm_package_description || process.env.npm_package_name
+  const default_short_name = process.env.npm_package_name || default_name
   const defaults = {
     name: default_name,
-    short_name: default_name,
+    short_name: default_short_name,
     description: default_name,
     icons: [
       {
