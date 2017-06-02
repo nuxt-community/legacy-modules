@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.3.1"></a>
+## [1.3.1](https://github.com/nuxt/modules/compare/@nuxtjs/manifest@1.3.0...@nuxtjs/manifest@1.3.1) (2017-06-02)
+
+
+### Bug Fixes
+
+* **manifest:** write manifest file once ([18aa015](https://github.com/nuxt/modules/commit/18aa015))
+
+
+
+
 <a name="1.3.0"></a>
 # [1.3.0](https://github.com/nuxt/modules/compare/@nuxtjs/manifest@1.2.0...@nuxtjs/manifest@1.3.0) (2017-06-02)
 
