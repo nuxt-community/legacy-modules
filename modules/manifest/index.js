@@ -47,6 +47,10 @@ module.exports = function nuxtManifest(options) {
     this.options.head.link.push({rel: 'shortcut icon', href: '/' + manifest.icons[0].src})
   }
 
+  if (!_.find(this.options.head.link, {rel: 'apple-touch-icon'})) {
+    this.options.head.link.push({rel: 'apple-touch-icon', href: '/' + manifest.icons[0].src})
+  }
+
   // Set title
   if (manifest.name && !this.options.head.title) {
     this.options.head.title = manifest.name
