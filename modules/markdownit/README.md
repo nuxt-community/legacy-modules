@@ -26,12 +26,12 @@ modules: [
 
 ### Using `.md` files
 
-`hello.md`:
+`hello.md`
 ```md
 # Hello World!!
 ```
 
-`hello.vue`:
+`hello.vue`
 ```html
 <template>
   <div v-html="hello"></div>
