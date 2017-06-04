@@ -32,9 +32,10 @@ module.exports = function nuxtManifest(options) {
 
   // Write manifest.json
   const manifest = _.defaultsDeep({}, this.options.manifest, defaults)
-  const manifestFileName = 'manifest.json '//`manifest.${hash(manifest)}.json`
+  const manifestFileName = 'manifest.json' //`manifest.${hash(manifest)}.json`
   const distDir = 'static'
   const manifestFilePath = path.resolve(this.options.rootDir, distDir, manifestFileName)
+  console.log(manifestFilePath)
   if (!fs.existsSync(manifestFilePath)) {
     fs.ensureDirSync(path.resolve(this.options.rootDir, distDir))
     fs.writeFileSync(manifestFilePath, JSON.stringify(manifest), 'utf8')
