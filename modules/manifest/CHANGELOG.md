@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.4.2"></a>
+## [1.4.2](https://github.com/nuxt/modules/compare/@nuxtjs/manifest@1.4.1...@nuxtjs/manifest@1.4.2) (2017-06-04)
+
+
+### Bug Fixes
+
+* prevent invalid url when router base is / ([f0fd863](https://github.com/nuxt/modules/commit/f0fd863))
+
+
+
+
 <a name="1.4.1"></a>
 ## [1.4.1](https://github.com/nuxt/modules/compare/@nuxtjs/manifest@1.4.0...@nuxtjs/manifest@1.4.1) (2017-06-04)
 
