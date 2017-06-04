@@ -1,7 +1,6 @@
 {
   "name": "@nuxtjs/markdownit",
   "version": "0.0.0",
-  "private": true,
   "license": "MIT",
   "main": "index.js",
   "repository": "https://github.com/nuxt/modules",
