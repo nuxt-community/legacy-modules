@@ -26,8 +26,6 @@ module.exports = function nuxtWorkbox(options) {
     //navigateFallback: routerBase, // it has some BUGS
     directoryIndex: '/',
     cacheId: process.env.npm_package_name + '_' + process.env.npm_package_version,
-    skipWaiting: true,  // sw is being registered after onNuxtReady()
-    clientsClaim: true, // the generated service worker will claim any currently open pages
     globPatterns: ['**\/*.{js,css,html,json}'],
     modifyUrlPrefix: {
       '/': publicPath
