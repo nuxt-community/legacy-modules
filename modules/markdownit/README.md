@@ -27,7 +27,7 @@ modules: [
 ### Using `.md` files
 
 `hello.md`:
-```markdown
+```md
 # Hello World!!
 ```
 
