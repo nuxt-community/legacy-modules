@@ -53,7 +53,7 @@ module.exports = function nuxtWorkbox(options) {
     ssr: false,
     options: {
       swURL: routerBase + swFileName,
-      swScope: routerBase
+      swScope: fixUrl(`${routerBase}/`)
     }
   })
 }
