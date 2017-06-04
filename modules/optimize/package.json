@@ -9,6 +9,6 @@
     "access": "public"
   },
   "dependencies": {
-    "cssnano": "^3.10.0"
+    "@nuxtjs/cssnano": "latest"
   }
 }

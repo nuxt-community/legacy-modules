@@ -1,6 +1,9 @@
-# Optimize (WIP)
+# Optimize Preset
+Adds more optional optimizers to nuxt project.
 
-- Adds [cssnano](https://cssnano.co) to postcss.
+## Modules
+- [cssnano](../cssnano)
+  - options: use `options.cssnano` to customize it.
 
 ## Setup
 - Add `@nuxtjs/optimize` dependency using yarn or npm to your project
