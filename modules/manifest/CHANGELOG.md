@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.4.1"></a>
+## [1.4.1](https://github.com/nuxt/modules/compare/@nuxtjs/manifest@1.4.0...@nuxtjs/manifest@1.4.1) (2017-06-04)
+
+
+### Bug Fixes
+
+* **manifest:** sanetize options ([b8497a0](https://github.com/nuxt/modules/commit/b8497a0))
+* **manifest:** typo in manifest.json filename ([c2cabb6](https://github.com/nuxt/modules/commit/c2cabb6))
+
+
+
+
 <a name="1.4.0"></a>
 # [1.4.0](https://github.com/nuxt/modules/compare/@nuxtjs/manifest@1.3.1...@nuxtjs/manifest@1.4.0) (2017-06-04)
 
