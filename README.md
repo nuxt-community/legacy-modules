@@ -1,4 +1,5 @@
 # 📦 Nuxt Modules
+**🛑 Under development**
 
 <p align="center"><img align="center" src="http://imgur.com/V4LtoII.png"/></p>
 <p align="center">
@@ -10,9 +11,8 @@
   <a href="https://donorbox.org/nuxt"><img src="https://img.shields.io/badge/Support%20us-donate-41B883.svg?style=flat-square" alt="Support us"></a>
 </p>
 
-## 🛑 Under development.
 
-## Official Modules
+## Modules
 - [axios](modules/axios)
 - [bootstrap](modules/bootstrap-vue)
 - [toast](modules/toast)
@@ -30,6 +30,8 @@
 - [localtunnel](modules/localtunnel)
 - [workbox](modules/workbox)
 - [component-cache](modules/component-cache)
+- [prepack](modules/prepack)
+- [markdownit](modules/markdownit)
 
 # Modules Development Guide
 Nuxt has a powerful SDK which allows you write your own npm modules and share them with the community.
