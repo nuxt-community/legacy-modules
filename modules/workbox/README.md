@@ -1,6 +1,6 @@
-# Workbox (WIP)
+# Workbox
 
-# Setup
+## Setup
  
 - Add `@nuxtjs/workbox` dependency using yarn or npm to your project
 - Add `@nuxtjs/workbox` module to `nuxt.config.js`:
