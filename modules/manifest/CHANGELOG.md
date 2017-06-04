@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.4.0"></a>
+# [1.4.0](https://github.com/nuxt/modules/compare/@nuxtjs/manifest@1.3.1...@nuxtjs/manifest@1.4.0) (2017-06-04)
+
+
+### Features
+
+* **manifest:** improvements ([cac9b4e](https://github.com/nuxt/modules/commit/cac9b4e))
+
+
+
+
 <a name="1.3.1"></a>
 ## [1.3.1](https://github.com/nuxt/modules/compare/@nuxtjs/manifest@1.3.0...@nuxtjs/manifest@1.3.1) (2017-06-02)
 
