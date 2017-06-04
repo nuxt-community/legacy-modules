@@ -1,0 +1,17 @@
+{
+  "name": "@nuxtjs/pwa",
+  "version": "0.0.0",
+  "license": "MIT",
+  "main": "index.js",
+  "repository": "https://github.com/nuxt/modules",
+  "homepage": "https://github.com/nuxt/modules/tree/master/modules/pwa",
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "@nuxtjs/manifest": "latest",
+    "@nuxtjs/meta": "latest",
+    "@nuxtjs/workbox": "latest",
+    "@nuxtjs/optimize": "latest"
+  }
+}
