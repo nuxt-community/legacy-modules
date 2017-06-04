@@ -3,27 +3,27 @@ const path = require('path')
 const _ = require('lodash')
 const hash = require('hash-sum')
 
-// https://developer.mozilla.org/en-US/docs/Web/Manifest
+const fixUrl = url => url.replace(/(?!^)\/\//g, '/').replace(':/', '://')// // ~> /
 
 module.exports = function nuxtManifest(options) {
-  this.options.manifest = this.options.manifest || {}
+  this.options.manifest = options || this.options.manifest || {}
 
-  /* eslint-disable camelcase */
-  const default_name = this.options.manifest.name || this.options.head.title ||
-    process.env.npm_package_description || process.env.npm_package_name
-  const default_short_name = process.env.npm_package_name || default_name
+  const routerBase = this.options.router.base
+  const defaultName = this.options.manifest.name || process.env.npm_package_name
+  const defaultShortName = process.env.npm_package_name || defaultName
+
   const defaults = {
-    name: default_name,
-    short_name: default_short_name,
-    description: default_name,
+    name: defaultName,
+    short_name: defaultShortName,
+    description: defaultName,
     icons: [
       {
-        src: 'icon.png',
+        src: fixUrl(`${routerBase}/icon.png`),
         sizes: '512x512',
         type: 'image/png'
       }
     ],
-    start_url: '/',
+    start_url: routerBase,
     display: 'standalone',
     background_color: '#ffffff',
     theme_color: (this.options.loading && this.options.loading.color) || '#3f51b5',
@@ -32,8 +32,8 @@ module.exports = function nuxtManifest(options) {
 
   // Write manifest.json
   const manifest = _.defaultsDeep({}, this.options.manifest, defaults)
-  const manifestFileName = `manifest.${hash(manifest)}.json`
-  const distDir = 'static' //this.options.dev ? 'static' : '.nuxt/dist'
+  const manifestFileName = 'manifest.json '//`manifest.${hash(manifest)}.json`
+  const distDir = 'static'
   const manifestFilePath = path.resolve(this.options.rootDir, distDir, manifestFileName)
   if (!fs.existsSync(manifestFilePath)) {
     fs.ensureDirSync(path.resolve(this.options.rootDir, distDir))
@@ -42,17 +42,16 @@ module.exports = function nuxtManifest(options) {
 
   // Add manifest meta
   if (!_.find(this.options.head.link, {rel: 'manifest'})) {
-    const manifestURL = `/${manifestFileName}` //(this.options.dev ? '/' : this.options.build.publicPath ) + manifestFileName
-    this.options.head.link.push({rel: 'manifest', href: manifestURL})
+    this.options.head.link.push({rel: 'manifest', href: fixUrl(`${routerBase}/${manifestFileName}`)})
   }
 
   // Add favicon
   if (!_.find(this.options.head.link, {rel: 'shortcut icon'})) {
-    this.options.head.link.push({rel: 'shortcut icon', href: '/' + manifest.icons[0].src})
+    this.options.head.link.push({rel: 'shortcut icon', href: manifest.icons[0].src})
   }
 
   if (!_.find(this.options.head.link, {rel: 'apple-touch-icon'})) {
-    this.options.head.link.push({rel: 'apple-touch-icon', href: '/' + manifest.icons[0].src})
+    this.options.head.link.push({rel: 'apple-touch-icon', href: manifest.icons[0].src})
   }
 
   // Set title
