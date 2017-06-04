@@ -23,5 +23,5 @@ modules: [
 - Add generated assets to `.gitignore` file:
 ```
 static/sw.js
-static/workbox-sw.*.js
+static/workbox-sw*.js
 ```
