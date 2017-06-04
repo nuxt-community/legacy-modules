@@ -11,13 +11,13 @@ Use `options[module]` to customize each module or set to `false` to disable it.
 ### [manifest](../manifest)
 > Adds [Web App Manifest](https://developer.mozilla.org/en-US/docs/Web/Manifest) with no pain.
 
-###[meta](../meta)
+### [meta](../meta)
 > Adds common HTML Meta tags.
 
-###[workbox](../workbox)
+### [workbox](../workbox)
 > Adds full offline support using workbox.
 
-###[optimize](../optimize)
+### [optimize](../optimize)
 > Adds more optional optimizers to nuxt project.
 
 ## Setup
