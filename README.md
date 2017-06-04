@@ -34,6 +34,10 @@
 - [markdownit](modules/markdownit)
 - [cssnano](modules/cssnano)
 
+## Presets
+- [optimize](modules/optimize)
+- [pwa](modules/pwa)
+
 # Modules Development Guide
 Nuxt has a powerful SDK which allows you write your own npm modules and share them with the community.
 [Guide Coming Soon]

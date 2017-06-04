@@ -1,6 +1,6 @@
 const cssnano = require('cssnano')
 
-module.exports = function nuxtPrepack(options) {
+module.exports = function nuxtCssano(options) {
   this.options.build.postcss.push(cssnano(options))
 }
 
