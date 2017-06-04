@@ -6,7 +6,7 @@ const hash = require('hash-sum')
 const fixUrl = url => url.replace(/(?!^)\/\//g, '/').replace(':/', '://')// // ~> /
 
 module.exports = function nuxtManifest(options) {
-  const routerBase = this.options.router.base
+  const routerBase = this.options.router.base === '/' ? '' : this.options.router.base
   const defaultName = options.name || this.options.manifest.name || process.env.npm_package_name
   const defaultShortName = process.env.npm_package_name || defaultName
 
@@ -16,12 +16,12 @@ module.exports = function nuxtManifest(options) {
     description: defaultName,
     icons: [
       {
-        src: fixUrl(`${routerBase}icon.png`),
+        src: fixUrl(`${routerBase}/icon.png`),
         sizes: '512x512',
         type: 'image/png'
       }
     ],
-    start_url: routerBase,
+    start_url: fixUrl(`${routerBase}/`),
     display: 'standalone',
     background_color: '#ffffff',
     theme_color: (this.options.loading && this.options.loading.color) || '#3f51b5',
@@ -34,7 +34,9 @@ module.exports = function nuxtManifest(options) {
   const manifestFileName = `manifest.${hash(manifest)}.json`
   const distDir = 'static'
   const manifestFilePath = path.resolve(this.options.rootDir, distDir, manifestFileName)
-  console.log(manifestFilePath)
+
+  // Fix problem with now deployments which start script is running on a ro environment
+  // We need to somehow detect module is running in build or start mode
   if (!fs.existsSync(manifestFilePath)) {
     fs.ensureDirSync(path.resolve(this.options.rootDir, distDir))
     fs.writeFileSync(manifestFilePath, JSON.stringify(manifest), 'utf8')

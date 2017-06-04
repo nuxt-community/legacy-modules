@@ -12,7 +12,7 @@ module.exports = function nuxtWorkbox(options) {
   }
 
   const swFileName = 'sw.js'
-  const routerBase = this.options.router.base
+  const routerBase = this.options.router.base === '/' ? '' : this.options.router.base
   const publicPath = isUrl(this.options.build.publicPath)
     ? this.options.build.publicPath
     : fixUrl(routerBase + this.options.build.publicPath)
