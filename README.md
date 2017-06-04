@@ -32,6 +32,7 @@
 - [component-cache](modules/component-cache)
 - [prepack](modules/prepack)
 - [markdownit](modules/markdownit)
+- [cssnano](modules/cssnano)
 
 # Modules Development Guide
 Nuxt has a powerful SDK which allows you write your own npm modules and share them with the community.

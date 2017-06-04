@@ -1,0 +1,14 @@
+{
+  "name": "@nuxtjs/cssnano",
+  "version": "0.0.0",
+  "license": "MIT",
+  "main": "index.js",
+  "repository": "https://github.com/nuxt/modules",
+  "homepage": "https://github.com/nuxt/modules/tree/master/modules/cssnano",
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "cssnano": "^3.10.0"
+  }
+}
