@@ -5,22 +5,22 @@ const hash = require('hash-sum')
 
 const fixUrl = url => url.replace(/(?!^)\/\//g, '/').replace(':/', '://')// // ~> /
 
-module.exports = function nuxtManifest(options) {
+module.exports = function nuxtManifest (options) {
   const routerBase = this.options.router.base === '/' ? '' : this.options.router.base
   const defaultName = options.name || this.options.manifest.name || process.env.npm_package_name
   const defaultShortName = process.env.npm_package_name || defaultName
+
+  const defaultIcon = Object.assign({
+    src: fixUrl(`${routerBase}/icon.png`),
+    sizes: '512x512',
+    type: 'image/png'
+  }, options.defaultIcon, this.options.manifest.defaultIcon)
 
   const defaults = {
     name: defaultName,
     short_name: defaultShortName,
     description: defaultName,
-    icons: [
-      {
-        src: fixUrl(`${routerBase}/icon.png`),
-        sizes: '512x512',
-        type: 'image/png'
-      }
-    ],
+    icons: [defaultIcon],
     start_url: fixUrl(`${routerBase}/`),
     display: 'standalone',
     background_color: '#ffffff',
@@ -28,9 +28,12 @@ module.exports = function nuxtManifest(options) {
     lang: 'en'
   }
 
-  // Write manifest.json
+  // manifest.json
   const manifest = _.defaultsDeep({}, options, this.options.manifest, defaults)
+  // Sanetize
   delete manifest.src
+  delete manifest.defaultIcon
+  // Write file
   const manifestFileName = `manifest.${hash(manifest)}.json`
   const distDir = 'static'
   const manifestFilePath = path.resolve(this.options.rootDir, distDir, manifestFileName)
