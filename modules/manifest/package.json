@@ -1,6 +1,6 @@
 {
   "name": "@nuxtjs/manifest",
-  "version": "1.4.2",
+  "version": "1.5.0",
   "license": "MIT",
   "main": "index.js",
   "repository": "https://github.com/nuxt/modules",
