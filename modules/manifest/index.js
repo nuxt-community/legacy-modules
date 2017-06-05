@@ -41,8 +41,6 @@ module.exports = function nuxtManifest (options) {
   // Generate icons
   if (manifest._icons) {
     // TODO
-
-    delete manifest._icons
   }
 
   // Head Meta Tags
@@ -78,8 +76,6 @@ module.exports = function nuxtManifest (options) {
       }
       this.options.head.htmlAttrs.lang = manifest.lang
     }
-
-    delete manifest._meta
   }
 
   // OpenGraph headers
@@ -99,11 +95,13 @@ module.exports = function nuxtManifest (options) {
       this.options.head.meta.push({property: 'og:description', content: manifest.description})
     }
 
-    delete manifest._openGraph
   }
 
   // Cleanup internals
   delete manifest.src
+  delete manifest._icons
+  delete manifest._openGraph
+  delete manifest._meta
 
   // Stringify manifest & generate hash
   const manifestSource = JSON.stringify(manifest)
