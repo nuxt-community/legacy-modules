@@ -1,6 +1,6 @@
 {
   "name": "@nuxtjs/workbox",
-  "version": "0.3.3",
+  "version": "0.3.4",
   "license": "MIT",
   "main": "index.js",
   "repository": "https://github.com/nuxt/modules",
