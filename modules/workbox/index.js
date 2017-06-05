@@ -6,7 +6,7 @@ const regexEscape = url => url.replace(/\//g, '\\/')  // / ~> \/
 const wildcardRegex = url => '/' + regexEscape(fixUrl(url + '/.*')) + '/' // [url] ~> /[escape_url]\/*/
 const isUrl = url => url.indexOf('http') === 0 || url.indexOf('//') === 0
 
-module.exports = function nuxtWorkbox(options) {
+module.exports = function nuxtWorkbox (options) {
   if (this.options.dev) {
     return
   }
@@ -50,7 +50,7 @@ module.exports = function nuxtWorkbox(options) {
     src: path.resolve(__dirname, 'plugin.js'),
     ssr: false,
     options: {
-      swURL: routerBase + swFileName,
+      swURL: fixUrl(`${routerBase}/${swFileName}`),
       swScope: fixUrl(`${routerBase}/`)
     }
   })
