@@ -1,9 +1,8 @@
 const path = require('path')
 const workboxPlugin = require('workbox-webpack-plugin');
 
-const fixUrl = url => url.replace(/(?!^)\/\//g, '/').replace(':/', '://')      // // ~> /
-const regexEscape = url => url.replace(/\//g, '\\/')  // / ~> \/
-const wildcardRegex = url => '/' + regexEscape(fixUrl(url + '/.*')) + '/' // [url] ~> /[escape_url]\/*/
+const fixUrl = url => url.replace(/\/\//g, '/').replace(':/', '://')
+const wildcardRegex = url => '/' + fixUrl(url + '/.*').replace(/\//g, '\\/') + '/'
 const isUrl = url => url.indexOf('http') === 0 || url.indexOf('//') === 0
 
 module.exports = function nuxtWorkbox (options) {
@@ -11,11 +10,17 @@ module.exports = function nuxtWorkbox (options) {
     return
   }
 
+  // routerBase and publicPath
+  const routerBase = this.options.router.base
+  let publicPath = fixUrl(`${routerBase}/${this.options.build.publicPath}`)
+  if (isUrl(this.options.build.publicPath)) { // CDN
+    publicPath = this.options.build.publicPath
+    if (publicPath.indexOf('//') === 0) {
+      publicPath = '/' + publicPath // escape fixUrl
+    }
+  }
+
   const swFileName = 'sw.js'
-  const routerBase = this.options.router.base === '/' ? '' : this.options.router.base
-  const publicPath = isUrl(this.options.build.publicPath)
-    ? this.options.build.publicPath
-    : fixUrl(routerBase + this.options.build.publicPath)
 
   // Add webpack plugin. This plugin internally uses swBuild to generate sw file
   // We set dest to static dir that is served as / to allow global sw scope
@@ -28,7 +33,7 @@ module.exports = function nuxtWorkbox (options) {
     cacheId: process.env.npm_package_name + '_' + process.env.npm_package_version,
     globPatterns: ['**\/*.{js,css,html,json}'],
     modifyUrlPrefix: {
-      '/': publicPath
+      '/': fixUrl(publicPath)
     },
     runtimeCaching: [
       // Cache other _nuxt resources runtime
