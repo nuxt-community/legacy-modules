@@ -1,11 +1,13 @@
+const sequence = (tasks, fn) => tasks.reduce((promise, task) => promise.then(() => fn(task)), Promise.resolve())
+
 module.exports = function nuxtPWA (options) {
-  ['icon', 'manifest', 'meta', 'workbox', 'optimize'].forEach(module => {
-    if (options[module] !== false) {
-      this.requireModule({
-        src: `@nuxtjs/${module}`,
-        options: options[module]
-      })
-    }
+  const modules = ['icon', 'manifest', 'meta', 'workbox', 'optimize'].filter(module => options[module] !== false)
+
+  return sequence(modules, module => {
+    return this.requireModule({
+      src: `@nuxtjs/${module}`,
+      options: options[module]
+    })
   })
 }
 
