@@ -1,0 +1,16 @@
+{
+  "name": "@nuxtjs/icon",
+  "version": "0.0.0",
+  "license": "MIT",
+  "main": "index.js",
+  "repository": "https://github.com/nuxt/modules",
+  "homepage": "https://github.com/nuxt/modules/tree/master/modules/icon",
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "fs-extra": "^3.0.1",
+    "hash-sum": "^1.0.2",
+    "jimp": "^0.2.28"
+  }
+}

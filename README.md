@@ -33,6 +33,7 @@
 - [prepack](modules/prepack)
 - [markdownit](modules/markdownit)
 - [cssnano](modules/cssnano)
+- [icon](modules/icon)
 
 ## Presets
 - [optimize](modules/optimize)
