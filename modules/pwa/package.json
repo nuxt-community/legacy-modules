@@ -12,6 +12,7 @@
     "@nuxtjs/manifest": "latest",
     "@nuxtjs/meta": "latest",
     "@nuxtjs/optimize": "latest",
-    "@nuxtjs/workbox": "latest"
+    "@nuxtjs/workbox": "latest",
+    "@nuxtjs/icon": "latest"
   }
 }
