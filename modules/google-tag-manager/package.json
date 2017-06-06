@@ -1,6 +1,6 @@
 {
   "name": "@nuxtjs/google-tag-manager",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "license": "MIT",
   "repository": "https://github.com/nuxt/modules",
   "homepage": "https://github.com/nuxt/modules/tree/master/modules/google-tag-manager",

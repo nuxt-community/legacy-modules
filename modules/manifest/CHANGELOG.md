@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.6.0"></a>
+# [1.6.0](https://github.com/nuxt/modules/compare/@nuxtjs/manifest@1.5.0...@nuxtjs/manifest@1.6.0) (2017-06-06)
+
+
+### Bug Fixes
+
+* **manifest:** correctly omit internal options ([47559b0](https://github.com/nuxt/modules/commit/47559b0))
+
+
+### Features
+
+* **manifest:** meta module compatibility ([8a41fda](https://github.com/nuxt/modules/commit/8a41fda))
+* **manifest:** refactor & openGraph support ([0768246](https://github.com/nuxt/modules/commit/0768246))
+* **manifest:** rewrite module ([352b4bf](https://github.com/nuxt/modules/commit/352b4bf))
+
+
+
+
 <a name="1.5.0"></a>
 # [1.5.0](https://github.com/nuxt/modules/compare/@nuxtjs/manifest@1.4.2...@nuxtjs/manifest@1.5.0) (2017-06-05)
 

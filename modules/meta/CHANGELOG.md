@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.2.0"></a>
+# [1.2.0](https://github.com/nuxt/modules/compare/@nuxtjs/meta@1.1.0...@nuxtjs/meta@1.2.0) (2017-06-06)
+
+
+### Features
+
+* **meta:** Support manifest meta & openGraph ([17b7db1](https://github.com/nuxt/modules/commit/17b7db1))
+
+
+
+
 <a name="1.1.0"></a>
 # [1.1.0](https://github.com/nuxt/modules/compare/@nuxtjs/meta@1.0.1...@nuxtjs/meta@1.1.0) (2017-06-02)
 
