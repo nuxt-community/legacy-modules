@@ -20,6 +20,8 @@ module.exports = function nuxtProxy (options) {
 
   // Normalize options.proxy to middleware arguments
   const applyDefaults = o => Object.assign({}, defaults, o)
+  const normalizeTarget = o => typeof o === 'object' ? o : { target: o }
+
   const proxy = []
   if (Array.isArray(this.options.proxy)) {
     // Array mode
@@ -33,7 +35,7 @@ module.exports = function nuxtProxy (options) {
   } else {
     // Object mode
     Object.keys(this.options.proxy).forEach(context => {
-      proxy.push([context, applyDefaults(this.options.proxy[context])])
+      proxy.push([context, applyDefaults(normalizeTarget(this.options.proxy[context]))])
     })
   }
 
