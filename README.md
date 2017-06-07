@@ -35,6 +35,7 @@
 - [markdownit](modules/markdownit)
 - [cssnano](modules/cssnano)
 - [icon](modules/icon)
+- [proxy](modules/proxy)
 
 ## Presets
 - [optimize](modules/optimize)
