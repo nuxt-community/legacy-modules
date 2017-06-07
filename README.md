@@ -15,6 +15,7 @@
 ## Modules
 - [axios](modules/axios)
 - [bootstrap](modules/bootstrap-vue)
+- [bulma](modules/bulma)
 - [toast](modules/toast)
 - [auth](modules/auth)
 - [font-awesome](modules/font-awesome)
@@ -45,4 +46,3 @@ Nuxt has a powerful SDK which allows you write your own npm modules and share th
 
 ## License
 [MIT License](LICENSE.md) - Nuxt.js 2017
-
