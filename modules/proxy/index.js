@@ -27,7 +27,7 @@ module.exports = function nuxtProxy (options) {
     // Array mode
     this.options.proxy.forEach(p => {
       if (Array.isArray(p)) {
-        proxy.push([p[0], applyDefaults(p[1])])
+        proxy.push([p[0], applyDefaults(normalizeTarget(p[1]))])
       } else {
         proxy.push([p, applyDefaults()])
       }
