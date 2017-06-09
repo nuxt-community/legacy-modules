@@ -113,8 +113,8 @@ on runtime! You may use [proxy](../proxy) module for dynamically route api reque
 Start Nuxt
 ```
 [AXIOS] Base URL: http://localhost:3000/api | Browser: /api
-[HPM]   Proxy created: /api  ->  http://www.mocky.io/v2
-[HPM]   Proxy rewrite rule created: "^/api" ~> ""
+[HPM] Proxy created: /api  ->  http://www.mocky.io
+[HPM] Proxy rewrite rule created: "^/api" ~> "/v2"
 ```
 
 Now you can make requests to backend: (Works fine in both SSR and Browser)
