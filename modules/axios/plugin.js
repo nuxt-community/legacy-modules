@@ -69,7 +69,7 @@ export default (ctx) => {
 
   const axios = Axios.create({
     baseURL,
-    <% if(options.AXIOS_SSR_HEADERS) { %>headers: (req && request.headers) ? request.headers : {} <% } %>
+    <% if(options.AXIOS_SSR_HEADERS) { %>headers: (req && req.headers) ? req.headers : {} <% } %>
   })
   <% if(options.AXIOS_CREDENTIALS) { %>
   // Send credentials only to relative and API Backend requests
