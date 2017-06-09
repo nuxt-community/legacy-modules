@@ -31,11 +31,20 @@ async asyncData({ app }) {
 ### Component mixins
 You can always access axios instance using `this.$axios`.
 This mixins are available for easier usage: 
-- `$request` :                 `this.$request({url: 'http://example.com')`
-- `$get`, `$delete`, `$head` : `this.$get('http://example.com')`
-- `$post`, `$put`, `$patch`  : `this.$post('http://example.com', { foo: 'bar' })`
+- `$request`
+```js
+this.$request({url: 'http://example.com')
+```
+- `$get`, `$delete`, `$head`
+```js
+this.$get('http://example.com')
+```
+- `$post`, `$put`, `$patch`
+```js
+this.$post('http://example.com', { foo: 'bar' })
+````
 
-
+Example:
 ```js
 async mounted() {
   const {data} = await this.$get('http://icanhazip.com')
@@ -103,7 +112,9 @@ on runtime! You may use [proxy](../proxy) module for dynamically route api reque
 
 Start Nuxt
 ```
-[HPM] Proxy created: /api  ->  http://www.mocky.io
+[AXIOS] Base URL: http://localhost:3000/api | Browser: /api
+[HPM]   Proxy created: /api  ->  http://www.mocky.io/v2
+[HPM]   Proxy rewrite rule created: "^/api" ~> ""
 ```
 
 Now you can make requests to backend: (Works fine in both SSR and Browser)
@@ -111,6 +122,7 @@ Now you can make requests to backend: (Works fine in both SSR and Browser)
 async asyncData({app}) {
   // Magically makes request to http://www.mocky.io/v2/59388bb4120000dc00a672e2
   const {data: {nuxt} } = await app.$axios.get('59388bb4120000dc00a672e2')
+
   return {
     nuxt // -> 'Works!'
   }
