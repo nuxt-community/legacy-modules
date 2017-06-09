@@ -129,8 +129,10 @@ export default (ctx) => {
 
   // Make accessible using *.$axios
   app.$axios = axios
-  store.$axios = axios
   ctx.$axios = axios
+  if(store) {
+    store.$axios = axios
+  }
 
   // token helper for authentication
   axios.setToken = setToken.bind(axios)
