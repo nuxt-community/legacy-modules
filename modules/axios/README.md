@@ -100,9 +100,9 @@ You can also use environment variable `API_URL` which **overrides** `baseURL`.
 Base URL which is used in client side prepended to all requests with relative path.
 You can also use environment variable `API_URL_BROWSER` which **overrides** `browserBaseURL`.
 
-- If this options is not provided it defaults to `baseURL` value.
-  - If both port and hostname of `browserbaseURL` are equal to nuxt server, it defaults to relative part of `baseURL`.
-    So that if you host your nuxt application is hosted under a different domain requests go to same origin and prevents Cross-Origin problems.
+- If `browserBaseURL` is not provided it defaults to `baseURL` value.
+  - If hostname & port of `browserbaseURL` are equal to nuxt server, it defaults to relative part of `baseURL`.
+    So if your nuxt application is being accessed under a different domain, requests go to same origin and prevents Cross-Origin problems.
 
 ### `credentials`
 - Default: `true`
@@ -113,9 +113,9 @@ which allows passing authentication headers to backend.
 ### `proxyHeaders`
 - Default: `true`
 
-Proxies client request headers in SSR to axios default request headers.
-This is useful for doing requests which need cookie based auth on server side.
-Also Helps making same and consistent requests in both SSR and Client Side code.
+In SSR context, sets client request header as axios default request headers.
+This is useful for making requests which need cookie based auth on server side.
+Also helps making consistent requests in both SSR and Client Side code.
 
 ## Dynamic API Backend
 Please notice that, `API_URL` is saved into bundle on build, CANNOT be changed
