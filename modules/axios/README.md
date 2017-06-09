@@ -29,15 +29,12 @@ async asyncData({ app }) {
 ```
 
 ### Component mixins
-This mixins are available: 
-- `$request`
-  - Example: `$request({url: 'http://example.com')`
-- `$get`, `$delete`, `$head`
-  - Example: `$get('http://example.com')`
-- `$post`, `$put` & `$patch`.
-  - Example: `$post('http://example.com', { foo: 'bar' })`
+You can always access axios instance using `this.$axios`.
+This mixins are available for easier usage: 
+- `$request` :                 `this.$request({url: 'http://example.com')`
+- `$get`, `$delete`, `$head` : `this.$get('http://example.com')`
+- `$post`, `$put`, `$patch`  : `this.$post('http://example.com', { foo: 'bar' })`
 
-You can also use `this.$axios` for direct axios usage.
 
 ```js
 async mounted() {
