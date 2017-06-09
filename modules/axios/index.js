@@ -5,35 +5,28 @@ const { URL } = require('url')
 const port = process.env.PORT || process.env.npm_package_config_nuxt_port || 3000
 const host = process.env.HOST || process.env.npm_package_config_nuxt_host || 'localhost'
 
-module.exports = function nuxtAxios (options) {
-  // Get options
-  const getOpt = (key, default_val) => {
-    return process.env[key] || options[key] || options[key.toLowerCase()] || this.options.env[key] || default_val
+module.exports = function nuxtAxios (moduleOptions) {
+  // Apply defaults
+  const options = Object.assign({
+    baseURL: process.env.API_URL || `http://${host}:${port}/api`,
+    browserBaseURL: null,
+    credentials: true,
+    proxyHeaders: true
+  }, this.options.axios, moduleOptions)
+
+  if (process.env.API_URL) {
+    options.baseURL = process.env.API_URL
   }
 
-  const API_URL = getOpt('API_URL', `http://${host}:${port}/api`)
-  const url = new URL(API_URL)
-  const sameHost = url.host === `${host}:${port}`
-
-  const API_URL_BROWSER = getOpt('API_URL_BROWSER', sameHost ? url.pathname : API_URL)
-
-  // Commit new values to all sources
-  const setOpt = (key, val, env = true) => {
-    process.env[key] = val
-    options[key] = val
-    if (env) {
-      this.options.env[key] = val
-    }
+  if (process.env.API_URL_BROWSER) {
+    options.browserBaseURL = process.env.API_URL_BROWSER
   }
-  setOpt('API_URL', API_URL)
-  setOpt('API_URL_BROWSER', API_URL_BROWSER)
 
-  // Other options
-  const ensureOpt = (key, default_val) => {
-    setOpt(key, getOpt(key, default_val), false)
+  if (!options.api_url_browser) {
+    const url = new URL(options.url)
+    const sameHost = url.host === `${host}:${port}`
+    options.api_url_browser = sameHost ? url.pathname : options.url
   }
-  ensureOpt('AXIOS_CREDENTIALS', true)
-  ensureOpt('AXIOS_SSR_HEADERS', true)
 
   // Register plugin
   this.addPlugin({

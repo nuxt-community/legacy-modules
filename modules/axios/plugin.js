@@ -3,10 +3,11 @@ import Vue from 'vue'
 
 const axiosPlugin = {
   install() {
-    if(this.installed) {
+    if(Vue.__nuxt_axios_installed__) {
       return
     }
-    this.installed = true
+    Vue.__nuxt_axios_installed__ = true
+
     // Make `this.$axios` available
     if (!Vue.prototype.hasOwnProperty('$axios')) {
       // Add mixin to add this._axios
@@ -87,7 +88,6 @@ function errorHandler(error) {
     error.statusCode = 500
     error.message = error.message || 'axios error'
   }
-
   // Display error page on unhandled promises
   if(process.browser) {
     return Promise.reject(error)
@@ -101,18 +101,18 @@ function errorHandler(error) {
 }
 
 export default (ctx) => {
-  const { app, store, redirect, req } = ctx
+  const { app, store, req } = ctx
 
   // Create new axios instance
   const baseURL = process.browser
-    ? (process.env.API_URL_BROWSER || '<%= options.API_URL_BROWSER %>')
-    : (process.env.API_URL || '<%= options.API_URL %>')
+    ? (process.env.API_URL_BROWSER || '<%= options.browserBaseURL %>')
+    : (process.env.API_URL || '<%= options.baseURL %>')
 
   const axios = Axios.create({
     baseURL,
-    <% if(options.AXIOS_SSR_HEADERS) { %>headers: (req && req.headers) ? req.headers : {} <% } %>
+    <% if(options.proxyHeaders) { %>headers: (req && req.headers) ? req.headers : {} <% } %>
   })
-  <% if(options.AXIOS_CREDENTIALS) { %>
+  <% if(options.credentials) { %>
   // Send credentials only to relative and API Backend requests
   axios.interceptors.request.use(config => {
     if (config.withCredentials === undefined) {

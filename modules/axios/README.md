@@ -6,7 +6,7 @@
 - Exposes `setToken` function to `$axios` so we can easily and globally set authentication tokens.
 - Throws *nuxt-friendly* exceptions and prevent SSR crashes.
 - Automatically enables `withCredentials` when requesting to base URL.
-- Automatically set request headers in SSR
+- Proxy request headers in SSR.
 
 ## Setup
 - Add `@nuxtjs/axios` dependency using yarn or npm to your project
@@ -85,15 +85,37 @@ export default {
 }
 ```
 
-## Config
-Config can be done using environment variables (`proccess.env`), `options.env` or module options.
+## Options
+You can pass options using module options or `axios` section in `nuxt.config.js`:
 
-Environment variable | Default                                                          | Description
----------------------|------------------------------------------------------------------|--------------------------------------------
-API_URL              | `http://[localhost]:[3000]/api`                                  | Base url for requests in server-side (SSR)
-API_URL_BROWSER      | `/api` (relative `API_URL` if same host and port else `API_URL`) | Base url for requests in client-side
-AXIOS_CREDENTIALS    | `true`                                                           | Send credentials only to relative and API Backend requests
-AXIOS_SSR_HEADERS    | `true`                                                           | Use client request headers in SSR as axios default headers (useful for cookie based auth)
+### `baseURL`
+- Default: `http://[HOST]:[PORT]/api`
+
+Base URL is required for requests in server-side & SSR and prepended to all requests with relative path.
+You can also use environment variable `API_URL` which **overrides** `baseURL`.
+
+### `browserBaseURL` 
+- Default: `/api`
+
+Base URL which is used in client side prepended to all requests with relative path.
+You can also use environment variable `API_URL_BROWSER` which **overrides** `browserBaseURL`.
+
+- If this options is not provided it defaults to `baseURL` value.
+  - If both port and hostname of `browserbaseURL` are equal to nuxt server, it defaults to relative part of `baseURL`.
+    So that if you host your nuxt application is hosted under a different domain requests go to same origin and prevents Cross-Origin problems.
+
+### `credentials`
+- Default: `true`
+
+Adds an interceptor to automatically set `withCredentials` config of axios when requesting to `baseUrl`
+which allows passing authentication headers to backend. 
+
+### `proxyHeaders`
+- Default: `true`
+
+Proxies client request headers in SSR to axios default request headers.
+This is useful for doing requests which need cookie based auth on server side.
+Also Helps making same and consistent requests in both SSR and Client Side code.
 
 ## Dynamic API Backend
 Please notice that, `API_URL` is saved into bundle on build, CANNOT be changed
