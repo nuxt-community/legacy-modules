@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.1.1"></a>
+## [1.1.1](https://github.com/nuxt/modules/compare/@nuxtjs/proxy@1.1.0...@nuxtjs/proxy@1.1.1) (2017-06-09)
+
+
+### Bug Fixes
+
+* **plugin:** normalize array alternative form path ([811b5a9](https://github.com/nuxt/modules/commit/811b5a9))
+
+
+
+
 <a name="1.1.0"></a>
 # 1.1.0 (2017-06-07)
 

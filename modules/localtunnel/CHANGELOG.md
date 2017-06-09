@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.1.3"></a>
+## [0.1.3](https://github.com/nuxt/modules/compare/@nuxtjs/localtunnel@0.1.2...@nuxtjs/localtunnel@0.1.3) (2017-06-09)
+
+
+### Bug Fixes
+
+* **localtunnel:** default host to 'localhost' ([54a37a6](https://github.com/nuxt/modules/commit/54a37a6))
+
+
+
+
 <a name="0.1.2"></a>
 ## [0.1.2](https://github.com/nuxt/modules/compare/@nuxtjs/localtunnel@0.1.1...@nuxtjs/localtunnel@0.1.2) (2017-06-06)
 
