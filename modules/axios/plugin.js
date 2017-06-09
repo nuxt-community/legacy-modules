@@ -6,7 +6,6 @@ const axiosPlugin = {
     if(this.installed) {
       return
     }
-
     this.installed = true
     // Make `this.$axios` available
     if (!Vue.prototype.hasOwnProperty('$axios')) {
@@ -70,6 +69,37 @@ function setToken (token, type = 'Bearer') {
   this.defaults.headers.common.Authorization = (type ? type + ' ' : '') + token
 }
 
+// Nuxt friendly error handler
+function errorHandler(error) {
+  if (error.response) {
+    // Error from backend (non 2xx status code)
+    if (error.response.status === 401) {
+      return this.redirect('/login')
+    }
+    error.statusCode = error.statusCode || parseInt(error.response.status) || 500
+    error.message = error.message || error.response.statusText || (error.statusCode + ' (Internal Server Error)')
+  } else if (error.request) {
+    // Error while making request
+    error.statusCode = error.statusCode || 500
+    error.message = error.message || 'request error'
+  } else {
+    // Something happened in setting up the request that triggered an Error
+    error.statusCode = 500
+    error.message = error.message || 'axios error'
+  }
+
+  // Display error page on unhandled promises
+  if(process.browser) {
+    return Promise.reject(error)
+  } else {
+    // Don't throw unhandled promises in SSR context
+    return this.app._nuxt.error.call({$options: this.app}, {
+      message: error.message,
+      statusCode: error.statusCode
+    })
+  }
+}
+
 export default (ctx) => {
   const { app, store, redirect, req } = ctx
 
@@ -93,41 +123,12 @@ export default (ctx) => {
     return config
   });
   <% } %>
-  // Nuxt friendly error handler
-  axios.interceptors.response.use(undefined, (error) => {
-    if (error.response) {
-      // Error from backend (non 2xx status code)
-      if (error.response.status === 401) {
-        return redirect('/login')
-      }
-      error.statusCode = error.statusCode || parseInt(error.response.status) || 500
-      error.message = error.message || error.response.statusText || (error.statusCode + ' (Internal Server Error)')
-    } else if (error.request) {
-      // Error while making request
-      error.statusCode = error.statusCode || 500
-      error.message = error.message || 'request error'
-    } else {
-      // Something happened in setting up the request that triggered an Error
-      error.statusCode = 500
-      error.message = error.message || 'axios error'
-    }
 
-    // Display error page on unhandled promises
-    if(process.browser) {
-      return Promise.reject(error)
-    } else {
-      // Don't throw unhandled promises in SSR context
-      return app._nuxt.error.call({$options: app}, {
-        message: error.message,
-        statusCode: error.statusCode
-      })
-    }
-  });
+  // Error handler
+  axios.interceptors.response.use(undefined, errorHandler.bind(ctx));
 
-  // Make accessible using app.$axios
+  // Make accessible using *.$axios
   app.$axios = axios
-
-  // Plugin $axios into store instance
   store.$axios = axios
   ctx.$axios = axios
 
