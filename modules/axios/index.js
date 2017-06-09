@@ -8,7 +8,7 @@ const host = process.env.HOST || process.env.npm_package_config_nuxt_host || 'lo
 module.exports = function nuxtAxios (moduleOptions) {
   // Apply defaults
   const options = Object.assign({
-    baseURL: process.env.API_URL || `http://${host}:${port}/api`,
+    baseURL: `http://${host}:${port}/api`,
     browserBaseURL: null,
     credentials: true,
     proxyHeaders: true
