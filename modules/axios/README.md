@@ -4,7 +4,7 @@
 - Automatically set base URL for client & server side
 - Injects `$get`,`$post`,... into vue context instances so requests can be done easily.
 - Exposes `setToken` function to `$axios` so we can easily and globally set authentication tokens.
-- Throws *nuxt-friendly* exceptions.
+- Throws *nuxt-friendly* exceptions and prevent SSR crashes.
 - Automatically enables `withCredentials` when requesting to base URL.
 - Automatically set request headers in SSR
 

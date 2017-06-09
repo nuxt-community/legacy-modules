@@ -63,7 +63,7 @@ export default (ctx) => {
   const { app, store, redirect, req } = ctx
 
   // Create new axios instance
-  const baseURL = process.env.browser
+  const baseURL = process.browser
     ? (process.env.API_URL_BROWSER || '<%= options.API_URL_BROWSER %>')
     : (process.env.API_URL || '<%= options.API_URL %>')
 
@@ -82,13 +82,35 @@ export default (ctx) => {
     return config
   });
   <% } %>
-  // Error handler
+  // Nuxt friendly error handler
   axios.interceptors.response.use(undefined, (error) => {
-    if (error.response && error.response.status === 401) {
-      return redirect('/login')
+    if (error.response) {
+      // Error from backend (non 2xx status code)
+      if (error.response.status === 401) {
+        return redirect('/login')
+      }
+      error.statusCode = error.statusCode || parseInt(error.response.status) || 500
+      error.message = error.message || error.response.statusText || (error.statusCode + ' (Internal Server Error)')
+    } else if (error.request) {
+      // Error while making request
+      error.statusCode = error.statusCode || 500
+      error.message = error.message || 'request error'
+    } else {
+      // Something happened in setting up the request that triggered an Error
+      error.statusCode = 500
+      error.message = error.message || 'axios error'
     }
-    console.log(error)
-    return Promise.reject(error)
+
+    // Display error page on unhandled promises
+    if(process.browser) {
+      return Promise.reject(error)
+    } else {
+      // Don't throw unhandled promises in SSR context
+      return app._nuxt.error.call({$options: app}, {
+        message: error.message,
+        statusCode: error.statusCode
+      })
+    }
   });
 
   // Make accessible using app.$axios
