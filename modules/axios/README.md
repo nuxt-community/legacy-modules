@@ -1,12 +1,11 @@
 # Axios
-This plugin is a wrapper around [axios](https://github.com/mzabriskie/axios). 
+> Use [axios](https://github.com/mzabriskie/axios) with no pain! 
 
-- Sets default base URL.
-- Handles all HTTP exceptions and prevents server side unhandled promise exceptions.
+- Automatically set BaseURL for client & server side
 - Injects `$get`,`$post`,... into vue context instances so requests can be done easily.
 - Exposes `setToken` function to `$axios` so we can easily and globally set authentication tokens.
 - Throws *nuxt-friendly* exceptions.
-- Automatically enables `withCredentials` when requesting to default base URL.
+- Automatically enables `withCredentials` when requesting to base URL.
 
 ## Setup
 - Add `@nuxtjs/axios` dependency using yarn or npm to your project
@@ -19,9 +18,9 @@ This plugin is a wrapper around [axios](https://github.com/mzabriskie/axios).
 
 ## Usage
 
-### Inside `asyncData`
+### Component `asyncData`
 ```js
-async asyncData({app: {$axios}}) {
+async asyncData({app: { $axios }}) {
   const {data} = await $axios.get('http://icanhazip.com')
   return {
     ip: data
@@ -29,7 +28,9 @@ async asyncData({app: {$axios}}) {
 }
 ```
 
-### Inside component methods
+### Component mixins
+This mixins are available: `$request`, `$get`, `$delete`, `$head`, `$post`, `$put` & `$patch`
+
 ```js
 async mounted() {
   const {data} = await this.$get('http://icanhazip.com')
@@ -37,12 +38,84 @@ async mounted() {
 }
 ```
 
-## Customization
+### Store `nuxtServerInit`
+```js
+async nuxtServerInit ({ commit }, { app: { $axios } }) {
+  const { data } = await $axios.get('http://icanhazip.com')
+  commit('SET_IP', data)
+}
+```
 
-Customization can be done using shared environment variables.
+### Store actions
+If you need axios instance in store actions, you may have to pass it when dispatching.
 
-Environment variable | Default                 | Description
----------------------|-------------------------|--------------------------------------------
-API_URL              | http://localhost:3000   | Base url for ajax requests in server-side
-API_URL_BROWSER      | [API_URL]               | Base url for ajax requests in client-side
-API_PREFIX           | /api                    | Adds this prefix before all relative urls
+```js
+// In components
+export default {
+  methods: {
+    updateIP() {
+      this.$store.dispatch('getIP', { $axios: this.$axios })
+    }  
+  }
+}
+
+// In store
+{
+    actions: {
+      async getIP ({ commit }, { $axios }) {
+        const { data } = await $axios.get('http://icanhazip.com')
+        commit('SET_IP', data)
+      }
+    }
+}
+```
+
+## Config
+Config can be done using environment variables, `options.env` or module options.
+
+Environment variable | Default                         | Description
+---------------------|---------------------------------|--------------------------------------------
+API_URL              | http://[localhost]:[3000]/api   | Base url for requests in server-side (SSR)
+API_URL_BROWSER      | /api (relative API_URL)         | Base url for requests in client-side
+
+## Dynamic API Backend
+Please notice that, `API_URL` is saved into bundle on `build` CANNOT be changed
+on runtime! You may use [proxy](../proxy) module for dynamically route api requests to different backend on test/staging/production.
+
+**Example: (`nuxt.config.js`)**
+
+```js
+{
+  modules: [
+    '@nuxtjs/axios', 
+    '@nuxtjs/proxy'
+  ],
+  proxy: [
+    ['/api', { target: 'http://www.mocky.io', pathRewrite: { '^/api': '/v2' } }]
+  ]
+}
+```
+
+Start Nuxt
+```
+[HPM] Proxy created: /api  ->  http://www.mocky.io
+```
+
+Now you can make requests to backend: (Works fine in both SSR and Browser)
+```
+async asyncData({app}) {
+  // Magically makes request to http://www.mocky.io/v2/59388bb4120000dc00a672e2
+  const {data: {nuxt} } = await app.$axios.get('59388bb4120000dc00a672e2')
+  return {
+    nuxt // -> 'Works!'
+  }
+}
+```
+
+Details:
+- `'@nuxtjs/axios'`    
+  - By default axios plugin sets base url to `http://[host]:[port]/api` which is `http://localhost:3000/api`
+- `'/api': 'http://www.mocky.io/v2'` 
+  - This line creates a server middleware to pass requests to `/api` to `http://www.mocky.io/v2`
+  - We used pathRewrite to remove `/api` from starting of requests and change it to `/v2`
+  - For more information and advanced usage please refer to [proxy](../proxy) docs.

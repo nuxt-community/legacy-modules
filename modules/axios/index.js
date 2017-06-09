@@ -1,38 +1,37 @@
 const chalk = require('chalk')
 const path = require('path')
+const { URL } = require('url')
 
-module.exports = function nuxtAxios(options) {
+const fixUrl = url => url.replace(/\/\//g, '/').replace(':/', '://')
+
+const port = process.env.PORT || process.env.npm_package_config_nuxt_port || 3000
+const host = process.env.HOST || process.env.npm_package_config_nuxt_host || 'localhost'
+
+module.exports = function nuxtAxios (options) {
+  // Get options
+  const getOpt = (key, default_val) => {
+    return process.env[key] || options[key] || options[key.toLowerCase()] || this.options.env[key] || default_val
+  }
+  const API_URL = getOpt('API_URL', `http://${host}:${port}/api`)
+  const API_URL_BROWSER = getOpt('API_URL_BROWSER', (new URL(API_URL)).pathname)
+
+  // Commit new values to all sources
+  const setOpt = (key, val) => {
+    process.env[key] = val
+    options[key] = val
+    this.options.env[key] = val
+  }
+  setOpt('API_URL', API_URL)
+  setOpt('API_URL_BROWSER', API_URL_BROWSER)
+
   // Register plugin
-  this.addPlugin({src: path.resolve(__dirname, 'plugin.js'), options})
+  this.addPlugin({
+    src: path.resolve(__dirname, 'plugin.js'),
+    options
+  })
 
-  // API URL
-  const API_URL = options.API_URL || process.env.API_URL || 'http://localhost:3000'
-  process.env.API_URL = API_URL
-
-  // API URL for Browser
-  const API_URL_BROWSER = options.API_URL_BROWSER || process.env.API_URL_BROWSER || API_URL
-  process.env.API_URL_BROWSER = API_URL_BROWSER
-
-  // Common API Prefix
-  const API_PREFIX = options.API_PREFIX || process.env.API_PREFIX || '/api'
-  process.env.API_PREFIX = API_PREFIX
-
-  // Don't add env to production bundles
-  if (process.env.NODE_ENV !== 'production') {
-    this.options.env.API_URL = API_URL
-    this.options.env.API_URL_BROWSER = API_URL_BROWSER
-  }
-
-  printURL('API URL', API_URL, API_PREFIX)
-
-  if (API_URL_BROWSER !== API_URL) {
-    printURL('API URL (Browser)', API_URL_BROWSER, API_PREFIX)
-  }
-}
-
-function printURL(title, url, prefix) {
   /* eslint-disable no-console */
-  console.log(chalk.bgMagenta.black(` ${title} `) + chalk.magenta(` ${url}${prefix}`) + '\r\n')
+  console.log(`[AXIOS] Base URL: ${chalk.green(API_URL)} | Browser: ${chalk.green(API_URL_BROWSER)}`)
 }
 
 module.exports.meta = require('./package.json')
