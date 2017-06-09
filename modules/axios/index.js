@@ -1,6 +1,6 @@
 const chalk = require('chalk')
 const path = require('path')
-const { URL } = require('url')
+const { URL } = require('whatwg-url')
 
 const port = process.env.PORT || process.env.npm_package_config_nuxt_port || 3000
 const host = process.env.HOST || process.env.npm_package_config_nuxt_host || 'localhost'

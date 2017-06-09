@@ -9,6 +9,7 @@
     "access": "public"
   },
   "dependencies": {
-    "axios": "^0.16.1"
+    "axios": "^0.16.1",
+    "whatwg-url": "^5.0.0"
   }
 }
