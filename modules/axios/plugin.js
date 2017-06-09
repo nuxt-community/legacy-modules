@@ -1,54 +1,65 @@
 import Axios from 'axios'
 import Vue from 'vue'
 
-// Make `this.$axios` available
-if (!Vue.prototype.hasOwnProperty('$axios')) {
-  // Add mixin to add this._axios
-  Vue.mixin({
-    beforeCreate () {
-      // Check if `axios` has been defined in App
-      // Then fallback to $root.$axios
-      // Finally use global instance of Axios
-      this._axios = this.$options.axios || this.$root.$axios || Axios
+const axiosPlugin = {
+  install() {
+    if(this.installed) {
+      return
     }
-  })
-  // Add this.$axios instance
-  Object.defineProperty(Vue.prototype, '$axios', {
-    get () {
-      return this._axios
+
+    this.installed = true
+    // Make `this.$axios` available
+    if (!Vue.prototype.hasOwnProperty('$axios')) {
+      // Add mixin to add this._axios
+      Vue.mixin({
+        beforeCreate () {
+          // Check if `axios` has been defined in App
+          // Then fallback to $root.$axios
+          // Finally use global instance of Axios
+          this._axios = this.$options.axios || this.$root.$axios || Axios
+        }
+      })
+      // Add this.$axios instance
+      Object.defineProperty(Vue.prototype, '$axios', {
+        get () {
+          return this._axios
+        }
+      })
     }
-  })
+
+    // Vue Component Mixins
+    Vue.mixin({
+      methods: {
+        // opts
+        $request (opts) {
+          return this.$axios.request(opts);
+        },
+        // url, opts
+        $get (url, opts) {
+          return this.$axios.get(url, opts);
+        },
+        $delete (url, opts) {
+          return this.$axios.delete(url, opts);
+        },
+        $head (url, opts) {
+          return this.$axios.head(url, opts);
+        },
+        // url, data, opts
+        $post (url, data, opts) {
+          return this.$axios.post(url, data, opts);
+        },
+        $put (url, data, opts) {
+          return this.$axios.put(url, data, opts);
+        },
+        $patch (url, data, opts) {
+          return this.$axios.patch(url, data, opts);
+        }
+      }
+    })
+  }
 }
 
-// Vue Component Mixins
-Vue.mixin({
-  methods: {
-    // opts
-    $request (opts) {
-      return this.$axios.request(opts);
-    },
-    // url, opts
-    $get (url, opts) {
-      return this.$axios.get(url, opts);
-    },
-    $delete (url, opts) {
-      return this.$axios.delete(url, opts);
-    },
-    $head (url, opts) {
-      return this.$axios.head(url, opts);
-    },
-    // url, data, opts
-    $post (url, data, opts) {
-      return this.$axios.post(url, data, opts);
-    },
-    $put (url, data, opts) {
-      return this.$axios.put(url, data, opts);
-    },
-    $patch (url, data, opts) {
-      return this.$axios.patch(url, data, opts);
-    }
-  }
-})
+Vue.use(axiosPlugin)
 
 // Set requests token
 function setToken (token, type = 'Bearer') {
