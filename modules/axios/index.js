@@ -22,10 +22,10 @@ module.exports = function nuxtAxios (moduleOptions) {
     options.browserBaseURL = process.env.API_URL_BROWSER
   }
 
-  if (!options.api_url_browser) {
-    const url = new URL(options.url)
+  if (!options.browserBaseURL) {
+    const url = new URL(options.baseURL)
     const sameHost = url.host === `${host}:${port}`
-    options.api_url_browser = sameHost ? url.pathname : options.url
+    options.browserBaseURL = sameHost ? url.pathname : options.url
   }
 
   // Register plugin
@@ -35,7 +35,7 @@ module.exports = function nuxtAxios (moduleOptions) {
   })
 
   /* eslint-disable no-console */
-  console.log(`[AXIOS] Base URL: ${chalk.green(API_URL)} | Browser: ${chalk.green(API_URL_BROWSER)}`)
+  console.log(`[AXIOS] Base URL: ${chalk.green(options.baseURL)} , Browser: ${chalk.green(options.browserBaseURL)}`)
 }
 
 module.exports.meta = require('./package.json')
