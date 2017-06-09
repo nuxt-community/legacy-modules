@@ -68,9 +68,10 @@ export default (ctx) => {
     : (process.env.API_URL || '<%= options.API_URL %>')
 
   const axios = Axios.create({
-    baseURL
+    baseURL,
+    <% if(options.AXIOS_SSR_HEADERS) { %>headers: (req && request.headers) ? request.headers : {} <% } %>
   })
-
+  <% if(options.AXIOS_CREDENTIALS) { %>
   // Send credentials only to relative and API Backend requests
   axios.interceptors.request.use(config => {
     if (config.withCredentials === undefined) {
@@ -80,7 +81,7 @@ export default (ctx) => {
     }
     return config
   });
-
+  <% } %>
   // Error handler
   axios.interceptors.response.use(undefined, (error) => {
     if (error.response && error.response.status === 401) {

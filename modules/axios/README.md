@@ -6,6 +6,7 @@
 - Exposes `setToken` function to `$axios` so we can easily and globally set authentication tokens.
 - Throws *nuxt-friendly* exceptions.
 - Automatically enables `withCredentials` when requesting to base URL.
+- Automatically set request headers in SSR
 
 ## Setup
 - Add `@nuxtjs/axios` dependency using yarn or npm to your project
@@ -91,6 +92,9 @@ Environment variable | Default                           | Description
 ---------------------|-----------------------------------|--------------------------------------------
 API_URL              | `http://[localhost]:[3000]/api`   | Base url for requests in server-side (SSR)
 API_URL_BROWSER      | `/api` (relative API_URL)         | Base url for requests in client-side
+AXIOS_CREDENTIALS    | `true`                            | Send credentials only to relative and API Backend requests
+AXIOS_SSR_HEADERS    | `true`                            | Use client request headers in SSR as axios default headers (useful for cookie based auth)
+
 
 ## Dynamic API Backend
 Please notice that, `API_URL` is saved into bundle on build, CANNOT be changed

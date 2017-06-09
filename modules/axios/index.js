@@ -24,6 +24,13 @@ module.exports = function nuxtAxios (options) {
   setOpt('API_URL', API_URL)
   setOpt('API_URL_BROWSER', API_URL_BROWSER)
 
+  // Other options
+  const ensureOpt = (key, default_val) => {
+    setOpt(key, getOpt(key, default_val))
+  }
+  ensureOpt('AXIOS_CREDENTIALS', true)
+  ensureOpt('AXIOS_SSR_HEADERS', true)
+
   // Register plugin
   this.addPlugin({
     src: path.resolve(__dirname, 'plugin.js'),
