@@ -12,7 +12,7 @@ module.exports = function nuxtLocaltunnel (options) {
   const host = process.env.HOST || process.env.npm_package_config_nuxt_host || 'localhost'
 
   const opts = {
-    subdomain: options.subdomain || process.env.npm_package_name,
+    subdomain: this.options.subdomain || process.env.npm_package_name,
     local_host: host
   }
 
