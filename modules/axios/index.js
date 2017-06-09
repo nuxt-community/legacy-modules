@@ -16,17 +16,19 @@ module.exports = function nuxtAxios (options) {
   const API_URL_BROWSER = getOpt('API_URL_BROWSER', (new URL(API_URL)).pathname)
 
   // Commit new values to all sources
-  const setOpt = (key, val) => {
+  const setOpt = (key, val, env = true) => {
     process.env[key] = val
     options[key] = val
-    this.options.env[key] = val
+    if (env) {
+      this.options.env[key] = val
+    }
   }
   setOpt('API_URL', API_URL)
   setOpt('API_URL_BROWSER', API_URL_BROWSER)
 
   // Other options
   const ensureOpt = (key, default_val) => {
-    setOpt(key, getOpt(key, default_val))
+    setOpt(key, getOpt(key, default_val), false)
   }
   ensureOpt('AXIOS_CREDENTIALS', true)
   ensureOpt('AXIOS_SSR_HEADERS', true)
