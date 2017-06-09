@@ -2,8 +2,6 @@ const chalk = require('chalk')
 const path = require('path')
 const { URL } = require('url')
 
-const fixUrl = url => url.replace(/\/\//g, '/').replace(':/', '://')
-
 const port = process.env.PORT || process.env.npm_package_config_nuxt_port || 3000
 const host = process.env.HOST || process.env.npm_package_config_nuxt_host || 'localhost'
 
@@ -12,8 +10,12 @@ module.exports = function nuxtAxios (options) {
   const getOpt = (key, default_val) => {
     return process.env[key] || options[key] || options[key.toLowerCase()] || this.options.env[key] || default_val
   }
+
   const API_URL = getOpt('API_URL', `http://${host}:${port}/api`)
-  const API_URL_BROWSER = getOpt('API_URL_BROWSER', (new URL(API_URL)).pathname)
+  const url = new URL(API_URL)
+  const sameHost = url.host === `${host}:${port}`
+
+  const API_URL_BROWSER = getOpt('API_URL_BROWSER', sameHost ? url.pathname : API_URL)
 
   // Commit new values to all sources
   const setOpt = (key, val, env = true) => {

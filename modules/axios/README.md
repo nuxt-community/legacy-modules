@@ -88,13 +88,12 @@ export default {
 ## Config
 Config can be done using environment variables (`proccess.env`), `options.env` or module options.
 
-Environment variable | Default                           | Description
----------------------|-----------------------------------|--------------------------------------------
-API_URL              | `http://[localhost]:[3000]/api`   | Base url for requests in server-side (SSR)
-API_URL_BROWSER      | `/api` (relative API_URL)         | Base url for requests in client-side
-AXIOS_CREDENTIALS    | `true`                            | Send credentials only to relative and API Backend requests
-AXIOS_SSR_HEADERS    | `true`                            | Use client request headers in SSR as axios default headers (useful for cookie based auth)
-
+Environment variable | Default                                                          | Description
+---------------------|------------------------------------------------------------------|--------------------------------------------
+API_URL              | `http://[localhost]:[3000]/api`                                  | Base url for requests in server-side (SSR)
+API_URL_BROWSER      | `/api` (relative `API_URL` if same host and port else `API_URL`) | Base url for requests in client-side
+AXIOS_CREDENTIALS    | `true`                                                           | Send credentials only to relative and API Backend requests
+AXIOS_SSR_HEADERS    | `true`                                                           | Use client request headers in SSR as axios default headers (useful for cookie based auth)
 
 ## Dynamic API Backend
 Please notice that, `API_URL` is saved into bundle on build, CANNOT be changed
