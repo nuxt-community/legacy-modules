@@ -1,5 +1,5 @@
 # Axios
-> Use [axios](https://github.com/mzabriskie/axios) with no pain! 
+> Use [axios](https://github.com/mzabriskie/axios) with deep Nuxt integration and no pain! 
 
 - Automatically set base URL for client & server side
 - Injects `$get`,`$post`,... into vue context instances so requests can be done easily.
