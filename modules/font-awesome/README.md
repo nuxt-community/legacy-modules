@@ -7,7 +7,7 @@ Leverage [Font Awesome](http://fontawesome.io/) the iconic font and CSS toolkit.
 ```js
 {
   modules: [
-    '@nuxtjs/font-awesome'
+    '@nuxtjs/font-awesome',
   ]
 }
 ````

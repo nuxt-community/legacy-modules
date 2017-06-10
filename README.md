@@ -20,7 +20,6 @@
 - [auth](modules/auth)
 - [font-awesome](modules/font-awesome)
 - [meta](modules/meta)
-- [optimize](modules/optimize)
 - [offline](modules/offline)
 - [manifest](modules/manifest)
 - [browserconfig](modules/browserconfig)

@@ -13,7 +13,7 @@ so you can directly serve node modules inside web. Useful for runtime dependenci
   ]
 }
 ````
-- Define your dependencies in `nuxt.config.json` inside `vendor` section:
+- Define your dependencies in `nuxt.config.json` inside `vendor` section
 ```js
 {
     vendor: [ 'ckeditor' ]

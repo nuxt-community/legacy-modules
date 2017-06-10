@@ -1,5 +1,5 @@
 # Manifest
-Adds [Web App Manifest](https://developer.mozilla.org/en-US/docs/Web/Manifest) with no pain!
+> Adds [Web App Manifest](https://developer.mozilla.org/en-US/docs/Web/Manifest) with no pain!
 
 ## Setup
 - Add `@nuxtjs/manifest` dependency using yarn or npm to your project
@@ -11,7 +11,7 @@ Adds [Web App Manifest](https://developer.mozilla.org/en-US/docs/Web/Manifest) w
   ]
 }
 ````
-- Add additional options to `manifest` section of `nuxt.config.js` to override defaults:
+- Add additional options to `manifest` section of `nuxt.config.js` to override defaults
 ```js
 {
   manifest: {

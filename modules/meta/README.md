@@ -8,7 +8,7 @@ This module is compatible with [manifest](../manifest) module.
 ```js
 {
   modules: [
-    '@nuxtjs/meta'
+    '@nuxtjs/meta',
   ]
 } 
 ````

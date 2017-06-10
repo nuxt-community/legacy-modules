@@ -9,7 +9,7 @@
 ```js
 {
   modules: [
-    '@nuxtjs/cssnano'
+    '@nuxtjs/cssnano',
   ]
 }
 ````
