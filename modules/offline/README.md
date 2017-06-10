@@ -1,6 +1,6 @@
 # Offline
-[![npm](https://img.shields.io/npm/dt/@nuxtjs/offline.svg?style=flat-square)](https://github.com/nuxt/modules/tree/master/modules/offline)
-[![npm (scoped with tag)](https://img.shields.io/npm/v/@nuxtjs/offline/latest.svg?style=flat-square)](https://github.com/nuxt/modules/tree/master/modules/offline)
+[![npm](https://img.shields.io/npm/dt/@nuxtjs/offline.svg?style=flat-square)](https://npmjs.com/package/@nuxtjs/offline)
+[![npm (scoped with tag)](https://img.shields.io/npm/v/@nuxtjs/offline/latest.svg?style=flat-square)](https://npmjs.com/package/@nuxtjs/offline)
 
 **This module only works in production mode**
 

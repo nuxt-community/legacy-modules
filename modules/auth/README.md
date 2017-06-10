@@ -1,6 +1,6 @@
 # Auth Store (WIP)
-[![npm](https://img.shields.io/npm/dt/@nuxtjs/auth.svg?style=flat-square)](https://github.com/nuxt/modules/tree/master/modules/auth)
-[![npm (scoped with tag)](https://img.shields.io/npm/v/@nuxtjs/auth/latest.svg?style=flat-square)](https://github.com/nuxt/modules/tree/master/modules/auth)
+[![npm](https://img.shields.io/npm/dt/@nuxtjs/auth.svg?style=flat-square)](https://npmjs.com/package/@nuxtjs/auth)
+[![npm (scoped with tag)](https://img.shields.io/npm/v/@nuxtjs/auth/latest.svg?style=flat-square)](https://npmjs.com/package/@nuxtjs/auth)
 
 ## Setup
 - Add `@nuxtjs/auth` dependency using yarn or npm to your project

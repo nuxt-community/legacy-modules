@@ -1,7 +1,7 @@
 # Optimize (Preset)
 
-[![npm](https://img.shields.io/npm/dt/@nuxtjs/optimize.svg?style=flat-square)](https://github.com/nuxt/modules/tree/master/modules/optimize)
-[![npm (scoped with tag)](https://img.shields.io/npm/v/@nuxtjs/optimize/latest.svg?style=flat-square)](https://github.com/nuxt/modules/tree/master/modules/optimize)
+[![npm](https://img.shields.io/npm/dt/@nuxtjs/optimize.svg?style=flat-square)](https://npmjs.com/package/@nuxtjs/optimize)
+[![npm (scoped with tag)](https://img.shields.io/npm/v/@nuxtjs/optimize/latest.svg?style=flat-square)](https://npmjs.com/package/@nuxtjs/optimize)
 
 > Adds more optional optimizers to nuxt project.
 

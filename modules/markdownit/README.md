@@ -1,6 +1,6 @@
 # Markitdown
-[![npm](https://img.shields.io/npm/dt/@nuxtjs/markdownit.svg?style=flat-square)](https://github.com/nuxt/modules/tree/master/modules/markdownit)
-[![npm (scoped with tag)](https://img.shields.io/npm/v/@nuxtjs/markdownit/latest.svg?style=flat-square)](https://github.com/nuxt/modules/tree/master/modules/markdownit)
+[![npm](https://img.shields.io/npm/dt/@nuxtjs/markdownit.svg?style=flat-square)](https://npmjs.com/package/@nuxtjs/markdownit)
+[![npm (scoped with tag)](https://img.shields.io/npm/v/@nuxtjs/markdownit/latest.svg?style=flat-square)](https://npmjs.com/package/@nuxtjs/markdownit)
 
 Using [markdownit-loader](https://github.com/BlueOakJS/markdownit-loader) and [markdown-it](https://github.com/markdown-it/markdown-it)
 

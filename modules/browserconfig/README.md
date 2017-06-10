@@ -1,6 +1,6 @@
 # BrowserConfig
-[![npm](https://img.shields.io/npm/dt/@nuxtjs/browserconfig.svg?style=flat-square)](https://github.com/nuxt/modules/tree/master/modules/browserconfig)
-[![npm (scoped with tag)](https://img.shields.io/npm/v/@nuxtjs/browserconfig/latest.svg?style=flat-square)](https://github.com/nuxt/modules/tree/master/modules/browserconfig)
+[![npm](https://img.shields.io/npm/dt/@nuxtjs/browserconfig.svg?style=flat-square)](https://npmjs.com/package/@nuxtjs/browserconfig)
+[![npm (scoped with tag)](https://img.shields.io/npm/v/@nuxtjs/browserconfig/latest.svg?style=flat-square)](https://npmjs.com/package/@nuxtjs/browserconfig)
 
 Adds [XML browser configuration](https://msdn.microsoft.com/en-us/library/bg183312\(v=vs.85\).aspx) support.
 (Useful for internet explorer and Edge)

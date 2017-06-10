@@ -1,6 +1,6 @@
 # Icon
-[![npm](https://img.shields.io/npm/dt/@nuxtjs/icon.svg?style=flat-square)](https://github.com/nuxt/modules/tree/master/modules/icon)
-[![npm (scoped with tag)](https://img.shields.io/npm/v/@nuxtjs/icon/latest.svg?style=flat-square)](https://github.com/nuxt/modules/tree/master/modules/icon)
+[![npm](https://img.shields.io/npm/dt/@nuxtjs/icon.svg?style=flat-square)](https://www.npmjs.com/package/@nuxtjs/icon)
+[![npm (scoped with tag)](https://img.shields.io/npm/v/@nuxtjs/icon/latest.svg?style=flat-square)](https://www.npmjs.com/package/@nuxtjs/icon)
 
 > Automatically generates app icons and favicon with different sizes using [jimp](https://github.com/oliver-moran/jimp).
 

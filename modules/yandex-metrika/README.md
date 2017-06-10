@@ -1,6 +1,6 @@
 # Yandex Metrika
-[![npm](https://img.shields.io/npm/dt/@nuxtjs/yandex-matrika.svg?style=flat-square)](https://github.com/nuxt/modules/tree/master/modules/yandex-matrika)
-[![npm (scoped with tag)](https://img.shields.io/npm/v/@nuxtjs/yandex-matrika/latest.svg?style=flat-square)](https://github.com/nuxt/modules/tree/master/modules/yandex-matrika)
+[![npm](https://img.shields.io/npm/dt/@nuxtjs/yandex-metrika.svg?style=flat-square)](https://www.npmjs.com/package/@nuxtjs/yandex-metrika)
+[![npm (scoped with tag)](https://img.shields.io/npm/v/@nuxtjs/yandex-metrika/latest.svg?style=flat-square)](https://www.npmjs.com/package/@nuxtjs/yandex-metrika)
 
 > Add Yandex Metrika to your nuxt.js application.
 

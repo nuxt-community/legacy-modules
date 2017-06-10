@@ -1,6 +1,6 @@
 # Bulma
-[![npm](https://img.shields.io/npm/dt/@nuxtjs/bluma.svg?style=flat-square)](https://github.com/nuxt/modules/tree/master/modules/bluma)
-[![npm (scoped with tag)](https://img.shields.io/npm/v/@nuxtjs/bluma/latest.svg?style=flat-square)](https://github.com/nuxt/modules/tree/master/modules/bluma)
+[![npm](https://img.shields.io/npm/dt/@nuxtjs/bluma.svg?style=flat-square)](https://npmjs.com/package/@nuxtjs/bluma)
+[![npm (scoped with tag)](https://img.shields.io/npm/v/@nuxtjs/bluma/latest.svg?style=flat-square)](https://npmjs.com/package/@nuxtjs/bluma)
 
 > Leverage [bulma](http://github.com/jgthms/bulma) CSS.
 

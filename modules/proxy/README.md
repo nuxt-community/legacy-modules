@@ -1,6 +1,6 @@
 # Proxy
-[![npm](https://img.shields.io/npm/dt/@nuxtjs/proxy.svg?style=flat-square)](https://github.com/nuxt/modules/tree/master/modules/proxy)
-[![npm (scoped with tag)](https://img.shields.io/npm/v/@nuxtjs/proxy/latest.svg?style=flat-square)](https://github.com/nuxt/modules/tree/master/modules/proxy)
+[![npm](https://img.shields.io/npm/dt/@nuxtjs/proxy.svg?style=flat-square)](https://npmjs.com/package/@nuxtjs/proxy)
+[![npm (scoped with tag)](https://img.shields.io/npm/v/@nuxtjs/proxy/latest.svg?style=flat-square)](https://npmjs.com/package/@nuxtjs/proxy)
 
 > The one-liner node.js http-proxy middleware solution for Nuxt.js using
  [http-proxy-middleware](https://github.com/chimurai/http-proxy-middleware)
