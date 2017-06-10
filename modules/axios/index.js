@@ -1,11 +1,13 @@
 const chalk = require('chalk')
 const path = require('path')
+const { hostname } = require('os')
 const { URL } = require('whatwg-url')
 
-const isUrl = url => url.indexOf('http') === 0 || url.indexOf('//') === 0
-
 const port = process.env.PORT || process.env.npm_package_config_nuxt_port || 3000
-const host = process.env.HOST || process.env.npm_package_config_nuxt_host || 'localhost'
+let host = process.env.HOST || process.env.npm_package_config_nuxt_host || 'localhost'
+if (host === '0.0.0.0') {
+  host = hostname()
+}
 
 module.exports = function nuxtAxios (moduleOptions) {
   // Apply defaults
