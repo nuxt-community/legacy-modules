@@ -1,4 +1,7 @@
 # Meta
+[![npm](https://img.shields.io/npm/dt/@nuxtjs/meta.svg?style=flat-square)](https://github.com/nuxt/modules/tree/master/modules/meta)
+[![npm (scoped with tag)](https://img.shields.io/npm/v/@nuxtjs/meta/latest.svg?style=flat-square)](https://github.com/nuxt/modules/tree/master/modules/meta)
+
 > Easily adds common meta tags into your project with zero-config needed.
 This module is compatible with [manifest](../manifest) module.
 

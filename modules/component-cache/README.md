@@ -1,4 +1,7 @@
 # Component Cache
+[![npm](https://img.shields.io/npm/dt/@nuxtjs/component-cache.svg?style=flat-square)](https://github.com/nuxt/modules/tree/master/modules/component-cache)
+[![npm (scoped with tag)](https://img.shields.io/npm/v/@nuxtjs/component-cache/latest.svg?style=flat-square)](https://github.com/nuxt/modules/tree/master/modules/component-cache)
+
 > vue-server-renderer has built-in support for [component-level caching](http://ssr.vuejs.org/en/caching.html#component-level-caching).
 > This module automatically adds a LRU cache to project.
 

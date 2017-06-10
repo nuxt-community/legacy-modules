@@ -1,4 +1,7 @@
 # Yandex Metrika
+[![npm](https://img.shields.io/npm/dt/@nuxtjs/yandex-matrika.svg?style=flat-square)](https://github.com/nuxt/modules/tree/master/modules/yandex-matrika)
+[![npm (scoped with tag)](https://img.shields.io/npm/v/@nuxtjs/yandex-matrika/latest.svg?style=flat-square)](https://github.com/nuxt/modules/tree/master/modules/yandex-matrika)
+
 > Add Yandex Metrika to your nuxt.js application.
 
 This plugins automatically sends first page and route change events to yandex metrika.

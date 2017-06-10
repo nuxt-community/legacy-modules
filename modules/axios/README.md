@@ -1,4 +1,7 @@
 # Axios
+[![npm](https://img.shields.io/npm/dt/@nuxtjs/axios.svg?style=flat-square)](https://github.com/nuxt/modules/tree/master/modules/axios)
+[![npm (scoped with tag)](https://img.shields.io/npm/v/@nuxtjs/axios/latest.svg?style=flat-square)](https://github.com/nuxt/modules/tree/master/modules/axios)
+
 > Use [axios](https://github.com/mzabriskie/axios) with deep Nuxt integration and no pain! 
 
 - Automatically set base URL for client & server side

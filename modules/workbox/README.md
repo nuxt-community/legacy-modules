@@ -1,4 +1,7 @@
 # Workbox
+[![npm](https://img.shields.io/npm/dt/@nuxtjs/workbox.svg?style=flat-square)](https://github.com/nuxt/modules/tree/master/modules/workbox)
+[![npm (scoped with tag)](https://img.shields.io/npm/v/@nuxtjs/workbox/latest.svg?style=flat-square)](https://github.com/nuxt/modules/tree/master/modules/workbox)
+
 > Workbox is a collection of JavaScript libraries for Progressive Web Apps.
 ([Learn more](https://github.com/GoogleChrome/workbox))
 

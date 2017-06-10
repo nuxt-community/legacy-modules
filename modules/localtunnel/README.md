@@ -1,4 +1,7 @@
 # Local Tunnel
+[![npm](https://img.shields.io/npm/dt/@nuxtjs/localtunnel.svg?style=flat-square)](https://github.com/nuxt/modules/tree/master/modules/localtunnel)
+[![npm (scoped with tag)](https://img.shields.io/npm/v/@nuxtjs/localtunnel/latest.svg?style=flat-square)](https://github.com/nuxt/modules/tree/master/modules/localtunnel)
+
 > localtunnel exposes your localhost to the world for easy testing and sharing!
 No need to mess with DNS or deploy just to have others test out your changes. [learn more](https://github.com/localtunnel/localtunnel)
   

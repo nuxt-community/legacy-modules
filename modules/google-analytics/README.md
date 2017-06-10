@@ -1,5 +1,8 @@
 # Google Analytics
-Add Google Analytics to your nuxt.js application.
+[![npm](https://img.shields.io/npm/dt/@nuxtjs/google-analytics.svg?style=flat-square)](https://github.com/nuxt/modules/tree/master/modules/google-analytics)
+[![npm (scoped with tag)](https://img.shields.io/npm/v/@nuxtjs/google-analytics/latest.svg?style=flat-square)](https://github.com/nuxt/modules/tree/master/modules/google-analytics)
+
+> Add Google Analytics to your nuxt.js application.
 This plugins automatically sends first page and route change events to google analytics.
 
 **Note:** google analytics is not enabled in `dev` mode.

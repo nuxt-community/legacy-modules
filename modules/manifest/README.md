@@ -1,4 +1,7 @@
 # Manifest
+[![npm](https://img.shields.io/npm/dt/@nuxtjs/manifest.svg?style=flat-square)](https://github.com/nuxt/modules/tree/master/modules/manifest)
+[![npm (scoped with tag)](https://img.shields.io/npm/v/@nuxtjs/manifest/latest.svg?style=flat-square)](https://github.com/nuxt/modules/tree/master/modules/manifest)
+
 > Adds [Web App Manifest](https://developer.mozilla.org/en-US/docs/Web/Manifest) with no pain!
 
 ## Setup

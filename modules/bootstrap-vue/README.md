@@ -1,4 +1,7 @@
 # BootstrapVue
+[![npm](https://img.shields.io/npm/dt/@nuxtjs/bootstrap-vue.svg?style=flat-square)](https://github.com/nuxt/modules/tree/master/modules/bootstrap-vue)
+[![npm (scoped with tag)](https://img.shields.io/npm/v/@nuxtjs/bootstrap-vue/latest.svg?style=flat-square)](https://github.com/nuxt/modules/tree/master/modules/bootstrap-vue)
+
 > With [bootstrap-vue](https://github.com/bootstrap-vue/bootstrap-vue) you can easily use standard bootstrap 4 components with your app.
 
 ## Setup
