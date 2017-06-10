@@ -2,6 +2,8 @@ const chalk = require('chalk')
 const path = require('path')
 const { URL } = require('whatwg-url')
 
+const isUrl = url => url.indexOf('http') === 0 || url.indexOf('//') === 0
+
 const port = process.env.PORT || process.env.npm_package_config_nuxt_port || 3000
 const host = process.env.HOST || process.env.npm_package_config_nuxt_host || 'localhost'
 
@@ -25,10 +27,11 @@ module.exports = function nuxtAxios (moduleOptions) {
     options.browserBaseURL = process.env.API_URL_BROWSER
   }
 
+  options.baseURL = new URL(options.baseURL, `http://${host}:${port}`)
+
   if (!options.browserBaseURL) {
-    const url = new URL(options.baseURL)
-    const sameHost = url.host === `${host}:${port}`
-    options.browserBaseURL = sameHost ? url.pathname : options.baseURL
+    const sameHost = options.baseURL.host === `${host}:${port}`
+    options.browserBaseURL = sameHost ? options.baseURL.pathname : options.baseURL
   }
 
   // Register plugin
