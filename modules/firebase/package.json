@@ -1,0 +1,14 @@
+{
+  "name": "@rafamaciel/firebase",
+  "version": "0.0.1",
+  "license": "MIT",
+  "main": "index.js",
+  "repository": "https://github.com/rafamaciel/modules",
+  "homepage": "https://github.com/rafafmaciel/modules/tree/master/modules/firebase",
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "firebase": "^4.1.2"
+  }
+}
