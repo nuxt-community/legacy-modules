@@ -19,3 +19,11 @@ Adds firebase to your application nuxt.
     }
   ]
 ````
+
+## Usage
+Example: Adding an item to database
+```js
+...
+  this.$firebase.database().ref('path/to/data').set('value')
+...
+```
