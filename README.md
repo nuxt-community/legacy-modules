@@ -1,16 +1,17 @@
 # 📦 Nuxt Modules
-**🛑 Under development**
 
 <p align="center"><img align="center" src="http://imgur.com/V4LtoII.png"/></p>
 <p align="center">
-  <a href="https://circleci.com/gh/nuxt/nuxt-modules">
-    <img alt="" src="https://img.shields.io/circleci/project/github/nuxt/nuxt-modules/master.svg?style=flat-square">
-  </a>
-  <a href="https://github.com/nuxt/nuxt-modules"><img src="https://img.shields.io/npm/l/nuxt.svg?style=flat-square" alt="License"></a>
-  <a href="https://gitter.im/nuxt/nuxt.js"><img src="https://img.shields.io/badge/GITTER-join%20chat-green.svg?style=flat-square" alt="Gitter"></a>
-  <a href="https://donorbox.org/nuxt"><img src="https://img.shields.io/badge/Support%20us-donate-41B883.svg?style=flat-square" alt="Support us"></a>
+  <a href="https://github.com/nuxt/nuxt-modules">
+    <img src="https://img.shields.io/badge/Modules-Ready-green.svg?style=flat-square" alt="Modules">
+  </a> 
 </p>
 
+**🔥 Module Docs Coming Soon**
+
+## Presets
+- [pwa](modules/pwa)
+- [optimize](modules/optimize)
 
 ## Modules
 - [axios](modules/axios)
@@ -36,13 +37,7 @@
 - [icon](modules/icon)
 - [proxy](modules/proxy)
 
-## Presets
-- [optimize](modules/optimize)
-- [pwa](modules/pwa)
-
-# Modules Development Guide
-Nuxt has a powerful SDK which allows you write your own npm modules and share them with the community.
-[Guide Coming Soon]
-
 ## License
-[MIT License](LICENSE.md) - Nuxt.js 2017
+MIT License
+
+Copyright (c) [Nuxt.js](https://nuxtjs.org)
