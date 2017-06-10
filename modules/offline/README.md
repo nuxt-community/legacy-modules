@@ -18,6 +18,6 @@
    '@nuxtjs/offline',
 
    // With options
-   [ '@nuxtjs/offline', { /* ... */ } ],
+   ['@nuxtjs/offline', { /* ... */ }],
   ]
 ````

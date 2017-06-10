@@ -22,8 +22,8 @@ Adds [XML browser configuration](https://msdn.microsoft.com/en-us/library/bg1833
     '@nuxtjs/browserconfig',
     
     // With options
-    [ '@nuxtjs/browserconfig', { TileColor: '#3f51b5' } ],
-  ],
+    ['@nuxtjs/browserconfig', { TileColor: '#3f51b5' }],
+ ],
 
   // You can optionally use global options instead of inline form
   browserconfig: {

@@ -15,7 +15,7 @@
     '@nuxtjs/optimize',
   
     // With options
-    [ '@nuxtjs/optimize', { /* options */ } ],
+    ['@nuxtjs/optimize', { /* options */ }],
   ]
 }
 ````

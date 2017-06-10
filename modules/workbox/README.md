@@ -16,7 +16,7 @@ modules: [
   '@nuxtjs/workbox',
   
   // With options
-  [ '@nuxtjs/workbox', { /* options */ } ],
+  ['@nuxtjs/workbox', { /* options */ }],
 ]
 ```
 - Add generated assets to `.gitignore` file:

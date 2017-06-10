@@ -21,7 +21,7 @@ This module adds prepack using [prepack-webpack-plugin](https://github.com/gajus
     '@nuxtjs/prepack',
 
     // With options
-    [ '@nuxtjs/prepack', { /* options */ } ],
+    ['@nuxtjs/prepack', { /* options */ }],
   ]
 }
 ```

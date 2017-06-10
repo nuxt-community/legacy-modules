@@ -23,7 +23,7 @@ No need to mess with DNS or deploy just to have others test out your changes. [l
     '@nuxtjs/localtunnel',
     
     // With options
-    [ '@nuxtjs/localtunnel', { subdomain: 'foobar' } ],
+    ['@nuxtjs/localtunnel', { subdomain: 'foobar' }],
   ]
 ````
 

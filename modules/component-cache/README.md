@@ -15,7 +15,7 @@
     '@nuxtjs/component-cache',
     
     // With options
-    [ '@nuxtjs/component-cache', { maxAge: 1000 * 60 * 60 } ],
+    ['@nuxtjs/component-cache', { maxAge: 1000 * 60 * 60 }],
   ]
 }
 ```

@@ -13,7 +13,7 @@ modules: [
   '@nuxtjs/markdownit',
   
   // With options
-  [ '@nuxtjs/markdownit', { linkify: true } ]
+  ['@nuxtjs/markdownit', { linkify: true } ]
 ]
 ```
 

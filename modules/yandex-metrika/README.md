@@ -15,7 +15,7 @@ You can set environment variable `NODE_ENV` to `production` for testing in dev m
 ```js
 {
   modules: [
-    [ '@nuxtjs/yandex-metrika', { id: 'XXXXXX', webvisor: true } ],
+    ['@nuxtjs/yandex-metrika', { id: 'XXXXXX', webvisor: true }],
   ]
 }
 ````

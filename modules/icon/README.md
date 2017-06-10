@@ -16,7 +16,7 @@
    '@nuxtjs/icon',
    
    // With options
-   [ '@nuxtjs/icon', { iconSrc: '' } ],
+   ['@nuxtjs/icon', { iconSrc: '' }],
   ]
 ````
 - Create `static/icon.png`. Recommended to be square png and >= `512x512px`

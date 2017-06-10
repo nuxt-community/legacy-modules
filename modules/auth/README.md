@@ -12,7 +12,7 @@
     '@nuxtjs/auth',
   
     // With options 
-    [ '@nuxtjs/auth',{ default_user: 'havij' } ],
+    ['@nuxtjs/auth',{ default_user: 'havij' }],
   ]
 }
 ````

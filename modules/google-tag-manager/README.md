@@ -13,7 +13,7 @@ You can set environment variable `NODE_ENV` to `production` for testing in dev m
 - Add `@nuxtjs/google-tag-manager` to `modules` section of `nuxt.config.js`
 ```js
   modules: [
-   [ '@nuxtjs/google-tag-manager', { id: 'GTM-XXXXXXX' } ],
+   ['@nuxtjs/google-tag-manager', { id: 'GTM-XXXXXXX' }],
   ]
 ```
 

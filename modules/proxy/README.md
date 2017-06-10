@@ -26,7 +26,7 @@ manually register `nuxt.serverMiddleware`. (Will be fixed soon)**
    '@nuxtjs/proxy',
    
    // With options
-   [ '@nuxtjs/proxy', { pathRewrite: { '^/api' : '/api/v1' } } ],
+   ['@nuxtjs/proxy', { pathRewrite: { '^/api' : '/api/v1' } }],
   ]
 }
 ````

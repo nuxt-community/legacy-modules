@@ -13,7 +13,7 @@ You can set environment variable `NODE_ENV` to `production` for testing in dev m
 - Add `@nuxtjs/google-analytics` to `modules` section of `nuxt.config.js`
 ```js
   modules: [
-    [ '@nuxtjs/google-analytics', { ua: 'UA-XXXXXXXX-X' } ],
+    ['@nuxtjs/google-analytics', { ua: 'UA-XXXXXXXX-X' }],
   ]
 ````
 

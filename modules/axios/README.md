@@ -21,8 +21,8 @@
     '@nuxtjs/axios',
     
     // With options
-    [ '@nuxtjs/axios', { credentials: false } ],
-  ],
+    ['@nuxtjs/axios', { credentials: false }],
+ ],
 
   // You can optionally use global options instead of inline form
   axios: {
@@ -142,7 +142,7 @@ on runtime! You may use [proxy](../proxy) module for dynamically route api reque
   modules: [
     '@nuxtjs/axios', 
     '@nuxtjs/proxy'
-  ],
+ ],
   proxy: [
     ['/api', { target: 'http://www.mocky.io', pathRewrite: { '^/api': '/v2' } }]
   ]

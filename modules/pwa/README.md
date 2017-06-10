@@ -17,7 +17,7 @@ This preset adds required modules for full PWA experience with Nuxt with _almost
    '@nuxtjs/pwa',
    
    // With options
-   [ '@nuxtjs/pwa', { optimize: false } ],
+   ['@nuxtjs/pwa', { optimize: false }],
   ]
 ````
 

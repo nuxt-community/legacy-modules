@@ -14,7 +14,7 @@
     '@nuxtjs/bootstrap-vue',
     
     // With options
-    [ '@nuxtjs/bootstrap-vue', { css: false } ],
+    ['@nuxtjs/bootstrap-vue', { css: false }],
   ]
 }
 ````
