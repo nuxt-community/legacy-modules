@@ -21,3 +21,13 @@ const firebasePlugin = {
 }
 
 Vue.use(firebasePlugin)
+
+export default (ctx) => {
+  const { app, store } = ctx
+
+  app.$firebase = Vue.prototype.$firebase
+  ctx.$firebase = Vue.prototype.$firebase
+  if (store) {
+    store.$firebase = Vue.prototype.$firebase
+  }
+}
