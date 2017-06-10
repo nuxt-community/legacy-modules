@@ -11,19 +11,21 @@ Adds [XML browser configuration](https://msdn.microsoft.com/en-us/library/bg1833
 
 ## Setup
 - Add `@nuxtjs/browserconfig` dependency using yarn or npm to your project
-- Add `@nuxtjs/browserconfig` module to `nuxt.config.js`:
+- Add `@nuxtjs/browserconfig` to `modules` section of `nuxt.config.js`
 ```js
+{
   modules: [
-   '@nuxtjs/browserconfig'
-  ]
-````
-- Add `static/icon.png` for your app icon.
-- Add additional options to `nuxt.browserconfig` to override defaults:
-```js
+    // Simple usage
+    '@nuxtjs/browserconfig',
+    
+    // With options
+    [ '@nuxtjs/browserconfig', { TileColor: '#3f51b5' } ],
+  ],
+
+  // You can optionally use global options instead of inline form
   browserconfig: {
-    tile: {
-      square150x150logo: {'@':{src:'icon.png'}},
-      TileColor: '#3f51b5'
-    }
+    TileColor: '#3f51b5',
+    square150x150logo: {'@':{src:'icon.png'}}
   }
-```
+}
+````

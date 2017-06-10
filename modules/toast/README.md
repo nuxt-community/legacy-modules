@@ -1,13 +1,15 @@
-## Toast
-Easy toasts for your app using [mini-toastr](https://github.com/se-panfilov/mini-toastr).
+# Toast
+> Easy toasts for your app using [mini-toastr](https://github.com/se-panfilov/mini-toastr).
 
 ## Setup
 - Add `@nuxtjs/toast` dependency using yarn or npm to your project
-- Add `@nuxtjs/toast` module to `nuxt.config.js`:
+- Add `@nuxtjs/toast` to `modules` section of `nuxt.config.js`
 ```js
+{
   modules: [
-   '@nuxtjs/toast'
+   '@nuxtjs/toast',
   ]
+}
 ````
 
 ## Usage

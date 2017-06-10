@@ -13,15 +13,34 @@ No need to mess with DNS or deploy just to have others test out your changes. [l
   
 ## Setup
 - Add `@nuxtjs/localtunnel` dependency using yarn or npm to your project
-- Add `@nuxtjs/localtunnel` module to `nuxt.config.js`:
+- Add `@nuxtjs/localtunnel` to `modules` section of `nuxt.config.js`
 ```js
   modules: [
-   '@nuxtjs/localtunnel'
+    // Simple usage
+    '@nuxtjs/localtunnel',
+    
+    // With options
+    [ '@nuxtjs/localtunnel', { subdomain: 'foobar' } ],
   ]
 ````
+
+## Usage
+(For more information see [here](https://github.com/localtunnel/localtunnel))
 
 On next dev, you will something like this in terminal that can be shared with the world:
 ```
 > Open http://127.0.0.1:3000
 > Open https://starter.localtunnel.me for external access
 ```
+
+## Options
+
+### `subdomain`
+- Default: `process.env.npm_package_name`
+
+Request a named subdomain on the localtunnel server (default is random characters)
+
+### `local_host`
+- Default: nuxt listening ip (auto detected)
+
+Proxy to a hostname other than localhost

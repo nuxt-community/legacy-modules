@@ -11,15 +11,15 @@ This module adds prepack using [prepack-webpack-plugin](https://github.com/gajus
 # Setup
  
 - Add `@nuxtjs/prepack` dependency using yarn or npm to your project
-- Add `@nuxtjs/prepack` module to `nuxt.config.js`:
-
+- Add `@nuxtjs/prepack` to `modules` section of `nuxt.config.js`
 ```js
-modules: [
-   { 
-     src: '@nuxtjs/prepack',
-     options: {
-        // options
-     } 
-   }
+{
+  modules: [
+    // Simple usage
+    '@nuxtjs/prepack',
+
+    // With options
+    [ '@nuxtjs/prepack', { /* options */ } ],
   ]
+}
 ```

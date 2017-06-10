@@ -5,9 +5,11 @@
 
 ## Setup
 - Add `@nuxtjs/cssnano` dependency using yarn or npm to your project
-- Add `@nuxtjs/cssnano` module to `nuxt.config.js`:
+- Add `@nuxtjs/cssnano` to `modules` section of `nuxt.config.js`
 ```js
+{
   modules: [
-   '@nuxtjs/cssnano'
+    '@nuxtjs/cssnano'
   ]
+}
 ````

@@ -7,13 +7,16 @@ const host = process.env.HOST || process.env.npm_package_config_nuxt_host || 'lo
 
 module.exports = function nuxtAxios (moduleOptions) {
   // Apply defaults
-  const options = Object.assign({
+  const defaults = {
     baseURL: `http://${host}:${port}/api`,
     browserBaseURL: null,
     credentials: true,
     proxyHeaders: true
-  }, this.options.axios, moduleOptions)
+  }
 
+  const options = Object.assign({}, defaults, this.options.axios, moduleOptions)
+
+  // Override env
   if (process.env.API_URL) {
     options.baseURL = process.env.API_URL
   }
@@ -25,7 +28,7 @@ module.exports = function nuxtAxios (moduleOptions) {
   if (!options.browserBaseURL) {
     const url = new URL(options.baseURL)
     const sameHost = url.host === `${host}:${port}`
-    options.browserBaseURL = sameHost ? url.pathname : options.url
+    options.browserBaseURL = sameHost ? url.pathname : options.baseURL
   }
 
   // Register plugin

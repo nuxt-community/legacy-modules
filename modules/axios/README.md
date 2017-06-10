@@ -10,11 +10,22 @@
 
 ## Setup
 - Add `@nuxtjs/axios` dependency using yarn or npm to your project
-- Add `@nuxtjs/axios` module to `nuxt.config.js`:
+- Add `@nuxtjs/axios` to `modules` section of `nuxt.config.js`
 ```js
+{
   modules: [
-    '@nuxtjs/axios'
-  ]
+    // Simple usage
+    '@nuxtjs/axios',
+    
+    // With options
+    [ '@nuxtjs/axios', { credentials: false } ],
+  ],
+
+  // You can optionally use global options instead of inline form
+  axios: {
+    credentials: false
+  }
+}
 ````
 
 ## Usage
@@ -86,7 +97,7 @@ export default {
 ```
 
 ## Options
-You can pass options using module options or `axios` section in `nuxt.config.js`:
+You can pass options using module options or `axios` section in  `nuxt.config.js`
 
 ### `baseURL`
 - Default: `http://[HOST]:[PORT]/api`

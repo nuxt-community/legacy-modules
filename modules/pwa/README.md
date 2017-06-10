@@ -5,32 +5,28 @@
 
 This preset adds required modules for full PWA experience with Nuxt with _almost_ zero-config!
 
+## Setup
+- Add `@nuxtjs/pwa` dependency using yarn or npm to your project
+- Add `@nuxtjs/pwa` to `modules` section of `nuxt.config.js`
+```js
+  modules: [
+   // Simple usage
+   '@nuxtjs/pwa',
+   
+   // With options
+   [ '@nuxtjs/pwa', { optimize: false } ],
+  ]
+````
+
 ## Modules
 Use `options[module]` to customize each module or set to `false` to disable it.
 
-- [icon](../icon)
-- [manifest](../manifest)
-- [meta](../meta)
-- [workbox](../workbox)
-- [optimize](../optimize)
+### [icon](../icon)
 
-## Setup
-- Add `@nuxtjs/pwa` dependency using yarn or npm to your project
-- Add `@nuxtjs/pwa` module to `nuxt.config.js`:
-```js
-  modules: [
-   '@nuxtjs/pwa'
-  ]
-````
-- To customize
-```js
-  modules: [
-   {
-     src: '@nuxtjs/pwa',
-     optimize: false, // Disable optimize 
-     workbox: {
-       // Workbox options
-     },
-   }
-  ]
-````
+### [manifest](../manifest)
+
+### [meta](../meta)
+
+### [workbox](../workbox)
+
+### [optimize](../optimize)
