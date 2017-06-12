@@ -20,6 +20,7 @@
 - [toast](modules/toast)
 - [auth](modules/auth)
 - [font-awesome](modules/font-awesome)
+- [firebase](modules/firebase)
 - [meta](modules/meta)
 - [offline](modules/offline)
 - [manifest](modules/manifest)
