@@ -7,10 +7,11 @@
   "main": "index.js",
   "scripts": {
     "lerna": "lerna",
-    "bootstrap": "npm run lerna -- bootstrap",
+    "bootstrap": "lerna -- bootstrap",
     "lint": "eslint --ext .js,.vue modules",
     "lint-fix": "eslint --ext .js,.vue --fix",
-    "publish": "git pull && npm run lerna -- publish --conventional-commits --only-updated"
+    "publish": "git pull && lerna -- publish --conventional-commits --only-updated",
+    "outdated": "lerna -- exec \"npm outdated || true\""
   },
   "contributors": [
     "Pooya Parsa <pooya@pi0.ir>"
