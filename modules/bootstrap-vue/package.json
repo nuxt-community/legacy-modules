@@ -9,6 +9,6 @@
     "access": "public"
   },
   "dependencies": {
-    "bootstrap-vue": "^0.15.5"
+    "bootstrap-vue": "^0.16.1"
   }
 }
