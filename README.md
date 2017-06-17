@@ -29,7 +29,7 @@ npm install --save nuxt-modules
 
 Then simply choose the module that you want to add to your Nuxt.js project
 from the list below and click on it to see the installation details related
-to this module.
+to that module.
 
 ## Modules
 - [axios](modules/axios)
