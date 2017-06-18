@@ -98,6 +98,11 @@ slug: "1st"
 
 ```
 
+## Sites built with using `nuxt-content` module  
+
+* [alidcastano.com](http://alidcastano.com/)
+[(source)](https://github.com/alidcastano/alidcastano.github.io)
+
 
 ### License
 
