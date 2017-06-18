@@ -19,6 +19,8 @@ can be specified in the file's `front-matter`. See each section below for more d
 For options that can be specified in multiple places, the more specific the location,
 the higher precedence it takes. Thus: a page's `front-matter` > a directory's options under the `content property` > top level options under `module property`.
 
+*Note: All paths are relative to Nuxt Root Directory.*
+
 ### Module Options
 
 Top level configurations can be done inside `nuxt.config.js` via the modules property
@@ -31,7 +33,7 @@ Top Level Module Options:
   will be nested under it.
   - `content`, Array that specifies options for all content under a directory. A 2D array is also allowed to configure multiple content types.
 
-*Note: All paths are relative to Nuxt Root Directory.*
+*Note: If the routePath is an existing page, the nested content will only appear if <nuxt-child /> is present*
 
 ```js
 modules: [
