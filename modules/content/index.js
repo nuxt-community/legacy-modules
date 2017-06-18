@@ -28,7 +28,6 @@ module.exports = function (options) {
   nuxt.router.extendRoutes = (routes, resolve) => {
     const contentData = getContentData(config)
     addRoutes(routes, contentData)
-    console.log(routes)
   }
 }
 
@@ -152,7 +151,7 @@ function toSlug (fileName) {
   return fileName.replace(date, '').replace(ext, '')
 }
 
-/** // TODO still repeating
+/**
  * Recursively get all content files with their respective metadata.
  */
 function getFilesData (contentDir, rootPath, blacklist, filesData = []) {
