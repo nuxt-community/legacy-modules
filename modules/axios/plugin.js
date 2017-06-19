@@ -51,7 +51,7 @@ const axiosPlugin = {
 Vue.use(axiosPlugin)
 
 // Set requests token
-function setToken (token, type = 'Bearer') {
+function setToken (token, type) {
   if (!token) {
     delete this.defaults.headers.common.Authorization;
     return
