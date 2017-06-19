@@ -1,11 +1,11 @@
 {
-  "name": "@rafamaciel/firebase",
+  "name": "@nuxtjs/firebase",
   "version": "0.0.0",
   "private": true,
   "license": "MIT",
   "main": "index.js",
-  "repository": "https://github.com/rafamaciel/modules",
-  "homepage": "https://github.com/rafafmaciel/modules/tree/master/modules/firebase",
+  "repository": "https://github.com/nuxt/modules",
+  "homepage": "https://github.com/nuxt/modules/tree/master/modules/firebase",
   "publishConfig": {
     "access": "public"
   },
