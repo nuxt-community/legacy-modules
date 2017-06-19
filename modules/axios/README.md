@@ -131,6 +131,8 @@ In SSR context, sets client request header as axios default request headers.
 This is useful for making requests which need cookie based auth on server side.
 Also helps making consistent requests in both SSR and Client Side code.
 
+## Helpers
+
 ### `setToken(token, type, scopes='common')`
 Axios instance has an additional helper to easily set global authentication header.
 
