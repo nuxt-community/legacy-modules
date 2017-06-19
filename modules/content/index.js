@@ -1,4 +1,4 @@
-require('vue-content-loader')
+require("vue-markdown-loader")
 const join = require('path').join
 const fs = require('fs')
 const fm = require('front-matter')
