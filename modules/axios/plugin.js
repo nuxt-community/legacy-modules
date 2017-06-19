@@ -8,21 +8,10 @@ const axiosPlugin = {
     }
     Vue.__nuxt_axios_installed__ = true
 
-    // Make `this.$axios` available
     if (!Vue.prototype.hasOwnProperty('$axios')) {
-      // Add mixin to add this._axios
-      Vue.mixin({
-        beforeCreate () {
-          // Check if `axios` has been defined in App
-          // Then fallback to $root.$axios
-          // Finally use global instance of Axios
-          this._axios = this.$options.axios || this.$root.$axios || Axios
-        }
-      })
-      // Add this.$axios instance
       Object.defineProperty(Vue.prototype, '$axios', {
         get () {
-          return this._axios
+          return this.$root.$options.$axios
         }
       })
     }
