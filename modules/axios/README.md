@@ -131,6 +131,34 @@ In SSR context, sets client request header as axios default request headers.
 This is useful for making requests which need cookie based auth on server side.
 Also helps making consistent requests in both SSR and Client Side code.
 
+### `setToken(token, type, scopes='common')`
+Axios instance has an additional helper to easily set global authentication header.
+
+Parameters:
+- **token**: Authorization token
+- **type**: Authorization token prefix(Usually `Bearer`).
+- **scopes**: Send only on specific type of requests. Defaults
+  - Type: *Array* or *String*
+  - Defaults to `common` meaning all types of requests
+  - Can be `get`, `post`, `delete`, ... 
+
+```js
+// Adds header: `Authorization: 123` to all requests
+this.$axios.setToken('123')
+
+// Overrides `Authorization` header with new value
+this.$axios.setToken('456')
+
+// Adds header: `Authorization: Bearer 123` to all requests
+this.$axios.setToken('123', 'Bearer')
+
+// Adds header: `Authorization: Bearer 123` to only post and delete requests
+this.$axios.setToken('123', 'Bearer', ['post', 'delete'])
+
+// Removes default Authorization header from `common` scope (all requests)
+this.$axios.setToken(false)
+``` 
+
 ## Dynamic API Backend
 Please notice that, `API_URL` is saved into bundle on build, CANNOT be changed
 on runtime! You may use [proxy](../proxy) module for dynamically route api requests to different backend on test/staging/production.
