@@ -1,5 +1,3 @@
-var nuxtContent = require('../../index.js')
-
 module.exports = {
   head: {
     title: 'starter',
@@ -27,10 +25,9 @@ module.exports = {
   },
   modules: [
     [nuxtContent, {
-      srcDir: "../content"
+      srcDir: "content"
     }]
   ],
-  // TODO layout under preprocess
   content: [
     ["/", { // Top level files
       isPost: false
