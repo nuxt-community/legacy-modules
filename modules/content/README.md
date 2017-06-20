@@ -72,11 +72,10 @@ For example, if you wanted to override the page's slug:
 // `nuxt.config.js`
 content: {
   routePath: '/blog',
-  permalink: ':year/:slug',
-  pages: ['posts']
+  permalink: ':year/:slug'
 }
 
-// content/posts/2014-05-10-MyFirstPost.md -> localhost:3000/2014/1st
+// content/2014-05-10-MyFirstPost.md -> localhost:3000/2014/1st
 ---
 slug: "1st"
 ---
