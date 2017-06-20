@@ -31,7 +31,7 @@ All top level content options can be configured under the `content` property in 
   - `permalink`, String that specifies url path configuration options. The possible options
   are `:slug`, `:section`, `:year`, `:month`, `:day`.
   - `isPost`, Boolean that specifies whether the content requires a date. The default is true.
-  - `pages`, Array that specifies options for all content under a directory. A 2D array is also allowed to configure multiple content types. These configurations override any global options.
+  - `dirs`, Array that specifies options for all content under a directory. A 2D array is also allowed to configure multiple content types. These configurations override any global options.
 
 Here's an example:
 

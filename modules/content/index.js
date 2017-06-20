@@ -4,27 +4,34 @@ const fm = require('front-matter')
 const pathToRegexp = require('path-to-regexp')
 const paramCase = require('param-case')
 
-module.exports = function (options) {
-  const nuxt = this.options
+module.exports = function () {
+  const options = this.options
 
-  // convert markdown files to vue component
-  nuxt.build.loaders.push({
+  options.build.loaders.push({ // convert markdown files to vue component
     test: /\.md$/,
     use: [{
-      loader: 'vue-content-loader',
-      options: options.loaderOptions || {}
+      loader: 'vue-content-loader'
     }]
   })
 
-  // create content config
+  const content = options.content
   const config = {}
-  config.options = options
-  config.options.rootPath = join(nuxt.srcDir, options.srcDir || "/content")
-  config.content = nuxt.content || options.content || ['/']
-  if (!is2DArray(config.content)) config.content = [config.content]
+  config.g = { // global module defaults
+    srcDir: '/content',
+    dirs: ['/'],   // all files
+    routePath: '', // no route
+    permalink: ':slug',
+    isPost: true
+  }
+  config.srcDir = content.srcDir || config.g.srcDir
+  config.srcPath = join(options.srcDir, config.srcDir)
+  config.routePath = content.routePath || config.g.routePath
+  config.permalink = content.permalink || config.g.permalink
+  config.isPost = content.isPost || config.g.isPost
+  config.dirs = content.dirs || config.g.dirs
+  if (!is2DArray(config.dirs)) config.dirs = [config.dirs]
 
-  // create routes for registered content
-  this.extendRoutes(routes => {
+  this.extendRoutes(routes => { // create routes for registered content
     const contentData = getContentData(config)
     addRoutes(routes, contentData)
   })
@@ -36,21 +43,21 @@ module.exports = function (options) {
  * registered directory, options, and nested files.
  */
 function getContentData (config) {
-  const rootPath = config.options.rootPath
+  const srcPath = config.srcPath
   const contentData = []
-  config.content.forEach(type => {
+  config.dirs.forEach(type => {
     const dir = join('/', type[0])
-    const opts = getContentOpts(type[1] || {}, config.options)
-    const path = join(rootPath, dir)
-    const otherRegisteredDirs = getOtherRegisteredDirs(dir, config.content)
+    const opts = getDirOpts(type[1] || {}, config)
+    const path = join(srcPath, dir)
+    const otherDirs = getOtherRegisteredDirs(dir, config.dirs)
 
     const filesData = []
     fs.readdirSync(path).forEach(stat => {
       const statPath = join(path, stat)
       if(fs.statSync(statPath).isDirectory()) { // Nested Files
         const dirSection = join(dir, stat)
-        if (!(otherRegisteredDirs.indexOf(dirSection) > -1)) {
-          filesData.push(...getFilesData(dirSection, rootPath, otherRegisteredDirs))
+        if (!(otherDirs.indexOf(dirSection) > -1)) {
+          filesData.push(...getFilesData(dirSection, srcPath, otherDirs))
         }
       }
       else { // Top Level file
@@ -111,6 +118,7 @@ function createRoute (file, options) {
     slug: paramCase(metadata.slug || toSlug(fileName)),
     section: file.section
   }
+
   if (options.isPost) {
     const dateData = fileDate[0].split('-')
     pathOpts.year = dateData[0]
@@ -129,14 +137,15 @@ function createRoute (file, options) {
 }
 
 /**
- * Gets content options via 1) content config property 2) module Options 3) defaults
+ * Gets content options via 1) directory options 2) global content config
  */
-function getContentOpts (config, options) {
-  const route = config.routePath || options.routePath || config.srcDir || ''
+function getDirOpts (dir, config) {
+  const g = config.g
+  const isPost = dir.isPost !== undefined ? dir.isPost : g.isPost
   return {
-    route: join('/', route),
-    permalink: config.permalink || options.permalink || ':slug',
-    isPost: !((config.isPost || options.isPost) === false)
+    route: join('/', dir.routePath || g.routePath),
+    permalink: dir.permalink || g.permalink,
+    isPost: !(isPost === false)
   }
 }
 
@@ -153,15 +162,15 @@ function toSlug (fileName) {
 /**
  * Recursively get all content files with their respective metadata.
  */
-function getFilesData (contentDir, rootPath, blacklist, filesData = []) {
-  const contentPath = join(rootPath, contentDir)
+function getFilesData (contentDir, srcPath, blacklist, filesData = []) {
+  const contentPath = join(srcPath, contentDir)
 
   fs.readdirSync(contentPath).forEach((stat, opts) => {
     const statPath = join(contentPath, stat)
     if(fs.statSync(statPath).isDirectory()) {
       const nestedContentDir = join(contentDir, stat)
       if (!(blacklist.indexOf(nestedContentDir) > -1)) {
-        getFilesData(nestedContentDir, rootPath, blacklist, filesData)
+        getFilesData(nestedContentDir, srcPath, blacklist, filesData)
       }
     } else {
       filesData.push({
