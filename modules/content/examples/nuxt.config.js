@@ -1,3 +1,5 @@
+var nuxtContent = require('../index.js')
+
 module.exports = {
   head: {
     title: 'starter',
