@@ -75,7 +75,6 @@ content: {
   permalink: ':year/:slug',
   pages: ['posts']
 }
-```
 
 // content/posts/2014-05-10-MyFirstPost.md -> localhost:3000/2014/1st
 ---
