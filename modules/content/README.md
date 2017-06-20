@@ -11,6 +11,8 @@ npm install nuxt-content
 
 ```
 
+*Please note:* `vue-content-loader` is a dev dependency, if you haven't already, please install it and save it to your `package.son`.
+
 ## Basic Setup
 
 There are three places where options can be configured: top level options can be specified under the `module options` that are passed when the plugin is installed, directory options can be specified under the `content property`, and page options

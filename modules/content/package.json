@@ -22,7 +22,6 @@
     "front-matter": "^2.1.2",
     "nuxt-content": "^0.1.0",
     "param-case": "^2.1.1",
-    "path-to-regexp": "^1.7.0",
-    "vue-content-loader": "^0.1.2"
+    "path-to-regexp": "^1.7.0"
   }
 }
