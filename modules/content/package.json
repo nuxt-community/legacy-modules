@@ -1,0 +1,27 @@
+{
+  "name": "@nuxtjs/content",
+  "version": "0.1.0",
+  "description": "Content Module for Nuxt.js.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Nuxt.js",
+    "Vue.js",
+    "Content",
+    "Blog",
+    "Posts",
+    "Collections",
+    "Markdown",
+    "Static"
+  ],
+  "author": "Alid Castano",
+  "license": "MIT ",
+  "dependencies": {
+    "front-matter": "^2.1.2",
+    "nuxt-content": "^0.1.0",
+    "param-case": "^2.1.1",
+    "path-to-regexp": "^1.7.0"
+  }
+}
