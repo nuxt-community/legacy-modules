@@ -19,15 +19,15 @@ module.exports = function (options) {
   // create content config
   const config = {}
   config.options = options
-  config.options.rootPath = join(nuxt.rootDir, options.srcDir || "/")
+  config.options.rootPath = join(nuxt.srcDir, options.srcDir || "/content")
   config.content = nuxt.content || options.content || ['/']
   if (!is2DArray(config.content)) config.content = [config.content]
 
   // create routes for registered content
-  nuxt.router.extendRoutes = (routes, resolve) => {
+  this.extendRoutes(routes => {
     const contentData = getContentData(config)
     addRoutes(routes, contentData)
-  }
+  })
 }
 
 
@@ -136,7 +136,7 @@ function getContentOpts (config, options) {
   return {
     route: join('/', route),
     permalink: config.permalink || options.permalink || ':slug',
-    isPost: !(config.isPost === false)
+    isPost: !((config.isPost || options.isPost) === false)
   }
 }
 

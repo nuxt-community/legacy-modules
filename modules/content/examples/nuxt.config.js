@@ -27,7 +27,7 @@ module.exports = {
   },
   modules: [
     [nuxtContent, {
-      srcDir: "content"
+      // srcDir: "content"
     }]
   ],
   content: [

@@ -10,68 +10,52 @@ Nuxt Content grabs all content in a registered directory and converts each file 
 npm install nuxt-content
 
 ```
+(*Please note:* `vue-content-loader` is a dev dependency, if you haven't already, please install it and save it to your `package.son`.)
 
-*Please note:* `vue-content-loader` is a dev dependency, if you haven't already, please install it and save it to your `package.son`.
+Then, under `nuxt.config.js` install the module:
+
+```
+modules: [
+   '@nuxtjs/content'
+ ]
+```
 
 ## Basic Setup
 
-There are three places where options can be configured: top level options can be specified under the `module options` that are passed when the plugin is installed, directory options can be specified under the `content property`, and page options
-can be specified in the file's `front-matter`. See each section below for more details.
+All content options can be configured under the `content` property in `nuxt.config.js`.
 
-For options that can be specified in multiple places, the more specific the location,
-the higher precedence it takes. Thus: a page's `front-matter` > a directory's options under the `content property` > top level options under `module property`.
+*Note: All paths are relative to Nuxt Source Directory.*
 
-*Note: All paths are relative to Nuxt Root Directory.*
+**Content Options**:
 
-### Module Options
-
-Top level configurations can be done inside `nuxt.config.js` via the modules property
-when the plugin is installed.
-
-Top Level Module Options:
-  - `srcDir`, String that specifies the directory where the content is located.
-  - `routePath`, String that specifies the parent route, which the content will be nested under. If routePath is "/" then a new route will be created for each file.
-  If it is "/," then a top level route will be created.
-  will be nested under it.
-  - `content`, Array that specifies options for all content under a directory. A 2D array is also allowed to configure multiple content types.
+  - `srcDir`, String that specifies the directory where the content is located. By default, all content is placed in the "/content" directory.
+  - `routePath`, String that specifies the parent route, which the content will be nested under. If the route is a dynamic route, the path must be prefixed with a colon, `:`. If you'd like a top level route to be created, then make the path a slash, `/`.
+  - `permalink`, String that specifies url path configuration options. The possible options
+  are `:slug`, `:section`, `:year`, `:month`, `:day`.
+  - `isPost`, Boolean that specifies whether the content requires a date. The default is true.
+  - `pages`, Array that specifies options for all content under a directory. A 2D array is also allowed to configure multiple content types. These configurations override any global options.
 
 *Note: If the `routePath` is an existing page, the nested content will only appear if `<nuxt-child />` is present*
 
-```js
-modules: [
-  [@nuxtjs/content, {
-    srcDir: "content",
-    routePath: "/"
-    content: ["posts", {
-      permalink: ":slug"
-    }]
-  }]
-}
-```
 
-### Directory Options
-
-Directory specific configurations can also be done under the `content property`.
-
-Content Directory Options:
-  - `permalink`, String that specifies url path configuration options. The possible options
-  are `:slug`, `:section`, `:year`, `:month`, `:day`.
-  - `isPost`, Boolean that specifies whether the content requires a date.
+Here's an example:
 
 ```js
-
-modules: [@nuxtjs/content, { srcDir: "content"} ]
-
 content: [
-  ['posts', { // content/posts/2013-01-10-HelloWorld.md -> localhost:3000/2013/hello-world
-    routePath: '/',
+ // Global Options
+ permalink: ":section/:slug"
+ // Directory Options
+ pages: [
+  ["posts", { // content/blog/2013-01-10-HelloWorld.md -> localhost:3000/2013/hello-world
+    routePath: ":post",
     permalink: ':year/:slug'
   }],
-  ['projects', { // content/projects/NuxtContent.md -> localhost:3000/projects/nuxt-content
-    routePath: 'projects',
-    permalink: ':section/:slug',
+  ["projects", { // content/projects/NuxtContent.md -> localhost:3000/projects/nuxt-content
+    routePath: "projects",
+     permalink: ":section/:slug",
     isPost: false
   }]
+ ]
 ]
 
 ```
