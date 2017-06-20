@@ -26,26 +26,26 @@ module.exports = {
     }
   },
   modules: [
-    [nuxtContent, {
-      // srcDir: "content"
-    }]
+    nuxtContent
   ],
-  content: [
-    ["/", { // Top level files
-      isPost: false
-    }],
-    ["posts", { // Top Level Post-style Directory
-      permalink: ":year/:slug",
-      routePath: "/"
-    }],
-    ["posts/registered", { // Nested Registered Directory
-      permalink: ":section/:slug",
-      routePath: "/"
-    }],
-    ["projects", { // Top Level Non Post-Style Directiory
-      permalink: ":section/:slug",
-      routePath: "projects",
-      isPost: false
-    }]
-  ]
+  content: {
+    dirs: [
+      ["/", { // Top level files (Default Behavior)
+        isPost: false
+      }],
+      ["posts", { // Top Level Post-style Directory
+        permalink: ":year/:slug",
+        routePath: "/"
+      }],
+      ["posts/registered", { // Nested Registered Directory
+        permalink: ":section/:slug",
+        routePath: "/"
+      }],
+      ["projects", { // Top Level Non Post-Style Directiory
+        permalink: ":section/:slug",
+        routePath: "projects",
+        isPost: false
+      }]
+    ]
+  }
 }
