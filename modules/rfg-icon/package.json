@@ -1,0 +1,17 @@
+{
+  "name": "@nuxtjs/rfg-icon",
+  "version": "0.0.1",
+  "license": "MIT",
+  "description": "nuxtjs module for creating icons through RealFaviconGenerator",
+  "main": "index.js",
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "axios": "^0.16.2",
+    "lodash": "^4.17.4",
+    "path": "^0.12.7",
+    "rfg-api": "^0.3.0",
+    "unzip2": "^0.2.5"
+  }
+}
