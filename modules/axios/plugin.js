@@ -94,6 +94,24 @@ function errorHandler(error) {
   }
 }
 
+function debug(level, messages) {
+  if (!(console[level] instanceof Function)) {
+    level = 'info'
+    messages = arguments
+  } else {
+    level = arguments[0]
+    messages = Array.prototype.slice.call(arguments, 1)
+  }
+
+  if (!messages.length) {
+    console[level].call(null, '[@nuxtjs/axios] <empty debug message>')
+  } else {
+    for (var i = 0; i < messages.length; i++) {
+      console[level].call(null, messages[i])
+    }
+  }
+}
+
 export default (ctx) => {
   const { app, store, req } = ctx
 
@@ -115,6 +133,23 @@ export default (ctx) => {
       }
     }
     return config
+  });
+  <% } %>
+
+  <% if(options.debug) { %>
+  axios.interceptors.request.use(config => {
+    debug('[@nuxtjs/axios] Request:', config)
+    return config
+  }, error => {
+    debug('error', '[@nuxtjs/axios] Error:', error)
+    return Promise.reject(error)
+  });
+  axios.interceptors.response.use(config => {
+    debug('[@nuxtjs/axios] Response:', config)
+    return config
+  }, error => {
+    debug('error', '[@nuxtjs/axios] Error:', error)
+    return Promise.reject(error)
   });
   <% } %>
 

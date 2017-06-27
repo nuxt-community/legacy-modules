@@ -15,7 +15,8 @@ module.exports = function nuxtAxios (moduleOptions) {
     baseURL: `http://${host}:${port}/api`,
     browserBaseURL: null,
     credentials: true,
-    proxyHeaders: true
+    proxyHeaders: true,
+    debug: false
   }
 
   const options = Object.assign({}, defaults, this.options.axios, moduleOptions)
