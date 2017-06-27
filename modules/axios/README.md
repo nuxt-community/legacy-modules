@@ -124,6 +124,11 @@ You can also use environment variable `API_URL_BROWSER` which **overrides** `bro
 Adds an interceptor to automatically set `withCredentials` config of axios when requesting to `baseUrl`
 which allows passing authentication headers to backend. 
 
+### `debug`
+- Default: `false`
+
+Adds interceptors to log all responses and requests
+
 ### `proxyHeaders`
 - Default: `true`
 
