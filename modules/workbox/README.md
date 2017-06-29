@@ -24,6 +24,15 @@ modules: [
 static/sw.js
 static/workbox-sw*.js
 ```
+- somewhere in your client code add the below to register the service worker
+```js
+if(navigator.serviceWorker) {
+  navigator.serviceWorker.register('/sw.js')
+  .catch(function(err) {
+    console.error('Unable to register service worker.', err);
+  });
+}
+```
 
 ## Options
 For list of available options
