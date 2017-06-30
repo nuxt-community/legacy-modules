@@ -1,4 +1,7 @@
 # Axios
+[![npm](https://img.shields.io/npm/dt/@nuxtjs/axios.svg?style=flat-square)](https://npmjs.com/package/@nuxtjs/axios)
+[![npm (scoped with tag)](https://img.shields.io/npm/v/@nuxtjs/axios/latest.svg?style=flat-square)](https://npmjs.com/package/@nuxtjs/axios)
+
 > Use [axios](https://github.com/mzabriskie/axios) with deep Nuxt integration and no pain! 
 
 - Automatically set base URL for client & server side
@@ -10,11 +13,22 @@
 
 ## Setup
 - Add `@nuxtjs/axios` dependency using yarn or npm to your project
-- Add `@nuxtjs/axios` module to `nuxt.config.js`:
+- Add `@nuxtjs/axios` to `modules` section of `nuxt.config.js`
 ```js
+{
   modules: [
-    '@nuxtjs/axios'
-  ]
+    // Simple usage
+    '@nuxtjs/axios',
+    
+    // With options
+    ['@nuxtjs/axios', { credentials: false }],
+ ],
+
+  // You can optionally use global options instead of inline form
+  axios: {
+    credentials: false
+  }
+}
 ````
 
 ## Usage
@@ -86,7 +100,7 @@ export default {
 ```
 
 ## Options
-You can pass options using module options or `axios` section in `nuxt.config.js`:
+You can pass options using module options or `axios` section in  `nuxt.config.js`
 
 ### `baseURL`
 - Default: `http://[HOST]:[PORT]/api`
@@ -110,12 +124,47 @@ You can also use environment variable `API_URL_BROWSER` which **overrides** `bro
 Adds an interceptor to automatically set `withCredentials` config of axios when requesting to `baseUrl`
 which allows passing authentication headers to backend. 
 
+### `debug`
+- Default: `false`
+
+Adds interceptors to log all responses and requests
+
 ### `proxyHeaders`
 - Default: `true`
 
 In SSR context, sets client request header as axios default request headers.
 This is useful for making requests which need cookie based auth on server side.
 Also helps making consistent requests in both SSR and Client Side code.
+
+## Helpers
+
+### `setToken(token, type, scopes='common')`
+Axios instance has an additional helper to easily set global authentication header.
+
+Parameters:
+- **token**: Authorization token
+- **type**: Authorization token prefix(Usually `Bearer`).
+- **scopes**: Send only on specific type of requests. Defaults
+  - Type: *Array* or *String*
+  - Defaults to `common` meaning all types of requests
+  - Can be `get`, `post`, `delete`, ... 
+
+```js
+// Adds header: `Authorization: 123` to all requests
+this.$axios.setToken('123')
+
+// Overrides `Authorization` header with new value
+this.$axios.setToken('456')
+
+// Adds header: `Authorization: Bearer 123` to all requests
+this.$axios.setToken('123', 'Bearer')
+
+// Adds header: `Authorization: Bearer 123` to only post and delete requests
+this.$axios.setToken('123', 'Bearer', ['post', 'delete'])
+
+// Removes default Authorization header from `common` scope (all requests)
+this.$axios.setToken(false)
+``` 
 
 ## Dynamic API Backend
 Please notice that, `API_URL` is saved into bundle on build, CANNOT be changed
@@ -128,7 +177,7 @@ on runtime! You may use [proxy](../proxy) module for dynamically route api reque
   modules: [
     '@nuxtjs/axios', 
     '@nuxtjs/proxy'
-  ],
+ ],
   proxy: [
     ['/api', { target: 'http://www.mocky.io', pathRewrite: { '^/api': '/v2' } }]
   ]

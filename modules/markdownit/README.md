@@ -1,15 +1,19 @@
 # Markitdown
+[![npm](https://img.shields.io/npm/dt/@nuxtjs/markdownit.svg?style=flat-square)](https://npmjs.com/package/@nuxtjs/markdownit)
+[![npm (scoped with tag)](https://img.shields.io/npm/v/@nuxtjs/markdownit/latest.svg?style=flat-square)](https://npmjs.com/package/@nuxtjs/markdownit)
 
 Using [markdownit-loader](https://github.com/BlueOakJS/markdownit-loader) and [markdown-it](https://github.com/markdown-it/markdown-it)
 
-## Setup
- 
+## Setup 
 - Add `@nuxtjs/markdownit` dependency using yarn or npm to your project
-- Add `@nuxtjs/markdownit` module to `nuxt.config.js`:
-
+- Add `@nuxtjs/markdownit` to `modules` section of `nuxt.config.js`
 ```js
 modules: [
-  '@nuxtjs/markdownit'
+  // Simple usage
+  '@nuxtjs/markdownit',
+  
+  // With options
+  ['@nuxtjs/markdownit', { linkify: true } ]
 ]
 ```
 
@@ -49,3 +53,7 @@ modules: [
   }
 </script>
 ```
+
+## Options
+
+For full options list see [official docs](https://github.com/markdown-it/markdown-it)

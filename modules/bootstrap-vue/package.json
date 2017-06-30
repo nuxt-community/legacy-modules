@@ -1,6 +1,6 @@
 {
   "name": "@nuxtjs/bootstrap-vue",
-  "version": "1.0.1",
+  "version": "1.0.4",
   "license": "MIT",
   "main": "index.js",
   "repository": "https://github.com/nuxt/modules",
@@ -9,6 +9,6 @@
     "access": "public"
   },
   "dependencies": {
-    "bootstrap-vue": "^0.15.5"
+    "bootstrap-vue": "^0.16.1"
   }
 }

@@ -8,21 +8,10 @@ const axiosPlugin = {
     }
     Vue.__nuxt_axios_installed__ = true
 
-    // Make `this.$axios` available
     if (!Vue.prototype.hasOwnProperty('$axios')) {
-      // Add mixin to add this._axios
-      Vue.mixin({
-        beforeCreate () {
-          // Check if `axios` has been defined in App
-          // Then fallback to $root.$axios
-          // Finally use global instance of Axios
-          this._axios = this.$options.axios || this.$root.$axios || Axios
-        }
-      })
-      // Add this.$axios instance
       Object.defineProperty(Vue.prototype, '$axios', {
         get () {
-          return this._axios
+          return this.$root.$options.$axios
         }
       })
     }
@@ -62,12 +51,17 @@ const axiosPlugin = {
 Vue.use(axiosPlugin)
 
 // Set requests token
-function setToken (token, type = 'Bearer') {
-  if (!token) {
-    delete this.defaults.headers.common.Authorization;
-    return
+function setToken (token, type, scopes = 'common') {
+  if(!Array.isArray(scopes)) {
+    scopes = [scopes]
   }
-  this.defaults.headers.common.Authorization = (type ? type + ' ' : '') + token
+  scopes.forEach(scope => {
+    if (!token) {
+      delete this.defaults.headers[scope].Authorization;
+      return
+    }
+    this.defaults.headers[scope].Authorization = (type ? type + ' ' : '') + token
+  })
 }
 
 // Nuxt friendly error handler
@@ -100,6 +94,24 @@ function errorHandler(error) {
   }
 }
 
+function debug(level, messages) {
+  if (!(console[level] instanceof Function)) {
+    level = 'info'
+    messages = arguments
+  } else {
+    level = arguments[0]
+    messages = Array.prototype.slice.call(arguments, 1)
+  }
+
+  if (!messages.length) {
+    console[level].call(null, '[@nuxtjs/axios] <empty debug message>')
+  } else {
+    for (var i = 0; i < messages.length; i++) {
+      console[level].call(null, messages[i])
+    }
+  }
+}
+
 export default (ctx) => {
   const { app, store, req } = ctx
 
@@ -121,6 +133,23 @@ export default (ctx) => {
       }
     }
     return config
+  });
+  <% } %>
+
+  <% if(options.debug) { %>
+  axios.interceptors.request.use(config => {
+    debug('[@nuxtjs/axios] Request:', config)
+    return config
+  }, error => {
+    debug('error', '[@nuxtjs/axios] Error:', error)
+    return Promise.reject(error)
+  });
+  axios.interceptors.response.use(config => {
+    debug('[@nuxtjs/axios] Response:', config)
+    return config
+  }, error => {
+    debug('error', '[@nuxtjs/axios] Error:', error)
+    return Promise.reject(error)
   });
   <% } %>
 

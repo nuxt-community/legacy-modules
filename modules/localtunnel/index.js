@@ -1,4 +1,11 @@
 const localtunnel = require('localtunnel')
+const { hostname } = require('os')
+
+const port = process.env.PORT || process.env.npm_package_config_nuxt_port || 3000
+let host = process.env.HOST || process.env.npm_package_config_nuxt_host || 'localhost'
+if (host === '0.0.0.0') {
+  host = hostname()
+}
 
 // https://github.com/localtunnel/localtunnel
 
@@ -7,9 +14,6 @@ module.exports = function nuxtLocaltunnel (options) {
   if (!this.options.dev) {
     return
   }
-
-  const port = process.env.PORT || process.env.npm_package_config_nuxt_port || 3000
-  const host = process.env.HOST || process.env.npm_package_config_nuxt_host || 'localhost'
 
   const opts = {
     subdomain: options.subdomain || process.env.npm_package_name,

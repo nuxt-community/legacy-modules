@@ -1,13 +1,18 @@
-## Toast
-Easy toasts for your app using [mini-toastr](https://github.com/se-panfilov/mini-toastr).
+# Toast
+[![npm](https://img.shields.io/npm/dt/@nuxtjs/toast.svg?style=flat-square)](https://npmjs.com/package/@nuxtjs/toast)
+[![npm (scoped with tag)](https://img.shields.io/npm/v/@nuxtjs/toast/latest.svg?style=flat-square)](https://npmjs.com/package/@nuxtjs/toast)
+
+> Easy toasts for your app using [mini-toastr](https://github.com/se-panfilov/mini-toastr).
 
 ## Setup
 - Add `@nuxtjs/toast` dependency using yarn or npm to your project
-- Add `@nuxtjs/toast` module to `nuxt.config.js`:
+- Add `@nuxtjs/toast` to `modules` section of `nuxt.config.js`
 ```js
+{
   modules: [
-   '@nuxtjs/toast'
+   '@nuxtjs/toast',
   ]
+}
 ````
 
 ## Usage

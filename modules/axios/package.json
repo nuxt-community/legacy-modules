@@ -1,6 +1,6 @@
 {
   "name": "@nuxtjs/axios",
-  "version": "2.0.2",
+  "version": "2.1.0",
   "license": "MIT",
   "main": "index.js",
   "repository": "https://github.com/nuxt/modules",
@@ -9,7 +9,7 @@
     "access": "public"
   },
   "dependencies": {
-    "axios": "^0.16.1",
+    "axios": "^0.16.2",
     "whatwg-url": "^5.0.0"
   }
 }

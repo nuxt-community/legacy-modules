@@ -1,6 +1,28 @@
 # Meta
-Easily adds common meta tags into your project with zero-config needed.
+[![npm](https://img.shields.io/npm/dt/@nuxtjs/meta.svg?style=flat-square)](https://npmjs.com/package/@nuxtjs/meta)
+[![npm (scoped with tag)](https://img.shields.io/npm/v/@nuxtjs/meta/latest.svg?style=flat-square)](https://npmjs.com/package/@nuxtjs/meta)
+
+> Easily adds common meta tags into your project with zero-config needed.
 This module is compatible with [manifest](../manifest) module.
+
+## Setup
+- Add `@nuxtjs/meta` dependency using yarn or npm to your project
+- Add `@nuxtjs/meta` to `modules` section of `nuxt.config.js`
+```js
+{
+  modules: [
+    '@nuxtjs/meta',
+  ]
+} 
+````
+- You can optionally override meta using `manifest` section of `nuxt.config.js`
+```js
+{
+  manifest: {
+    // ...
+  }
+}
+``` 
 
 ## What's included ?
 Meta / Link                            | Customize With       |   Default value 
@@ -17,12 +39,3 @@ Meta / Link                            | Customize With       |   Default value
 `og:type`                              | `ogType`             | `website`
 `og:title`                             | `ogTitle`            | same as options.name
 `og:description`                       | `ogDescription`      | same as options.description
-
-## Setup
-- Add `@nuxtjs/meta` dependency using yarn or npm to your project
-- Add `@nuxtjs/meta` module to `nuxt.config.js`:
-```js
-  modules: [
-   '@nuxtjs/meta'
-  ]
-````

@@ -1,4 +1,6 @@
 # Prepack
+[![npm](https://img.shields.io/npm/dt/@nuxtjs/prepack.svg?style=flat-square)](https://npmjs.com/package/@nuxtjs/prepack)
+[![npm (scoped with tag)](https://img.shields.io/npm/v/@nuxtjs/prepack/latest.svg?style=flat-square)](https://npmjs.com/package/@nuxtjs/prepack)
 
 > Prepack is a tool that optimizes JavaScript source code: Computations that can be done at compile-time instead of run-time get eliminated. 
 > Prepack replaces the global code of a JavaScript bundle with equivalent code that is a simple sequence of assignments. 
@@ -11,15 +13,15 @@ This module adds prepack using [prepack-webpack-plugin](https://github.com/gajus
 # Setup
  
 - Add `@nuxtjs/prepack` dependency using yarn or npm to your project
-- Add `@nuxtjs/prepack` module to `nuxt.config.js`:
-
+- Add `@nuxtjs/prepack` to `modules` section of `nuxt.config.js`
 ```js
-modules: [
-   { 
-     src: '@nuxtjs/prepack',
-     options: {
-        // options
-     } 
-   }
+{
+  modules: [
+    // Simple usage
+    '@nuxtjs/prepack',
+
+    // With options
+    ['@nuxtjs/prepack', { /* options */ }],
   ]
+}
 ```

@@ -1,0 +1,15 @@
+{
+  "name": "@nuxtjs/firebase",
+  "version": "0.0.0",
+  "private": true,
+  "license": "MIT",
+  "main": "index.js",
+  "repository": "https://github.com/nuxt/modules",
+  "homepage": "https://github.com/nuxt/modules/tree/master/modules/firebase",
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "firebase": "^4.1.2"
+  }
+}
