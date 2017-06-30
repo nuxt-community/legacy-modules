@@ -17,6 +17,14 @@ export default ({app: {router}}) => {
   // Every time the route changes (fired on initialization too)
   router.afterEach((to, from) => {
     // We tell Google Analytic to add a page view
+    var settings = to.meta.analytics                  //TODO to.meta is undefined for the initial request
+    if (settings && typeof settings === 'object') {
+      for (var key in settings) {
+        if (settings.hasOwnProperty(key)) {
+          ga('set', key, settings[key])
+        }
+      }
+    }
     ga('set', 'page', to.fullPath)
     ga('send', 'pageview')
   })
