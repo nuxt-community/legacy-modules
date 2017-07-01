@@ -5,7 +5,7 @@ window['ga'] = window['ga'] || function () {
 }
 window['ga'].l = 1 * new Date()
 
-export default ({ app: { router } }) => {
+export default ({ app: { router, store } }) => {
   if (!window['ga']) {
     console.warn('google analytics is not available')
     return
@@ -17,7 +17,7 @@ export default ({ app: { router } }) => {
   // Every time the route changes (fired on initialization too)
   router.afterEach((to, from) => {
     // Set page settings
-    const settings = Object.assign({}, routeOption('analytics', from, to), to.meta && to.meta.analytics)
+    const settings = Object.assign({}, routeOption('analytics', from, to, store), to.meta && to.meta.analytics)
     Object.keys(settings).forEach(key => {
       ga('set', key, settings[key])
     })
@@ -28,10 +28,10 @@ export default ({ app: { router } }) => {
   })
 }
 
-function routeOption(key, from, to) {
+function routeOption(key, from, to, store) {
   let matched = to.matched[0]
   let matchedComponent = matched.components.default
-  return componentOption(matchedComponent, key, from, to)
+  return componentOption(matchedComponent, key, from, to, store)
 }
 
 function componentOption(component, key, ...args) {

@@ -23,3 +23,43 @@ You can set environment variable `NODE_ENV` to `production` for testing in dev m
 - Required
 
 Google Analytics ID. Should be in form of `UA-XXXXXXXX-X`
+
+### Setting Analytics.js Fields at runtime
+You can add additional [fields](https://developers.google.com/analytics/devguides/collection/analyticsjs/field-reference)
+to GA (```ga('set', field, value)```) at runtime by adding analytics object
+the ```route.meta.analytics``` in the middleware or to the selected pages.
+
+Middleware example:
+```javascript
+export default function ({ route, store }) {
+  route.meta.analytics = {
+    anonymizeIp: true,
+    userId: store.state.userId
+  }
+}
+
+```
+
+### Setting Analytics.js Fields at runtime for selected pages
+Adding analytics fields to the selected pages it is really useful for example for the 
+[Google Analytics Content Experiments](https://developers.google.com/analytics/solutions/experiments-client-side).
+Let's say we want to split audience 50/50. On half will see original page, the other one new version.
+Then we can check which one has lower bounce rate
+
+```
+<template>
+  <div>
+    <h1 v-if="expVarId === 1">New Content</h1>
+    <h1 v-else>Original Content</h1>
+  </div>
+</template>
+<script>
+  export default {
+
+    analytics (from, to, store) {
+      return { expId: '1234567890', expVar: store.getters.expVarId }
+    },
+    [...]
+  }
+</script>
+``` 
