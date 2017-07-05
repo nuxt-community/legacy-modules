@@ -30,11 +30,12 @@ module.exports = function nuxtAxios (moduleOptions) {
     options.browserBaseURL = process.env.API_URL_BROWSER
   }
 
+  const isSchemeLessBaseURL = options.baseURL.substr(0, 2) === '//'
   options.baseURL = new URL(options.baseURL, `http://${host}:${port}`)
 
   if (!options.browserBaseURL) {
     const sameHost = options.baseURL.host === `${host}:${port}`
-    options.browserBaseURL = sameHost ? options.baseURL.pathname : options.baseURL
+    options.browserBaseURL = sameHost ? options.baseURL.pathname : isSchemeLessBaseURL ? options.baseURL.toString().substr(5) : options.baseURL // 5 == 'http:'.length
   }
 
   // Register plugin
