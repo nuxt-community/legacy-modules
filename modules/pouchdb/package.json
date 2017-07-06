@@ -15,10 +15,10 @@
   "author": "Stefan Buhrmester <buhrmi@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "pouchdb": "*",
-    "pouchdb-find": "*",
-    "pouchdb-live-find": "*",
-    "vue": "*",
-    "vue-pouch": "*"
+    "pouchdb": "^6.2.0",
+    "pouchdb-find": "^6.2.0",
+    "pouchdb-live-find": "^0.4.0",
+    "vue": "^2.3.4",
+    "vue-pouch": "^0.0.22"
   }
 }

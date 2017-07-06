@@ -1,5 +1,8 @@
 # PouchDB (WIP)
-Adds pouchdb to your nuxt application.
+
+Adds pouchdb to your nuxt application using [vue-pouch](http://www.github.com/buhrmi/vue-pouch), tightly integrating functionality from [pouch-find](http://nolanlawson.github.io/pouchdb-find/), [pouchdb-live-find](https://github.com/colinskow/pouchdb-live-find) and [pouchdb-authentication](https://github.com/pouchdb-community/pouchdb-authentication).
+
+(Better docs coming soon)
 
 ## Setup
 - Add `@nuxtjs/pouchdb` dependency using yarn or npm to your project
@@ -38,4 +41,4 @@ Adds pouchdb to your nuxt application.
 </script>
 ```
 
-See the [VuePouch](http://www.github.com/buhrmi/vue-pouch) repo for documentation.
+See the [vue-pouch](http://www.github.com/buhrmi/vue-pouch) repo for documentation.
