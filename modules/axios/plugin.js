@@ -170,4 +170,5 @@ export default (ctx) => {
 
   // token helper for authentication
   axios.setToken = setToken.bind(axios)
+  axios.setHeader = setHeader.bind(axios)
 }
