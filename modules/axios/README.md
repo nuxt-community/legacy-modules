@@ -137,7 +137,30 @@ This is useful for making requests which need cookie based auth on server side.
 Also helps making consistent requests in both SSR and Client Side code.
 
 ## Helpers
+### `setHeader(name, value, scopes='common')`
+Axios instance has a helper to easily set any header.
 
+Parameters:
+- **name**: Name of the header
+- **value**: Value of the header
+- **scopes**: Send only on specific type of requests. Defaults
+  - Type: *Array* or *String*
+  - Defaults to `common` meaning all types of requests
+  - Can be `get`, `post`, `delete`, ... 
+
+```js
+// Adds header: `Authorization: 123` to all requests
+this.$axios.setHeader('Authorization', '123')
+
+// Overrides `Authorization` header with new value
+this.$axios.setHeader('Authorization', '456')
+
+// Adds header: `Content-Type: application/x-www-form-urlencoded` to only post requests
+this.$axios.setHeader('Content-Type', 'application/x-www-form-urlencoded', ['post'])
+
+// Removes default Content-Type header from `post` scope
+this.$axios.setToken('Content-Type', false, ['post'])
+``` 
 ### `setToken(token, type, scopes='common')`
 Axios instance has an additional helper to easily set global authentication header.
 
