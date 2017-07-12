@@ -50,18 +50,23 @@ const axiosPlugin = {
 
 Vue.use(axiosPlugin)
 
-// Set requests token
-function setToken (token, type, scopes = 'common') {
+// Sets a common header
+function setHeader (name, value, scopes = 'common') {
   if(!Array.isArray(scopes)) {
     scopes = [scopes]
   }
   scopes.forEach(scope => {
-    if (!token) {
-      delete this.defaults.headers[scope].Authorization;
+    if (!value) {
+      delete this.defaults.headers[scope][name];
       return
     }
-    this.defaults.headers[scope].Authorization = (type ? type + ' ' : '') + token
+    this.defaults.headers[scope][name] = value
   })
+}
+// Set requests token
+function setToken (token, type, scopes = 'common') {
+    value = !token ? null : (type ? type + ' ' : '') + token
+    setHeader('Authorization', value, scopes)
 }
 
 // Nuxt friendly error handler
