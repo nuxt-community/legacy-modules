@@ -9,7 +9,7 @@
     "access": "public"
   },
   "dependencies": {
-    "@nuxtjs/markdownit-loader": "^1.1.0",
+    "@nuxtjs/markdownit-loader": "^1.1.1",
     "raw-loader": "^0.5.1"
   }
 }
