@@ -1,6 +1,6 @@
 {
   "name": "@nuxtjs/component-cache",
-  "version": "0.1.5",
+  "version": "1.0.0",
   "license": "MIT",
   "main": "index.js",
   "repository": "https://github.com/nuxt/modules",
