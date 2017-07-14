@@ -10,6 +10,6 @@
   },
   "dependencies": {
     "axios": "^0.16.2",
-    "whatwg-url": "^5.0.0"
+    "whatwg-url": "^6.1.0"
   }
 }

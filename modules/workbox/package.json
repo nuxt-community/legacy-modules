@@ -9,6 +9,6 @@
     "access": "public"
   },
   "dependencies": {
-    "workbox-webpack-plugin": "^1.0.1"
+    "workbox-webpack-plugin": "^1.1.0"
   }
 }

@@ -9,6 +9,6 @@
     "access": "public"
   },
   "dependencies": {
-    "offline-plugin": "^4.7.0"
+    "offline-plugin": "^4.8.3"
   }
 }

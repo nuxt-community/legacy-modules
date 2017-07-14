@@ -1,10 +1,12 @@
 // https://github.com/BlueOakJS/markdownit-loader
 // https://github.com/markdown-it/markdown-it
 
-module.exports = function nuxtMarkdownit(options) {
+module.exports = function nuxtMarkdownit (options) {
+  const _options = Object.assign({}, options, this.options.markdownit)
+
   const markDownItLoader = {
     loader: 'markdownit-loader',
-    options
+    options: _options
   }
 
   this.options.build.loaders.push({
