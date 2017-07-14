@@ -10,7 +10,7 @@
     "bootstrap": "lerna -- bootstrap --npm-client yarn",
     "lint": "eslint --ext .js,.vue modules",
     "lint-fix": "eslint --ext .js,.vue --fix",
-    "publish": "git pull && lerna -- publish --conventional-commits --only-updated",
+    "publish": "git pull && lerna publish --conventional-commits",
     "outdated": "lerna -- exec \"npm outdated || true\"",
     "link-all": "lerna -- exec \"yarn link || true\""
   },
