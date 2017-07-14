@@ -25,6 +25,7 @@ Using [markdownit-loader](https://github.com/nuxt-community/markdownit-loader) a
       ]
   }
 }
+```
 
 ## Usage
 
