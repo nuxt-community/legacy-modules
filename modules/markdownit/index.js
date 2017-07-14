@@ -5,7 +5,7 @@ module.exports = function nuxtMarkdownit (options) {
   const _options = Object.assign({}, options, this.options.markdownit)
 
   const markDownItLoader = {
-    loader: 'markdownit-loader',
+    loader: '@nuxtjs/markdownit-loader',
     options: _options
   }
 
