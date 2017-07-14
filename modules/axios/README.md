@@ -159,7 +159,7 @@ this.$axios.setHeader('Authorization', '456')
 this.$axios.setHeader('Content-Type', 'application/x-www-form-urlencoded', ['post'])
 
 // Removes default Content-Type header from `post` scope
-this.$axios.setToken('Content-Type', false, ['post'])
+this.$axios.setHeader('Content-Type', false, ['post'])
 ``` 
 ### `setToken(token, type, scopes='common')`
 Axios instance has an additional helper to easily set global authentication header.
