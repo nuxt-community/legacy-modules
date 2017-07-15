@@ -63,10 +63,11 @@ function setHeader (name, value, scopes = 'common') {
     this.defaults.headers[scope][name] = value
   })
 }
+
 // Set requests token
 function setToken (token, type, scopes = 'common') {
-    value = !token ? null : (type ? type + ' ' : '') + token
-    setHeader('Authorization', value, scopes)
+    const value = !token ? null : (type ? type + ' ' : '') + token
+    this.setHeader('Authorization', value, scopes)
 }
 
 // Nuxt friendly error handler
