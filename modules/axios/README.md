@@ -191,7 +191,7 @@ this.$axios.setToken(false)
 
 ## Dynamic API Backend
 Please notice that, `API_URL` is saved into bundle on build, CANNOT be changed
-on runtime! You may use [proxy](../proxy) module for dynamically route api requests to different backend on test/staging/production.
+on runtime! You may use [proxy](../proxy) module to dynamically route api requests on test/staging/production.
 
 **Example: (`nuxt.config.js`)**
 
