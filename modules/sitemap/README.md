@@ -14,6 +14,7 @@ Module based on the awesome [sitemap](https://github.com/ekalinin/sitemap.js) ‚ù
 - Add additional options to `sitemap` section of `nuxt.config.js` to override defaults
 ```js
   sitemap: {
+    path: '/sitemap.xml',
     hostname: 'https://example.com',
     routes: [
       '/page/1',
@@ -52,7 +53,6 @@ We add routes for `/users/:id` in `nuxt.config.js`:
 
 ```js
   sitemap: {
-    hostname: 'https://example.com',
     routes: [
       '/users/1',
       '/users/2',
@@ -102,4 +102,3 @@ module.exports = {
   }
 }
 ```
-
