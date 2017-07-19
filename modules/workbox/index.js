@@ -28,9 +28,9 @@ module.exports = function nuxtWorkbox (options) {
 
   this.options.build.plugins.push(new workboxPlugin(Object.assign({
     swDest: path.resolve(this.options.srcDir, 'static', swFileName),
-    // navigateFallback: routerBase, // it has some BUGS
     directoryIndex: '/',
     cacheId: process.env.npm_package_name + '_' + process.env.npm_package_version,
+    clientsClaim: true,
     globPatterns: ['**\/*.{js,css,html,json}'],
     modifyUrlPrefix: {
       '': fixUrl(publicPath)
