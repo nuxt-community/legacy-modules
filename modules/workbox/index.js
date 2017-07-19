@@ -1,5 +1,5 @@
 const path = require('path')
-const workboxPlugin = require('workbox-webpack-plugin');
+const workboxPlugin = require('workbox-webpack-plugin')
 
 const fixUrl = url => url.replace(/\/\//g, '/').replace(':/', '://')
 const wildcardRegex = url => '/' + fixUrl(url + '/.*').replace(/\//g, '\\/') + '/'
@@ -28,12 +28,12 @@ module.exports = function nuxtWorkbox (options) {
 
   this.options.build.plugins.push(new workboxPlugin(Object.assign({
     swDest: path.resolve(this.options.srcDir, 'static', swFileName),
-    //navigateFallback: routerBase, // it has some BUGS
+    // navigateFallback: routerBase, // it has some BUGS
     directoryIndex: '/',
     cacheId: process.env.npm_package_name + '_' + process.env.npm_package_version,
     globPatterns: ['**\/*.{js,css,html,json}'],
     modifyUrlPrefix: {
-      '/': fixUrl(publicPath)
+      '': fixUrl(publicPath)
     },
     runtimeCaching: [
       // Cache other _nuxt resources runtime
