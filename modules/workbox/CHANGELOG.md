@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.0.1"></a>
+## [1.0.1](https://github.com/nuxt/modules/compare/@nuxtjs/workbox@1.0.0...@nuxtjs/workbox@1.0.1) (2017-07-19)
+
+
+### Bug Fixes
+
+* **workbox:** update modifyUrlPrefix for latest workbox (#75) ([93e3b66](https://github.com/nuxt/modules/commit/93e3b66)), closes [#75](https://github.com/nuxt/modules/issues/75)
+
+
+
+
 <a name="0.4.0"></a>
 # [0.4.0](https://github.com/nuxt/modules/compare/@nuxtjs/workbox@0.3.4...@nuxtjs/workbox@0.4.0) (2017-06-06)
 
