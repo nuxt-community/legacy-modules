@@ -2,7 +2,6 @@ const path = require('path')
 const workboxPlugin = require('workbox-webpack-plugin')
 
 const fixUrl = url => url.replace(/\/\//g, '/').replace(':/', '://')
-const wildcardRegex = url => '/' + fixUrl(url + '/.*').replace(/\//g, '\\/') + '/'
 const isUrl = url => url.indexOf('http') === 0 || url.indexOf('//') === 0
 
 module.exports = function nuxtWorkbox (options) {
@@ -39,12 +38,12 @@ module.exports = function nuxtWorkbox (options) {
       // Cache other _nuxt resources runtime
       // They are hashed by webpack so are safe to loaded by cacheFirst handler
       {
-        urlPattern: wildcardRegex(publicPath),
+        urlPattern: fixUrl(publicPath + '/**'),
         handler: 'cacheFirst'
       },
       // Cache routes if offline
       {
-        urlPattern: wildcardRegex(routerBase),
+        urlPattern: fixUrl(routerBase + '/**'),
         handler: 'networkFirst'
       }
     ]
