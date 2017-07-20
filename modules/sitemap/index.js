@@ -1,27 +1,22 @@
 const sm = require('sitemap')
 
-module.exports = async function nuxtSitemap (options) {
-
+module.exports = function nuxtSitemap (options) {
   // Defaults
   const defaults = {
     path: '/sitemap.xml',
     hostname: null,
-    extendRoutes: [],
     routes: []
   }
 
   // Combine sources
   const sitemap = Object.assign({}, defaults, this.options.sitemap, options)
 
-  // Extend routes
-  this.extendRoutes((routes, resolve) => {
-    sitemap.extendRoutes = routes.map((route) => route.path)
-  })
+  const nuxt = this.nuxt
 
   // Server Middleware
   this.addServerMiddleware({
     path: sitemap.path,
-    handler (req, res, next) {
+    async handler (req, res, next) {
 
       let sitemapConfig = {}
 
@@ -34,7 +29,8 @@ module.exports = async function nuxtSitemap (options) {
       }
 
       // Set sitemap urls
-      sitemapConfig.urls = sitemap.extendRoutes.concat(sitemap.routes)
+      const generateRoutes = await nuxt.utils.promisifyRoute(sitemap.routes)
+      sitemapConfig.urls = nuxt.routes.concat(generateRoutes)
 
       // Create & Stringify sitemap
       const sitemapSource = sm.createSitemap(sitemapConfig).toString()
