@@ -39,13 +39,23 @@ module.exports = function nuxtAxios (moduleOptions) {
   }
 
   // Register plugin
-  this.addPlugin({
+  addPlugin.call(this, {
     src: path.resolve(__dirname, 'plugin.js'),
     options
   })
 
   /* eslint-disable no-console */
   console.log(`[AXIOS] Base URL: ${chalk.green(options.baseURL)} , Browser: ${chalk.green(options.browserBaseURL)}`)
+}
+
+// Temporary fix for nuxt/nuxt.js#1127
+function addPlugin (template) {
+  const { dst } = this.addTemplate(template)
+  // Add to nuxt plugins
+  this.options.plugins.unshift({
+    src: path.join(this.options.buildDir, dst),
+    ssr: template.ssr
+  })
 }
 
 module.exports.meta = require('./package.json')
