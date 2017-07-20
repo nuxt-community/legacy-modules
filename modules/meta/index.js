@@ -45,7 +45,7 @@ module.exports = function nuxtMeta (_options) {
   // Favicon
   if (options.favicon === true) {
     options.favicon = options.icons && options.icons.length > 0 && options.icons[0].src
-    options.applefavicon = options.icons && options.icons.length > 0 && options.icons[3].src
+    options.applefavicon = options.favicon
   }
   if (options.favicon) {
     if (!find(this.options.head.link, 'rel', 'shortcut icon')) {
@@ -53,6 +53,11 @@ module.exports = function nuxtMeta (_options) {
     }
 
     if (!find(this.options.head.link, 'rel', 'apple-touch-icon')) {
+      options.icons.forEach(function(e) {
+        if (e.sizes === '152x152') {
+          options.applefavicon = e.src
+        }
+      })
       this.options.head.link.push({ rel: 'apple-touch-icon', href: options.applefavicon })
     }
   }
