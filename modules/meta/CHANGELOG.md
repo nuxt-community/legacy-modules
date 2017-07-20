@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.3.0"></a>
+# [1.3.0](https://github.com/nuxt/modules/compare/@nuxtjs/meta@1.2.1...@nuxtjs/meta@1.3.0) (2017-07-20)
+
+
+### Features
+
+* **icon:** applefavicon option (#76) ([280b416](https://github.com/nuxt/modules/commit/280b416))
+
+
+
+
 <a name="1.2.0"></a>
 # [1.2.0](https://github.com/nuxt/modules/compare/@nuxtjs/meta@1.1.0...@nuxtjs/meta@1.2.0) (2017-06-06)
 
