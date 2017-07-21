@@ -59,7 +59,7 @@ module.exports = function nuxtSitemap (moduleOptions) {
 
   if (options.generate) {
     // Generate static sitemap.xml
-    cache.get('routes')
+    return cache.get('routes')
       .then(routes => createSitemap(options, routes))
       .then(sitemap => sitemap.toXML())
       .then(xml => fs.writeFile(xmlGeneratePath, xml))
