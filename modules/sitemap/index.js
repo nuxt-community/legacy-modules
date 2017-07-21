@@ -55,7 +55,7 @@ module.exports = function nuxtSitemap (moduleOptions) {
   cache.get = pify(cache.get)
 
   // sitemap.xml is written to static dir on generate mode
-  const xmlGeneratePath = path.resolve(this.options.srcDir, 'static' + options.path)
+  const xmlGeneratePath = path.resolve(this.options.srcDir, path.join('static', options.path))
 
   if (options.generate) {
     // Generate static sitemap.xml
