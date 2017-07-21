@@ -4,7 +4,7 @@
 <p align="center">
   <a href="https://github.com/nuxt/nuxt-modules">
     <img src="https://img.shields.io/badge/Modules-Ready-green.svg?style=flat-square" alt="Modules">
-  </a> 
+  </a>
 </p>
 
 **🔥 Module Docs Coming Soon**
@@ -37,6 +37,7 @@
 - [cssnano](modules/cssnano)
 - [icon](modules/icon)
 - [proxy](modules/proxy)
+- [sitemap](modules/sitemap)
 
 ## License
 MIT License
