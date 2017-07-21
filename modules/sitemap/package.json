@@ -9,6 +9,7 @@
     "access": "public"
   },
   "dependencies": {
+    "minimatch": "^3.0.4",
     "sitemap": "^1.13.0"
   }
 }

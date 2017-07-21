@@ -1,3 +1,4 @@
+const Minimatch = require('minimatch').Minimatch
 const sm = require('sitemap')
 
 module.exports = function nuxtSitemap (options) {
@@ -5,6 +6,7 @@ module.exports = function nuxtSitemap (options) {
   const defaults = {
     path: '/sitemap.xml',
     hostname: null,
+    excludes: [],
     routes: []
   }
 
@@ -13,11 +15,26 @@ module.exports = function nuxtSitemap (options) {
 
   const nuxt = this.nuxt
 
+  let staticRoutes = []
+
+  // Extend build
+  this.extendBuild((config, { isClient, isServer }) => {
+    if (isClient) {
+      staticRoutes = nuxt.routes
+
+      // Exclude routes
+      sitemap.excludes.forEach(pattern => {
+        const minimatch = new Minimatch(pattern)
+        minimatch.negate = true
+        staticRoutes = staticRoutes.filter(route => minimatch.match(route))
+      })
+    }
+  })
+
   // Server Middleware
   this.addServerMiddleware({
     path: sitemap.path,
-    async handler (req, res, next) {
-
+    async handler (req, res) {
       let sitemapConfig = {}
 
       // Set sitemap hostname
@@ -30,7 +47,7 @@ module.exports = function nuxtSitemap (options) {
 
       // Set sitemap urls
       const generateRoutes = await nuxt.utils.promisifyRoute(sitemap.routes)
-      sitemapConfig.urls = nuxt.routes.concat(generateRoutes)
+      sitemapConfig.urls = staticRoutes.concat(generateRoutes)
 
       // Create & Stringify sitemap
       const sitemapSource = sm.createSitemap(sitemapConfig).toString()

@@ -16,6 +16,10 @@ Module based on the awesome [sitemap](https://github.com/ekalinin/sitemap.js) ‚ù
   sitemap: {
     path: '/sitemap.xml',
     hostname: 'https://example.com',
+    excludes: [
+      '/secret',
+      '/admin/**'
+    ]
     routes: [
       '/page/1',
       {
@@ -27,6 +31,8 @@ Module based on the awesome [sitemap](https://github.com/ekalinin/sitemap.js) ‚ù
     ]
   }
 ```
+
+The `excludes` parameter is an array of [glob patterns](https://github.com/isaacs/minimatch#features) to exclude static routes from the generated sitemap.
 
 The `routes` parameter follows the same way than the `generate` configuration:  https://nuxtjs.org/api/configuration-generate/
 
