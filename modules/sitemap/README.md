@@ -45,7 +45,7 @@ The `exclude` parameter is an array of [glob patterns](https://github.com/isaacs
 ### `routes`
 The `routes` parameter follows the same way than the `generate` [configuration](https://nuxtjs.org/api/configuration-generate).
    
-See as well the [#routes](routes) examples below.
+See as well the [routes](#routes-1) examples below.
 
 ### `path`
 - Default: `/sitemap.xml`
@@ -69,7 +69,7 @@ Generates static sitemap file during build/generate instead of serving using mid
 
 Defines how friequently should sitemap **routes** being updated.
 This option is only effective when `generate` is `false`.
-Pleae note that after each invalidation, `routes` will be evalouated again. (See [#routes](routes) section)
+Pleae note that after each invalidation, `routes` will be evalouated again. (See [routes](#routes-1) section)
 
 ## Routes
 
