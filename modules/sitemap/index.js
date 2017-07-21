@@ -1,59 +1,131 @@
-const Minimatch = require('minimatch').Minimatch
+const { Minimatch } = require('minimatch')
 const sm = require('sitemap')
+const isHTTPS = require('is-https')
+const { uniq } = require('lodash')
+const path = require('path')
+const fs = require('fs-extra')
+const AsyncCache = require('async-cache')
+const pify = require('pify')
+const { hostname } = require('os')
 
-module.exports = function nuxtSitemap (options) {
-  // Defaults
-  const defaults = {
-    path: '/sitemap.xml',
-    hostname: null,
-    excludes: [],
-    routes: []
-  }
+// Defaults
+const defaults = {
+  path: '/sitemap.xml',
+  hostname: null,
+  generate: false,
+  exclude: [],
+  routes: [],
+  cacheTime: 1000 * 60 * 15
+}
 
-  // Combine sources
-  const sitemap = Object.assign({}, defaults, this.options.sitemap, options)
+module.exports = function nuxtSitemap (moduleOptions) {
+  const options = Object.assign({}, defaults, this.options.sitemap, moduleOptions)
 
-  const nuxt = this.nuxt
+  // Static Routes
+  const staticRoutesPromise = new Promise((resolve, reject) => {
+    this.extendRoutes(routes => {
+      // Map to path
+      routes = routes.map(r => r.path)
 
-  let staticRoutes = []
-
-  // Extend build
-  this.extendBuild((config, { isClient, isServer }) => {
-    if (isClient) {
-      staticRoutes = nuxt.routes
-
-      // Exclude routes
-      sitemap.excludes.forEach(pattern => {
+      // Apply excludes
+      options.exclude.forEach(pattern => {
         const minimatch = new Minimatch(pattern)
         minimatch.negate = true
-        staticRoutes = staticRoutes.filter(route => minimatch.match(route))
+        routes = routes.filter(route => minimatch.match(route))
       })
-    }
+      resolve(routes)
+    })
   })
 
-  // Server Middleware
+  // Create a cache for routes
+  const cache = new AsyncCache({
+    maxAge: options.cacheTime,
+    load (_, callback) {
+      Promise.all([staticRoutesPromise, promisifyRoute(options.routes)])
+        .then(sources => Array.prototype.concat.apply([], sources))
+        .then(routes => uniq(routes))
+        .then(routes => {
+          callback(null, routes)
+        })
+        .catch(err => {
+          callback(err)
+        })
+    }
+  })
+  cache.get = pify(cache.get)
+
+  // sitemap.xml is written to static dir on generate mode
+  const xmlGeneratePath = path.resolve(this.options.srcDir, 'static' + options.path)
+
+  if (options.generate) {
+    // Generate static sitemap.xml
+    cache.get('routes')
+      .then(routes => createSitemap(options, routes))
+      .then(sitemap => sitemap.toXML())
+      .then(xml => fs.writeFile(xmlGeneratePath, xml))
+  }
+
+  // Ensure no generated file exists
+  fs.removeSync(xmlGeneratePath)
+
+  // Add server middleware
   this.addServerMiddleware({
-    path: sitemap.path,
-    async handler (req, res) {
-      let sitemapConfig = {}
-
-      // Set sitemap hostname
-      if (!sitemap.hostname) {
-        const protocol = req.headers['x-forwarded-proto'] || (req.connection.encrypted ? 'https' : 'http')
-        sitemapConfig.hostname = `${protocol}://${req.headers.host}/`
-      } else {
-        sitemapConfig.hostname = sitemap.hostname
-      }
-
-      // Set sitemap urls
-      const generateRoutes = await nuxt.utils.promisifyRoute(sitemap.routes)
-      sitemapConfig.urls = staticRoutes.concat(generateRoutes)
-
-      // Create & Stringify sitemap
-      const sitemapSource = sm.createSitemap(sitemapConfig).toString()
-
-      res.setHeader('Content-Type', 'application/xml')
-      res.end(sitemapSource)
+    path: options.path,
+    handler (req, res, next) {
+      cache.get('routes')
+        .then(routes => createSitemap(options, routes, req))
+        .then(sitemap => sitemap.toXML())
+        .then(xml => {
+          res.setHeader('Content-Type', 'application/xml')
+          res.end(xml)
+        }).catch(err => {
+          next(err)
+        })
     }
   })
+}
+
+// Initialize a fresh sitemap instance
+function createSitemap (options, routes, req) {
+  const sitemapConfig = {}
+
+  // Set sitemap hostname
+  sitemapConfig.hostname = options.hostname ||
+    (req && `${isHTTPS(req) ? 'https' : 'http'}://${req.headers.host}`) || `http://${hostname()}`
+
+  // Set urls and ensure they are unique
+  sitemapConfig.urls = uniq(routes)
+
+  // Set cacheTime
+  sitemapConfig.cacheTime = options.cacheTime || 0
+
+  // Create promisified instance and return
+  const sitemap = sm.createSitemap(sitemapConfig)
+  sitemap.toXML = pify(sitemap.toXML)
+
+  return sitemap
+}
+
+// Borrowed from nuxt/common/utils 
+function promisifyRoute (fn) {
+  // If routes is an array
+  if (Array.isArray(fn)) {
+    return Promise.resolve(fn)
+  }
+  // If routes is a function expecting a callback
+  if (fn.length === 1) {
+    return new Promise((resolve, reject) => {
+      fn(function (err, routeParams) {
+        if (err) {
+          reject(err)
+        }
+        resolve(routeParams)
+      })
+    })
+  }
+  let promise = fn()
+  if (!promise || (!(promise instanceof Promise) && (typeof promise.then !== 'function'))) {
+    promise = Promise.resolve(promise)
+  }
+  return promise
 }

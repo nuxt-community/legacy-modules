@@ -1,7 +1,8 @@
 # Sitemap
-Generate a [sitemap.xml](https://www.sitemaps.org/protocol.html) with no pain!
+[![npm](https://img.shields.io/npm/dt/@nuxtjs/sitemap.svg?style=flat-square)](https://www.npmjs.com/package/@nuxtjs/sitemap)
+[![npm (scoped with tag)](https://img.shields.io/npm/v/@nuxtjs/sitemap/latest.svg?style=flat-square)](https://www.npmjs.com/package/@nuxtjs/sitemap)
 
-Module based on the awesome [sitemap](https://github.com/ekalinin/sitemap.js) ❤️
+> Generate a [sitemap.xml](https://www.sitemaps.org/protocol.html) with no pain! Module based on the awesome [sitemap](https://github.com/ekalinin/sitemap.js) ❤️
 
 ## Setup
 - Add `@nuxtjs/sitemap` dependency using yarn or npm to your project
@@ -16,7 +17,7 @@ Module based on the awesome [sitemap](https://github.com/ekalinin/sitemap.js) �
   sitemap: {
     path: '/sitemap.xml',
     hostname: 'https://example.com',
-    excludes: [
+    exclude: [
       '/secret',
       '/admin/**'
     ]
@@ -32,11 +33,39 @@ Module based on the awesome [sitemap](https://github.com/ekalinin/sitemap.js) �
   }
 ```
 
-The `excludes` parameter is an array of [glob patterns](https://github.com/isaacs/minimatch#features) to exclude static routes from the generated sitemap.
+## Options
 
-The `routes` parameter follows the same way than the `generate` configuration:  https://nuxtjs.org/api/configuration-generate/
+### `exclude`
+The `exclude` parameter is an array of [glob patterns](https://github.com/isaacs/minimatch#features) to exclude static routes from the generated sitemap.
 
-See as well the routes examples bellow.
+### `routes`
+The `routes` parameter follows the same way than the `generate` [configuration](https://nuxtjs.org/api/configuration-generate).
+   
+See as well the [#routes](routes) examples below.
+
+### `path`
+- Default: `/sitemap.xml`
+
+Where serve/generate sitemap file
+
+### `hostname`
+- Default: 
+  - `hostname()` for generate mode
+  - Dynamically based on request url for middleware mode
+
+This values is **mondatory** for generation sitemap file, and you should explicitly provide it for generate mode.
+
+### `generate`
+- Default: `false`
+
+Generates static sitemap file during build/generate instead of serving using middleware.
+
+### `cacheTime`
+- Default: `1000 * 60 * 15` (15 Minutes)
+
+Defines how friequently should sitemap **routes** being updated.
+This option is only effective when `generate` is `false`.
+Pleae note that after each invalidation, `routes` will be evalouated again. (See [#routes](routes) section)
 
 ## Routes
 
@@ -75,13 +104,9 @@ const axios = require('axios')
 
 module.exports = {
   sitemap: {
-    routes: function () {
-      return axios.get('https://my-api/users')
-      .then((res) => {
-        return res.data.map((user) => {
-          return '/users/' + user.id
-        })
-      })
+    routes () {
+      return axios.get('https://jsonplaceholder.typicode.com/users')
+      .then(res => res.data.map(user =>  '/users/' + user.username))
     }
   }
 }
@@ -95,12 +120,10 @@ const axios = require('axios')
 
 module.exports = {
   sitemap: {
-    routes: function (callback) {
-      axios.get('https://my-api/users')
-      .then((res) => {
-        var routes = res.data.map((user) => {
-          return '/users/' + user.id
-        })
+    routes (callback) {
+      axios.get('https://jsonplaceholder.typicode.com/users')
+      .then(res => {
+        let routes = res.data.map(user => '/users/' + user.username)
         callback(null, routes)
       })
       .catch(callback)
@@ -108,3 +131,7 @@ module.exports = {
   }
 }
 ```
+
+### Contributors
+- [Nicolas PENNEC](https://github.com/NicoPennec)
+- [Pooya Parsa](https://github.com/pi0)

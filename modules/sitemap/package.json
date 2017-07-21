@@ -1,6 +1,6 @@
 {
   "name": "@nuxtjs/sitemap",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "license": "MIT",
   "main": "index.js",
   "repository": "https://github.com/nuxt/modules",
@@ -9,7 +9,12 @@
     "access": "public"
   },
   "dependencies": {
+    "async-cache": "^1.1.0",
+    "fs-extra": "^4.0.0",
+    "is-https": "^1.0.0",
+    "lodash": "^4.17.4",
     "minimatch": "^3.0.4",
+    "pify": "^3.0.0",
     "sitemap": "^1.13.0"
   }
 }
