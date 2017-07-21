@@ -9,17 +9,19 @@ module.exports = function nuxtMarkdownit (options) {
     options: _options
   }
 
-  this.options.build.loaders.push({
-    test: /\.md$/,
-    use: [
-      'raw-loader',
-      markDownItLoader
-    ]
-  })
-
-  this.extendBuild((config) => {
+  this.extendBuild(config => {
+    // Vue template support
     const vueLoader = config.module.rules.find(rule => rule.loader === 'vue-loader')
     vueLoader.query.loaders['md'] = markDownItLoader
+
+    // .md Loader
+    config.module.rules.push({
+      test: /\.md$/,
+      use: [
+        'raw-loader',
+        markDownItLoader
+      ]
+    })
   })
 }
 
