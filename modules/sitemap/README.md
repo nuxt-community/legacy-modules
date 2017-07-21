@@ -2,7 +2,9 @@
 [![npm](https://img.shields.io/npm/dt/@nuxtjs/sitemap.svg?style=flat-square)](https://www.npmjs.com/package/@nuxtjs/sitemap)
 [![npm (scoped with tag)](https://img.shields.io/npm/v/@nuxtjs/sitemap/latest.svg?style=flat-square)](https://www.npmjs.com/package/@nuxtjs/sitemap)
 
-> Generate a [sitemap.xml](https://www.sitemaps.org/protocol.html) with no pain! Module based on the awesome [sitemap](https://github.com/ekalinin/sitemap.js) ❤️
+> Automatically generate or serve dynamic [sitemap.xml](https://www.sitemaps.org/protocol.html) for Nuxt.js projects!
+
+Module based on the awesome [sitemap](https://github.com/ekalinin/sitemap.js) package ❤️
 
 ## Setup
 - Add `@nuxtjs/sitemap` dependency using yarn or npm to your project
@@ -17,6 +19,8 @@
   sitemap: {
     path: '/sitemap.xml',
     hostname: 'https://example.com',
+    cacheTime: 1000 * 60 * 15,
+    generate: false, // Enable me when using nuxt generate
     exclude: [
       '/secret',
       '/admin/**'
@@ -79,8 +83,6 @@ Example:
 ---| users/
 -----| _id.vue
 ```
-
-Only the route `/` will be added to sitemap by the module.
 
 If you want the module to add routes with dynamic params, you need to set an array of dynamic routes.
 
