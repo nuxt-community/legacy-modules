@@ -24,8 +24,8 @@ module.exports = function nuxtSitemap (moduleOptions) {
   // Static Routes
   const staticRoutesPromise = new Promise((resolve, reject) => {
     this.extendRoutes(routes => {
-      // Map to path
-      routes = routes.map(r => r.path)
+      // Map to path and filter dynamic routes
+      routes = routes.map(r => r.path).filter(r => r.indexOf(':') === -1)
 
       // Apply excludes
       options.exclude.forEach(pattern => {
@@ -59,10 +59,12 @@ module.exports = function nuxtSitemap (moduleOptions) {
 
   if (options.generate) {
     // Generate static sitemap.xml
-    return cache.get('routes')
+    cache.get('routes')
       .then(routes => createSitemap(options, routes))
       .then(sitemap => sitemap.toXML())
       .then(xml => fs.writeFile(xmlGeneratePath, xml))
+
+    return
   }
 
   // Ensure no generated file exists
