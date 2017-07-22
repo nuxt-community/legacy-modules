@@ -2,7 +2,7 @@ const _ = require('lodash')
 const path = require('path')
 const defaults = {
   id: null,
-  layer: null,
+  layer: 'dataLayer',
   env: {
     gtm_auth: null,
     gtm_preview: null,
