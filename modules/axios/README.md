@@ -136,6 +136,15 @@ In SSR context, sets client request header as axios default request headers.
 This is useful for making requests which need cookie based auth on server side.
 Also helps making consistent requests in both SSR and Client Side code.
 
+### `handleErrors`
+- Default: `true`
+
+Adds an interceptor which will `statusCode` and `message` keys to the `error` object 
+and redirects 401 statuses to `/login`. In SSR context the handler will not reject the promise
+and therefore you cannot add your own interceptors. In those circumstances, or if you do not want
+this default behaviour, you can set this to `false` to disable this interceptor.
+
+
 ## Helpers
 ### `setHeader(name, value, scopes='common')`
 Axios instance has a helper to easily set any header.
