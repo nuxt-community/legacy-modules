@@ -7,7 +7,7 @@
 - Automatically set base URL for client & server side
 - Injects `$get`,`$post`,... into vue context instances so requests can be done easily.
 - Exposes `setToken` function to `$axios` so we can easily and globally set authentication tokens.
-- Throws *nuxt-friendly* exceptions and prevent SSR crashes.
+- Throws *nuxt-friendly* errors and optionally redirect on specific error codes.
 - Automatically enables `withCredentials` when requesting to base URL.
 - Proxy request headers in SSR.
 
@@ -136,14 +136,20 @@ In SSR context, sets client request header as axios default request headers.
 This is useful for making requests which need cookie based auth on server side.
 Also helps making consistent requests in both SSR and Client Side code.
 
-### `handleErrors`
-- Default: `true`
+### `redirectError`
+- Default: `{}`
 
-Adds an interceptor which will `statusCode` and `message` keys to the `error` object 
-and redirects 401 statuses to `/login`. In SSR context the handler will not reject the promise
-and therefore you cannot add your own interceptors. In those circumstances, or if you do not want
-this default behaviour, you can set this to `false` to disable this interceptor.
-
+This option is a map from specific error codes to page which they should be redirect.
+For example if you want redirecting all `401` errors to `/login` use:
+```js
+{
+  axios: {
+    redirectError: {
+      401: '/login'
+    }
+  }
+}
+```
 
 ## Helpers
 ### `setHeader(name, value, scopes='common')`

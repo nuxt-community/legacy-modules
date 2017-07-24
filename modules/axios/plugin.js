@@ -70,12 +70,15 @@ function setToken (token, type, scopes = 'common') {
     this.setHeader('Authorization', value, scopes)
 }
 
-// Nuxt friendly error handler
+const redirectError = <%= serialize(options.redirectError) %>
+
+// Set appreciate `statusCode` and `message` to error instance
 function errorHandler(error) {
   if (error.response) {
     // Error from backend (non 2xx status code)
-    if (error.response.status === 401) {
-      return this.redirect('/login')
+    // ...Auto redirect on special status codes
+    if (redirectError[error.response.status]) {
+      this.redirect(redirectError[error.response.status])
     }
     error.statusCode = error.statusCode || parseInt(error.response.status) || 500
     error.message = error.message || error.response.statusText || (error.statusCode + ' (Internal Server Error)')
@@ -88,18 +91,11 @@ function errorHandler(error) {
     error.statusCode = 500
     error.message = error.message || 'axios error'
   }
-  // Display error page on unhandled promises
-  if(process.browser) {
-    return Promise.reject(error)
-  } else {
-    // Don't throw unhandled promises in SSR context
-    return this.app._nuxt.error.call({$options: this.app}, {
-      message: error.message,
-      statusCode: error.statusCode
-    })
-  }
+
+  return Promise.reject(error)
 }
 
+<% if(options.debug) { %>
 function debug(level, messages) {
   if (!(console[level] instanceof Function)) {
     level = 'info'
@@ -117,19 +113,28 @@ function debug(level, messages) {
     }
   }
 }
+<% } %>
+
+// Setup BaseURL
+const baseURL = process.browser
+  ? (process.env.API_URL_BROWSER || '<%= options.browserBaseURL %>')
+  : (process.env.API_URL || '<%= options.baseURL %>')
 
 export default (ctx) => {
   const { app, store, req } = ctx
 
-  // Create new axios instance
-  const baseURL = process.browser
-    ? (process.env.API_URL_BROWSER || '<%= options.browserBaseURL %>')
-    : (process.env.API_URL || '<%= options.baseURL %>')
+  <% if(options.proxyHeaders) { %>
+  // Default headers 
+  const defaultHeaders = (req && req.headers) ? Object.assign({}, req.headers) : {}
+  delete defaultHeaders.host
+  <% } %>
 
+  // Create new axios instance
   const axios = Axios.create({
     baseURL,
-    <% if(options.proxyHeaders) { %>headers: (req && req.headers) ? Object.assign({}, req.headers, {host: ''}) : {} <% } %>
+    <% if(options.proxyHeaders) { %>defaultHeaders,<% } %>
   })
+
   <% if(options.credentials) { %>
   // Send credentials only to relative and API Backend requests
   axios.interceptors.request.use(config => {
@@ -143,6 +148,7 @@ export default (ctx) => {
   <% } %>
 
   <% if(options.debug) { %>
+  // Debug
   axios.interceptors.request.use(config => {
     debug('[@nuxtjs/axios] Request:', config)
     return config
@@ -160,18 +166,16 @@ export default (ctx) => {
   <% } %>
 
   // Error handler
-  <% if(options.handleErrors) { %>
-    axios.interceptors.response.use(undefined, errorHandler.bind(ctx));
-  <% } %>
+  axios.interceptors.response.use(undefined, errorHandler.bind(ctx));
 
   // Make accessible using *.$axios
   app.$axios = axios
   ctx.$axios = axios
-  if(store) {
+  if (store) {
     store.$axios = axios
   }
 
-  // token helper for authentication
+  // Token helper for authentication
   axios.setToken = setToken.bind(axios)
   axios.setHeader = setHeader.bind(axios)
 }

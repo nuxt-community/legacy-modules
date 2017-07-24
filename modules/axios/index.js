@@ -17,7 +17,7 @@ module.exports = function nuxtAxios (moduleOptions) {
     credentials: true,
     proxyHeaders: true,
     debug: false,
-    handleErrors: true
+    redirectError: {}
   }
 
   const options = Object.assign({}, defaults, this.options.axios, moduleOptions)
