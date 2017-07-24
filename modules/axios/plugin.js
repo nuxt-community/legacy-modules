@@ -160,7 +160,9 @@ export default (ctx) => {
   <% } %>
 
   // Error handler
-  axios.interceptors.response.use(undefined, errorHandler.bind(ctx));
+  <% if(options.handleErrors) { %>
+    axios.interceptors.response.use(undefined, errorHandler.bind(ctx));
+  <% } %>
 
   // Make accessible using *.$axios
   app.$axios = axios
