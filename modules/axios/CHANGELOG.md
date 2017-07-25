@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="3.0.1"></a>
+## [3.0.1](https://github.com/nuxt/modules/compare/@nuxtjs/axios@3.0.0...@nuxtjs/axios@3.0.1) (2017-07-25)
+
+
+### Bug Fixes
+
+* **axios:** typo in default headers ([9697559](https://github.com/nuxt/modules/commit/9697559))
+
+
+
+
 <a name="3.0.0"></a>
 # [3.0.0](https://github.com/nuxt/modules/compare/@nuxtjs/axios@2.3.0...@nuxtjs/axios@3.0.0) (2017-07-25)
 
