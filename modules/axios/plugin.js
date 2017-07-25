@@ -15,36 +15,6 @@ const axiosPlugin = {
         }
       })
     }
-
-    // Vue Component Mixins
-    Vue.mixin({
-      methods: {
-        // opts
-        $request (opts) {
-          return this.$axios.request(opts);
-        },
-        // url, opts
-        $get (url, opts) {
-          return this.$axios.get(url, opts);
-        },
-        $delete (url, opts) {
-          return this.$axios.delete(url, opts);
-        },
-        $head (url, opts) {
-          return this.$axios.head(url, opts);
-        },
-        // url, data, opts
-        $post (url, data, opts) {
-          return this.$axios.post(url, data, opts);
-        },
-        $put (url, data, opts) {
-          return this.$axios.put(url, data, opts);
-        },
-        $patch (url, data, opts) {
-          return this.$axios.patch(url, data, opts);
-        }
-      }
-    })
   }
 }
 
@@ -124,7 +94,7 @@ export default (ctx) => {
   const { app, store, req } = ctx
 
   <% if(options.proxyHeaders) { %>
-  // Default headers 
+  // Default headers
   const defaultHeaders = (req && req.headers) ? Object.assign({}, req.headers) : {}
   delete defaultHeaders.host
   <% } %>
