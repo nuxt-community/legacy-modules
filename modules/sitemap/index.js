@@ -21,54 +21,64 @@ const defaults = {
 module.exports = function nuxtSitemap (moduleOptions) {
   const options = Object.assign({}, defaults, this.options.sitemap, moduleOptions)
 
-  // Static Routes
-  const staticRoutesPromise = new Promise((resolve, reject) => {
-    this.extendRoutes(routes => {
-      // Map to path and filter dynamic routes
-      routes = routes.map(r => r.path).filter(r => r.indexOf(':') === -1)
-
-      // Apply excludes
-      options.exclude.forEach(pattern => {
-        const minimatch = new Minimatch(pattern)
-        minimatch.negate = true
-        routes = routes.filter(route => minimatch.match(route))
-      })
-      resolve(routes)
-    })
-  })
-
-  // Create a cache for routes
-  const cache = new AsyncCache({
-    maxAge: options.cacheTime,
-    load (_, callback) {
-      Promise.all([staticRoutesPromise, promisifyRoute(options.routes)])
-        .then(sources => Array.prototype.concat.apply([], sources))
-        .then(routes => uniq(routes))
-        .then(routes => {
-          callback(null, routes)
-        })
-        .catch(err => {
-          callback(err)
-        })
-    }
-  })
-  cache.get = pify(cache.get)
+  // sitemap-routes.json is written to dist dir on build mode
+  const jsonStaticRoutesPath = path.resolve(this.options.buildDir, path.join('dist', 'sitemap-routes.json'))
 
   // sitemap.xml is written to static dir on generate mode
   const xmlGeneratePath = path.resolve(this.options.srcDir, path.join('static', options.path))
 
-  if (options.generate) {
-    // Generate static sitemap.xml
-    cache.get('routes')
-      .then(routes => createSitemap(options, routes))
-      .then(sitemap => sitemap.toXML())
-      .then(xml => fs.writeFile(xmlGeneratePath, xml))
-
-    return
-  }
-
   // Ensure no generated file exists
   fs.removeSync(xmlGeneratePath)
+
+  let staticRoutes = fs.readJsonSync(jsonStaticRoutesPath, { throws: false })
+  let cache = null;
+
+  // TODO find a better way to detect if is a "build", "start" or "generate" command
+  // on "start" cmd only
+  if (staticRoutes && !this.options.dev) {
+    // Create a cache for routes
+    cache = createCache(staticRoutes, options);
+    // Hydrate cache
+    cache.get('routes')
+  }
+
+  // Extend build
+  this.extendBuild((config, { isClient, isServer }) => {
+    if (isClient) {
+      let staticRoutes = this.nuxt.routes
+
+      // Exclude routes
+      options.exclude.forEach(pattern => {
+        const minimatch = new Minimatch(pattern)
+        minimatch.negate = true
+        staticRoutes = staticRoutes.filter(route => minimatch.match(route))
+      })
+
+      if (this.options.dev || options.generate) {
+        // Create a cache for routes
+        cache = createCache(staticRoutes, options);
+      }
+
+      if (!this.options.dev) {
+
+        // TODO on build process only
+        // Save static routes
+        fs.ensureDirSync(path.resolve(this.options.buildDir, 'dist'))
+        fs.writeJsonSync(jsonStaticRoutesPath, staticRoutes)
+
+        // TODO on generate process only and not build process
+        if (options.generate) {
+          // Generate static sitemap.xml
+          cache.get('routes')
+            .then(routes => createSitemap(options, routes))
+            .then(sitemap => sitemap.toXML())
+            .then(xml => fs.writeFile(xmlGeneratePath, xml))
+
+          return
+        }
+      }
+    }
+  })
 
   // Add server middleware
   this.addServerMiddleware({
@@ -85,6 +95,27 @@ module.exports = function nuxtSitemap (moduleOptions) {
         })
     }
   })
+}
+
+// Initialize a AsyncCache instance for
+function createCache (staticRoutes, options) {
+  let cache = new AsyncCache({
+    maxAge: options.cacheTime,
+    load (_, callback) {
+      promisifyRoute(options.routes)
+        .then(routes => staticRoutes.concat(routes))
+        .then(routes => uniq(routes))
+        .then(routes => {
+          callback(null, routes)
+        })
+        .catch(err => {
+          callback(err)
+        })
+    }
+  })
+  cache.get = pify(cache.get)
+
+  return cache
 }
 
 // Initialize a fresh sitemap instance
@@ -108,7 +139,7 @@ function createSitemap (options, routes, req) {
   return sitemap
 }
 
-// Borrowed from nuxt/common/utils 
+// Borrowed from nuxt/common/utils
 function promisifyRoute (fn) {
   // If routes is an array
   if (Array.isArray(fn)) {
