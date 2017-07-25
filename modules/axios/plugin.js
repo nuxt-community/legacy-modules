@@ -102,7 +102,7 @@ export default (ctx) => {
   // Create new axios instance
   const axios = Axios.create({
     baseURL,
-    <% if(options.proxyHeaders) { %>defaultHeaders,<% } %>
+    <% if(options.proxyHeaders) { %>headers: defaultHeaders,<% } %>
   })
 
   <% if(options.credentials) { %>
