@@ -74,6 +74,22 @@ export default {
 }
 ```
 
+### Store Options
+If you want your configuration in the server and the browser side at the same time take effect.
+
+```js
+// In store/axios.js
+export const state = () => {
+  return {
+    timeout: 1000,
+    headers: {
+      Authorization: '__TOKEN__'
+    },
+    // ... All axios configuration.
+  }
+}
+```
+
 ## Options
 You can pass options using module options or `axios` section in  `nuxt.config.js`
 
@@ -92,6 +108,11 @@ You can also use environment variable `API_URL_BROWSER` which **overrides** `bro
 - If `browserBaseURL` is not provided it defaults to `baseURL` value.
   - If hostname & port of `browserbaseURL` are equal to nuxt server, it defaults to relative part of `baseURL`.
     So if your nuxt application is being accessed under a different domain, requests go to same origin and prevents Cross-Origin problems.
+
+### `storeName`
+- Default: `axios`
+
+Use store to set axios options, store name.
 
 ### `credentials`
 - Default: `true`

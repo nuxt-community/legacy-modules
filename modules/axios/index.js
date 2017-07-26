@@ -16,6 +16,7 @@ module.exports = function nuxtAxios (moduleOptions) {
     browserBaseURL: null,
     credentials: true,
     proxyHeaders: true,
+    storeName: 'axios',
     debug: false,
     redirectError: {}
   }
