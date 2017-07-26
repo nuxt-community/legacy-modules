@@ -31,21 +31,22 @@ module.exports = function nuxtWorkbox (options) {
     cacheId: process.env.npm_package_name + '_' + process.env.npm_package_version,
     clientsClaim: true,
     globPatterns: ['**\/*.{js,css,html,json}'],
+    globIgnores: '**/server-bundle.json',
     modifyUrlPrefix: {
       '': fixUrl(publicPath)
     },
     runtimeCaching: [
+      // Cache routes if offline
+      {
+        urlPattern: fixUrl(routerBase + '/**'),
+        handler: 'networkFirst'
+      },
       // Cache other _nuxt resources runtime
       // They are hashed by webpack so are safe to loaded by cacheFirst handler
       {
         urlPattern: fixUrl(publicPath + '/**'),
         handler: 'cacheFirst'
       },
-      // Cache routes if offline
-      {
-        urlPattern: fixUrl(routerBase + '/**'),
-        handler: 'networkFirst'
-      }
     ]
   }, options)))
 
