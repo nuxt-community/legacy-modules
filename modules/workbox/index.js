@@ -31,6 +31,7 @@ module.exports = function nuxtWorkbox (options) {
     cacheId: process.env.npm_package_name + '_' + process.env.npm_package_version,
     clientsClaim: true,
     globPatterns: ['**\/*.{js,css,html,json}'],
+    globIgnores: '**/server-bundle.json',
     modifyUrlPrefix: {
       '': fixUrl(publicPath)
     },
