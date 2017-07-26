@@ -36,17 +36,17 @@ module.exports = function nuxtWorkbox (options) {
       '': fixUrl(publicPath)
     },
     runtimeCaching: [
+      // Cache routes if offline
+      {
+        urlPattern: fixUrl(routerBase + '/**'),
+        handler: 'networkFirst'
+      },
       // Cache other _nuxt resources runtime
       // They are hashed by webpack so are safe to loaded by cacheFirst handler
       {
         urlPattern: fixUrl(publicPath + '/**'),
         handler: 'cacheFirst'
       },
-      // Cache routes if offline
-      {
-        urlPattern: fixUrl(routerBase + '/**'),
-        handler: 'networkFirst'
-      }
     ]
   }, options)))
 
