@@ -85,6 +85,13 @@ function debug(level, messages) {
 }
 <% } %>
 
+function isEmptyObject(e) {
+  let t;
+  for (t in e)
+    return !1;
+  return !0
+}
+
 // Setup BaseURL
 const baseURL = process.browser
   ? (process.env.API_URL_BROWSER || '<%= options.browserBaseURL %>')
@@ -93,17 +100,21 @@ const baseURL = process.browser
 export default (ctx) => {
   const { app, store, req } = ctx
 
+  let defaultHeaders = {}
+
   <% if(options.proxyHeaders) { %>
   // Default headers
-  const defaultHeaders = (req && req.headers) ? Object.assign({}, req.headers) : {}
+  defaultHeaders = (req && req.headers) ? Object.assign({}, req.headers) : {}
   delete defaultHeaders.host
   <% } %>
 
   // Create new axios instance
-  const axios = Axios.create({
-    baseURL,
-    <% if(options.proxyHeaders) { %>headers: defaultHeaders,<% } %>
-  })
+  const storeOptions = store.state['<%= options.storeName %>']
+  defaultHeaders = Object.assign({}, storeOptions.headers || {}, defaultHeaders)
+  const options = Object.assign({}, {
+    baseURL
+  }, storeOptions, (isEmptyObject(defaultHeaders) ? {} : {headers: defaultHeaders}))
+  const axios = Axios.create(options)
 
   <% if(options.credentials) { %>
   // Send credentials only to relative and API Backend requests
