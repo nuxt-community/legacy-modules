@@ -1,0 +1,14 @@
+{
+  "name": "@nuxtjs/plugin-utils",
+  "version": "0.1.0",
+  "license": "MIT",
+  "main": "index.js",
+  "repository": "https://github.com/nuxt/modules",
+  "homepage": "https://github.com/nuxt/modules/tree/master/modules/plugin-utils",
+  "publishConfig": {
+    "access": "public"
+  },
+  "devDependencies": {
+    "debug": "^2.6.8"
+  }
+}
