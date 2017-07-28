@@ -1,0 +1,14 @@
+{
+  "name": "@nuxtjs/vuetify",
+  "version": "1.0.0",
+  "license": "MIT",
+  "main": "index.js",
+  "repository": "https://github.com/nuxt/modules",
+  "homepage": "https://github.com/nuxt/modules/tree/master/modules/vuetify",
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "vuetify": "^0.14.5"
+  }
+}

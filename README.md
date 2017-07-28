@@ -38,6 +38,7 @@
 - [icon](modules/icon)
 - [proxy](modules/proxy)
 - [sitemap](modules/sitemap)
+- [vuetify](modules/vuetify)
 
 ## License
 MIT License
