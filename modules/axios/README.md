@@ -193,6 +193,9 @@ this.$axios.setToken('123', 'Bearer', ['post', 'delete'])
 // Removes default Authorization header from `common` scope (all requests)
 this.$axios.setToken(false)
 ```
+### Warning
+Please keep in mind that axios instance is shared on the server side. DO NOT set token or any other user related headers in the SSR phase
+(like nuxtServerInit). If you set user related headers always check context `isClient` argument.
 
 ## Dynamic API Backend
 Please notice that, `API_URL` is saved into bundle on build, CANNOT be changed
