@@ -130,10 +130,10 @@ For example if you want redirecting all `401` errors to `/login` use:
 - Default: `null`
 
 Function for manipulating axios requests. Useful for setting custom headers,
-for example based on the store state
+for example based on the store state. The second argument is the nuxt context.
 
 ```js
-requestInterceptor: (config, store) => {
+requestInterceptor: (config, { store }) => {
   if (store.state.token) {
     config.headers.common['Authorization'] = store.state.token
   }
