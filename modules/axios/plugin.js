@@ -135,6 +135,15 @@ export default (ctx) => {
   });
   <% } %>
 
+  <% if (options.requestInterceptor) { %>
+  // Custom request interceptor
+  const reqInter = <%= options.requestInterceptor %>
+  axios.interceptors.request.use(
+    (config) => reqInter(config, store),
+    (error) => Promise.reject(error)
+  )
+  <% } %>
+
   // Error handler
   axios.interceptors.response.use(undefined, errorHandler.bind(ctx));
 
