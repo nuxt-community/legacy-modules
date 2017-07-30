@@ -134,7 +134,7 @@ for example based on the store state
 
 ```js
 requestInterceptor: (config, store) => {
-  if (store.state.userId) {
+  if (store.state.token) {
     config.headers.common['Authorization'] = store.state.token
   }
   return config
