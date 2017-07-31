@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="3.1.0"></a>
+# [3.1.0](https://github.com/nuxt/modules/compare/@nuxtjs/axios@3.0.1...@nuxtjs/axios@3.1.0) (2017-07-31)
+
+
+### Features
+
+* **axios:** requestInterceptor option (#100) ([fec7a9e](https://github.com/nuxt/modules/commit/fec7a9e))
+
+
+
+
 <a name="3.0.1"></a>
 ## [3.0.1](https://github.com/nuxt/modules/compare/@nuxtjs/axios@3.0.0...@nuxtjs/axios@3.0.1) (2017-07-25)
 
