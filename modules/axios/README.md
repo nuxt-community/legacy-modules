@@ -169,6 +169,9 @@ this.$axios.setHeader('Content-Type', false, ['post'])
 ### `setToken(token, type, scopes='common')`
 Axios instance has an additional helper to easily set global authentication header.
 
+Please keep in mind that axios instance is shared on the server side. Do not call `$axios.setToken` on SSR phase 
+unless you know what you are doing.
+
 Parameters:
 - **token**: Authorization token
 - **type**: Authorization token prefix(Usually `Bearer`).
@@ -193,7 +196,6 @@ this.$axios.setToken('123', 'Bearer', ['post', 'delete'])
 // Removes default Authorization header from `common` scope (all requests)
 this.$axios.setToken(false)
 ```
-
 ## Dynamic API Backend
 Please notice that, `API_URL` is saved into bundle on build, CANNOT be changed
 on runtime! You may use [proxy](../proxy) module for dynamically route api requests to different backend on test/staging/production.
