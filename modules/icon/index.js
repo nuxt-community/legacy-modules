@@ -19,6 +19,13 @@ module.exports = function nuxtIcon (options) {
     }
   }
 
+  // Ensure icon file exists
+  if (!fs.existsSync(iconSrc)) {
+    /* eslint-disable no-console */
+    console.warn('[@nuxtjs/icon]', path.relative(this.options.srcDir, iconSrc), 'not found! Please create one or disable icon module.')
+    return
+  }
+
   return Jimp.read(iconSrc).then(srcIcon => {
     // get base64 phash of source image
     const hash = srcIcon.hash()
