@@ -30,8 +30,7 @@ module.exports = function nuxtWorkbox (options) {
     directoryIndex: '/',
     cacheId: process.env.npm_package_name + '_' + process.env.npm_package_version,
     clientsClaim: true,
-    globPatterns: ['**\/*.{js,css,html,json}'],
-    globIgnores: '**/server-bundle.json',
+    globPatterns: ['**\/*.{js,css}'],
     modifyUrlPrefix: {
       '': fixUrl(publicPath)
     },
@@ -46,7 +45,7 @@ module.exports = function nuxtWorkbox (options) {
       {
         urlPattern: fixUrl(publicPath + '/**'),
         handler: 'cacheFirst'
-      },
+      }
     ]
   }, options)))
 
