@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.1.3"></a>
+## [1.1.3](https://github.com/nuxt/modules/compare/@nuxtjs/workbox@1.1.2...@nuxtjs/workbox@1.1.3) (2017-08-02)
+
+
+### Bug Fixes
+
+* **workbox:** only cach css and js files ([42e3edb](https://github.com/nuxt/modules/commit/42e3edb))
+
+
+
+
 <a name="1.1.2"></a>
 ## [1.1.2](https://github.com/nuxt/modules/compare/@nuxtjs/workbox@1.1.1...@nuxtjs/workbox@1.1.2) (2017-07-31)
 
