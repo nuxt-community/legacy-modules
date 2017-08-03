@@ -1,7 +1,7 @@
 const { Minimatch } = require('minimatch')
 const sm = require('sitemap')
 const isHTTPS = require('is-https')
-const { uniq } = require('lodash')
+const { union, uniq } = require('lodash')
 const path = require('path')
 const fs = require('fs-extra')
 const AsyncCache = require('async-cache')
@@ -42,40 +42,41 @@ module.exports = function nuxtSitemap (moduleOptions) {
     cache.get('routes')
   }
 
-  // Extend build
-  this.extendBuild((config, { isClient, isServer }) => {
-    if (isClient) {
-      let staticRoutes = this.nuxt.routes
+  // Extend routes
+  this.extendRoutes(routes => {
+    // Map to path and filter dynamic routes
+    let staticRoutes = routes
+      .map(r => r.path)
+      .filter(r => !r.includes(':') && !r.includes('*'))
 
-      // Exclude routes
-      options.exclude.forEach(pattern => {
-        const minimatch = new Minimatch(pattern)
-        minimatch.negate = true
-        staticRoutes = staticRoutes.filter(route => minimatch.match(route))
-      })
+    // Exclude routes
+    options.exclude.forEach(pattern => {
+      const minimatch = new Minimatch(pattern)
+      minimatch.negate = true
+      staticRoutes = staticRoutes.filter(route => minimatch.match(route))
+    })
 
-      if (this.options.dev || options.generate) {
-        // Create a cache for routes
-        cache = createCache(staticRoutes, options);
-      }
+    if (this.options.dev || options.generate) {
+      // Create a cache for routes
+      cache = createCache(staticRoutes, options);
+    }
 
-      if (!this.options.dev) {
+    if (!this.options.dev) {
 
-        // TODO on build process only
-        // Save static routes
-        fs.ensureDirSync(path.resolve(this.options.buildDir, 'dist'))
-        fs.writeJsonSync(jsonStaticRoutesPath, staticRoutes)
+      // TODO on build process only
+      // Save static routes
+      fs.ensureDirSync(path.resolve(this.options.buildDir, 'dist'))
+      fs.writeJsonSync(jsonStaticRoutesPath, staticRoutes)
 
-        // TODO on generate process only and not build process
-        if (options.generate) {
-          // Generate static sitemap.xml
-          cache.get('routes')
-            .then(routes => createSitemap(options, routes))
-            .then(sitemap => sitemap.toXML())
-            .then(xml => fs.writeFile(xmlGeneratePath, xml))
+      // TODO on generate process only and not on build process
+      if (options.generate) {
+        // Generate static sitemap.xml
+        cache.get('routes')
+          .then(routes => createSitemap(options, routes))
+          .then(sitemap => sitemap.toXML())
+          .then(xml => fs.writeFile(xmlGeneratePath, xml))
 
-          return
-        }
+        return
       }
     }
   })
@@ -103,8 +104,7 @@ function createCache (staticRoutes, options) {
     maxAge: options.cacheTime,
     load (_, callback) {
       promisifyRoute(options.routes)
-        .then(routes => staticRoutes.concat(routes))
-        .then(routes => uniq(routes))
+        .then(routes => union(staticRoutes, routes))
         .then(routes => {
           callback(null, routes)
         })
