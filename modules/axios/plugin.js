@@ -137,7 +137,7 @@ export default (ctx) => {
 
   <% if (options.requestInterceptor) { %>
   // Custom request interceptor
-  const reqInter = <%= serialize(options.requestInterceptor).replace('requestInterceptor(', 'function(') %>
+    const reqInter = <%= serialize(options.requestInterceptor).replace('requestInterceptor(', 'function(').replace('function function', 'function') %>
   axios.interceptors.request.use(
     (config) => reqInter(config, ctx)
   )
