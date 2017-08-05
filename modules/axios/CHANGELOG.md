@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="3.1.2"></a>
+## [3.1.2](https://github.com/nuxt/modules/compare/@nuxtjs/axios@3.1.0...@nuxtjs/axios@3.1.2) (2017-08-05)
+
+
+### Bug Fixes
+
+* **axios:** fix requestInterceptor serialization with babel (#108) ([d62946a](https://github.com/nuxt/modules/commit/d62946a)), closes [#108](https://github.com/nuxt/modules/issues/108)
+
+
+
+
 <a name="3.1.0"></a>
 # [3.1.0](https://github.com/nuxt/modules/compare/@nuxtjs/axios@3.0.1...@nuxtjs/axios@3.1.0) (2017-07-31)
 
