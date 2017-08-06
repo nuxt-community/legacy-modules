@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.1.4"></a>
+## [1.1.4](https://github.com/nuxt/modules/compare/@nuxtjs/workbox@1.1.3...@nuxtjs/workbox@1.1.4) (2017-08-06)
+
+
+### Bug Fixes
+
+* **workbox:** correct serviceworker check (#109) ([53897f1](https://github.com/nuxt/modules/commit/53897f1))
+
+
+
+
 <a name="1.1.3"></a>
 ## [1.1.3](https://github.com/nuxt/modules/compare/@nuxtjs/workbox@1.1.2...@nuxtjs/workbox@1.1.3) (2017-08-02)
 
