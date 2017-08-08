@@ -1,5 +1,7 @@
 # 📦 Nuxt Modules
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/nuxt-community/modules.svg)](https://greenkeeper.io/)
+
 <p align="center"><img align="center" src="http://imgur.com/V4LtoII.png"/></p>
 <p align="center">
   <a href="https://github.com/nuxt/nuxt-modules">
