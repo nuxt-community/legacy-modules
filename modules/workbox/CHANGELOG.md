@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.1.6"></a>
+## [1.1.6](https://github.com/nuxt/modules/compare/@nuxtjs/workbox@1.1.5...@nuxtjs/workbox@1.1.6) (2017-08-11)
+
+
+### Bug Fixes
+
+* **workbox:** fix globDirectory ([db6588f](https://github.com/nuxt/modules/commit/db6588f))
+
+
+
+
 <a name="1.1.5"></a>
 ## [1.1.5](https://github.com/nuxt/modules/compare/@nuxtjs/workbox@1.1.4...@nuxtjs/workbox@1.1.5) (2017-08-11)
 
