@@ -31,7 +31,7 @@ module.exports = function nuxtWorkbox (options) {
     cacheId: process.env.npm_package_name + '_' + process.env.npm_package_version,
     clientsClaim: true,
     globPatterns: ['**\/*.{js,css}'],
-    globDirectory: this.options.rootDir,
+    globDirectory: path.resolve(this.options.buildDir, 'dist'),
     modifyUrlPrefix: {
       '': fixUrl(publicPath)
     },
