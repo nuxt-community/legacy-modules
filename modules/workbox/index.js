@@ -1,5 +1,5 @@
 const path = require('path')
-const workboxPlugin = require('workbox-webpack-plugin')
+const WorkboxPlugin = require('workbox-webpack-plugin')
 
 const fixUrl = url => url.replace(/\/\//g, '/').replace(':/', '://')
 const isUrl = url => url.indexOf('http') === 0 || url.indexOf('//') === 0
@@ -25,12 +25,13 @@ module.exports = function nuxtWorkbox (options) {
   // We set dest to static dir that is served as / to allow global sw scope
   // https://workboxjs.org/reference-docs/latest/module-workbox-build.html#.generateSW
 
-  this.options.build.plugins.push(new workboxPlugin(Object.assign({
+  this.options.build.plugins.push(new WorkboxPlugin(Object.assign({
     swDest: path.resolve(this.options.srcDir, 'static', swFileName),
     directoryIndex: '/',
     cacheId: process.env.npm_package_name + '_' + process.env.npm_package_version,
     clientsClaim: true,
     globPatterns: ['**\/*.{js,css}'],
+    globDirectory: this.options.rootDir,
     modifyUrlPrefix: {
       '': fixUrl(publicPath)
     },
