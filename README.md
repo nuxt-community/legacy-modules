@@ -14,7 +14,7 @@
 - [optimize](modules/optimize)
 
 ## Modules
-- [axios](modules/axios)
+- [axios](https://github.com/nuxt-community/axios-module)
 - [bootstrap](modules/bootstrap-vue)
 - [bulma](modules/bulma)
 - [toast](modules/toast)
