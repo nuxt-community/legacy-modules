@@ -1,6 +1,6 @@
 try {
   (w[c] = w[c] || []).push(function() {
-    window['yaCounter<%= options.id %>'] = new Ya.Metrika(<%= options %>);
+    window['yaCounter<%= options.id %>'] = new Ya.Metrika(<%= JSON.stringify(options) %>);
   })(document, window, 'yandex_metrika_callbacks');
 } catch (e) {}
 
