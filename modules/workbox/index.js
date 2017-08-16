@@ -1,5 +1,5 @@
 const path = require('path')
-const WorkboxPlugin = require('workbox-webpack-plugin')
+const swBuild = require('workbox-build')
 
 const fixUrl = url => url.replace(/\/\//g, '/').replace(':/', '://')
 const isUrl = url => url.indexOf('http') === 0 || url.indexOf('//') === 0
@@ -21,16 +21,15 @@ module.exports = function nuxtWorkbox (options) {
 
   const swFileName = 'sw.js'
 
-  // Add webpack plugin. This plugin internally uses swBuild to generate sw file
+  // Use swBuild to generate sw file
   // We set dest to static dir that is served as / to allow global sw scope
   // https://workboxjs.org/reference-docs/latest/module-workbox-build.html#.generateSW
-
-  this.options.build.plugins.push(new WorkboxPlugin(Object.assign({
+  const workboxOptions = Object.assign({
     swDest: path.resolve(this.options.srcDir, 'static', swFileName),
     directoryIndex: '/',
     cacheId: process.env.npm_package_name + '_' + process.env.npm_package_version,
     clientsClaim: true,
-    globPatterns: ['**\/*.{js,css}'],
+    globPatterns: ['**/*.{js,css}'],
     globDirectory: path.resolve(this.options.buildDir, 'dist'),
     modifyUrlPrefix: {
       '': fixUrl(publicPath)
@@ -48,7 +47,19 @@ module.exports = function nuxtWorkbox (options) {
         handler: 'cacheFirst'
       }
     ]
-  }, options)))
+  }, options)
+
+  // Use nuxt plugins to prevent race conditions with webpack plugin
+  // (https://github.com/nuxt-community/modules/issues/110)
+  this.nuxt.plugin('build', builder => {
+    builder.plugin('built', () => {
+      if (workboxOptions.swSrc) {
+        return swBuild.injectManifest(workboxOptions)
+      } else {
+        return swBuild.generateSW(workboxOptions)
+      }
+    })
+  })
 
   // Register runtime plugin
   this.addPlugin({
