@@ -1,4 +1,6 @@
 # 📦 Nuxt Modules
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bhttps%3A%2F%2Fgithub.com%2Fnuxt-community%2Fmodules.svg?type=shield)](https://app.fossa.io/projects/git%2Bhttps%3A%2F%2Fgithub.com%2Fnuxt-community%2Fmodules?ref=badge_shield)
+
 
 <p align="center"><img align="center" src="http://imgur.com/V4LtoII.png"/></p>
 <p align="center">
@@ -43,3 +45,6 @@
 MIT License
 
 Copyright (c) [Nuxt.js](https://nuxtjs.org)
+
+
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bhttps%3A%2F%2Fgithub.com%2Fnuxt-community%2Fmodules.svg?type=large)](https://app.fossa.io/projects/git%2Bhttps%3A%2F%2Fgithub.com%2Fnuxt-community%2Fmodules?ref=badge_large)
