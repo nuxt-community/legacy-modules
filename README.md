@@ -13,6 +13,7 @@
 
 ## Modules
 - [axios](https://github.com/nuxt-community/axios-module)
+- [apollo](https://github.com/nuxt-community/apollo-module)
 - [bootstrap](modules/bootstrap-vue)
 - [bulma](modules/bulma)
 - [toast](modules/toast)
@@ -40,7 +41,6 @@
 ## Want to create your own module ?
 
 - https://nuxtjs.org/guide/modules
-- 
 
 ## License
 MIT License
