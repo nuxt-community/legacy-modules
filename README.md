@@ -7,8 +7,6 @@
   </a>
 </p>
 
-**🔥 Module Docs Coming Soon**
-
 ## Presets
 - [pwa](modules/pwa)
 - [optimize](modules/optimize)
@@ -37,7 +35,12 @@
 - [cssnano](modules/cssnano)
 - [icon](modules/icon)
 - [proxy](modules/proxy)
-- [sitemap](modules/sitemap)
+- [sitemap](https://github.com/nuxt-community/sitemap-module)
+
+## Want to create your own module ?
+
+- https://nuxtjs.org/guide/modules
+- 
 
 ## License
 MIT License
