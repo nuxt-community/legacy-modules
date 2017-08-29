@@ -15,6 +15,7 @@
 
 ## Modules
 - [axios](https://github.com/nuxt-community/axios-module)
+- [apollo](https://github.com/nuxt-community/apollo-module)
 - [bootstrap](modules/bootstrap-vue)
 - [bulma](modules/bulma)
 - [toast](modules/toast)
@@ -37,7 +38,7 @@
 - [cssnano](modules/cssnano)
 - [icon](modules/icon)
 - [proxy](modules/proxy)
-- [sitemap](modules/sitemap)
+- [sitemap](https://github.com/nuxt-community/sitemap-module)
 
 ## License
 MIT License
