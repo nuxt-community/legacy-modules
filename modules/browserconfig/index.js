@@ -19,7 +19,7 @@ module.exports = function nuxtBrowserConfig (options) {
 
   // Write browserconfig.xml
   let browserconfigFileName = options.fileName || 'browserconfig.xml'
-  let browserconfigFilePath = path.resolve(this.options.rootDir, 'static', browserconfigFileName)
+  let browserconfigFilePath = path.resolve(this.options.srcDir, 'static', browserconfigFileName)
   fs.writeFileSync(browserconfigFilePath, stringify('browserconfig', browserConfigData), 'utf8')
 
   // Add browserconfig meta
