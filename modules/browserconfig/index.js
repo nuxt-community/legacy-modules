@@ -12,15 +12,15 @@ const defaults = {
   }
 }
 
-module.exports = function nuxtBrowserConfig(options) {
+module.exports = function nuxtBrowserConfig (options) {
   let browserConfigData = {
-    msapplication: _.defaultsDeep( this.options.browserconfig || options.browserconfig || {}, defaults)
+    msapplication: _.defaultsDeep(this.options.browserconfig || options.browserconfig || {}, defaults)
   }
 
   // Write browserconfig.xml
   let browserconfigFileName = options.fileName || 'browserconfig.xml'
   let browserconfigFilePath = path.resolve(this.options.rootDir, 'static', browserconfigFileName)
-  fs.writeFileSync(browserconfigFilePath, stringify('browserconfig',browserConfigData), 'utf8')
+  fs.writeFileSync(browserconfigFilePath, stringify('browserconfig', browserConfigData), 'utf8')
 
   // Add browserconfig meta
   if (!_.find(this.options.head.meta, {name: 'msapplication-config'})) {
