@@ -21,6 +21,7 @@
 ```
 
 ## Usage
+You can use **$toast** (instead of `$toasted`) in almost any context using `app.$toast` or `this.$toast` (Including store actions).
 
 See [toasted official docs](https://github.com/shakee93/vue-toasted) for more usage information.
 
@@ -29,10 +30,11 @@ export default {
    methods:{
      async login() {
          try {
+             this.$toast.show('Logging in...')
              await this.$axios.$post('auth/login')
-             this.$toasted.show('Welcome :)')
+             this.$toast.success('Successfully authenticated')
          } catch(e){
-             this.$toasted.show('Error while authenticating')
+             this.$toast.error('Error while authenticating')
          }
      }  
    }
