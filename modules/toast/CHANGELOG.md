@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="2.1.0"></a>
+# [2.1.0](https://github.com/nuxt/modules/compare/@nuxtjs/toast@2.0.0...@nuxtjs/toast@2.1.0) (2017-09-04)
+
+
+### Features
+
+* **toast:** inject $toast ([5736456](https://github.com/nuxt/modules/commit/5736456))
+
+
+
+
 <a name="2.0.0"></a>
 # [2.0.0](https://github.com/nuxt/modules/compare/@nuxtjs/toast@1.0.2...@nuxtjs/toast@2.0.0) (2017-09-04)
 
