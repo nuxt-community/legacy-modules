@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="2.2.1"></a>
+## [2.2.1](https://github.com/nuxt/modules/compare/@nuxtjs/toast@2.2.0...@nuxtjs/toast@2.2.1) (2017-09-04)
+
+
+### Bug Fixes
+
+* **toast:** correct options serialization ([3efc32a](https://github.com/nuxt/modules/commit/3efc32a))
+
+
+
+
 <a name="2.2.0"></a>
 # [2.2.0](https://github.com/nuxt/modules/compare/@nuxtjs/toast@2.1.0...@nuxtjs/toast@2.2.0) (2017-09-04)
 
