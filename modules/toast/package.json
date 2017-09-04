@@ -9,6 +9,7 @@
     "access": "public"
   },
   "dependencies": {
-    "mini-toastr": "^0.6.5"
+    "material-design-icons": "^3.0.1",
+    "vue-toasted": "^1.1.16"
   }
 }
