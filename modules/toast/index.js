@@ -5,7 +5,7 @@ module.exports = function nuxtToast (moduleOptions) {
     duration: 3000,
     action: {
       text: '×',
-      onClick (e, toast) {
+      onClick: (e, toast) => {
         toast.goAway(0)
       }
     }
