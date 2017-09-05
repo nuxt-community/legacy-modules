@@ -41,7 +41,9 @@ module.exports = function nuxtProxy (options) {
 
   // Register middleware
   proxy.forEach(args => {
-    this.options.serverMiddleware.push(Proxy.apply(undefined, args))
+    const middleware = Proxy.apply(undefined, args)
+    middleware.prefix = false // Don't add router base
+    this.options.serverMiddleware.push(middleware)
   })
 }
 
