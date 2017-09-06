@@ -20,6 +20,8 @@
 }
 ```
 
+If you need material icons, you have to manually install `material-design-icons` dependency too.
+
 ## Usage
 You can use **$toast** (instead of `$toasted`) in almost any context using `app.$toast` or `this.$toast` (Including store actions).
 
