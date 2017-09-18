@@ -81,24 +81,24 @@ module.exports = function nuxtMeta (_options) {
   }
 
   // og:type
-  if (options.ogType && !find(this.options.head.meta, 'property', 'og:type')) {
-    this.options.head.meta.push({ property: 'og:type', content: options.ogType })
+  if (options.ogType && !find(this.options.head.meta, 'name', 'og:type')) {
+    this.options.head.meta.push({ name: 'og:type', content: options.ogType })
   }
 
   // og:title
   if (options.ogTitle === true) {
     options.ogTitle = options.name
   }
-  if (options.ogTitle && !find(this.options.head.meta, 'property', 'og:title')) {
-    this.options.head.meta.push({ property: 'og:title', content: options.ogTitle })
+  if (options.ogTitle && !find(this.options.head.meta, 'name', 'og:title')) {
+    this.options.head.meta.push({ name: 'og:title', content: options.ogTitle })
   }
 
   // og:description
   if (options.ogDescription === true) {
     options.ogDescription = options.description
   }
-  if (options.ogDescription && !find(this.options.head.meta, 'property', 'og:description')) {
-    this.options.head.meta.push({ property: 'og:description', content: options.ogDescription })
+  if (options.ogDescription && !find(this.options.head.meta, 'name', 'og:description')) {
+    this.options.head.meta.push({ name: 'og:description', content: options.ogDescription })
   }
 
 }
