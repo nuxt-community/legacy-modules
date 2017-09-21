@@ -1,4 +1,11 @@
-export default ({ app }) => {
+(function (d, w, c) {
+  (w[c] = w[c] || []).push(function() {
+    try {
+      w['yaCounter<%= options.id %>'] = new Ya.Metrika(<%= JSON.stringify(options) %>);
+    } catch (e) {}
+  });
+})(document, window, "yandex_metrika_callbacks");
+
 
   function create () {
     try {
