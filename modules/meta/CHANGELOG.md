@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.5.0"></a>
+# [1.5.0](https://github.com/nuxt/modules/compare/@nuxtjs/meta@1.4.0...@nuxtjs/meta@1.5.0) (2017-09-21)
+
+
+### Bug Fixes
+
+* **meta:** default appleStatusBarStyle to black ([756d5cb](https://github.com/nuxt/modules/commit/756d5cb))
+
+
+### Features
+
+* **meta:** apple-touch-startup-image ([b98106c](https://github.com/nuxt/modules/commit/b98106c))
+* **meta:** better IOS icons ([d76db2d](https://github.com/nuxt/modules/commit/d76db2d))
+* **meta:** ios launch icon title ([e94e011](https://github.com/nuxt/modules/commit/e94e011))
+
+
+
+
 <a name="1.4.0"></a>
 # [1.4.0](https://github.com/nuxt/modules/compare/@nuxtjs/meta@1.3.0...@nuxtjs/meta@1.4.0) (2017-09-21)
 
