@@ -7,7 +7,7 @@ const isUrl = url => url.indexOf('http') === 0 || url.indexOf('//') === 0
 
 module.exports = function nuxtIcon (options) {
   const iconSrc = options.iconSrc || path.resolve(this.options.srcDir, 'static', 'icon.png')
-  const sizes = options.sizes || [16, 120, 144, 152, 192, 384, 512]
+  const sizes = options.sizes || [64, 120, 144, 152, 192, 384, 512]
 
   // routerBase and publicPath
   const routerBase = this.options.router.base
