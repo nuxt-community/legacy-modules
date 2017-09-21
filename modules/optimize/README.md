@@ -1,12 +1,26 @@
-# Optimize (WIP)
+# Optimize (Preset)
 
-- Adds [cssnano](https://cssnano.co) to postcss.
+[![npm](https://img.shields.io/npm/dt/@nuxtjs/optimize.svg?style=flat-square)](https://npmjs.com/package/@nuxtjs/optimize)
+[![npm (scoped with tag)](https://img.shields.io/npm/v/@nuxtjs/optimize/latest.svg?style=flat-square)](https://npmjs.com/package/@nuxtjs/optimize)
+
+> Adds more optional optimizers to nuxt project.
 
 ## Setup
 - Add `@nuxtjs/optimize` dependency using yarn or npm to your project
-- Add `@nuxtjs/optimize` module to `nuxt.config.js`:
+- Add `@nuxtjs/optimize` to `modules` section of `nuxt.config.js`
 ```js
+{
   modules: [
-   '@nuxtjs/optimize'
+    // Simple usage
+    '@nuxtjs/optimize',
+  
+    // With options
+    ['@nuxtjs/optimize', { /* options */ }],
   ]
+}
 ````
+
+## Modules
+
+### [cssnano](../cssnano)
+- options: use `options.cssnano` to customize it.

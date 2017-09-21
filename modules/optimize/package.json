@@ -1,6 +1,6 @@
 {
   "name": "@nuxtjs/optimize",
-  "version": "1.0.1",
+  "version": "1.1.1",
   "license": "MIT",
   "main": "index.js",
   "repository": "https://github.com/nuxt/modules",
@@ -9,6 +9,6 @@
     "access": "public"
   },
   "dependencies": {
-    "cssnano": "^3.10.0"
+    "@nuxtjs/cssnano": "latest"
   }
 }

@@ -1,66 +1,69 @@
 const fs = require('fs-extra')
 const path = require('path')
-const _ = require('lodash')
 const hash = require('hash-sum')
 
-// https://developer.mozilla.org/en-US/docs/Web/Manifest
+const fixUrl = url => url.replace(/\/\//g, '/').replace(':/', '://')
+const isUrl = url => url.indexOf('http') === 0 || url.indexOf('//') === 0
+const find = (arr, key, val) => arr.find(obj => val ? obj[key] === val : obj[key])
 
-module.exports = function nuxtManifest(options) {
-  this.options.manifest = this.options.manifest || {}
+module.exports = function nuxtManifest (options) {
+  // routerBase and publicPath
+  const routerBase = this.options.router.base
+  let publicPath = fixUrl(`${routerBase}/${this.options.build.publicPath}`)
+  if (isUrl(this.options.build.publicPath)) { // CDN
+    publicPath = this.options.build.publicPath
+    if (publicPath.indexOf('//') === 0) {
+      publicPath = '/' + publicPath // escape fixUrl
+    }
+  }
 
-  /* eslint-disable camelcase */
-  const default_name = this.options.manifest.name || this.options.head.title ||
-    process.env.npm_package_description || process.env.npm_package_name
+  // Defaults
   const defaults = {
-    name: default_name,
-    short_name: default_name,
-    description: default_name,
-    icons: [
-      {
-        src: 'icon.png',
-        sizes: '512x512',
-        type: 'image/png'
-      }
-    ],
-    start_url: '/',
+    name: process.env.npm_package_name,
+    short_name: process.env.npm_package_name,
+    description: process.env.npm_package_description,
+    icons: [],
+    start_url: routerBase,
     display: 'standalone',
     background_color: '#ffffff',
-    theme_color: (this.options.loading && this.options.loading.color) || '#3f51b5'
+    theme_color: this.options.loading && this.options.loading.color,
+    lang: 'en'
   }
 
-  // Write manifest.json
-  const manifest = _.defaultsDeep({}, this.options.manifest, defaults)
-  const manifestFileName = `manifest.${hash(manifest)}.json`
-  const distDir = 'static' //this.options.dev ? 'static' : '.nuxt/dist'
-  const manifestFilePath = path.resolve(this.options.rootDir, distDir, manifestFileName)
-  fs.ensureDirSync(path.resolve(this.options.rootDir, distDir))
-  fs.writeFileSync(manifestFilePath, JSON.stringify(manifest), 'utf8')
+  // Combine sources
+  const manifest = Object.assign({}, defaults, this.options.manifest, options)
+  delete manifest.src
+
+  // Stringify manifest & generate hash
+  const manifestSource = JSON.stringify(manifest)
+  const manifestFileName = `manifest.${hash(manifestSource)}.json`
+
+  // Merge final manifest into options.manifest for other modules
+  if (!this.options.manifest) {
+    this.options.manifest = {}
+  }
+  Object.assign(this.options.manifest, manifest)
+
+  // Register webpack plugin to emit manifest
+  this.options.build.plugins.push({
+    apply (compiler) {
+      compiler.plugin('emit', function (compilation, cb) {
+        compilation.assets[manifestFileName] = {
+          source: () => manifestSource,
+          size: () => manifestSource.length
+        }
+        cb()
+      })
+    }
+  })
 
   // Add manifest meta
-  if (!_.find(this.options.head.link, {rel: 'manifest'})) {
-    const manifestURL = `/${manifestFileName}` //(this.options.dev ? '/' : this.options.build.publicPath ) + manifestFileName
-    this.options.head.link.push({rel: 'manifest', href: manifestURL})
-  }
-
-  // Add favicon
-  if (!_.find(this.options.head.link, {rel: 'shortcut icon'})) {
-    this.options.head.link.push({rel: 'shortcut icon', href: '/' + manifest.icons[0].src})
-  }
-
-  // Set title
-  if (manifest.name && !this.options.head.title) {
-    this.options.head.title = manifest.name
-  }
-
-  // Add description meta
-  if (manifest.description && !_.find(this.options.head.meta, {name: 'description'})) {
-    this.options.head.meta.push({name: 'description', content: manifest.description})
-  }
-
-  // Add theme-color meta
-  if (manifest.description && !_.find(this.options.head.meta, {name: 'theme-color'})) {
-    this.options.head.meta.push({name: 'theme-color', content: manifest.theme_color})
+  if (!find(this.options.head.link, 'rel', 'manifest')) {
+    this.options.head.link.push({ rel: 'manifest', href: fixUrl(`${publicPath}/${manifestFileName}`) })
+  } else {
+    console.warn('Manifest meta already provided!')
   }
 }
+
 
 module.exports.meta = require('./package.json')

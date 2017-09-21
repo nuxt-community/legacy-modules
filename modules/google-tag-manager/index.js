@@ -2,7 +2,7 @@ const _ = require('lodash')
 const path = require('path')
 const defaults = {
   id: null,
-  layer: null,
+  layer: 'dataLayer',
   env: {
     gtm_auth: null,
     gtm_preview: null,
@@ -35,7 +35,7 @@ module.exports = function nuxtTagManager(options) {
   })
 
   // Register plugin
-  this.addPlugin({src: path.resolve(__dirname, 'plugin.js'), ssr: false, currentOptions})
+  this.addPlugin({src: path.resolve(__dirname, 'plugin.js'), ssr: false, options: currentOptions})
 }
 
 module.exports.meta = require('./package.json')

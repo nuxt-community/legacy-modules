@@ -1,0 +1,15 @@
+{
+  "name": "@nuxtjs/prepack",
+  "version": "0.0.2",
+  "private": true,
+  "license": "MIT",
+  "main": "index.js",
+  "repository": "https://github.com/nuxt/modules",
+  "homepage": "https://github.com/nuxt/modules/tree/master/modules/prepack",
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "prepack-webpack-plugin": "^1.1.0"
+  }
+}

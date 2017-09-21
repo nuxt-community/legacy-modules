@@ -1,27 +1,25 @@
 # Manifest
-Adds [Web App Manifest](https://developer.mozilla.org/en-US/docs/Web/Manifest) with no pain.
+[![npm](https://img.shields.io/npm/dt/@nuxtjs/manifest.svg?style=flat-square)](https://www.npmjs.com/package/@nuxtjs/manifest)
+[![npm (scoped with tag)](https://img.shields.io/npm/v/@nuxtjs/manifest/latest.svg?style=flat-square)](https://www.npmjs.com/package/@nuxtjs/manifest)
 
-- Creates `static/manifest.json`
-- Adds `<link rel=manifest>` to pages if not exits.
-- Adds `<link rel=favicon>` to pages if not exits.
-- Adds `<meta name=description>` to pages if not exits.
-- Adds `<meta name=theme-color>` to pages if not exits.
-- Adds title to pages if not exits.
+> Adds [Web App Manifest](https://developer.mozilla.org/en-US/docs/Web/Manifest) with no pain!
 
 ## Setup
 - Add `@nuxtjs/manifest` dependency using yarn or npm to your project
-- Add `@nuxtjs/manifest` module to `nuxt.config.js`:
+- Add `@nuxtjs/manifest` to `modules` section of `nuxt.config.js`
 ```js
+{
   modules: [
    '@nuxtjs/manifest'
   ]
+}
 ````
-- Add `static/icon.png` for your app icon.
-- Add additional options to `nuxt.manifest` to override defaults:
+- Add additional options to `manifest` section of `nuxt.config.js` to override defaults
 ```js
+{
   manifest: {
-      name: 'My Awesome App',
-      dir: 'rtl'
+    name: 'My Awesome App',
+    lang: 'fa'
   }
+}
 ```
-- Add `static/manifest.*.json` to `.gitignore` file.

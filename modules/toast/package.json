@@ -1,6 +1,6 @@
 {
   "name": "@nuxtjs/toast",
-  "version": "1.0.1",
+  "version": "2.3.0",
   "license": "MIT",
   "main": "index.js",
   "repository": "https://github.com/nuxt/modules",
@@ -9,6 +9,6 @@
     "access": "public"
   },
   "dependencies": {
-    "mini-toastr": "^0.6.5"
+    "vue-toasted": "^1.1.16"
   }
 }

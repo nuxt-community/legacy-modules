@@ -1,0 +1,14 @@
+{
+  "name": "@nuxtjs/proxy",
+  "version": "1.1.2",
+  "license": "MIT",
+  "main": "index.js",
+  "repository": "https://github.com/nuxt/modules",
+  "homepage": "https://github.com/nuxt/modules/tree/master/modules/proxy",
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "http-proxy-middleware": "^0.17.4"
+  }
+}

@@ -1,14 +1,14 @@
 {
-  "name": "@nuxtjs/axios",
-  "version": "1.0.2",
+  "name": "@nuxtjs/bulma",
+  "version": "1.0.3",
   "license": "MIT",
   "main": "index.js",
   "repository": "https://github.com/nuxt/modules",
-  "homepage": "https://github.com/nuxt/modules/tree/master/modules/axios",
+  "homepage": "https://github.com/nuxt/modules/tree/master/modules/bulma",
   "publishConfig": {
     "access": "public"
   },
   "dependencies": {
-    "axios": "^0.16.1"
+    "bulma": "^0.5.1"
   }
 }

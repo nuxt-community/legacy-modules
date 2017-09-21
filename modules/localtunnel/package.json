@@ -1,0 +1,14 @@
+{
+  "name": "@nuxtjs/localtunnel",
+  "version": "1.0.0",
+  "license": "MIT",
+  "repository": "https://github.com/nuxt/modules",
+  "homepage": "https://github.com/nuxt/modules/tree/master/modules/localtunnel",
+  "publishConfig": {
+    "access": "public"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "localtunnel": "^1.8.3"
+  }
+}
