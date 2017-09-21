@@ -1,4 +1,3 @@
-const fs = require('fs-extra')
 const path = require('path')
 
 module.exports = function yandexAnalytics(options) {
@@ -10,7 +9,8 @@ module.exports = function yandexAnalytics(options) {
   // Add google analytics script to head
   this.options.head.script.push({
     src: 'https://mc.yandex.ru/metrika/watch.js',
-    async: true
+    async: true,
+
   })
 
   // Register plugin
