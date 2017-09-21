@@ -65,6 +65,12 @@ module.exports = function nuxtMeta (_options) {
     this.options.head.title = options.name
   }
 
+  // IOS launch icon title
+  const title = options.name || this.options.head.title || false
+  if (title && !find(this.options.head.meta, 'name', 'apple-mobile-web-app-title')) {
+    this.options.head.meta.push({ name: 'apple-mobile-web-app-title', content: title })
+  }
+
   // description meta
   if (options.description && !find(this.options.head.meta, 'name', 'description')) {
     this.options.head.meta.push({ hid: 'description', name: 'description', content: options.description })
