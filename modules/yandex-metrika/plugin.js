@@ -1,8 +1,10 @@
-try {
+(function (d, w, c) {
   (w[c] = w[c] || []).push(function() {
-    window['yaCounter<%= options.id %>'] = new Ya.Metrika(<%= JSON.stringify(options) %>);
-  })(document, window, 'yandex_metrika_callbacks');
-} catch (e) {}
+    try {
+      w['yaCounter<%= options.id %>'] = new Ya.Metrika(<%= JSON.stringify(options) %>);
+    } catch (e) {}
+  });
+})(document, window, "yandex_metrika_callbacks");
 
 export default ({app: {router}}) => {
   if (!window['Ya'] || window['yaCounter<%= options.id %>']) {
