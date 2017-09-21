@@ -46,18 +46,17 @@ module.exports = function nuxtMeta (_options) {
     this.options.head.meta.push({ name: 'apple-mobile-web-app-status-bar-style', content: options.appleStatusBarStyle })
   }
 
-  // FavIcon
-  if (options.favicon === true) {
-    options.favicon = options.icons && options.icons.length > 0 && options.icons[0].src
-    options.applefavicon = options.icons && options.icons.length > 0 && options.icons[3].src
-  }
-  if (options.favicon) {
+  // Icons
+  if (options.favicon && options.icons && options.icons.length > 0) {
+    const iconSmall = options.icons[0]
+    const iconBig = options.icons[options.icons.length - 1]
+
     if (!find(this.options.head.link, 'rel', 'shortcut icon')) {
-      this.options.head.link.push({ rel: 'shortcut icon', href: options.favicon })
+      this.options.head.link.push({ rel: 'shortcut icon', href: iconSmall.src })
     }
 
     if (!find(this.options.head.link, 'rel', 'apple-touch-icon')) {
-      this.options.head.link.push({ rel: 'apple-touch-icon', href: options.applefavicon })
+      this.options.head.link.push({ rel: 'apple-touch-icon', href: iconBig.src, sizes: iconBig.sizes })
     }
   }
 

@@ -35,7 +35,7 @@ Meta / Link                            | Customize With        |   Default value
 `mobile-web-app-capable`               | `mobileApp`           | `true`
 `apple-mobile-web-app-capable`         | `mobileAppIOS`*       | **`false`**
 `apple-mobile-web-app-status-bar-style`| `appleStatusBarStyle`*| `black-translucent` (only when `mobileAppIOS` is `true`)
-`shortcut icon` + `apple-touch-icon`   | `favicon`             | options.icons[0].src
+`shortcut icon` + `apple-touch-icon`   | `favicon`             | `true` (to use options.icons)
 `title`                                | `name`                | npm_package_name
 `description`                          | `description`         | npm_package_description
 `theme-color`                          | `theme_color`         | options.loading.color
@@ -45,7 +45,7 @@ Meta / Link                            | Customize With        |   Default value
 `og:description`                       | `ogDescription`       | same as options.description
 
 
-* Please read this resources before setting IOS specific options:
+Please read this resources before setting IOS specific options:
 
 - https://developer.apple.com/library/content/documentation/AppleApplications/Reference/SafariHTMLRef/Articles/MetaTags.html
 - https://medium.com/@firt/dont-use-ios-web-app-meta-tag-irresponsibly-in-your-progressive-web-apps-85d70f4438cb
