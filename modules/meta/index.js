@@ -58,6 +58,11 @@ module.exports = function nuxtMeta (_options) {
     if (!find(this.options.head.link, 'rel', 'apple-touch-icon')) {
       this.options.head.link.push({ rel: 'apple-touch-icon', href: iconBig.src, sizes: iconBig.sizes })
     }
+
+    // Launch Screen Image (IOS)
+    if (options.mobileAppIOS && !find(this.options.head.link, 'rel', 'apple-touch-startup-image')) {
+      this.options.head.link.push({ rel: 'apple-touch-startup-image', href: iconBig.src })
+    }
   }
 
   // Title
