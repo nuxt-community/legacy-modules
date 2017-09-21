@@ -1,20 +1,14 @@
-(function (d, w, c) {
-  (w[c] = w[c] || []).push(function() {
-    try {
-      w['yaCounter<%= options.id %>'] = new Ya.Metrika(<%= JSON.stringify(options) %>);
-    } catch (e) {}
-  });
-})(document, window, "yandex_metrika_callbacks");
-
-
-  function create () {
+export default ({ app: { router } }) => {
+  function create() {
     try {
       window['yaCounter<%= options.id %>'] = new Ya.Metrika(<%= JSON.stringify(options) %>)
       app.router.afterEach(to => {
         // We tell Yandex Metrika to add a page view
         window['yaCounter<%= options.id %>'].hit(to.fullPath)
       })
-    } catch (e) { }
+    } catch (e) {
+      //
+    }
   }
 
   if (window.Ya && window.Ya.Metrika) {

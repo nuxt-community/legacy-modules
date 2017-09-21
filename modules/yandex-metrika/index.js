@@ -1,16 +1,15 @@
 const path = require('path')
 
-module.exports = function yandexAnalytics(options) {
+module.exports = function yandexMetrika (options) {
   // Don't include on dev mode
   if (this.options.dev && process.env.NODE_ENV !== 'production') {
     return
   }
 
-  // Add google analytics script to head
+  // Add yandex metrika script to head
   this.options.head.script.push({
     src: 'https://mc.yandex.ru/metrika/watch.js',
-    async: true,
-
+    async: true
   })
 
   // Register plugin
