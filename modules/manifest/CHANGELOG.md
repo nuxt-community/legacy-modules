@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.7.0"></a>
+# [1.7.0](https://github.com/nuxt/modules/compare/@nuxtjs/manifest@1.6.1...@nuxtjs/manifest@1.7.0) (2017-09-22)
+
+
+### Features
+
+* **manifest:** add standalone to start_url ([81dbe9c](https://github.com/nuxt/modules/commit/81dbe9c))
+
+
+
+
 <a name="1.6.0"></a>
 # [1.6.0](https://github.com/nuxt/modules/compare/@nuxtjs/manifest@1.5.0...@nuxtjs/manifest@1.6.0) (2017-06-06)
 
