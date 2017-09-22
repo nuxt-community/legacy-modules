@@ -23,7 +23,7 @@ module.exports = function nuxtManifest (options) {
     short_name: process.env.npm_package_name,
     description: process.env.npm_package_description,
     icons: [],
-    start_url: routerBase,
+    start_url: routerBase + '?standalone=true',
     display: 'standalone',
     background_color: '#ffffff',
     theme_color: this.options.loading && this.options.loading.color,
@@ -64,6 +64,5 @@ module.exports = function nuxtManifest (options) {
     console.warn('Manifest meta already provided!')
   }
 }
-
 
 module.exports.meta = require('./package.json')
