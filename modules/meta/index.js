@@ -10,7 +10,7 @@ module.exports = function nuxtMeta (_options) {
     mobileApp: true,
     favicon: true,
     mobileAppIOS: false,
-    appleStatusBarStyle: 'black',
+    appleStatusBarStyle: 'default',
     theme_color: this.options.loading && this.options.loading.color,
     lang: 'en',
     ogType: 'website',

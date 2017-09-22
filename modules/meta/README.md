@@ -34,7 +34,7 @@ Meta / Link                            | Customize With        |   Default value
 `viewport`                             | `viewport`            | `width=device-width, initial-scale=1, minimal-ui`
 `mobile-web-app-capable`               | `mobileApp`           | `true`
 `apple-mobile-web-app-capable`         | `mobileAppIOS`*       | **`false`**
-`apple-mobile-web-app-status-bar-style`| `appleStatusBarStyle`*| `black-translucent` (only when `mobileAppIOS` is `true`)
+`apple-mobile-web-app-status-bar-style`| `appleStatusBarStyle`*| `default`
 `shortcut icon` + `apple-touch-icon`   | `favicon`             | `true` (to use options.icons)
 `title`                                | `name`                | npm_package_name
 `description`                          | `description`         | npm_package_description
