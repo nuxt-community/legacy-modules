@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.0.4"></a>
+## [0.0.4](https://github.com/nuxt/modules/compare/@nuxtjs/yandex-metrika@0.0.3...@nuxtjs/yandex-metrika@0.0.4) (2017-09-22)
+
+
+### Bug Fixes
+
+* **yandex-metrika:** fix ReferenceError, fix duplicate initial hit (#147) ([c6c5a81](https://github.com/nuxt/modules/commit/c6c5a81)), closes [#147](https://github.com/nuxt/modules/issues/147)
+
+
+
+
 <a name="0.0.3"></a>
 ## [0.0.3](https://github.com/nuxt/modules/compare/@nuxtjs/yandex-metrika@0.0.2...@nuxtjs/yandex-metrika@0.0.3) (2017-09-21)
 
