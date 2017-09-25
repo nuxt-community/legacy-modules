@@ -37,6 +37,7 @@
 - [icon](modules/icon)
 - [proxy](modules/proxy)
 - [sitemap](https://github.com/nuxt-community/sitemap-module)
+- [dotenv](https://github.com/nuxt-community/dotenv-module)
 
 ## Want to create your own module ?
 
