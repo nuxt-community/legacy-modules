@@ -1,6 +1,6 @@
 {
   "name": "@nuxtjs/vuetify",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "license": "MIT",
   "main": "index.js",
   "repository": "https://github.com/nuxt/modules",
@@ -9,6 +9,6 @@
     "access": "public"
   },
   "dependencies": {
-    "vuetify": "^0.14.5"
+    "vuetify": "^0.16.1"
   }
 }

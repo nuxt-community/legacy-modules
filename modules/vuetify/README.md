@@ -14,3 +14,15 @@
   ]
 }
 ```
+
+## Options
+
+### `materialIcons`
+
+- Default: `true`
+
+Adds **Material Icons** from google fonts api.
+
+# License 
+
+MIT
