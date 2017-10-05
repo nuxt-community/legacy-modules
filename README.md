@@ -21,6 +21,7 @@ Please see [awesome-nuxt](https://github.com/nuxt-community/awesome-nuxt) for ma
 - [proxy](modules/proxy)
 - [toast](modules/toast)
 - [vendor](modules/vendor)
+- [vuetify](modules/vuetify)
 - [yandex-metrika](modules/yandex-metrika)
 
 
