@@ -1,46 +1,36 @@
-# 📦 Nuxt Modules
+# Nuxt Modules
 
-<p align="center"><img align="center" src="http://imgur.com/V4LtoII.png"/></p>
-<p align="center">
-  <a href="https://github.com/nuxt/nuxt-modules">
-    <img src="https://img.shields.io/badge/Modules-Ready-green.svg?style=flat-square" alt="Modules">
-  </a>
-</p>
+This is a mono-repo for smaller nuxt modules.
 
-**🔥 Module Docs Coming Soon**
 
-## Presets
-- [pwa](modules/pwa)
-- [optimize](modules/optimize)
+Please see [awesome-nuxt](https://github.com/nuxt-community/awesome-nuxt) for many more ready to use modules :)
 
 ## Modules
-- [axios](modules/axios)
-- [bootstrap](modules/bootstrap-vue)
-- [bulma](modules/bulma)
-- [toast](modules/toast)
-- [auth](modules/auth)
-- [font-awesome](modules/font-awesome)
-- [firebase](modules/firebase)
-- [meta](modules/meta)
-- [offline](modules/offline)
-- [manifest](modules/manifest)
+
+- [bootstrap-vue](modules/bootstrap-vue)
 - [browserconfig](modules/browserconfig)
-- [vendor](modules/vendor)
-- [google-analytics](modules/google-analytics)
-- [google-tag-manager](modules/google-tag-manager)
-- [yandex-metrika](modules/yandex-metrika)
-- [localtunnel](modules/localtunnel)
-- [workbox](modules/workbox)
+- [bulma](modules/bulma)
 - [component-cache](modules/component-cache)
-- [prepack](modules/prepack)
+- [firebase (WIP)](modules/firebase)
+- [font-awesome](modules/font-awesome)
+- [google-tag-manager](modules/google-tag-manager)
+- [localtunnel](modules/localtunnel)
 - [markdownit](modules/markdownit)
-- [cssnano](modules/cssnano)
-- [icon](modules/icon)
+- [offline (not maintained)](modules/offline)
+- [prepack (WIP)](modules/prepack)
 - [proxy](modules/proxy)
-- [sitemap](modules/sitemap)
+- [toast](modules/toast)
+- [vendor](modules/vendor)
 - [vuetify](modules/vuetify)
+- [yandex-metrika](modules/yandex-metrika)
+
+
+## Want to create your own module ?
+
+Just head to [Modules Guid](https://nuxtjs.org/guide/modules) or start your project with [Official Module template](https://github.com/nuxt-community/module-template).
 
 ## License
+
 MIT License
 
 Copyright (c) [Nuxt.js](https://nuxtjs.org)

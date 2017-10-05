@@ -1,24 +1,33 @@
 const fs = require('fs-extra')
 const path = require('path')
 
-module.exports = function nuxtAxios(options) {
-  if (!this.options.vendor) {
-    return
+module.exports = function nuxtVendor (moduleOptions) {
+  if (Array.isArray(moduleOptions)) {
+    moduleOptions = {
+      vendor: moduleOptions
+    }
   }
 
-  const vendorDir = path.resolve(this.options.rootDir, 'static', 'vendor')
-  const nodeModulesDir = path.resolve(this.options.rootDir, 'node_modules')
+  const vendorDir = path.resolve(this.options.srcDir, 'static', 'vendor')
+
+  const vendor = [].concat(this.options.vendor, moduleOptions.vendor)
+    .filter(v => v)
+    .map(v => ({
+      src: v.src || path.resolve(this.options.modulesDir, v),
+      dst: v.dst || path.resolve(vendorDir, v)
+    }))
+    .filter(v => fs.existsSync(v.src))
+
+  if (!vendor.length) {
+    return
+  }
 
   // Ensure static/vendor directory exists
   fs.ensureDirSync(vendorDir)
 
   // Link vendors
-  this.options.vendor.forEach(vendor => {
-    const src = path.resolve(nodeModulesDir, vendor)
-    const dst = path.resolve(vendorDir, vendor)
-
-    /* eslint-disable no-console */
-    console.log('[vendor]', src, '->', dst)
+  vendor.forEach(({src, dst}) => {
+    fs.removeSync(dst)
     fs.ensureSymlinkSync(src, dst, 'junction')
   })
 }

@@ -1,17 +1,33 @@
-try {
-  (w[c] = w[c] || []).push(function() {
-    window[`yaCounter${<%= options.id %>}`] = new Ya.Metrika(<%= options %>);
-  })(document, window, "yandex_metrika_callbacks");
-} catch (e) {}
+export default ({ app: { router } }) => {
+  let ready = false
 
-export default ({app: {router}}) => {
-  if (!window['Ya'] || window[`yaCounter${<%= options.id %>}`]) {
-    console.warn('Yandex metrika is not available')
-    return
-  }
-    
-  router.afterEach((to, from) => {
-    // We tell Yandex Metrika to add a page view
-    window[`yaCounter${<%= options.id %>}`].hit(to.fullPath)
+  router.onReady(() => {
+    // Mark when the router has completed the initial navigation.
+    ready = true
   })
+
+  function create() {
+    window['yaCounter<%= options.id %>'] = new Ya.Metrika(<%= JSON.stringify(options) %>)
+    router.afterEach((to, from) => {
+      if (!ready) {
+        // Don't record a duplicate hit for the initial navigation.
+        return
+      }
+      window['yaCounter<%= options.id %>'].hit(to.fullPath, {
+        referer: from.fullPath
+        // TODO: pass title: <new page title>
+        // This will need special handling because router.afterEach is called *before* DOM is updated.
+      })
+    })
+  }
+
+  if (window.Ya && window.Ya.Metrika) {
+    // Yandex.Metrika API is already available.
+    create()
+  } else {
+    // Yandex.Metrika has not loaded yet, register a callback.
+    (function (w, c) {
+      (w[c] = w[c] || []).push(create)
+    })(window, 'yandex_metrika_callbacks')
+  }
 }

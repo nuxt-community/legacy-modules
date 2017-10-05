@@ -7,7 +7,11 @@ module.exports = function nuxtBootstrapVue (moduleOptions) {
   }
 
   // Register plugin
-  this.addPlugin({ src: path.resolve(__dirname, 'plugin.js'), moduleOptions })
+  this.addPlugin({
+    src: path.resolve(__dirname, 'plugin.js'),
+    fileName: 'bootstrap-vue.js',
+    moduleOptions
+  })
 
   // Add library styles
   this.options.css.push('bootstrap-vue/dist/bootstrap-vue.css')
