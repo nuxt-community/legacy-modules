@@ -1,0 +1,14 @@
+{
+  "name": "@nuxtjs/material-icons",
+  "version": "0.0.1",
+  "license": "MIT",
+  "main": "index.js",
+  "repository": "https://github.com/nuxt/modules",
+  "homepage": "https://github.com/nuxt/modules/tree/master/modules/material-icons",
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "material-design-icons": "^3.0.1"
+  }
+}
