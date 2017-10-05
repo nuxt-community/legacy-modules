@@ -5,9 +5,3 @@ See [standard-version](https://github.com/conventional-changelog/standard-versio
 
 <a name="0.1.1"></a>
 ## 0.1.1 (2017-10-05)
-
-
-
-
-<a name="1.0.1"></a>
-## 1.0.1 (2017-06-07)
