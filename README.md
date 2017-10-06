@@ -6,26 +6,26 @@
 
 ## Packages
 
-- [bootstrap-vue](modules/bootstrap-vue)
-- [browserconfig](modules/browserconfig)
-- [bulma](modules/bulma)
-- [component-cache](modules/component-cache)
-- [firebase (WIP)](modules/firebase)
-- [font-awesome](modules/font-awesome)
-- [google-tag-manager](modules/google-tag-manager)
-- [localtunnel](modules/localtunnel)
-- [markdownit](modules/markdownit)
-- [offline (not maintained)](modules/offline)
-- [prepack (WIP)](modules/prepack)
-- [proxy](modules/proxy)
-- [toast](modules/toast)
-- [vendor](modules/vendor)
-- [vuetify](modules/vuetify)
-- [yandex-metrika](modules/yandex-metrika)
+- [bootstrap-vue](packages/bootstrap-vue)
+- [browserconfig](packages/browserconfig)
+- [bulma](packages/bulma)
+- [component-cache](packages/component-cache)
+- [firebase (WIP)](packages/firebase)
+- [font-awesome](packages/font-awesome)
+- [google-tag-manager](packages/google-tag-manager)
+- [localtunnel](packages/localtunnel)
+- [markdownit](packages/markdownit)
+- [offline (not maintained)](packages/offline)
+- [prepack (WIP)](packages/prepack)
+- [proxy](packages/proxy)
+- [toast](packages/toast)
+- [vendor](packages/vendor)
+- [vuetify](packages/vuetify)
+- [yandex-metrika](packages/yandex-metrika)
 
 ## Want to create your own module ?
 
-Just head to [Modules Guide](https://nuxtjs.org/guide/modules) or make your own module with [Module Template](https://github.com/nuxt-community/module-template) (And don't forgot to submit a PR in [awesome-nuxt](https://github.com/nuxt-community/awesome-nuxt) when published ;)).
+Just head to [Modules Guide](https://nuxtjs.org/guide/modules) or make your own module with [Module Template](https://github.com/nuxt-community/module-template) and don't forgot to submit a PR in [awesome-nuxt](https://github.com/nuxt-community/awesome-nuxt) when published ;)
 
 ## License
 
