@@ -1,11 +1,10 @@
 # Nuxt Modules
 
-This is a mono-repo for smaller nuxt modules.
+⚠️ This is a mono repository for some smaller nuxt modules.
 
+**👉 You probably want to see [Awesome Nuxt](https://github.com/nuxt-community/awesome-nuxt#modules) for many more ready-to-use modules.**
 
-Please see [awesome-nuxt](https://github.com/nuxt-community/awesome-nuxt) for many more ready to use modules :)
-
-## Modules
+## Packages
 
 - [bootstrap-vue](modules/bootstrap-vue)
 - [browserconfig](modules/browserconfig)
@@ -24,10 +23,9 @@ Please see [awesome-nuxt](https://github.com/nuxt-community/awesome-nuxt) for ma
 - [vuetify](modules/vuetify)
 - [yandex-metrika](modules/yandex-metrika)
 
-
 ## Want to create your own module ?
 
-Just head to [Modules Guid](https://nuxtjs.org/guide/modules) or start your project with [Official Module template](https://github.com/nuxt-community/module-template).
+Just head to [Modules Guide](https://nuxtjs.org/guide/modules) or make your own module with [Module Template](https://github.com/nuxt-community/module-template) (And don't forgot to submit a PR in [awesome-nuxt](https://github.com/nuxt-community/awesome-nuxt) when published ;)).
 
 ## License
 
