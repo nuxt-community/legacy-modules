@@ -7,12 +7,10 @@
   "main": "index.js",
   "scripts": {
     "lerna": "lerna",
-    "bootstrap": "lerna -- bootstrap --npm-client yarn",
-    "lint": "eslint --ext .js,.vue modules",
-    "lint-fix": "eslint --ext .js,.vue --fix",
-    "publish": "git pull && lerna publish --conventional-commits",
-    "outdated": "lerna -- exec \"npm outdated || true\"",
-    "link-all": "lerna -- exec \"yarn link || true\""
+    "bootstrap": "lerna bootstrap",
+    "lint": "eslint --ext .js packages",
+    "release": "lerna publish -p --conventional-commits",
+    "force-release": "for p in packages/*; do cd $p ; npm publish ; cd ../.. ; done"
   },
   "contributors": [
     "Pooya Parsa <pooya@pi0.ir>"

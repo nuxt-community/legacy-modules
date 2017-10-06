@@ -1,25 +1,9 @@
 {
-  "lerna": "2.0.0",
-  "packages": [
-    "modules/*"
-  ],
-  "changelog": {
-    "repo": "nuxt/modules",
-    "labels": {
-      "tag: deps": ":house: Upgrade Dependencies",
-      "tag: breaking": ":boom: Breaking Change",
-      "tag: feat": ":rocket: New Feature",
-      "tag: fix": ":bug: Bug Fix",
-      "tag: cleanup": ":nail_care: Polish",
-      "tag: docs": ":memo: Documentation"
-    }
-  },
+  "lerna": "2.3.1",
+  "useWorkspaces": true,
   "version": "independent",
-  "commands": {
-    "publish": {
-      "ignore": [
-        "*.md"
-      ]
-    }
-  }
+  "npmClient": "yarn",
+  "packages": [
+    "packages/*"
+  ]
 }

@@ -1,8 +1,0 @@
-#!/bin/bash
-# This script tries to publish failed lerna packages
-
-for m in `ls modules`; do
- pushd modules/$m
-   npm publish --acess=public
- popd
-done

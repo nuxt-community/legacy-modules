@@ -2,4 +2,5 @@ node_modules
 *.iml
 .idea
 *.log*
-modules/*/package-lock.json
+packages/*/package-lock.json
+packages/*/yarn.lock
