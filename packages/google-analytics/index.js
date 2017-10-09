@@ -6,11 +6,13 @@ module.exports = function nuxtAdSense (moduleOptions) {
   if (this.options.dev && process.env.NODE_ENV !== 'production')) {
     // If in DEV mode, place ads in 'test' state
     // https://www.thedev.blog/3087/test-adsense-ads-safely-without-violating-adsense-tos/
-    options.dev = true
+    options.test = 'true'
     options.id = 'ca-google'
   } else if (!options[id] || typeof options[id] !== 'string') {
     console.warn('Invalid adsense client ID specified')
     return
+  } else {
+    options.test = 'false'
   }
 
   // Register our plugin
@@ -25,7 +27,7 @@ module.exports = function nuxtAdSense (moduleOptions) {
     src: '//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js'
   })
   
-  if (options.test) {
+  if (options.test === 'true') {
     // If in DEV mode, add robots meta first to comply with Adsense policies
     this.options.head.meta.unshift({
       name: 'robots',
