@@ -2,6 +2,7 @@
   <component :is="tag">
     <ins v-if="show"
          class="adsbygoogle"
+         ref="ins"
          :data-ad-client="adClient"
          :data-ad-slot="adSlot"
          :data-ad-format="adFormat"
@@ -10,6 +11,14 @@
          :style="adStyle" />
   </component>
 </template>
+
+<style>
+  /* add a border to test ads (as tehy usually appear blank) */
+  ins.adsbygoogle[data-adtest] {
+    margin: -1px;
+    border: 1px solid red;
+  }
+</style>
 
 <script>
 export default {
@@ -27,7 +36,11 @@ export default {
     },
     adStyle: {
       type: Object,
-      default () { return { display: 'block' } }
+      default () {
+        return {
+          display: 'block'
+        }
+      }
     },
     tag: {
       type: String,
@@ -40,13 +53,13 @@ export default {
       adRegion: 'page-0'
     }
   },
-  mounted() {
+  mounted () {
     this.showAd()
   },
   watch: {
     '$route' (to, from) {
-      if (!this.isServer && to.fullPath !== from.fullPath ) {
-         this.updateAd()
+      if (!this.isServer && to.fullPath !== from.fullPath) {
+        this.updateAd()
       }
     }
   },
@@ -56,12 +69,12 @@ export default {
         return
       }
       // Take the ad out of document (which removed teh inner content
-      this.$el.innerHTML = '';
+      this.$refs['ins'].innerHTML = ''
       this.show = false
       // Show new ad on nextTick
-      this.nextTick(() => this.showAd)
+      this.$nextTick(this.showAd)
     },
-    showAd() {
+    showAd () {
       // Set the regions ID to a new random value.
       // https://github.com/leonardteo/google-ads-test-angularjs
       this.adRegion = `page-${Math.random()}`
