@@ -5,6 +5,7 @@ module.exports = function nuxtAdSense (moduleOptions) {
 
   if (this.options.dev && process.env.NODE_ENV !== 'production')) {
     // If in DEV mode, place ads in 'test' state
+    // https://www.thedev.blog/3087/test-adsense-ads-safely-without-violating-adsense-tos/
     options.dev = true
     options.id = 'ca-google'
   } else if (!options[id] || typeof options[id] !== 'string') {
