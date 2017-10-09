@@ -1,9 +1,9 @@
 const { resolve } = require('path')
 
 module.exports = function nuxtAdSense (moduleOptions) {
-  const options = Object.assign({}, this.moduleOptions['google-adsense'] || {})
+  const options = Object.assign({}, this.moduleOptions || {})
 
-  if (this.options.dev && process.env.NODE_ENV !== 'production')) {
+  if (this.options.dev && process.env.NODE_ENV !== 'production') {
     // If in DEV mode, place ads in 'test' state
     // https://www.thedev.blog/3087/test-adsense-ads-safely-without-violating-adsense-tos/
     options.test = 'true'
