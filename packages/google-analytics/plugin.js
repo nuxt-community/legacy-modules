@@ -8,7 +8,10 @@ const adsbygoogle = {
     adClient: {
       type: String,
       default: '<% options.id %>'
-    }
+    },
+    adTest: {
+      type: Boolean,
+      default: <% options.test %>
   }
 }
 
