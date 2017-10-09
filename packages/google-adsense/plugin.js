@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import AdsByGoogle from './adsbygoogle.vue'
+import AdsByGoogle from '~/modules/google-adsense/adsbygoogle.vue'
 
 // Extend the AdsByGoogle component with the client ID
 const adsbygoogle = {
