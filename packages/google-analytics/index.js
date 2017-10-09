@@ -1,17 +1,22 @@
 const { resolve } = require('path')
 
 module.exports = function nuxtAdSense (moduleOptions) {
-  const opts = this.moduleOptions['google-adsense']
+  const options = this.moduleOptions['google-adsense']
 
-  if (!opts || !opts[id] || typeof ops[id] !== 'string') {
+  if (!options || !options[id] || typeof options[id] !== 'string') {
     console.warn('adsense client ID not specified')
     return
+  }
+
+  // If in DEV mode, place ads in 'test' state
+  if (this.options.dev && process.env.NODE_ENV !== 'production')) {
+    options.dev = true
   }
 
   // Register our plugin
   this.addPlugin({
     src: resolve(__dirname, '../plugin.js'),
-    { id: opts[id] }
+    options: options
   })
 
   // Add the google adsense script
