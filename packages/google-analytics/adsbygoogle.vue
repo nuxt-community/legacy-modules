@@ -1,10 +1,14 @@
 <template>
-  <ins v-if"show" class="adsbygoogle"
-       :data-ad-client="adClient"
-       :data-ad-slot="adSlot"
-       :data-ad-format="adFormat"
-       :data-ad-region="`page-${Math.random()}`"
-       :style="adStyle" />
+  <component :is="tag">
+    <ins v-if="show"
+         class="adsbygoogle"
+         :data-ad-client="adClient"
+         :data-ad-slot="adSlot"
+         :data-ad-format="adFormat"
+         :data-ad-region="adRegion"
+         :data-adtest="adTest ? 'on' : null"
+         :style="adStyle" />
+  </component>
 </template>
 
 <script>
@@ -12,12 +16,10 @@ export default {
   props: {
     adClient: {
       type: String,
-      default: null,
-      required: true
+      default: null
     },
     adSlot: {
-      type: String,
-      required: true
+      type: String
     },
     adFormat: {
       type: String,
@@ -26,11 +28,16 @@ export default {
     adStyle: {
       type: Object,
       default () { return { display: 'block' } }
+    },
+    tag: {
+      type: String,
+      default: 'div'
     }
   },
   data () {
     return {
-      show: true
+      show: true,
+      adRegion: 'page-0'
     }
   },
   mounted() {
@@ -48,14 +55,21 @@ export default {
       if (this.isServer) {
         return
       }
+      // Take the ad out of document (which removed teh inner content
+      this.$el.innerHTML = '';
       this.show = false
-      this.$nextTick(() => {
-        this.show = true
-        this.nextTick(() => this.showAd)
-      })
+      // Show new ad on nextTick
+      this.nextTick(() => this.showAd)
     },
     showAd() {
-      (window.adsbygoogle = window.adsbygoogle || []).push({})
+      // Set the regions ID to a new random value.
+      // https://github.com/leonardteo/google-ads-test-angularjs
+      this.adRegion = `page-${Math.random()}`
+      this.show = true
+      this.$nextTick(() => {
+        // Once ad container (<ins>) DOM has rendered, requesst a new advert
+        (window.adsbygoogle = window.adsbygoogle || []).push({})
+      })
     }
   }
 }
