@@ -7,11 +7,11 @@ const adsbygoogle = {
   props: {
     adClient: {
       type: String,
-      default: '<% options.id %>'
+      default: '<%= options.id %>'
     },
     adTest: {
       type: Boolean,
-      default: <% options.test %>
+      default: <%= options.test %>
   }
 }
 
