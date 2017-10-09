@@ -12,6 +12,7 @@ const adsbygoogle = {
     adTest: {
       type: Boolean,
       default: <%= options.test %>
+    }
   }
 }
 
