@@ -11,7 +11,7 @@ const Defaults = {
 const TestID = 'ca-google'
 
 module.exports = function nuxtAdSense (moduleOptions = {}) {
-  const options = Object.assign({}, Defaults, moduleOptions)
+  const options = Object.assign({}, Defaults, this.options['google-adsense'] || moduleOptions)
 
   options.test = Boolean(options.test)
 
