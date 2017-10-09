@@ -1,0 +1,13 @@
+{
+  "name": "@nuxtjs/google-adsense",
+  "version": "1.0.0",
+  "license": "MIT",
+  "repository": "https://github.com/nuxt/modules",
+  "homepage": "https://github.com/nuxt/modules/tree/master/modules/google-adsense",
+  "publishConfig": {
+    "access": "public"
+  },
+  "main": "index.js",
+  "dependencies": [
+  ]
+}
