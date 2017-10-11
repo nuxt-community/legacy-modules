@@ -1,0 +1,19 @@
+:not(.in-viewport).inview,
+:not(.in-viewport)>.inview1,
+:not(.in-viewport)>*>.inview2,
+:not(.in-viewport)>*>*>.inview3,
+:not(.in-viewport)>*>*>*>.inview4 {
+  visibility: hidden;
+  animation-name: none;
+}
+
+@for $s from 0 through 4 {
+  .delay-#{$s} {
+    animation-delay: 1s * $s;
+  }
+  @for $ms from 1 through 10 {
+    .delay-#{$s}-#{$ms} {
+      animation-delay: 0.1s * ($s * 10 + $ms);
+    }
+  }
+}
