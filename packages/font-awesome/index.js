@@ -1,6 +1,4 @@
-const path = require('path')
-
-module.exports = function nuxtFontAwesome(options) {
+module.exports = function nuxtFontAwesome() {
   // Add CSS
   this.options.css.push('font-awesome/css/font-awesome.css')
 }
