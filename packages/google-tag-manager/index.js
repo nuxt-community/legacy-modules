@@ -6,9 +6,9 @@ module.exports = function nuxtTagManager(_options) {
     id: options.id || null,
     layer: options.layer || 'dataLayer',
     env: {
-      gtm_auth: options.env.gtm_auth || null,
-      gtm_preview: options.env.gtm_preview || null,
-      gtm_cookies_win: options.env.gtm_cookies_win || 'x'
+      gtm_auth: options.env && options.env.gtm_auth || null,
+      gtm_preview: options.env && options.env.gtm_preview || null,
+      gtm_cookies_win: options.env && options.env.gtm_cookies_win || 'x'
     }
   }
 
