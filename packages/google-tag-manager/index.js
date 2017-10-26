@@ -1,17 +1,16 @@
-const _ = require('lodash')
 const path = require('path')
-const defaults = {
-  id: null,
-  layer: 'dataLayer',
-  env: {
-    gtm_auth: null,
-    gtm_preview: null,
-    gtm_cookies_win: 'x'
-  }
-}
 
-module.exports = function nuxtTagManager(options) {
-  let currentOptions = _.defaultsDeep(options,defaults)
+module.exports = function nuxtTagManager(_options) {
+  const options = _options || {}
+  let currentOptions = {
+    id: options.id || null,
+    layer: options.layer || 'dataLayer',
+    env: {
+      gtm_auth: options.env.gtm_auth || null,
+      gtm_preview: options.env.gtm_preview || null,
+      gtm_cookies_win: options.env.gtm_cookies_win || 'x'
+    }
+  }
 
   // Don't include when no GTM id is given OR on dev mode
   if(!currentOptions.id || (this.options.dev && process.env.NODE_ENV !== 'production')) {
@@ -24,9 +23,10 @@ module.exports = function nuxtTagManager(options) {
   if (currentOptions.layer)
       queryParams.l  = currentOptions.layer
 
-  let queryString =_.reduce(queryParams, function(result, value, key) {
-		return (!_.isNull(value) && !_.isUndefined(value)) ? (result += key + '=' + value + '&') : result;
-	}, '').slice(0, -1);
+  let queryString = Object.keys(queryParams).map(function (key) {
+    let val = queryParams[key]
+    return (val !== null && val !== undefined) ? key + '=' + val : ''
+  }).filter(e => e).join('&')
 
   // Add google tag manager script to head
   this.options.head.script.push({
