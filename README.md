@@ -6,7 +6,6 @@
 
 ## Packages
 
-- [bootstrap-vue](packages/bootstrap-vue)
 - [browserconfig](packages/browserconfig)
 - [bulma](packages/bulma)
 - [component-cache](packages/component-cache)
