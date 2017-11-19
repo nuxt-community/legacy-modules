@@ -1,0 +1,12 @@
+{
+  "name": "@nuxtjs/i18n-routes",
+  "version": "0.0.1",
+  "license": "MIT",
+  "main": "index.js",
+  "repository": "https://github.com/nuxt/modules",
+  "homepage": "https://github.com/nuxt/modules/tree/master/modules/i18n-routes",
+  "dependencies": {
+    "vue-i18n": "^7.3.2",
+    "path-to-regexp": "^2.1.0"
+  }
+}
