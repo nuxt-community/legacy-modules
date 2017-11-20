@@ -1,7 +1,15 @@
 # Change Log
 
 All notable changes to this project will be documented in this file.
-See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+<a name="1.1.1"></a>
+## [1.1.1](https://github.com/nuxt/modules/compare/@nuxtjs/component-cache@1.1.0...@nuxtjs/component-cache@1.1.1) (2017-11-20)
+
+
+
+
+**Note:** Version bump only for package @nuxtjs/component-cache
 
 <a name="1.1.0"></a>
 # [1.1.0](https://github.com/nuxt/modules/compare/@nuxtjs/component-cache@1.0.0...@nuxtjs/component-cache@1.1.0) (2017-08-17)

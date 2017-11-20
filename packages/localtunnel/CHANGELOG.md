@@ -1,7 +1,15 @@
 # Change Log
 
 All notable changes to this project will be documented in this file.
-See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+<a name="1.0.1"></a>
+## [1.0.1](https://github.com/nuxt/modules/compare/@nuxtjs/localtunnel@1.0.0...@nuxtjs/localtunnel@1.0.1) (2017-11-20)
+
+
+
+
+**Note:** Version bump only for package @nuxtjs/localtunnel
 
 <a name="0.1.4"></a>
 ## [0.1.4](https://github.com/nuxt/modules/compare/@nuxtjs/localtunnel@0.1.3...@nuxtjs/localtunnel@0.1.4) (2017-06-10)

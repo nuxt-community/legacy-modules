@@ -1,7 +1,15 @@
 # Change Log
 
 All notable changes to this project will be documented in this file.
-See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+<a name="1.1.3"></a>
+## [1.1.3](https://github.com/nuxt/modules/compare/@nuxtjs/markdownit@1.1.2...@nuxtjs/markdownit@1.1.3) (2017-11-20)
+
+
+
+
+**Note:** Version bump only for package @nuxtjs/markdownit
 
 <a name="1.1.2"></a>
 ## [1.1.2](https://github.com/nuxt/modules/compare/@nuxtjs/markdownit@1.1.0...@nuxtjs/markdownit@1.1.2) (2017-08-29)

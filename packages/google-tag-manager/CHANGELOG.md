@@ -1,7 +1,18 @@
 # Change Log
 
 All notable changes to this project will be documented in this file.
-See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+<a name="1.1.0"></a>
+# [1.1.0](https://github.com/nuxt/modules/compare/@nuxtjs/google-tag-manager@1.0.1...@nuxtjs/google-tag-manager@1.1.0) (2017-11-20)
+
+
+### Features
+
+* **google-tag-manager:** removed lodash dependency ([#160](https://github.com/nuxt/modules/issues/160)) ([3c5f674](https://github.com/nuxt/modules/commit/3c5f674))
+
+
+
 
 <a name="1.0.1"></a>
 ## [1.0.1](https://github.com/nuxt/modules/compare/@nuxtjs/google-tag-manager@1.0.0...@nuxtjs/google-tag-manager@1.0.1) (2017-07-24)

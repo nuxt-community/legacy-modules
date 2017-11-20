@@ -1,7 +1,15 @@
 # Change Log
 
 All notable changes to this project will be documented in this file.
-See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+<a name="0.0.7"></a>
+## [0.0.7](https://github.com/nuxt/modules/compare/@nuxtjs/browserconfig@0.0.6...@nuxtjs/browserconfig@0.0.7) (2017-11-20)
+
+
+
+
+**Note:** Version bump only for package @nuxtjs/browserconfig
 
 <a name="0.0.6"></a>
 ## [0.0.6](https://github.com/nuxt/modules/compare/@nuxtjs/browserconfig@0.0.5...@nuxtjs/browserconfig@0.0.6) (2017-09-02)
