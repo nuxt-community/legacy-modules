@@ -1,6 +1,6 @@
 {
   "name": "@nuxtjs/ngrok",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "license": "MIT",
   "repository": "https://github.com/nuxt/modules",
   "homepage": "https://github.com/nuxt/modules/tree/master/modules/ngrok",

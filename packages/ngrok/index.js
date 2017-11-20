@@ -23,13 +23,13 @@ module.exports = async function nuxtNgrok(options) {
     addr: `${host}:${port}`, // port or network address
   }
 
-  if (this.options.ngrok && Object.keys(this.options.ngrok).length) {
-    opts = Object.assign({}, opts, this.options.ngrok)
+  if (options && Object.keys(options).length) {
+    opts = Object.assign({}, opts, options)
   }
 
   this.nuxt.plugin('build', async builder => {
     builder.plugin('compile', async ({ compiler }) => {
-      compiler.plugin('done', async lll => {
+      compiler.plugin('done', async () => {
         if (!connectedUrl) {
           ngrok.connect(opts, (err, url) => {
             if (err) return console.error('[nuxt][ngrock] ' + err)
