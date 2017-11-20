@@ -9,6 +9,6 @@
     "access": "public"
   },
   "devDependencies": {
-    "debug": "^2.6.8"
+    "debug": "^3.1.0"
   }
 }
