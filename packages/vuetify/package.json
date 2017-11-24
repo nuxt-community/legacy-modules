@@ -9,6 +9,6 @@
     "access": "public"
   },
   "dependencies": {
-    "vuetify": "^0.17.1"
+    "vuetify": "^0.17.2"
   }
 }

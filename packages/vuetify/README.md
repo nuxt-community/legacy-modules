@@ -11,17 +11,25 @@
 {
   modules: [
     '@nuxtjs/vuetify'
-  ]
+  ],
+
+  vuetify: {
+    // Vuetify options
+    //  theme: { }
+  }
 }
 ```
 
-## Options
+## Module options
 
 ### `materialIcons`
-
 - Default: `true`
-
 Adds **Material Icons** from google fonts api.
+
+### `css`
+- Default: `true`
+Adds `vuetify.css` to the start of `options.css[]`
+
 
 # License 
 

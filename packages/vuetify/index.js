@@ -1,14 +1,17 @@
 const path = require('path')
 
 const defaults = {
+  css: true,
   materialIcons: false
 }
 
-module.exports = function nuxtVuetify (moduleOptions) {
-  const options = Object.assign({}, defaults, moduleOptions)
+module.exports = function (moduleOptions) {
+  const options = Object.assign({}, defaults, this.options.vuetify, moduleOptions)
 
   // Add css
-  this.options.css.push('vuetify/dist/vuetify.css')
+  if (options.css) {
+    this.options.css.unshift('vuetify/dist/vuetify.css')
+  }
 
   // Add Material Icons font
   if (options.materialIcons) {
@@ -19,8 +22,19 @@ module.exports = function nuxtVuetify (moduleOptions) {
     })
   }
 
+  // Remove module options
+  const vuetifyOptions = Object.assign({}, options)
+  delete vuetifyOptions.css
+  delete vuetifyOptions.materialIcons
+
   // Register plugin
-  this.addPlugin({ src: path.resolve(__dirname, 'plugin.js'), options })
+  this.addPlugin({
+    src: path.resolve(__dirname, 'plugin.js'),
+    fileName: 'vuetify.js',
+    options: {
+      vuetifyOptions
+    }
+  })
 }
 
 module.exports.meta = require('./package.json')
