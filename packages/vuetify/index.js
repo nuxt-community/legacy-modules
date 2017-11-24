@@ -2,7 +2,7 @@ const path = require('path')
 
 const defaults = {
   css: true,
-  materialIcons: false
+  materialIcons: true
 }
 
 module.exports = function (moduleOptions) {
@@ -18,7 +18,7 @@ module.exports = function (moduleOptions) {
     this.options.head.link.push({
       rel: 'stylesheet',
       type: 'text/css',
-      href: '//fonts.googleapis.com/css?family=Material+Icons'
+      href: '//fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons'
     })
   }
 
