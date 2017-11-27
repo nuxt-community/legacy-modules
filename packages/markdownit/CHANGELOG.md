@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="1.2.0"></a>
+# [1.2.0](https://github.com/nuxt/modules/compare/@nuxtjs/markdownit@1.1.3...@nuxtjs/markdownit@1.2.0) (2017-11-27)
+
+
+### Features
+
+* **markdownit:** inject $md to app and vue instance ([#174](https://github.com/nuxt/modules/issues/174)) ([35e2e9c](https://github.com/nuxt/modules/commit/35e2e9c))
+
+
+
+
 <a name="1.1.3"></a>
 ## [1.1.3](https://github.com/nuxt/modules/compare/@nuxtjs/markdownit@1.1.2...@nuxtjs/markdownit@1.1.3) (2017-11-20)
 

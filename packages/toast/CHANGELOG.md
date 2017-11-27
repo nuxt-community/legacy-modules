@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="2.3.3"></a>
+## [2.3.3](https://github.com/nuxt/modules/compare/@nuxtjs/toast@2.3.1...@nuxtjs/toast@2.3.3) (2017-11-27)
+
+
+
+
+**Note:** Version bump only for package @nuxtjs/toast
+
 <a name="2.3.2"></a>
 ## [2.3.2](https://github.com/nuxt/modules/compare/@nuxtjs/toast@2.3.1...@nuxtjs/toast@2.3.2) (2017-11-27)
 

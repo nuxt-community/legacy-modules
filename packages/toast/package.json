@@ -1,6 +1,6 @@
 {
   "name": "@nuxtjs/toast",
-  "version": "2.3.2",
+  "version": "2.3.3",
   "license": "MIT",
   "main": "index.js",
   "repository": "https://github.com/nuxt/modules",
