@@ -1,6 +1,6 @@
 {
   "name": "@nuxtjs/ngrok",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "license": "MIT",
   "repository": "https://github.com/nuxt/modules",
   "homepage": "https://github.com/nuxt/modules/tree/master/modules/ngrok",
@@ -10,6 +10,6 @@
   "main": "index.js",
   "dependencies": {
     "chalk": "^2.3.0",
-    "ngrok": "^2.2.23"
+    "ngrok": "^2.2.24"
   }
 }
