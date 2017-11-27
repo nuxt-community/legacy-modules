@@ -14,6 +14,7 @@ const firebasePlugin = {
         apiKey: process.env.apiKey || '<%= options.apiKey %>',
         authDomain: process.env.authDomain || '<%= options.authDomain %>',
         databaseURL: process.env.databaseURL || '<%= options.databaseURL %>',
+        projectId: process.env.projectId || '<%= options.projeectId %>',
         storageBucket: process.env.storageBucket || '<%= options.storageBucket %>'
       })
     }
