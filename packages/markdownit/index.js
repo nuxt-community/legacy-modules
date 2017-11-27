@@ -31,12 +31,15 @@ module.exports = function nuxtMarkdownit (options) {
     })
   })
 
-  // Register plugin
-  this.addPlugin({
-    src: path.resolve(__dirname, 'plugin.js'),
-    fileName: 'markdown-it.js',
-    options: _options
-  })
+  if (_options.injected === true) {
+    delete _options.injected
+    // Register plugin
+    this.addPlugin({
+      src: path.resolve(__dirname, 'plugin.js'),
+      fileName: 'markdown-it.js',
+      options: _options
+    })
+  }
 }
 
 module.exports.meta = require('./package.json')

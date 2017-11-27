@@ -69,6 +69,18 @@ Using [markdownit-loader](https://github.com/nuxt-community/markdownit-loader) a
 
 ### Using `$md` to render markdown
 
+`nuxt.config.js`:
+```js
+{
+  modules: [
+    '@nuxtjs/markdownit'
+  ],
+  markdownit: {
+    injected: true
+  }
+}
+```
+
 `hello.vue`:
 ```html
 <template>
