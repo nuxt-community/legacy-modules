@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Firebase from 'firebase'
+import 'firebase/firestore'
 
 const firebasePlugin = {
   install () {
