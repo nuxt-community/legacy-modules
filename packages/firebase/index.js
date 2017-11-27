@@ -1,7 +1,6 @@
 const path = require('path')
 
 module.exports = function nuxtFirebase (moduleOptions) {
-  console.log("dsfasdfasdf")
   let options = Object.assign({
     apiKey: process.env.apiKey,
     authDomain: process.env.authDomain,
