@@ -1,5 +1,6 @@
 // https://github.com/BlueOakJS/markdownit-loader
 // https://github.com/markdown-it/markdown-it
+const path = require('path')
 
 module.exports = function nuxtMarkdownit (options) {
   const _options = Object.assign({}, options, this.options.markdownit)
@@ -28,6 +29,13 @@ module.exports = function nuxtMarkdownit (options) {
         markDownItLoader
       ]
     })
+  })
+
+  // Register plugin
+  this.addPlugin({
+    src: path.resolve(__dirname, 'plugin.js'),
+    fileName: 'markdown-it.js',
+    options: _options
   })
 }
 
