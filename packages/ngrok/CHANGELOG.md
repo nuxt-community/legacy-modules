@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="1.1.1"></a>
+## [1.1.1](https://github.com/nuxt/modules/compare/@nuxtjs/ngrok@1.1.0...@nuxtjs/ngrok@1.1.1) (2017-11-27)
+
+
+
+
+**Note:** Version bump only for package @nuxtjs/ngrok
+
 <a name="1.1.0"></a>
 # 1.1.0 (2017-11-20)
 
