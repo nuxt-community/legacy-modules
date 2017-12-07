@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="1.1.3"></a>
+## [1.1.3](https://github.com/nuxt/modules/compare/@nuxtjs/vendor@1.1.2...@nuxtjs/vendor@1.1.3) (2017-12-07)
+
+
+
+
+**Note:** Version bump only for package @nuxtjs/vendor
+
 <a name="1.1.2"></a>
 ## [1.1.2](https://github.com/nuxt/modules/compare/@nuxtjs/vendor@1.1.0...@nuxtjs/vendor@1.1.2) (2017-11-27)
 
