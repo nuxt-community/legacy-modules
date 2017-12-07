@@ -7,13 +7,9 @@
     "release": "lerna publish -p --conventional-commits",
     "force-release": "for p in packages/*; do cd $p ; npm publish ; cd ../.. ; done"
   },
-  "workspaces": [
-    "packages/*"
-  ],
+  "workspaces": ["packages/*"],
   "devDependencies": {
-    "chalk": "^2.3.0",
-    "fs-extra": "^4.0.2",
-    "babel-eslint": "^8.0.1",
+    "babel-eslint": "^8.0.3",
     "eslint": "^4.12.0",
     "eslint-config-standard": "^10.2.1",
     "eslint-plugin-html": "^4.0.1",

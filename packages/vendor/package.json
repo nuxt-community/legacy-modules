@@ -9,6 +9,6 @@
     "access": "public"
   },
   "dependencies": {
-    "fs-extra": "^4.0.2"
+    "fs-extra": "^4.0.3"
   }
 }
