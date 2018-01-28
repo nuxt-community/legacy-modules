@@ -17,7 +17,6 @@
 - [offline (not maintained)](packages/offline)
 - [plugin-utils](packages/plugin-utils)
 - [prepack (WIP)](packages/prepack)
-- [proxy](packages/proxy)
 - [toast](packages/toast)
 - [vendor](packages/vendor)
 - [vuetify](packages/vuetify)
