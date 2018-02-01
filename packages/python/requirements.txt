@@ -1,0 +1,1 @@
+-e git+https://github.com/icarito/metapensiero.pj@default_import#egg=py-loader

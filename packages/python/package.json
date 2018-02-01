@@ -1,0 +1,14 @@
+{
+  "name": "@nuxtjs/python",
+  "version": "0.0.1",
+  "license": "MIT",
+  "main": "index.js",
+  "repository": "https://github.com/nuxt/modules",
+  "homepage": "https://github.com/nuxt/modules/tree/master/packages/python",
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "py-loader": "martim00/python-webpack-loader"
+  }
+}
