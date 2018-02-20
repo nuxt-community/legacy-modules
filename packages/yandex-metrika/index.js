@@ -8,7 +8,7 @@ module.exports = function yandexMetrika (options) {
 
   // Add yandex metrika script to head
   this.options.head.script.push({
-    src: 'https://mc.yandex.ru/metrika/watch.js',
+    src: (options.useCDN ? 'https://cdn.jsdelivr.net/npm/yandex-metrica-watch' : 'https://mc.yandex.ru/metrika') + '/watch.js', // add https://cdn.jsdelivr.net/npm/yandex-metrica-watch/watch.js
     async: true
   })
 
