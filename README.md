@@ -21,6 +21,7 @@ You can set environment variable `NODE_ENV` to `production` for testing in dev m
         id: 'XXXXXX',
         webvisor: true,
         // clickmap:true,
+        // useCDN:false,
         // trackLinks:true,
         // accurateTrackBounce:true,
       }
