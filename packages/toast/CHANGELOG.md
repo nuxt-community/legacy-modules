@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="3.0.0"></a>
+# [3.0.0](https://github.com/nuxt/modules/compare/@nuxtjs/toast@2.3.3...@nuxtjs/toast@3.0.0) (2018-03-05)
+
+
+### misc
+
+* **toast:** use default toast options. fixes [#186](https://github.com/nuxt/modules/issues/186). ([9fd9b61](https://github.com/nuxt/modules/commit/9fd9b61))
+
+
+### BREAKING CHANGES
+
+* **toast:** some default options are changed back to their original values
+
+
+
+
 <a name="2.3.3"></a>
 ## [2.3.3](https://github.com/nuxt/modules/compare/@nuxtjs/toast@2.3.1...@nuxtjs/toast@2.3.3) (2017-11-27)
 
