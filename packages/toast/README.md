@@ -15,7 +15,7 @@
   ],
 
   toast: {
-      position: 'center'
+      position: 'top-center'
   }
 }
 ```
