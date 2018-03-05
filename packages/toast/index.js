@@ -1,15 +1,7 @@
 const path = require('path')
 
 module.exports = function nuxtToast (moduleOptions) {
-  const options = Object.assign({
-    duration: 3000,
-    action: {
-      text: '×',
-      onClick: (e, toast) => {
-        toast.goAway(0)
-      }
-    }
-  }, this.options.toast, moduleOptions)
+  const options = Object.assign({}, this.options.toast, moduleOptions)
 
   // Register plugin
   this.addPlugin({
