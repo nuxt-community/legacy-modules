@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="0.1.0"></a>
+# [0.1.0](https://github.com/nuxt/modules/compare/@nuxtjs/yandex-metrika@0.0.5...@nuxtjs/yandex-metrika@0.1.0) (2018-03-05)
+
+
+### Features
+
+* **yandex-metrika:** add support use cdn ([#194](https://github.com/nuxt/modules/issues/194)) ([dc06e67](https://github.com/nuxt/modules/commit/dc06e67))
+
+
+
+
 <a name="0.0.5"></a>
 ## [0.0.5](https://github.com/nuxt/modules/compare/@nuxtjs/yandex-metrika@0.0.4...@nuxtjs/yandex-metrika@0.0.5) (2017-11-20)
 
