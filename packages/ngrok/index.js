@@ -27,26 +27,22 @@ module.exports = async function nuxtNgrok(options) {
     opts = Object.assign({}, opts, options)
   }
 
-  this.nuxt.plugin('build', async builder => {
-    builder.plugin('compile', async ({ compiler }) => {
-      compiler.plugin('done', async () => {
-        if (!connectedUrl) {
-          ngrok.connect(opts, (err, url) => {
-            if (err) return console.error('[nuxt][ngrock] ' + err)
-            connectedUrl = url
-            console.log('\n' + chalk.bgGreen.black(' OPEN ') + chalk.green(` ${connectedUrl} for external access\n`))
-          })
-        }
-
-        connectedUrl &&
-          console.log('\n' + chalk.bgGreen.black(' OPEN ') + chalk.green(` ${connectedUrl} for external access\n`))
+  this.nuxt.hook('build:done', async () => {
+    if (!connectedUrl) {
+      ngrok.connect(opts, (err, url) => {
+        if (err) return console.error('[nuxt][ngrock] ' + err)
+        connectedUrl = url
+        console.log('\n' + chalk.bgGreen.black(' OPEN ') + chalk.green(` ${connectedUrl} for external access\n`))
       })
-    })
+    }
+    connectedUrl &&
+      console.log('\n' + chalk.bgGreen.black(' OPEN ') + chalk.green(` ${connectedUrl} for external access\n`))
   })
 
-  this.nuxt.plugin('close', async nuxt => {
+  this.nuxt.hook('close', () => {
     ngrok.disconnect()
-    connectedUrl && console.log('\n' + chalk.bgGreen.black(' CLOSED NGROK '))
+    connectedUrl &&
+      console.log('\n' + chalk.bgGreen.black(' CLOSED NGROK '))
   })
 }
 
