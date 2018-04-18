@@ -4,7 +4,7 @@
 
 Using [markdownit-loader](https://github.com/nuxt-community/markdownit-loader) and [markdown-it](https://github.com/markdown-it/markdown-it)
 
-## Setup 
+## Setup
 - Add `@nuxtjs/markdownit` dependency using yarn or npm to your project
 - Add `@nuxtjs/markdownit` to `modules` section of `nuxt.config.js`
 ```js
@@ -20,7 +20,7 @@ Using [markdownit-loader](https://github.com/nuxt-community/markdownit-loader) a
     linkify: true,
     breaks: true,
     use: [
-      'markdown-it-container',
+      ['markdown-it-container', containerName],
       'markdown-it-attrs'
     ]
   }
