@@ -10,6 +10,6 @@
     "access": "public"
   },
   "dependencies": {
-    "firebase": "^4.7.0"
+    "firebase": "^4.13.1"
   }
 }
