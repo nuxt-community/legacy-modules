@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="0.0.8"></a>
+## [0.0.8](https://github.com/nuxt/modules/compare/@nuxtjs/browserconfig@0.0.7...@nuxtjs/browserconfig@0.0.8) (2018-04-27)
+
+
+
+
+**Note:** Version bump only for package @nuxtjs/browserconfig
+
 <a name="0.0.7"></a>
 ## [0.0.7](https://github.com/nuxt/modules/compare/@nuxtjs/browserconfig@0.0.6...@nuxtjs/browserconfig@0.0.7) (2017-11-20)
 

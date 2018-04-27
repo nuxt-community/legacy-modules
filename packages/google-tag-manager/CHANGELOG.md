@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="1.2.0"></a>
+# [1.2.0](https://github.com/nuxt/modules/compare/@nuxtjs/google-tag-manager@1.1.0...@nuxtjs/google-tag-manager@1.2.0) (2018-04-27)
+
+
+### Features
+
+* **gtm:** add dataLayer Event property ([#202](https://github.com/nuxt/modules/issues/202)) ([d22ae60](https://github.com/nuxt/modules/commit/d22ae60))
+
+
+
+
 <a name="1.1.0"></a>
 # [1.1.0](https://github.com/nuxt/modules/compare/@nuxtjs/google-tag-manager@1.0.1...@nuxtjs/google-tag-manager@1.1.0) (2017-11-20)
 

@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="1.1.2"></a>
+## [1.1.2](https://github.com/nuxt/modules/compare/@nuxtjs/component-cache@1.1.1...@nuxtjs/component-cache@1.1.2) (2018-04-27)
+
+
+
+
+**Note:** Version bump only for package @nuxtjs/component-cache
+
 <a name="1.1.1"></a>
 ## [1.1.1](https://github.com/nuxt/modules/compare/@nuxtjs/component-cache@1.1.0...@nuxtjs/component-cache@1.1.1) (2017-11-20)
 
