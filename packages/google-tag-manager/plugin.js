@@ -7,6 +7,6 @@ window['<%= options.layer %>'].push({
 // Every time the route changes (fired on initialization too)
 export default ({app: {router}}) => {
   router.afterEach((to, from) => {
-    window['<%= options.layer %>'].push(to.gtm || {pageType: 'PageView', pageUrl: to.fullPath})
+    window['<%= options.layer %>'].push(to.gtm || {event: 'nuxtRoute', pageType: 'PageView', pageUrl: to.fullPath})
   })
 }
