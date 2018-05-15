@@ -1,41 +1,47 @@
 const path = require('path')
+const { defaultsDeep } = require('lodash')
 
 module.exports = function nuxtTagManager(_options) {
-  const options = _options || {}
-  let currentOptions = {
-    id: options.id || null,
-    layer: options.layer || 'dataLayer',
-    env: {
-      gtm_auth: options.env && options.env.gtm_auth || null,
-      gtm_preview: options.env && options.env.gtm_preview || null,
-      gtm_cookies_win: options.env && options.env.gtm_cookies_win || 'x'
-    }
-  }
+  const options = defaultsDeep({}, _options, this.options['google-tag-manager'], {
+    id: null,
+    layer: 'dataLayer',
+    pageTracking: false,
+    env: {}, // env is supported for backward compability and is alias of query
+    query: {}
+  })
 
-  // Don't include when no GTM id is given OR on dev mode
-  if(!currentOptions.id || (this.options.dev && process.env.NODE_ENV !== 'production')) {
+  // Don't include when no GTM id is given
+  if (!options.id) {
     return
   }
 
   // Build the <script> URL
-  let queryParams    = currentOptions.env.gtm_auth && currentOptions.env.gtm_preview ? currentOptions.env : {}
-      queryParams.id = currentOptions.id
-  if (currentOptions.layer)
-      queryParams.l  = currentOptions.layer
+  const queryParams = Object.assign({}, options.env, options.query)
 
-  let queryString = Object.keys(queryParams).map(function (key) {
-    let val = queryParams[key]
-    return (val !== null && val !== undefined) ? key + '=' + val : ''
-  }).filter(e => e).join('&')
+  queryParams.id = options.id
+
+  if (options.layer) {
+    queryParams.l = options.layer
+  }
+
+  const queryString = Object.keys(queryParams)
+    .filter(key => queryParams[key] !== null && queryParams[key] !== undefined)
+    .map(key => `${encodeURIComponent(key)}=${encodeURIComponent(queryParams[key])}`)
+    .join('&')
 
   // Add google tag manager script to head
   this.options.head.script.push({
-    src: (currentOptions.scriptURL || '//www.googletagmanager.com/gtm.js') + '?' + queryString,
+    src: (options.scriptURL || '//www.googletagmanager.com/gtm.js') + '?' + queryString,
     async: true
   })
 
   // Register plugin
-  this.addPlugin({src: path.resolve(__dirname, 'plugin.js'), ssr: false, options: currentOptions})
+  this.addPlugin({
+    src: path.resolve(__dirname, 'plugin.js'),
+    fileName: 'google-tag-manager.js',
+    ssr: false,
+    options
+  })
 }
 
 module.exports.meta = require('./package.json')

@@ -23,11 +23,14 @@ You can set environment variable `NODE_ENV` to `production` for testing in dev m
 - Required
 Should be in form of `GTM-XXXXXXX`
 
-### Other options
+### All options
 ```js
 {
+  id: 'GTM-XXXXXXX',
   layer: 'dataLayer',
-  env: {
+  pageTracking: false
+  query: {
+    // query params...
     gtm_auth:        '...',
     gtm_preview:     '...',
     gtm_cookies_win: '...'
@@ -35,3 +38,9 @@ Should be in form of `GTM-XXXXXXX`
   scriptURL: '//example.com'
 }
 ```
+
+### Router Integration
+
+You can optionally set `pageTracking` option to `true` to track page views. 
+
+This is disabled by default to prevent double events when using alongside with Google Analytics so take care before enabling this option.
