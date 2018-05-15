@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="2.0.0"></a>
+# [2.0.0](https://github.com/nuxt/modules/compare/@nuxtjs/google-tag-manager@1.2.0...@nuxtjs/google-tag-manager@2.0.0) (2018-05-15)
+
+
+### Features
+
+* **google-tag-manager:** rework on options and customization ([50c1f27](https://github.com/nuxt/modules/commit/50c1f27))
+
+
+### BREAKING CHANGES
+
+* **google-tag-manager:** pageTracking is disabled by default
+
+
+
+
 <a name="1.2.0"></a>
 # [1.2.0](https://github.com/nuxt/modules/compare/@nuxtjs/google-tag-manager@1.1.0...@nuxtjs/google-tag-manager@1.2.0) (2018-04-27)
 
