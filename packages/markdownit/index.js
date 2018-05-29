@@ -10,25 +10,45 @@ module.exports = function nuxtMarkdownit (options) {
     options: _options
   }
 
-  this.extendBuild(config => {
-    // Vue template support
-    const vueLoader = config.module.rules.find(rule => rule.test.toString() === '/\\.vue$/')
-    // Checks for query loaders first (<= rc5)
-    if (vueLoader.query && vueLoader.query.loaders) {
-      vueLoader.query.loaders['md'] = markDownItLoader
-    } else {
-       // Sets options loaders (>= rc6)
-      vueLoader.options.loaders['md'] = markDownItLoader
-    }
+  const version = this.nuxt.constructor.version
+  const [major, minor, patch] = version.split('.')
 
-    // .md Loader
-    config.module.rules.push({
-      test: /\.md$/,
-      use: [
-        'raw-loader',
-        markDownItLoader
-      ]
-    })
+  this.extendBuild(config => {
+    if (major === '1') {
+      // Vue template support
+      const vueLoader = config.module.rules.find(rule => rule.test.toString() === '/\\.vue$/')
+      // Checks for query loaders first (<= rc5)
+      if (vueLoader.query && vueLoader.query.loaders) {
+        vueLoader.query.loaders['md'] = markDownItLoader
+      } else {
+         // Sets options loaders (>= rc6)
+        vueLoader.options.loaders['md'] = markDownItLoader
+      }
+      // .md Loader
+      config.module.rules.push({
+        test: /\.md$/,
+        use: [
+          'raw-loader',
+          markDownItLoader
+        ]
+      })
+    } else {
+      config.module.rules.push({
+        test: /\.md$/,
+        oneOf: [
+          {
+            resourceQuery: /^\?vue/,
+            use: [markDownItLoader]
+          },
+          {
+            use: [
+              'raw-loader',
+              markDownItLoader
+            ]
+          }
+        ]
+      })
+    }
   })
 
   if (_options.injected === true) {
