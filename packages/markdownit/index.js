@@ -21,7 +21,10 @@ module.exports = function nuxtMarkdownit (options) {
       if (vueLoader.query && vueLoader.query.loaders) {
         vueLoader.query.loaders['md'] = markDownItLoader
       } else {
-         // Sets options loaders (>= rc6)
+        // Sets options loaders (>= rc6)
+        if (!vueLoader.options.loaders) {
+          vueLoader.options.loaders = {}
+        }
         vueLoader.options.loaders['md'] = markDownItLoader
       }
       // .md Loader
