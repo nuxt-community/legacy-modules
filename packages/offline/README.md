@@ -4,7 +4,7 @@
 
 **This module only works in production mode**
 
-## Note: Please prefer using [workbox](../workbox) module instead for full offline support.
+## Note: Please prefer using [pwa-module](https://github.com/nuxt-community/pwa-module) module instead for full offline support.
 
 - Registers service worker
 - Scopes `cacheName` to allow having multi apps in same domain.
