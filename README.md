@@ -14,6 +14,7 @@
 - [google-tag-manager](packages/google-tag-manager)
 - [localtunnel](packages/localtunnel)
 - [markdownit](packages/markdownit)
+- [ngrok](packages/ngrok)
 - [offline (not maintained)](packages/offline)
 - [plugin-utils](packages/plugin-utils)
 - [prepack (WIP)](packages/prepack)
