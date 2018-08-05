@@ -14,3 +14,34 @@
   ]
 }
 ````
+
+- You will need to use postcss loader if you are not already using it.
+
+```js
+
+build: {
+    /*
+    ** You can extend webpack config here
+    */
+    postcss: {
+      plugins: {
+        'postcss-cssnext': {
+          features: {
+            customProperties: false
+          }
+        }
+      }
+    },
+    extend(config, ctx) {
+      // Run ESLint on save
+      if (ctx.isDev && ctx.isClient) {
+        config.module.rules.push({
+          enforce: 'pre',
+          test: /\.(js|vue)$/,
+          loader: 'eslint-loader',
+          exclude: /(node_modules)/
+        })
+      }
+    }
+  }
+```
