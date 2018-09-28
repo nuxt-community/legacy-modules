@@ -1,7 +1,7 @@
 const path = require('path')
 const { defaultsDeep } = require('lodash')
 
-module.exports = function nuxtTagManager(_options) {
+module.exports = async function nuxtTagManager(_options) {
   const options = defaultsDeep({}, _options, this.options['google-tag-manager'], {
     id: null,
     layer: 'dataLayer',
@@ -13,6 +13,10 @@ module.exports = function nuxtTagManager(_options) {
   // Don't include when no GTM id is given
   if (!options.id) {
     return
+  }
+
+  if (typeof (options.id) === 'function') {
+    options.id = await options.id()
   }
 
   // Build the <script> URL
