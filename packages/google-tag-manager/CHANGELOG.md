@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="2.1.0"></a>
+# [2.1.0](https://github.com/nuxt/modules/compare/@nuxtjs/google-tag-manager@2.0.0...@nuxtjs/google-tag-manager@2.1.0) (2018-10-01)
+
+
+### Features
+
+* **google-tag-manager:** Allow GTM ID to be function ([#219](https://github.com/nuxt/modules/issues/219)) ([e4bf538](https://github.com/nuxt/modules/commit/e4bf538))
+
+
+
+
+
 <a name="2.0.0"></a>
 # [2.0.0](https://github.com/nuxt/modules/compare/@nuxtjs/google-tag-manager@1.2.0...@nuxtjs/google-tag-manager@2.0.0) (2018-05-15)
 

@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="1.2.1"></a>
+## [1.2.1](https://github.com/nuxt/modules/compare/@nuxtjs/bulma@1.2.0...@nuxtjs/bulma@1.2.1) (2018-10-01)
+
+**Note:** Version bump only for package @nuxtjs/bulma
+
+
+
+
+
 <a name="1.2.0"></a>
 # [1.2.0](https://github.com/nuxt/modules/compare/@nuxtjs/bulma@1.1.0...@nuxtjs/bulma@1.2.0) (2018-04-27)
 
