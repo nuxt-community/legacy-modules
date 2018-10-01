@@ -21,7 +21,23 @@ You can set environment variable `NODE_ENV` to `production` for testing in dev m
 
 ### `id`
 - Required
-Should be in form of `GTM-XXXXXXX`
+- Can be String in form of `GTM-XXXXXXX`
+- Can be function returning Promise or String:
+```js
+// Returns Promise
+id: () => {
+  return axios.get('http://example.com/')
+    .then(({ data }) => {
+      return data.gtm_id
+    })
+}
+
+// Returns String
+const code = '1234567'
+id: () => {
+  return 'GTM-' + code
+}
+```
 
 ### All options
 ```js
