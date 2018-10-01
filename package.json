@@ -4,7 +4,7 @@
     "lerna": "lerna",
     "bootstrap": "lerna bootstrap",
     "lint": "eslint --ext .js packages",
-    "release": "lerna publish -p --conventional-commits",
+    "release": "lerna publish --conventional-commits",
     "force-release": "for p in packages/*; do cd $p ; npm publish ; cd ../.. ; done"
   },
   "workspaces": [
