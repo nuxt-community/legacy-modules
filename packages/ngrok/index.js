@@ -23,9 +23,7 @@ module.exports = async function nuxtNgrok(options) {
     addr: `${host}:${port}`, // port or network address
   }
 
-  if (options && Object.keys(options).length) {
-    opts = Object.assign({}, opts, options)
-  }
+  opts = Object.assign({}, opts, this.options.ngrok, options)
 
   this.nuxt.hook('build:done', async () => {
     if (!connectedUrl) {
