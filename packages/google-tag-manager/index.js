@@ -11,7 +11,7 @@ module.exports = async function nuxtTagManager(_options) {
   })
 
   // Don't include when run in dev mode
-  if (this.nuxt.options.dev && process.env.NODE_ENV !== 'production') {
+  if (this.options.dev) {
     return
   }
 
