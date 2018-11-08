@@ -25,7 +25,7 @@ build: {
     */
     postcss: {
       plugins: {
-        'postcss-cssnext': {
+        'postcss-preset-env': {
           features: {
             customProperties: false
           }
