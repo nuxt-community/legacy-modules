@@ -10,6 +10,11 @@ module.exports = async function nuxtTagManager(_options) {
     query: {}
   })
 
+  // Don't include when run in dev mode
+  if (this.options.dev) {
+    return
+  }
+
   // Don't include when no GTM id is given
   if (!options.id) {
     return
