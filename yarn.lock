@@ -3464,6 +3464,14 @@ lru-cache@^4.1.3:
     pseudomap "^1.0.2"
     yallist "^2.1.2"
 
+lru-cache@^4.1.4:
+  version "4.1.4"
+  resolved "https://registry.yarnpkg.com/lru-cache/-/lru-cache-4.1.4.tgz#51cc46e8e6d9530771c857e24ccc720ecdbcc031"
+  integrity sha512-EPstzZ23znHUVLKj+lcXO1KvZkrlw+ZirdwvOmnAnA/1PB4ggyXJ77LRkCqkff+ShQ+cqoxCxLQOh4cKITO5iA==
+  dependencies:
+    pseudomap "^1.0.2"
+    yallist "^3.0.2"
+
 make-dir@^1.0.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/make-dir/-/make-dir-1.2.0.tgz#6d6a49eead4aae296c53bbf3a1a008bd6c89469b"
@@ -4008,10 +4016,10 @@ object.pick@^1.3.0:
   dependencies:
     isobject "^3.0.1"
 
-offline-plugin@^5.0.5:
-  version "5.0.5"
-  resolved "https://registry.yarnpkg.com/offline-plugin/-/offline-plugin-5.0.5.tgz#e9b16c569d19899af9c923f5bc260705578ffeba"
-  integrity sha1-6bFsVp0ZiZr5ySP1vCYHBVeP/ro=
+offline-plugin@^5.0.6:
+  version "5.0.6"
+  resolved "https://registry.yarnpkg.com/offline-plugin/-/offline-plugin-5.0.6.tgz#7a7b244220cddb8a8cabecb172ec5c0be03e74b2"
+  integrity sha512-qvcDmeI30xmvSlmqjopAj7QCuM1MEzvmDyuMTN2saDReSay5nUqCpKysexH1KUNXv5H/TfmHd+rngNPkRFj3YA==
   dependencies:
     deep-extend "^0.5.1"
     ejs "^2.3.4"
@@ -5652,10 +5660,10 @@ vue-toasted@^1.1.25:
   resolved "https://registry.yarnpkg.com/vue-toasted/-/vue-toasted-1.1.25.tgz#27b1f40866d98f8bf817722869f3d97f7c0d4db1"
   integrity sha512-EAblMFv1Bwq552vvgzd+T2r2UFDAKj0Z8z9EcJpweU7qyKU3OMIkz5S2m6aIFMM507H8VmSJPQHsA/FGbsKp5g==
 
-vuetify@^1.3.8:
-  version "1.3.8"
-  resolved "https://registry.yarnpkg.com/vuetify/-/vuetify-1.3.8.tgz#e56832f40e5043470e2100a1501463d5a1ca6d8e"
-  integrity sha512-MWqHEAwVQaKujNoRZBPmEcNE4cbx1nLJp+VHXp8s+umS/DSpW5kYTkvGr8SLm4w7xPlUBmTzawLE3qieYXiJAg==
+vuetify@^1.3.9:
+  version "1.3.9"
+  resolved "https://registry.yarnpkg.com/vuetify/-/vuetify-1.3.9.tgz#19af65f7ef0c26efb1076464815d9ad9a5e4fa4f"
+  integrity sha512-6cgWRVEBkuUowrfAR9i4lVcTQtwpz9WLM5IcmsMmsmto2GLgf+bi3EfbVFi5xBF3UaV+TC1oHkZq+H/bqgyfhw==
 
 wcwidth@^1.0.0:
   version "1.0.1"
