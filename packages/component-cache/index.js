@@ -16,7 +16,7 @@ module.exports = function nuxtComponentCache (options) {
     return
   }
 
-  this.options.render.bundleRenderer.cache = LRU(Object.assign({
+  this.options.render.bundleRenderer.cache = new LRU(Object.assign({
     max: 10000,
     maxAge: 1000 * 60 * 15
   }, options))
