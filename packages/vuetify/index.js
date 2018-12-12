@@ -24,7 +24,7 @@ module.exports = function (moduleOptions) {
   }
 
   if (options.treeShake) {
-    const VuetifyLoader = require(path.resolve(this.options.srcDir, 'node_modules', 'vuetify-loader/lib/plugin'))
+    const VuetifyLoader = this.nuxt.resolver.requireModule('vuetify-loader/lib/plugin')
 
     this.options.build.transpile.push(/^vuetify/)
 
