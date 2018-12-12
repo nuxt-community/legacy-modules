@@ -9,6 +9,9 @@
     "access": "public"
   },
   "dependencies": {
-    "vuetify": "^1.3.9"
+    "vuetify": "^1.3.13"
+  },
+  "peerDependencies": {
+    "vuetify-loader": "^1.0.8"
   }
 }
