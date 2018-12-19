@@ -9,6 +9,6 @@
     "access": "public"
   },
   "dependencies": {
-    "vue-toasted": "^1.1.24"
+    "vue-toasted": "^1.1.26"
   }
 }

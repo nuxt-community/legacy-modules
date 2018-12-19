@@ -17,7 +17,8 @@ module.exports = function nuxtLocaltunnel (options) {
 
   const opts = {
     subdomain: options.subdomain || process.env.npm_package_name,
-    local_host: host
+    local_host: host,
+    host: options.remote_host || process.env.localtunnel_host || 'https://localtunnel.me'
   }
 
   const tunnel = localtunnel(port, opts, (err, tunnel) => {

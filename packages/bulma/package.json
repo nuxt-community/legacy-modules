@@ -9,6 +9,6 @@
     "access": "public"
   },
   "dependencies": {
-    "bulma": "^0.7.1"
+    "bulma": "^0.7.2"
   }
 }

@@ -10,6 +10,6 @@
     "access": "public"
   },
   "dependencies": {
-    "prepack-webpack-plugin": "^1.1.1"
+    "prepack-webpack-plugin": "^1.1.2"
   }
 }

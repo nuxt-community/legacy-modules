@@ -2,7 +2,8 @@ const path = require('path')
 
 const defaults = {
   css: true,
-  materialIcons: true
+  materialIcons: true,
+  treeShake: false
 }
 
 module.exports = function (moduleOptions) {
@@ -22,17 +23,29 @@ module.exports = function (moduleOptions) {
     })
   }
 
+  if (options.treeShake) {
+    const VuetifyLoader = this.nuxt.resolver.requireModule('vuetify-loader/lib/plugin')
+
+    this.options.build.transpile.push(/^vuetify/)
+
+    this.extendBuild((config) => {
+      config.plugins.push(new VuetifyLoader())
+    })
+  }
+
   // Remove module options
   const vuetifyOptions = Object.assign({}, options)
   delete vuetifyOptions.css
   delete vuetifyOptions.materialIcons
+  delete vuetifyOptions.treeShake
 
   // Register plugin
   this.addPlugin({
     src: path.resolve(__dirname, 'plugin.js'),
     fileName: 'vuetify.js',
     options: {
-      vuetifyOptions
+      vuetifyOptions,
+      treeShake: options.treeShake
     }
   })
 }

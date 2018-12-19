@@ -47,3 +47,8 @@ Request a named subdomain on the localtunnel server (default is random character
 - Default: nuxt listening ip (auto detected)
 
 Proxy to a hostname other than localhost
+
+### `remote_host`
+- Default: https://localtunnel.me
+
+Use another localtunnel server, instead of localtunnel.me
