@@ -1,6 +1,6 @@
 {
   "name": "@nuxtjs/offline",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "license": "MIT",
   "main": "index.js",
   "repository": "https://github.com/nuxt/modules",

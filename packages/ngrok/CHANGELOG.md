@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="1.2.2"></a>
+## [1.2.2](https://github.com/nuxt/modules/compare/@nuxtjs/ngrok@1.2.1...@nuxtjs/ngrok@1.2.2) (2018-12-19)
+
+
+### Bug Fixes
+
+* **deps:** update all non-major dependencies ([#231](https://github.com/nuxt/modules/issues/231)) ([345418b](https://github.com/nuxt/modules/commit/345418b))
+* **ngrok:** missing return ([#227](https://github.com/nuxt/modules/issues/227)) ([d68b323](https://github.com/nuxt/modules/commit/d68b323))
+
+
+
+
+
 <a name="1.2.1"></a>
 ## [1.2.1](https://github.com/nuxt/modules/compare/@nuxtjs/ngrok@1.2.0...@nuxtjs/ngrok@1.2.1) (2018-10-19)
 

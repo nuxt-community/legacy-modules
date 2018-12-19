@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="1.1.0"></a>
+# [1.1.0](https://github.com/nuxt/modules/compare/@nuxtjs/localtunnel@1.0.3...@nuxtjs/localtunnel@1.1.0) (2018-12-19)
+
+
+### Features
+
+* **localtunnel:** remote_host option ([#229](https://github.com/nuxt/modules/issues/229)) ([b78ee53](https://github.com/nuxt/modules/commit/b78ee53))
+
+
+
+
+
 <a name="1.0.3"></a>
 ## [1.0.3](https://github.com/nuxt/modules/compare/@nuxtjs/localtunnel@1.0.2...@nuxtjs/localtunnel@1.0.3) (2018-10-01)
 

@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="1.2.3"></a>
+## [1.2.3](https://github.com/nuxt/modules/compare/@nuxtjs/markdownit@1.2.2...@nuxtjs/markdownit@1.2.3) (2018-12-19)
+
+**Note:** Version bump only for package @nuxtjs/markdownit
+
+
+
+
+
 <a name="1.2.2"></a>
 ## [1.2.2](https://github.com/nuxt/modules/compare/@nuxtjs/markdownit@1.2.1...@nuxtjs/markdownit@1.2.2) (2018-10-01)
 

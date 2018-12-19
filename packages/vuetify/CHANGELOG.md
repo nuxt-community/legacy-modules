@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="0.5.0"></a>
+# [0.5.0](https://github.com/nuxt/modules/compare/@nuxtjs/vuetify@0.4.3...@nuxtjs/vuetify@0.5.0) (2018-12-19)
+
+
+### Bug Fixes
+
+* **deps:** update all non-major dependencies ([#231](https://github.com/nuxt/modules/issues/231)) ([345418b](https://github.com/nuxt/modules/commit/345418b))
+
+
+### Features
+
+* **vuetify:** add tree-shaking option ([#242](https://github.com/nuxt/modules/issues/242)) ([3e25477](https://github.com/nuxt/modules/commit/3e25477))
+
+
+
+
+
 <a name="0.4.3"></a>
 ## [0.4.3](https://github.com/nuxt/modules/compare/@nuxtjs/vuetify@0.4.2...@nuxtjs/vuetify@0.4.3) (2018-10-01)
 

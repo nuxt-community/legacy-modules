@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="3.0.2"></a>
+## [3.0.2](https://github.com/nuxt/modules/compare/@nuxtjs/toast@3.0.1...@nuxtjs/toast@3.0.2) (2018-12-19)
+
+
+### Bug Fixes
+
+* **deps:** update all non-major dependencies ([#231](https://github.com/nuxt/modules/issues/231)) ([345418b](https://github.com/nuxt/modules/commit/345418b))
+
+
+
+
+
 <a name="3.0.1"></a>
 ## [3.0.1](https://github.com/nuxt/modules/compare/@nuxtjs/toast@3.0.0...@nuxtjs/toast@3.0.1) (2018-04-27)
 
