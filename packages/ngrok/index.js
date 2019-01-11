@@ -32,7 +32,7 @@ module.exports = async function nuxtNgrok(options) {
         connectedUrl = url
         return console.log(chalk.bgGreen.black(' OPEN ') + chalk.green(` ${connectedUrl} for external access`))
       } catch (err) {
-        return console.error('[nuxt][ngrok] ' + err)
+        return console.error('[nuxt][ngrok] ' + chalk.red(err.details.err))
       }
     }
     connectedUrl &&
