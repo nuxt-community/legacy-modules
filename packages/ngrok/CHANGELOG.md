@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.3](https://github.com/nuxt/modules/compare/@nuxtjs/ngrok@1.2.2...@nuxtjs/ngrok@1.2.3) (2019-01-11)
+
+
+### Bug Fixes
+
+* correctly show ngrok error ([#250](https://github.com/nuxt/modules/issues/250)) ([cc363e9](https://github.com/nuxt/modules/commit/cc363e9))
+
+
+
+
+
 <a name="1.2.2"></a>
 ## [1.2.2](https://github.com/nuxt/modules/compare/@nuxtjs/ngrok@1.2.1...@nuxtjs/ngrok@1.2.2) (2018-12-19)
 

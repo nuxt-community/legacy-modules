@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.3](https://github.com/nuxt/modules/compare/@nuxtjs/plugin-utils@0.2.2...@nuxtjs/plugin-utils@0.2.3) (2019-01-11)
+
+**Note:** Version bump only for package @nuxtjs/plugin-utils
+
+
+
+
+
 <a name="0.2.2"></a>
 ## [0.2.2](https://github.com/nuxt/modules/compare/@nuxtjs/plugin-utils@0.2.1...@nuxtjs/plugin-utils@0.2.2) (2018-12-19)
 

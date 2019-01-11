@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.5.1](https://github.com/nuxt/modules/compare/@nuxtjs/vuetify@0.5.0...@nuxtjs/vuetify@0.5.1) (2019-01-11)
+
+**Note:** Version bump only for package @nuxtjs/vuetify
+
+
+
+
+
 <a name="0.5.0"></a>
 # [0.5.0](https://github.com/nuxt/modules/compare/@nuxtjs/vuetify@0.4.3...@nuxtjs/vuetify@0.5.0) (2018-12-19)
 
