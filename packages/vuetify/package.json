@@ -9,7 +9,7 @@
     "access": "public"
   },
   "dependencies": {
-    "vuetify": "^1.4.1"
+    "vuetify": "^1.4.2"
   },
   "peerDependencies": {
     "vuetify-loader": "^1.1.1"
