@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.1](https://github.com/nuxt/modules/compare/@nuxtjs/yandex-metrika@0.1.0...@nuxtjs/yandex-metrika@0.1.1) (2019-01-22)
+
+
+### Bug Fixes
+
+* html validate error ([#253](https://github.com/nuxt/modules/issues/253)) ([0b2ee5e](https://github.com/nuxt/modules/commit/0b2ee5e))
+
+
+
+
+
 <a name="0.1.0"></a>
 # [0.1.0](https://github.com/nuxt/modules/compare/@nuxtjs/yandex-metrika@0.0.5...@nuxtjs/yandex-metrika@0.1.0) (2018-03-05)
 
