@@ -20,7 +20,6 @@
 - [prepack (WIP)](packages/prepack)
 - [toast](packages/toast)
 - [vendor](packages/vendor)
-- [vuetify](packages/vuetify)
 - [yandex-metrika](packages/yandex-metrika)
 
 ## Want to create your own module ?
