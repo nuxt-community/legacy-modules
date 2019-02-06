@@ -234,16 +234,16 @@
     read-package-tree "^5.1.6"
     semver "^5.5.0"
 
-"@lerna/changed@3.10.6":
-  version "3.10.6"
-  resolved "https://registry.yarnpkg.com/@lerna/changed/-/changed-3.10.6.tgz#48fed2e6c890b39a71f1dac29e42a6f853956d71"
-  integrity sha512-nZDVq/sKdhgoAg1BVnpqjqUUz5+zedG+AnU+6mjEN2f23YVtRCsW55N4I9eEdW2pxXUaCY85Hj/HPSA74BYaFg==
+"@lerna/changed@3.10.8":
+  version "3.10.8"
+  resolved "https://registry.yarnpkg.com/@lerna/changed/-/changed-3.10.8.tgz#7ed17a00c4ca0f6437ce9f7d4925d5e779b8553c"
+  integrity sha512-K2BQPpSS93uNJqi8A5mwrFR9I6Pa/a0jgR/26jun0Wa39DTOjf5WP7EDvXQ8Pftx5kMdHb5hQDwvMCcBJw25mA==
   dependencies:
     "@lerna/collect-updates" "3.10.1"
     "@lerna/command" "3.10.6"
     "@lerna/listable" "3.10.6"
     "@lerna/output" "3.6.0"
-    "@lerna/version" "3.10.6"
+    "@lerna/version" "3.10.8"
 
 "@lerna/check-working-tree@3.10.0":
   version "3.10.0"
@@ -276,10 +276,10 @@
     p-map-series "^1.0.0"
     p-waterfall "^1.0.0"
 
-"@lerna/cli@3.10.6":
-  version "3.10.6"
-  resolved "https://registry.yarnpkg.com/@lerna/cli/-/cli-3.10.6.tgz#3ec601d18d0dbaefdee4668d81ce4c4a9488ecf7"
-  integrity sha512-GtmzJztjrcb5k1Qi/GKNs8xbQBgRpEBoPpt1Udgo23GkepVrQQo45QjM9hyqOhJ6LrV/lfXAv111kDBN/43jLw==
+"@lerna/cli@3.10.7":
+  version "3.10.7"
+  resolved "https://registry.yarnpkg.com/@lerna/cli/-/cli-3.10.7.tgz#2f88ae4a3c53fa4d3a4f61b5f447bbbcc69546e2"
+  integrity sha512-yuoz/24mIfYit3neKqoE5NVs42Rj9A6A6SlkNPDfsy3v/Vh7SgYkU3cwiGyvwBGzIdhqL4/SWYo8H7YJLs0C+g==
   dependencies:
     "@lerna/global-options" "3.10.6"
     dedent "^0.7.0"
@@ -313,10 +313,10 @@
     libnpm "^2.0.1"
     lodash "^4.17.5"
 
-"@lerna/conventional-commits@3.10.0":
-  version "3.10.0"
-  resolved "https://registry.yarnpkg.com/@lerna/conventional-commits/-/conventional-commits-3.10.0.tgz#284cc16bd3c387f841ff6bec42bcadaa2d13d8e4"
-  integrity sha512-8FvO0eR8g/tEgkb6eRVYaD39TsqMKsOXp17EV48jciciEqcrF/d1Ypu6ilK1GDp6R/1m2mbjt/b52a/qrO+xaw==
+"@lerna/conventional-commits@3.10.8":
+  version "3.10.8"
+  resolved "https://registry.yarnpkg.com/@lerna/conventional-commits/-/conventional-commits-3.10.8.tgz#b9f6dd8a09bc679f6afbb8296456de59e268fe3e"
+  integrity sha512-kjODN5f++nsvNT6w9zPuzN+tfNlq7QaKzy6KOMUb+AvGfI4+AKw8z9Uhr8AGvyuFgyNVI69/vdFaXrWC4iTKtQ==
   dependencies:
     "@lerna/validation-error" "3.6.0"
     conventional-changelog-angular "^5.0.2"
@@ -325,6 +325,7 @@
     fs-extra "^7.0.0"
     get-stream "^4.0.0"
     libnpm "^2.0.1"
+    pify "^3.0.0"
     semver "^5.5.0"
 
 "@lerna/create-symlink@3.6.0":
@@ -529,10 +530,10 @@
     signal-exit "^3.0.2"
     write-pkg "^3.1.0"
 
-"@lerna/npm-publish@3.10.5":
-  version "3.10.5"
-  resolved "https://registry.yarnpkg.com/@lerna/npm-publish/-/npm-publish-3.10.5.tgz#b2eb47cd7f3d1cdbfe32a13140017348ffe0e204"
-  integrity sha512-6wpgTfu5A5jJeB8RnH2n01HzfaB4Y9aKC0Tq0AAkw37PZ12LTgEL9I+ZZPqhUVFIFLB8/Ekpnj3AcKznJLG5xQ==
+"@lerna/npm-publish@3.10.7":
+  version "3.10.7"
+  resolved "https://registry.yarnpkg.com/@lerna/npm-publish/-/npm-publish-3.10.7.tgz#9326b747b905a7f0e69d4be3f557859c3e359649"
+  integrity sha512-oU3/Q+eHC1fRjh7bk6Nn4tRD1OLR6XZVs3v+UWMWMrF4hVSV61pxcP5tpeI1n4gDQjSgh7seI4EzKVJe/WfraA==
   dependencies:
     "@lerna/run-lifecycle" "3.10.5"
     figgy-pudding "^3.5.1"
@@ -613,10 +614,10 @@
     inquirer "^6.2.0"
     libnpm "^2.0.1"
 
-"@lerna/publish@3.10.6":
-  version "3.10.6"
-  resolved "https://registry.yarnpkg.com/@lerna/publish/-/publish-3.10.6.tgz#bebd0d8fd820e1e63f6e9e6673aa41e9c4c61b3b"
-  integrity sha512-Wrmgf82rtZWdHSrTzZGOi1/QbkPJduUSmVMhZsdnLC814WHrNGYKbayvFBOo1RAAJ4EKggZ2ReOWXKhg/IZYUw==
+"@lerna/publish@3.10.8":
+  version "3.10.8"
+  resolved "https://registry.yarnpkg.com/@lerna/publish/-/publish-3.10.8.tgz#fcf73ab2468807f5a8f3339234c2f66f0f65b088"
+  integrity sha512-kS3zia6knsoN8nd+6ihuwRhicBM6HRmbDgoa4uii4+ZqLVz4dniHYfHCMcZzHYSN8Kj35MsT25Ax1iq5eCjxmQ==
   dependencies:
     "@lerna/batch-packages" "3.10.6"
     "@lerna/check-working-tree" "3.10.0"
@@ -627,7 +628,7 @@
     "@lerna/log-packed" "3.6.0"
     "@lerna/npm-conf" "3.7.0"
     "@lerna/npm-dist-tag" "3.8.5"
-    "@lerna/npm-publish" "3.10.5"
+    "@lerna/npm-publish" "3.10.7"
     "@lerna/output" "3.6.0"
     "@lerna/pack-directory" "3.10.5"
     "@lerna/prompt" "3.6.0"
@@ -635,7 +636,7 @@
     "@lerna/run-lifecycle" "3.10.5"
     "@lerna/run-parallel-batches" "3.0.0"
     "@lerna/validation-error" "3.6.0"
-    "@lerna/version" "3.10.6"
+    "@lerna/version" "3.10.8"
     figgy-pudding "^3.5.1"
     fs-extra "^7.0.0"
     libnpm "^2.0.1"
@@ -738,17 +739,17 @@
   dependencies:
     libnpm "^2.0.1"
 
-"@lerna/version@3.10.6":
-  version "3.10.6"
-  resolved "https://registry.yarnpkg.com/@lerna/version/-/version-3.10.6.tgz#c31c2bb1aabbdc851407534155567b5cdf48e0fb"
-  integrity sha512-77peW2ROlHHl1e/tHBUmhpb8tsO6CIdlx34XapZhUuIVykrkOuqVFFxqMecrGG8SJe0e3l1G+Fah7bJTQcG0kw==
+"@lerna/version@3.10.8":
+  version "3.10.8"
+  resolved "https://registry.yarnpkg.com/@lerna/version/-/version-3.10.8.tgz#14a645724b0369f84a0bf4c1eb093e8e96a219f1"
+  integrity sha512-Iko2OkwwkjyK+tIklnH/72M/f54muSiRJurCsC3JqdM8aZaeDXeUrHmAyl7nQLfBlSsHfHyRax/ELkREmO5Tng==
   dependencies:
     "@lerna/batch-packages" "3.10.6"
     "@lerna/check-working-tree" "3.10.0"
     "@lerna/child-process" "3.3.0"
     "@lerna/collect-updates" "3.10.1"
     "@lerna/command" "3.10.6"
-    "@lerna/conventional-commits" "3.10.0"
+    "@lerna/conventional-commits" "3.10.8"
     "@lerna/output" "3.6.0"
     "@lerna/prompt" "3.6.0"
     "@lerna/run-lifecycle" "3.10.5"
@@ -1761,10 +1762,10 @@ decode-uri-component@^0.2.0:
   resolved "https://registry.yarnpkg.com/decode-uri-component/-/decode-uri-component-0.2.0.tgz#eb3913333458775cb84cd1a1fae062106bb87545"
   integrity sha1-6zkTMzRYd1y4TNGh+uBiEGu4dUU=
 
-decompress-zip@^0.3.1:
-  version "0.3.1"
-  resolved "https://registry.yarnpkg.com/decompress-zip/-/decompress-zip-0.3.1.tgz#3e4c6972fe80d89bb0fa9542e30044019ae6f626"
-  integrity sha512-pNGzi0RIpLA/CqrMQoSuh/1+YiVGJSEhQeibgoZQEdPFQOhO5pvqim3sp1qMvio3+mkonUQ1Akjdw8RgvV/RsA==
+decompress-zip@^0.3.2:
+  version "0.3.2"
+  resolved "https://registry.yarnpkg.com/decompress-zip/-/decompress-zip-0.3.2.tgz#f3fa2841666abce394604f4a9e8a7085c202d464"
+  integrity sha512-Ab1QY4LrWMrUuo53lLnmGOby7v8ryqxJ+bKibKSiPisx+25mhut1dScVBXAYx14i/PqSrFZvR2FRRazhLbvL+g==
   dependencies:
     binary "^0.3.0"
     graceful-fs "^4.1.3"
@@ -2043,17 +2044,17 @@ eslint-plugin-es@^1.3.1:
     eslint-utils "^1.3.0"
     regexpp "^2.0.0"
 
-eslint-plugin-html@^5.0.0:
-  version "5.0.0"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-html/-/eslint-plugin-html-5.0.0.tgz#396e30a60dedee0122fe08f11d13c5ab22f20d32"
-  integrity sha512-f7p/7YQdgQUFVAX3nB4dnMQbrDeTalcA01PDhuvTLk0ZadCwM4Pb+639SRuqEf1zMkIxckLY+ckCr0hVP5zl6A==
+eslint-plugin-html@^5.0.3:
+  version "5.0.3"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-html/-/eslint-plugin-html-5.0.3.tgz#3db133995e49a73596f6a473c16a1b83634deffd"
+  integrity sha512-46ruAnp3jVQP/5Bi5eEIOooscjUTPFU3vxCxHe/OG6ORdM7Xv5c25/Nz9fAbHklzCpiXuIiH4/mV/XBkm7MINw==
   dependencies:
     htmlparser2 "^3.10.0"
 
-eslint-plugin-import@^2.15.0:
-  version "2.15.0"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-import/-/eslint-plugin-import-2.15.0.tgz#d8f3c28b8988ccde5df964706faa7c1e52f0602a"
-  integrity sha512-LEHqgR+RcnpGqYW7h9WMkPb/tP+ekKxWdQDztfTtZeV43IHF+X8lXU+1HOCcR4oXD24qRgEwNSxIweD5uNKGVg==
+eslint-plugin-import@^2.16.0:
+  version "2.16.0"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-import/-/eslint-plugin-import-2.16.0.tgz#97ac3e75d0791c4fac0e15ef388510217be7f66f"
+  integrity sha512-z6oqWlf1x5GkHIFgrSvtmudnqM6Q60KM4KvpWi5ubonMjycLjndvd5+8VAZIsTlHC03djdgJuyKG6XO577px6A==
   dependencies:
     contains-path "^0.1.0"
     debug "^2.6.9"
@@ -2114,10 +2115,10 @@ eslint-visitor-keys@^1.0.0:
   resolved "https://registry.yarnpkg.com/eslint-visitor-keys/-/eslint-visitor-keys-1.0.0.tgz#3f3180fb2e291017716acb4c9d6d5b5c34a6a81d"
   integrity sha512-qzm/XxIbxm/FHyH341ZrbnMUpe+5Bocte9xkmFMzPMjRaZMcXww+MpBptFvtU+79L362nqiLhekCxCxDPaUMBQ==
 
-eslint@^5.12.1:
-  version "5.12.1"
-  resolved "https://registry.yarnpkg.com/eslint/-/eslint-5.12.1.tgz#5ca9931fb9029d04e7be92b03ce3b58edfac7e3b"
-  integrity sha512-54NV+JkTpTu0d8+UYSA8mMKAG4XAsaOrozA9rCW7tgneg1mevcL7wIotPC+fZ0SkWwdhNqoXoxnQCTBp7UvTsg==
+eslint@^5.13.0:
+  version "5.13.0"
+  resolved "https://registry.yarnpkg.com/eslint/-/eslint-5.13.0.tgz#ce71cc529c450eed9504530939aa97527861ede9"
+  integrity sha512-nqD5WQMisciZC5EHZowejLKQjWGuFS5c70fxqSKlnDME+oz9zmE8KTlX+lHSg+/5wsC/kf9Q9eMkC8qS3oM2fg==
   dependencies:
     "@babel/code-frame" "^7.0.0"
     ajv "^6.5.3"
@@ -2148,7 +2149,6 @@ eslint@^5.12.1:
     natural-compare "^1.4.0"
     optionator "^0.8.2"
     path-is-inside "^1.0.2"
-    pluralize "^7.0.0"
     progress "^2.0.0"
     regexpp "^2.0.1"
     semver "^5.5.1"
@@ -3396,16 +3396,16 @@ lcid@^2.0.0:
   dependencies:
     invert-kv "^2.0.0"
 
-lerna@^3.10.6:
-  version "3.10.6"
-  resolved "https://registry.yarnpkg.com/lerna/-/lerna-3.10.6.tgz#d4d0566a0ef78855e22ec85c7120137f6a583040"
-  integrity sha512-qdoyEpozHKQQnrpaDWbhiFG85/CBAyz2rkcj78JQVl2g400n9FFqS2Zweol5wusRnUzmpQKxFFll4P9DzIzSIA==
+lerna@^3.10.8:
+  version "3.10.8"
+  resolved "https://registry.yarnpkg.com/lerna/-/lerna-3.10.8.tgz#89e04b5e29f7d6acb3cec7ce59cec2d4343e5cf4"
+  integrity sha512-Ua5SkZnVk+gtplaw/IiXOckk9TEvNwNyTXJke5gkf0vxku809iRmI7RlI0mKFUjeweBs7AJDgBoD/A+vHst/UQ==
   dependencies:
     "@lerna/add" "3.10.6"
     "@lerna/bootstrap" "3.10.6"
-    "@lerna/changed" "3.10.6"
+    "@lerna/changed" "3.10.8"
     "@lerna/clean" "3.10.6"
-    "@lerna/cli" "3.10.6"
+    "@lerna/cli" "3.10.7"
     "@lerna/create" "3.10.6"
     "@lerna/diff" "3.10.6"
     "@lerna/exec" "3.10.6"
@@ -3413,9 +3413,9 @@ lerna@^3.10.6:
     "@lerna/init" "3.10.6"
     "@lerna/link" "3.10.6"
     "@lerna/list" "3.10.6"
-    "@lerna/publish" "3.10.6"
+    "@lerna/publish" "3.10.8"
     "@lerna/run" "3.10.6"
-    "@lerna/version" "3.10.6"
+    "@lerna/version" "3.10.8"
     import-local "^1.0.0"
     libnpm "^2.0.1"
 
@@ -4041,13 +4041,13 @@ needle@^2.2.1:
     iconv-lite "^0.4.4"
     sax "^1.2.4"
 
-ngrok@^3.1.0:
-  version "3.1.0"
-  resolved "https://registry.yarnpkg.com/ngrok/-/ngrok-3.1.0.tgz#a148b7567d1bae918ee7b0f461bd8f58411016fd"
-  integrity sha512-8eui7ZJkBaczrl8FS4m7G2qh8JJYUOeznE7UsJAbeGuktGtb6aWXiCGqbgngqK/l0S4jue1JIgIZbFtbMJMv6A==
+ngrok@^3.1.1:
+  version "3.1.1"
+  resolved "https://registry.yarnpkg.com/ngrok/-/ngrok-3.1.1.tgz#d4d70e455fff94b56755c2007c41e4daa5e77fa9"
+  integrity sha512-dCW/Ni12GRBL7XIyiFmilKOfCW7UVFf65I/HpE8FC5rXGJwdhIYLc9Qr05GRb6hNs6fZGwyLpcDLnDhUSgZasQ==
   dependencies:
     "@types/node" "^8.10.30"
-    decompress-zip "^0.3.1"
+    decompress-zip "^0.3.2"
     request "^2.88.0"
     request-promise-native "^1.0.5"
     uuid "^3.3.2"
@@ -4656,11 +4656,6 @@ pkg-dir@^2.0.0:
   integrity sha1-9tXREJ4Z1j7fQo4L1X4Sd3YVM0s=
   dependencies:
     find-up "^2.1.0"
-
-pluralize@^7.0.0:
-  version "7.0.0"
-  resolved "https://registry.yarnpkg.com/pluralize/-/pluralize-7.0.0.tgz#298b89df8b93b0221dbf421ad2b1b1ea23fc6777"
-  integrity sha512-ARhBOdzS3e41FbkW/XWrTEtukqqLoK5+Z/4UeDaLuSW+39JPeFgs4gCGqsrJHVZX0fUrx//4OF0K1CUGwlIFow==
 
 posix-character-classes@^0.1.0:
   version "0.1.1"
@@ -5981,10 +5976,10 @@ vue-toasted@^1.1.26:
   resolved "https://registry.yarnpkg.com/vue-toasted/-/vue-toasted-1.1.26.tgz#1333d1a42157ab78389c3810023a49ba94e69c7b"
   integrity sha512-Z4/gfPcqdzsRvif7UITrZOkh3C6jm0yQKJyr9kX31IGWXor5dNipE1Sc5SnlL5RLmY7vlLa+SqIjc9Gbpy7V0g==
 
-vuetify@^1.4.3:
-  version "1.4.3"
-  resolved "https://registry.yarnpkg.com/vuetify/-/vuetify-1.4.3.tgz#dfa187a2bd37427c352bdd194837430a06b45735"
-  integrity sha512-BRTETa3rQ016OOkL1Y28vOYPPJFU0TwSr9nwjT/M840bnk0A9znk1mGvdk1W+qb9IbtWJ9RUk2W1+7l9RcKa8A==
+vuetify@^1.5.0:
+  version "1.5.0"
+  resolved "https://registry.yarnpkg.com/vuetify/-/vuetify-1.5.0.tgz#b7334f525b5dd416b01d5e9ddbadad22beeb9d7f"
+  integrity sha512-I2bITwvtkfbUf2hfrKo3Uta4egpv5KzEcKR1czgdyjZdA1nlo96XV2EDu0XetLl6p+AjhOqwlZWbLSezy9ZZmQ==
 
 wcwidth@^1.0.0:
   version "1.0.1"
