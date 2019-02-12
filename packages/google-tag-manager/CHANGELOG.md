@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.1.3](https://github.com/nuxt-community/modules/compare/@nuxtjs/google-tag-manager@2.1.2...@nuxtjs/google-tag-manager@2.1.3) (2019-02-12)
+
+**Note:** Version bump only for package @nuxtjs/google-tag-manager
+
+
+
+
+
 ## [2.1.2](https://github.com/nuxt-community/modules/compare/@nuxtjs/google-tag-manager@2.1.1...@nuxtjs/google-tag-manager@2.1.2) (2019-01-11)
 
 **Note:** Version bump only for package @nuxtjs/google-tag-manager
