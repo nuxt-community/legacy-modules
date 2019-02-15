@@ -5,9 +5,6 @@
 > Add Google Tag Manager (GTM) to your nuxt.js application.
 This plugins automatically sends first page and route change events to GTM.
 
-**Note:** google tag manager is not enabled in dev mode.
-You can set environment variable `NODE_ENV` to `production` for testing in dev mode.
-
 ## Setup
 - Add `@nuxtjs/google-tag-manager` dependency using yarn or npm to your project
 - Add `@nuxtjs/google-tag-manager` to `modules` section of `nuxt.config.js`
@@ -39,6 +36,14 @@ id: () => {
 }
 ```
 
+### `enabled`
+
+Can be used to disable during development.
+
+```js
+enabled: process.env.NODE_ENV === 'production'
+```
+
 ### All options
 ```js
 {
@@ -51,7 +56,8 @@ id: () => {
     gtm_preview:     '...',
     gtm_cookies_win: '...'
   },
-  scriptURL: '//example.com'
+  scriptURL: '//example.com',
+  enabled: true
 }
 ```
 
