@@ -8,11 +8,11 @@ module.exports = async function nuxtTagManager(_options) {
     pageTracking: false,
     respectDoNotTrack: false,
     env: {}, // env is supported for backward compability and is alias of query
-    query: {}
+    query: {},
+    enabled: true
   })
 
-  // Don't include when run in dev mode
-  if (this.options.dev) {
+  if (!this.options.enabled) {
     return
   }
 
