@@ -3,6 +3,7 @@
   "version": "3.0.2",
   "license": "MIT",
   "main": "index.js",
+  "types": "index.d.ts",
   "repository": "https://github.com/nuxt/modules",
   "homepage": "https://github.com/nuxt/modules/tree/master/modules/toast",
   "publishConfig": {
