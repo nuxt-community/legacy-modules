@@ -1,15 +1,9 @@
 import Vue from 'vue'
 import Toasted from 'vue-toasted'
 
-const opts = <%= serialize(options) %>
-var globals = []
-if(opts.hasOwnProperty('register')) {
-  globals = opts.register
-  delete opts.register
-}
+Vue.use(Toasted, <%= serialize(options.toastOptions) %>)
 
-Vue.use(Toasted, opts)
-
+const globals = <%= serialize(options.register) %>
 globals.forEach(global => {
   Vue.toasted.register(global.name, global.message, global.options)
 })
