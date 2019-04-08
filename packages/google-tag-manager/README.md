@@ -68,5 +68,5 @@ This is disabled by default to prevent double events when using alongside with G
 
 You can push events into the configured `layer`:
 ```js
-this.$gtm.pushEvent({event: 'myEvent', ...someAttributes})
+this.$gtm.pushEvent({ event: 'myEvent', ...someAttributes })
 ```
