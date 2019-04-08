@@ -53,6 +53,11 @@ module.exports = async function nuxtTagManager(_options) {
     ssr: false,
     options
   })
+
+  this.addTemplate({
+    src: path.resolve(__dirname, 'gtm.js'),
+    fileName: path.join('google-tag-manager', 'gtm.js')
+  })
 }
 
 module.exports.meta = require('./package.json')
