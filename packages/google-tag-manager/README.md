@@ -44,7 +44,8 @@ id: () => {
 {
   id: 'GTM-XXXXXXX',
   layer: 'dataLayer',
-  pageTracking: false
+  pageTracking: false,
+  enabled: ({ isDev, isClient }) => (!isDev && isClient), // or `false` when in dev/debug mode
   query: {
     // query params...
     gtm_auth:        '...',
@@ -60,3 +61,12 @@ id: () => {
 You can optionally set `pageTracking` option to `true` to track page views. 
 
 This is disabled by default to prevent double events when using alongside with Google Analytics so take care before enabling this option.
+
+## Usage
+
+### Pushing events with `$gtm.pushEvent`
+
+You can push events into the configured dataLayer:
+```js
+this.$gtm.pushEvent({event: 'myEvent', ...someAttributes})
+```
