@@ -64,9 +64,9 @@ This is disabled by default to prevent double events when using alongside with G
 
 ## Usage
 
-### Pushing events with `$gtm.pushEvent`
+### Pushing events
 
-You can push events into the configured dataLayer:
+You can push events into the configured `layer`:
 ```js
 this.$gtm.pushEvent({event: 'myEvent', ...someAttributes})
 ```
