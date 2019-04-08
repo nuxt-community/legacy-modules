@@ -45,7 +45,7 @@ id: () => {
   id: 'GTM-XXXXXXX',
   layer: 'dataLayer',
   pageTracking: false,
-  enabled: ({ isDev, isClient }) => (!isDev && isClient), // or `false` when in dev/debug mode
+  dev: false,
   query: {
     // query params...
     gtm_auth:        '...',
