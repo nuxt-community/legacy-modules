@@ -1,6 +1,6 @@
 
 // Google Tag Manager Class to be injected
-class Gtm {
+class GTM {
   constructor(ctx, options) {
     this.ctx = ctx
     this.options = options
@@ -56,7 +56,7 @@ export default function(ctx, inject) {
   const options = <%= JSON.stringify(options) %>
 
   // Create a new Auth instance
-  const $gtm = new Gtm(ctx, options)
+  const $gtm = new GTM(ctx, options)
   inject('gtm', $gtm)
 
   $gtm.init()
