@@ -15,7 +15,16 @@
   ],
 
   toast: {
-      position: 'top-center'
+      position: 'top-center',
+      register: [ // Register custom toasts
+        {
+          name: 'my-error',
+          message: 'Oops...Something went wrong',
+          options: {
+            type: 'error'
+          }
+        }
+      ]
   }
 }
 ```
@@ -36,6 +45,7 @@ export default {
              await this.$axios.$post('auth/login')
              this.$toast.success('Successfully authenticated')
          } catch(e){
+             this.$toast.global.my_error() //Using custom toast
              this.$toast.error('Error while authenticating')
          }
      }  
