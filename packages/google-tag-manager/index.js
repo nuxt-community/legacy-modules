@@ -49,7 +49,7 @@ module.exports = async function nuxtTagManager(_options) {
   // Register plugin
   this.addPlugin({
     src: path.resolve(__dirname, 'plugin.js'),
-    fileName: 'google-tag-manager.js',
+    fileName: path.join('google-tag-manager', 'plugin.js'),
     ssr: false,
     options
   })
