@@ -9,7 +9,6 @@
 - [browserconfig](packages/browserconfig)
 - [bulma](packages/bulma)
 - [component-cache](packages/component-cache)
-- [firebase (WIP)](packages/firebase)
 - [font-awesome](packages/font-awesome)
 - [google-tag-manager](packages/google-tag-manager)
 - [localtunnel](packages/localtunnel)
