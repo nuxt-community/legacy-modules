@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1.0](https://github.com/nuxt/modules/compare/@nuxtjs/toast@3.0.2...@nuxtjs/toast@3.1.0) (2019-04-15)
+
+
+### Features
+
+* **toast:** add ability to register custom toasts ([#271](https://github.com/nuxt/modules/issues/271)) ([b9ecbbd](https://github.com/nuxt/modules/commit/b9ecbbd))
+
+
+
+
+
 <a name="3.0.2"></a>
 ## [3.0.2](https://github.com/nuxt/modules/compare/@nuxtjs/toast@3.0.1...@nuxtjs/toast@3.0.2) (2018-12-19)
 

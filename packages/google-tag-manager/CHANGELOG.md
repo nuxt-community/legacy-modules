@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.2.0](https://github.com/nuxt-community/modules/compare/@nuxtjs/google-tag-manager@2.1.4...@nuxtjs/google-tag-manager@2.2.0) (2019-04-15)
+
+
+### Features
+
+* **google-tag-manager:** refactor, `dev` option and `$gtm.pushEvent` ([#274](https://github.com/nuxt-community/modules/issues/274)) ([d0ba40f](https://github.com/nuxt-community/modules/commit/d0ba40f))
+
+
+
+
+
 ## [2.1.4](https://github.com/nuxt-community/modules/compare/@nuxtjs/google-tag-manager@2.1.3...@nuxtjs/google-tag-manager@2.1.4) (2019-02-12)
 
 
