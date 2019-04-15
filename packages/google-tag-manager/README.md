@@ -5,8 +5,6 @@
 > Add Google Tag Manager (GTM) to your nuxt.js application.
 This plugins automatically sends first page and route change events to GTM.
 
-**Note:** google tag manager is not enabled in dev mode.
-You can set environment variable `NODE_ENV` to `production` for testing in dev mode.
 
 ## Setup
 - Add `@nuxtjs/google-tag-manager` dependency using yarn or npm to your project
@@ -44,7 +42,8 @@ id: () => {
 {
   id: 'GTM-XXXXXXX',
   layer: 'dataLayer',
-  pageTracking: false
+  pageTracking: false,
+  dev: true, // set to false to disable in dev mode
   query: {
     // query params...
     gtm_auth:        '...',
@@ -60,3 +59,12 @@ id: () => {
 You can optionally set `pageTracking` option to `true` to track page views. 
 
 This is disabled by default to prevent double events when using alongside with Google Analytics so take care before enabling this option.
+
+## Usage
+
+### Pushing events
+
+You can push events into the configured `layer`:
+```js
+this.$gtm.pushEvent({ event: 'myEvent', ...someAttributes })
+```

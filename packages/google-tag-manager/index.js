@@ -7,12 +7,13 @@ module.exports = async function nuxtTagManager(_options) {
     layer: 'dataLayer',
     pageTracking: false,
     respectDoNotTrack: false,
+    dev: true,
     env: {}, // env is supported for backward compability and is alias of query
     query: {}
   })
 
-  // Don't include when run in dev mode
-  if (this.options.dev) {
+  // Don't include when run in dev mode unless dev: true is configured
+  if (this.options.dev && !options.dev) {
     return
   }
 
