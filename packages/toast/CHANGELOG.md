@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.2.0](https://github.com/nuxt/modules/compare/@nuxtjs/toast@3.1.0...@nuxtjs/toast@3.2.0) (2019-05-18)
+
+
+### Features
+
+* **toast:** add typescript definitions ([#272](https://github.com/nuxt/modules/issues/272)) ([00d881f](https://github.com/nuxt/modules/commit/00d881f))
+
+
+
+
+
 # [3.1.0](https://github.com/nuxt/modules/compare/@nuxtjs/toast@3.0.2...@nuxtjs/toast@3.1.0) (2019-04-15)
 
 
