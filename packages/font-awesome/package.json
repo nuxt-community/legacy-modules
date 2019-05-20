@@ -4,7 +4,7 @@
   "license": "MIT",
   "main": "index.js",
   "repository": "https://github.com/nuxt/modules",
-  "homepage": "https://github.com/nuxt/modules/tree/master/modules/font-awesome",
+  "homepage": "https://github.com/nuxt/modules/tree/master/packages/font-awesome",
   "publishConfig": {
     "access": "public"
   },

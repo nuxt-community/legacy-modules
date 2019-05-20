@@ -4,7 +4,7 @@
   "license": "MIT",
   "main": "index.js",
   "repository": "https://github.com/nuxt/modules",
-  "homepage": "https://github.com/nuxt/modules/tree/master/modules/plugin-utils",
+  "homepage": "https://github.com/nuxt/modules/tree/master/packages/plugin-utils",
   "publishConfig": {
     "access": "public"
   },

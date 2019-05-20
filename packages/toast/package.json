@@ -5,7 +5,7 @@
   "main": "index.js",
   "types": "index.d.ts",
   "repository": "https://github.com/nuxt/modules",
-  "homepage": "https://github.com/nuxt/modules/tree/master/modules/toast",
+  "homepage": "https://github.com/nuxt/modules/tree/master/packages/toast",
   "publishConfig": {
     "access": "public"
   },
