@@ -4,7 +4,7 @@
   "license": "MIT",
   "main": "index.js",
   "repository": "https://github.com/nuxt/modules",
-  "homepage": "https://github.com/nuxt/modules/tree/master/modules/bulma",
+  "homepage": "https://github.com/nuxt/modules/tree/master/packages/bulma",
   "publishConfig": {
     "access": "public"
   },
