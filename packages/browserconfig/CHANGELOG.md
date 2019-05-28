@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.11](https://github.com/nuxt/modules/compare/@nuxtjs/browserconfig@0.0.10...@nuxtjs/browserconfig@0.0.11) (2019-05-28)
+
+
+### Bug Fixes
+
+* correct homepage URLs ([#282](https://github.com/nuxt/modules/issues/282)) ([960f933](https://github.com/nuxt/modules/commit/960f933))
+
+
+
+
+
 <a name="0.0.10"></a>
 ## [0.0.10](https://github.com/nuxt/modules/compare/@nuxtjs/browserconfig@0.0.9...@nuxtjs/browserconfig@0.0.10) (2018-12-19)
 

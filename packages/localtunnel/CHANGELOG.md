@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.1](https://github.com/nuxt/modules/compare/@nuxtjs/localtunnel@1.1.0...@nuxtjs/localtunnel@1.1.1) (2019-05-28)
+
+
+### Bug Fixes
+
+* correct homepage URLs ([#282](https://github.com/nuxt/modules/issues/282)) ([960f933](https://github.com/nuxt/modules/commit/960f933))
+
+
+
+
+
 <a name="1.1.0"></a>
 # [1.1.0](https://github.com/nuxt/modules/compare/@nuxtjs/localtunnel@1.0.3...@nuxtjs/localtunnel@1.1.0) (2018-12-19)
 

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.6](https://github.com/nuxt/modules/compare/@nuxtjs/vendor@1.1.5...@nuxtjs/vendor@1.1.6) (2019-05-28)
+
+
+### Bug Fixes
+
+* correct homepage URLs ([#282](https://github.com/nuxt/modules/issues/282)) ([960f933](https://github.com/nuxt/modules/commit/960f933))
+
+
+
+
+
 <a name="1.1.5"></a>
 ## [1.1.5](https://github.com/nuxt/modules/compare/@nuxtjs/vendor@1.1.4...@nuxtjs/vendor@1.1.5) (2018-10-01)
 

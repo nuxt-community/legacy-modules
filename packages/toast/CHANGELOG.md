@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.2.1](https://github.com/nuxt/modules/compare/@nuxtjs/toast@3.2.0...@nuxtjs/toast@3.2.1) (2019-05-28)
+
+
+### Bug Fixes
+
+* correct homepage URLs ([#282](https://github.com/nuxt/modules/issues/282)) ([960f933](https://github.com/nuxt/modules/commit/960f933))
+
+
+
+
+
 # [3.2.0](https://github.com/nuxt/modules/compare/@nuxtjs/toast@3.1.0...@nuxtjs/toast@3.2.0) (2019-05-18)
 
 

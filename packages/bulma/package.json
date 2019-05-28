@@ -1,6 +1,6 @@
 {
   "name": "@nuxtjs/bulma",
-  "version": "1.2.3",
+  "version": "1.2.4",
   "license": "MIT",
   "main": "index.js",
   "repository": "https://github.com/nuxt/modules",

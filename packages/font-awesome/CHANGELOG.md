@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.4](https://github.com/nuxt/modules/compare/@nuxtjs/font-awesome@1.0.3...@nuxtjs/font-awesome@1.0.4) (2019-05-28)
+
+
+### Bug Fixes
+
+* correct homepage URLs ([#282](https://github.com/nuxt/modules/issues/282)) ([960f933](https://github.com/nuxt/modules/commit/960f933))
+
+
+
+
+
 <a name="1.0.3"></a>
 ## [1.0.3](https://github.com/nuxt/modules/compare/@nuxtjs/font-awesome@1.0.2...@nuxtjs/font-awesome@1.0.3) (2017-11-20)
 
