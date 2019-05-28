@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.2](https://github.com/nuxt/modules/compare/@nuxtjs/yandex-metrika@0.1.1...@nuxtjs/yandex-metrika@0.1.2) (2019-05-28)
+
+
+### Bug Fixes
+
+* correct homepage URLs ([#282](https://github.com/nuxt/modules/issues/282)) ([960f933](https://github.com/nuxt/modules/commit/960f933))
+
+
+
+
+
 ## [0.1.1](https://github.com/nuxt/modules/compare/@nuxtjs/yandex-metrika@0.1.0...@nuxtjs/yandex-metrika@0.1.1) (2019-01-22)
 
 
