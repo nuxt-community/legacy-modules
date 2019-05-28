@@ -2,7 +2,7 @@
 [![npm](https://img.shields.io/npm/dt/@nuxtjs/vendor.svg?style=flat-square)](https://npmjs.com/package/@nuxtjs/vendor)
 [![npm (scoped with tag)](https://img.shields.io/npm/v/@nuxtjs/vendor/latest.svg?style=flat-square)](https://npmjs.com/package/@nuxtjs/vendor)
 
-> This awesome little modules creates *junction symlinks* from `nodule_modules` into `static/vendor`
+> This awesome little modules creates *junction symlinks* from `node_modules` into `static/vendor`
 so you can directly serve node modules inside web. Useful for runtime dependencies.
   
 ## Usage
