@@ -46,6 +46,19 @@ module.exports = async function nuxtTagManager(_options) {
     async: true
   })
 
+  // Add google tag manager noscript fallback to the beginning of <body>
+  this.options.head.noscript.push({
+    vmid: 'gtm-noscript',
+    innerHTML: `<iframe src="//www.googletagmanager.com/ns.html?id=${options.id}" height="0" width="0" style="display:none;visibility:hidden"></iframe>`,
+    body: true
+  })
+
+  // disables sanitazion for gtm noscript as we're using .innerHTML
+  this.options.head.__dangerouslyDisableSanitizersByTagID = Object.assign({}, this.options.head.__dangerouslyDisableSanitizersByTagID, {
+    'gtm-noscript': ['innerHTML']
+  })
+
+
   // Register plugin
   this.addPlugin({
     src: path.resolve(__dirname, 'plugin.js'),
