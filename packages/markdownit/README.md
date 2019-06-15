@@ -20,7 +20,7 @@ Using [markdownit-loader](https://github.com/nuxt-community/markdownit-loader) a
     linkify: true,
     breaks: true,
     use: [
-      ['markdown-it-container', containerName],
+      'markdown-it-div',
       'markdown-it-attrs'
     ]
   }
