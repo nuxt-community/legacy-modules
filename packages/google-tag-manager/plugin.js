@@ -13,7 +13,7 @@ class GTM {
       'gtm.start': new Date().getTime()
     })
 
-    if (!this.options.respectDoNotTrack && this.options.pageTracking && !this.hasDNT()) {
+    if (this.options.pageTracking && (!this.options.respectDoNotTrack || !this.hasDNT())) {
       this.initPageTracking()
     }
   }
