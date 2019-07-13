@@ -9,6 +9,6 @@
   },
   "main": "index.js",
   "dependencies": {
-    "localtunnel": "^1.9.1"
+    "localtunnel": "^1.9.2"
   }
 }
