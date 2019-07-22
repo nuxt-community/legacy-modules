@@ -8,8 +8,10 @@ module.exports = async function nuxtTagManager(_options) {
     pageTracking: false,
     respectDoNotTrack: false,
     dev: true,
-    env: {}, // env is supported for backward compability and is alias of query
-    query: {}
+    query: {},
+    scriptURL: '//www.googletagmanager.com/gtm.js',
+    noscriptURL: '//www.googletagmanager.com/ns.html',
+    env: {} // env is supported for backward compability and is alias of query
   })
 
   // Don't include when run in dev mode unless dev: true is configured
@@ -51,7 +53,7 @@ module.exports = async function nuxtTagManager(_options) {
   // https://github.com/nuxt/vue-meta/pull/410
   this.options.head.noscript.push({
     vmid: 'gtm-noscript',
-    innerHTML: `<iframe src="//www.googletagmanager.com/ns.html?id=${options.id}" height="0" width="0" style="display:none;visibility:hidden"></iframe>`,
+    innerHTML: `<iframe src="${(options.noscriptURL || '//www.googletagmanager.com/ns.html')}?${queryString}" height="0" width="0" style="display:none;visibility:hidden"></iframe>`,
     body: true
   })
 
