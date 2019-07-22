@@ -46,7 +46,9 @@ module.exports = async function nuxtTagManager(_options) {
     async: true
   })
 
-  // Add google tag manager noscript fallback to the beginning of <body>
+  // append google tag manager <noscript> fallback to <body>
+  // TODO: change it to prepend it to <body> once this one is merged + released:
+  // https://github.com/nuxt/vue-meta/pull/410
   this.options.head.noscript.push({
     vmid: 'gtm-noscript',
     innerHTML: `<iframe src="//www.googletagmanager.com/ns.html?id=${options.id}" height="0" width="0" style="display:none;visibility:hidden"></iframe>`,
