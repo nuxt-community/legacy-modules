@@ -48,13 +48,11 @@ module.exports = async function nuxtTagManager(_options) {
     async: true
   })
 
-  // append google tag manager <noscript> fallback to <body>
-  // TODO: change it to prepend it to <body> once this one is merged + released:
-  // https://github.com/nuxt/vue-meta/pull/410
+  // prepend google tag manager <noscript> fallback to <body>
   this.options.head.noscript.push({
     vmid: 'gtm-noscript',
     innerHTML: `<iframe src="${(options.noscriptURL || '//www.googletagmanager.com/ns.html')}?${queryString}" height="0" width="0" style="display:none;visibility:hidden"></iframe>`,
-    body: true
+    pbody: true
   })
 
   // disables sanitazion for gtm noscript as we're using .innerHTML
