@@ -61,10 +61,8 @@ module.exports = async function nuxtTagManager(_options) {
   })
 
   // disables sanitazion for gtm noscript as we're using .innerHTML
-  this.options.head.__dangerouslyDisableSanitizersByTagID = Object.assign({}, this.options.head.__dangerouslyDisableSanitizersByTagID, {
-    'gtm-noscript': ['innerHTML']
-  })
-
+  this.options.head.__dangerouslyDisableSanitizersByTagID = this.options.head.__dangerouslyDisableSanitizersByTagID || {};
+  this.options.head.__dangerouslyDisableSanitizersByTagID['gtm-noscript'] = ['innerHTML']
 
   // Register plugin
   this.addPlugin({
