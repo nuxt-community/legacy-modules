@@ -42,6 +42,11 @@ module.exports = async function nuxtTagManager(_options) {
     .map(key => `${encodeURIComponent(key)}=${encodeURIComponent(queryParams[key])}`)
     .join('&')
 
+  // sanitization before to avoid errors like "cannot push to undefined"
+  this.options.head = this.options.head || {}
+  this.options.head.noscript = this.options.head.noscript || []
+  this.options.head.script = this.options.head.script || []
+
   // Add google tag manager script to head
   this.options.head.script.push({
     src: (options.scriptURL || '//www.googletagmanager.com/gtm.js') + '?' + queryString,
