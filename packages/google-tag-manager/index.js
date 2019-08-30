@@ -6,7 +6,7 @@ module.exports = async function nuxtTagManager(_options) {
     id: null,
     layer: 'dataLayer',
     pageTracking: false,
-    respectDoNotTrack: false,
+    respectDoNotTrack: true,
     dev: true,
     env: {}, // env is supported for backward compability and is alias of query
     query: {}
