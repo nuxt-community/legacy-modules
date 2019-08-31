@@ -8,8 +8,10 @@ module.exports = async function nuxtTagManager(_options) {
     pageTracking: false,
     respectDoNotTrack: false,
     dev: true,
-    env: {}, // env is supported for backward compability and is alias of query
-    query: {}
+    query: {},
+    scriptURL: '//www.googletagmanager.com/gtm.js',
+    noscriptURL: '//www.googletagmanager.com/ns.html',
+    env: {} // env is supported for backward compability and is alias of query
   })
 
   // Don't include when run in dev mode unless dev: true is configured
@@ -40,11 +42,27 @@ module.exports = async function nuxtTagManager(_options) {
     .map(key => `${encodeURIComponent(key)}=${encodeURIComponent(queryParams[key])}`)
     .join('&')
 
+  // sanitization before to avoid errors like "cannot push to undefined"
+  this.options.head = this.options.head || {}
+  this.options.head.noscript = this.options.head.noscript || []
+  this.options.head.script = this.options.head.script || []
+
   // Add google tag manager script to head
   this.options.head.script.push({
     src: (options.scriptURL || '//www.googletagmanager.com/gtm.js') + '?' + queryString,
     async: true
   })
+
+  // prepend google tag manager <noscript> fallback to <body>
+  this.options.head.noscript.push({
+    vmid: 'gtm-noscript',
+    innerHTML: `<iframe src="${(options.noscriptURL || '//www.googletagmanager.com/ns.html')}?${queryString}" height="0" width="0" style="display:none;visibility:hidden"></iframe>`,
+    pbody: true
+  })
+
+  // disables sanitazion for gtm noscript as we're using .innerHTML
+  this.options.head.__dangerouslyDisableSanitizersByTagID = this.options.head.__dangerouslyDisableSanitizersByTagID || {};
+  this.options.head.__dangerouslyDisableSanitizersByTagID['gtm-noscript'] = ['innerHTML']
 
   // Register plugin
   this.addPlugin({

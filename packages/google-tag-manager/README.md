@@ -43,6 +43,7 @@ id: () => {
   id: 'GTM-XXXXXXX',
   layer: 'dataLayer',
   pageTracking: false,
+  respectDoNotTrack: false,
   dev: true, // set to false to disable in dev mode
   query: {
     // query params...
@@ -50,13 +51,14 @@ id: () => {
     gtm_preview:     '...',
     gtm_cookies_win: '...'
   },
-  scriptURL: '//example.com'
+  scriptURL: '//example.com',
+  noscriptURL: '//example.com'
 }
 ```
 
 ### Router Integration
 
-You can optionally set `pageTracking` option to `true` to track page views. 
+You can optionally set `pageTracking` option to `true` to track page views.
 
 This is disabled by default to prevent double events when using alongside with Google Analytics so take care before enabling this option.
 
