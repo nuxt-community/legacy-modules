@@ -9,7 +9,7 @@ module.exports = async function nuxtTagManager(_options) {
     respectDoNotTrack: false,
     dev: true,
     query: {},
-    scriptURL: '//www.googletagmanager.com/gtm.js',
+    scriptURL: '//googletagmanager.com/gtag/js',
     noscriptURL: '//www.googletagmanager.com/ns.html',
     env: {} // env is supported for backward compability and is alias of query
   })
