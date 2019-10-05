@@ -21,7 +21,7 @@ class GTM {
   initPageTracking() {
     this.ctx.app.router.afterEach((to, from) => {
       setTimeout(() => {
-        window[this.options.layer].push(to.gtm || { event: 'nuxtRoute', pageType: 'PageView', pageUrl: to.fullPath, routeName: to.name })
+        window[this.options.layer].push(to.gtm || { event: this.options.pageViewEventName, pageType: 'PageView', pageUrl: to.fullPath, routeName: to.name })
       }, 0)
     })
   }

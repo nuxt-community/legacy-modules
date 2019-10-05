@@ -43,6 +43,7 @@ id: () => {
   id: 'GTM-XXXXXXX',
   layer: 'dataLayer',
   pageTracking: false,
+  pageViewEventName: 'nuxtRoute',
   respectDoNotTrack: false,
   dev: true, // set to false to disable in dev mode
   query: {
@@ -61,6 +62,8 @@ id: () => {
 You can optionally set `pageTracking` option to `true` to track page views.
 
 This is disabled by default to prevent double events when using alongside with Google Analytics so take care before enabling this option.
+
+The default event name for page views is "nuxtRoute", you can change it by setting the `pageViewEventName` option.
 
 ## Usage
 
