@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.3.0](https://github.com/nuxt-community/modules/compare/@nuxtjs/google-tag-manager@2.2.1...@nuxtjs/google-tag-manager@2.3.0) (2019-10-07)
+
+
+### Features
+
+* **google-tag-manager:** add `<noscript>` fallback ([#263](https://github.com/nuxt-community/modules/issues/263)) ([#300](https://github.com/nuxt-community/modules/issues/300)) ([f0dd65f](https://github.com/nuxt-community/modules/commit/f0dd65f))
+* **google-tag-manager:** add pageViewEventName option ([#314](https://github.com/nuxt-community/modules/issues/314)) ([f718a6a](https://github.com/nuxt-community/modules/commit/f718a6a))
+
+
+
+
+
 ## [2.2.1](https://github.com/nuxt-community/modules/compare/@nuxtjs/google-tag-manager@2.2.0...@nuxtjs/google-tag-manager@2.2.1) (2019-07-13)
 
 

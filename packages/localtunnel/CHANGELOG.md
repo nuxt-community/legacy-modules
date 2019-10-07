@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.3](https://github.com/nuxt/modules/compare/@nuxtjs/localtunnel@1.1.2...@nuxtjs/localtunnel@1.1.3) (2019-10-07)
+
+**Note:** Version bump only for package @nuxtjs/localtunnel
+
+
+
+
+
 ## [1.1.2](https://github.com/nuxt/modules/compare/@nuxtjs/localtunnel@1.1.1...@nuxtjs/localtunnel@1.1.2) (2019-07-13)
 
 **Note:** Version bump only for package @nuxtjs/localtunnel
