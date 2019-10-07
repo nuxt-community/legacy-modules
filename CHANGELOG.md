@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0](https://github.com/nuxt/modules/compare/@nuxtjs/yandex-metrika@0.1.2...@nuxtjs/yandex-metrika@1.0.0) (2019-10-07)
+
+
+### Features
+
+* **yandex-metrika:** replace deprecated `watch.js` with new `tag.js` ([#313](https://github.com/nuxt/modules/issues/313)) ([6bb2522](https://github.com/nuxt/modules/commit/6bb2522))
+
+
+### BREAKING CHANGES
+
+* **yandex-metrika:** Using new tag.js script
+
+
+
+
+
 ## [0.1.2](https://github.com/nuxt/modules/compare/@nuxtjs/yandex-metrika@0.1.1...@nuxtjs/yandex-metrika@0.1.2) (2019-05-28)
 
 
