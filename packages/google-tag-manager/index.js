@@ -6,6 +6,7 @@ module.exports = async function nuxtTagManager(_options) {
     id: null,
     layer: 'dataLayer',
     pageTracking: false,
+    pageViewEventName: 'nuxtRoute',
     respectDoNotTrack: false,
     dev: true,
     query: {},
