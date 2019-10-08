@@ -7,7 +7,7 @@ export default ({ app: { router } }) => {
   })
 
   function create() {
-    window['yaCounter<%= options.id %>'] = new Ya.Metrika(<%= JSON.stringify(options) %>)
+    window['yaCounter<%= options.id %>'] = new Ya.Metrika2(<%= JSON.stringify(options) %>)
     router.afterEach((to, from) => {
       if (!ready) {
         // Don't record a duplicate hit for the initial navigation.
