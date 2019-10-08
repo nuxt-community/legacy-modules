@@ -1,4 +1,4 @@
-const path = require('path');
+const path = require('path')
 
 module.exports = function yandexMetrika(options) {
   // Don't include on dev mode
@@ -6,14 +6,14 @@ module.exports = function yandexMetrika(options) {
     return;
   }
 
-  const metrikaUrl = (options.useCDN ? 'https://cdn.jsdelivr.net/npm/yandex-metrica-watch' : 'https://mc.yandex.ru/metrika') + '/tag.js';
+  const metrikaUrl = (options.useCDN ? 'https://cdn.jsdelivr.net/npm/yandex-metrica-watch' : 'https://mc.yandex.ru/metrika') + '/tag.js'
 
   // Script preload
   this.options.head.link.push({
     href: metrikaUrl,
     rel: 'preload',
     as: 'script'
-  });
+  })
 
   // Add yandex metrika script to head
   this.options.head.script.push({
@@ -26,7 +26,7 @@ module.exports = function yandexMetrika(options) {
     src: path.resolve(__dirname, 'plugin.js'),
     ssr: false,
     options
-  });
+  })
 };
 
-module.exports.meta = require('./package.json');
+module.exports.meta = require('./package.json')
