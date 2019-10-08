@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.1](https://github.com/nuxt/modules/compare/@nuxtjs/yandex-metrika@1.0.0...@nuxtjs/yandex-metrika@1.0.1) (2019-10-08)
+
+
+### Bug Fixes
+
+* **yandex-metrika:** constructor name for `tag.js` ([#318](https://github.com/nuxt/modules/issues/318)) ([1f9eb5f](https://github.com/nuxt/modules/commit/1f9eb5f))
+
+
+
+
+
 # [1.0.0](https://github.com/nuxt/modules/compare/@nuxtjs/yandex-metrika@0.1.2...@nuxtjs/yandex-metrika@1.0.0) (2019-10-07)
 
 
