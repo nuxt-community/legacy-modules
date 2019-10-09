@@ -21,7 +21,7 @@ export default ({ app: { router } }) => {
     })
   }
 
-  if (window.Ya && window.Ya.Metrika) {
+  if (window.Ya && window.Ya.Metrika2) {
     // Yandex.Metrika API is already available.
     create()
   } else {
