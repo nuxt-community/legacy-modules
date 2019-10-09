@@ -1,6 +1,6 @@
 {
   "name": "@nuxtjs/yandex-metrika",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "license": "MIT",
   "repository": "https://github.com/nuxt/modules",
   "homepage": "https://github.com/nuxt/modules/tree/master/packages/yandex-metrika",
