@@ -6,18 +6,16 @@ module.exports = function yandexMetrika(options) {
     return;
   }
 
-  const metrikaUrl = (options.useCDN ? 'https://cdn.jsdelivr.net/npm/yandex-metrica-watch' : 'https://mc.yandex.ru/metrika') + '/tag.js'
-
   // Script preload
   this.options.head.link.push({
-    href: metrikaUrl,
+    href: src: (options.useCDN ? 'https://cdn.jsdelivr.net/npm/yandex-metrica-watch' : 'https://mc.yandex.ru/metrika') + '/tag.js', // add https://cdn.jsdelivr.net/npm/yandex-metrica-watch/watch.js,
     rel: 'preload',
     as: 'script'
   })
 
   // Add yandex metrika script to head
   this.options.head.script.push({
-    src: metrikaUrl, // add https://cdn.jsdelivr.net/npm/yandex-metrica-watch/tag.js
+    src: (options.useCDN ? 'https://cdn.jsdelivr.net/npm/yandex-metrica-watch' : 'https://mc.yandex.ru/metrika') + '/tag.js', // add https://cdn.jsdelivr.net/npm/yandex-metrica-watch/watch.js
     async: 'true'
   })
 
