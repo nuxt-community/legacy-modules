@@ -8,7 +8,7 @@ module.exports = function yandexMetrika(options) {
 
   // Script preload
   this.options.head.link.push({
-    href: src: (options.useCDN ? 'https://cdn.jsdelivr.net/npm/yandex-metrica-watch' : 'https://mc.yandex.ru/metrika') + '/tag.js', // add https://cdn.jsdelivr.net/npm/yandex-metrica-watch/watch.js,
+    href: (options.useCDN ? 'https://cdn.jsdelivr.net/npm/yandex-metrica-watch' : 'https://mc.yandex.ru/metrika') + '/tag.js', // add https://cdn.jsdelivr.net/npm/yandex-metrica-watch/watch.js,
     rel: 'preload',
     as: 'script'
   })
