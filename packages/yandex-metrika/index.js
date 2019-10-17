@@ -5,11 +5,18 @@ module.exports = function yandexMetrika (options) {
   if (this.options.dev && process.env.NODE_ENV !== 'production') {
     return
   }
+  
+  // Script preload
+  this.options.head.link.push({
+    href: (options.useCDN ? 'https://cdn.jsdelivr.net/npm/yandex-metrica-watch' : 'https://mc.yandex.ru/metrika') + '/tag.js', // add https://cdn.jsdelivr.net/npm/yandex-metrica-watch/watch.js,
+    rel: 'preload',
+    as: 'script'
+  })
 
   // Add yandex metrika script to head
   this.options.head.script.push({
     src: (options.useCDN ? 'https://cdn.jsdelivr.net/npm/yandex-metrica-watch' : 'https://mc.yandex.ru/metrika') + '/tag.js', // add https://cdn.jsdelivr.net/npm/yandex-metrica-watch/watch.js
-    async: ''
+    async: 'true'
   })
 
   // Register plugin
