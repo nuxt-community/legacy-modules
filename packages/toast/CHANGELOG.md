@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.3.0](https://github.com/nuxt/modules/compare/@nuxtjs/toast@3.2.1...@nuxtjs/toast@3.3.0) (2019-11-01)
+
+
+### Features
+
+* **toast:** add `$toast` type definition to vuex context and application options ([#326](https://github.com/nuxt/modules/issues/326)) ([936d0a2](https://github.com/nuxt/modules/commit/936d0a2))
+
+
+
+
+
 ## [3.2.1](https://github.com/nuxt/modules/compare/@nuxtjs/toast@3.2.0...@nuxtjs/toast@3.2.1) (2019-05-28)
 
 
