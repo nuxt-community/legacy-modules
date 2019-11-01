@@ -56,7 +56,7 @@ module.exports = async function nuxtTagManager(_options) {
 
   // prepend google tag manager <noscript> fallback to <body>
   this.options.head.noscript.push({
-    vmid: 'gtm-noscript',
+    hid: 'gtm-noscript',
     innerHTML: `<iframe src="${(options.noscriptURL || '//www.googletagmanager.com/ns.html')}?${queryString}" height="0" width="0" style="display:none;visibility:hidden"></iframe>`,
     pbody: true
   })
