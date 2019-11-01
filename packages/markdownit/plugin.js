@@ -1,10 +1,10 @@
 import MarkdownIt from 'markdown-it'
 
-function _requireCjs(module) {
-  if (module.__esModule) {
-    return module.default
+function _interopDefault (ex) {
+  if (ex && typeof ex === 'object' && 'default' in ex) {
+    return ex['default']
   }
-  return module
+  return ex
 }
 
 export default ({ app }, inject) => {
@@ -21,7 +21,7 @@ options = options === '{}' ? undefined : options
     const plugin = hasOpts ? config.shift(): config
     const opts = hasOpts ? config : []
 %>
-  md.use(_requireCjs(require('<%= plugin %>'))<% for(opt of opts) { %>, <%= serialize(opt) %> <% } %>)
+  md.use(_interopDefault(require('<%= plugin %>'))<% for(opt of opts) { %>, <%= serialize(opt) %> <% } %>)
 <% } %>
   inject('md', md)
 }
