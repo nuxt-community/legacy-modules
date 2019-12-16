@@ -73,3 +73,10 @@ You can push events into the configured `layer`:
 ```js
 this.$gtm.pushEvent({ event: 'myEvent', ...someAttributes })
 ```
+
+### Pushing data
+
+You can push data into the configured `layer`:
+```js
+this.$gtm.pushData({ 'key': 'value', 'other-key': 'other-value'})
+```
