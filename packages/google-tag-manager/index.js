@@ -58,7 +58,8 @@ module.exports = async function nuxtTagManager(_options) {
   this.options.head.noscript.push({
     hid: 'gtm-noscript',
     innerHTML: `<iframe src="${(options.noscriptURL || '//www.googletagmanager.com/ns.html')}?${queryString}" height="0" width="0" title="Google Tag Manager Script" style="display:none;visibility:hidden"></iframe>`,
-    pbody: true
+    pbody: true,
+    'aria-hidden': true
   })
 
   // disables sanitazion for gtm noscript as we're using .innerHTML
