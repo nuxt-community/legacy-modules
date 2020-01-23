@@ -9,6 +9,15 @@ class GTM {
     window[this.options.layer] = window[this.options.layer] || []
 
     this.pushEvent({
+      originalLocation:
+        document.location.protocol +
+        '//' +
+        document.location.hostname +
+        document.location.pathname +
+        document.location.search
+    })
+
+    this.pushEvent({
       event: 'gtm.js',
       'gtm.start': new Date().getTime()
     })
