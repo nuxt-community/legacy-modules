@@ -6,6 +6,9 @@ class GTM {
     this.options = options
   }
   init() {
+    if (this.options.respectDoNotTrack || this.hasDNT()) {
+      return;
+    }
     window[this.options.layer] = window[this.options.layer] || []
 
     this.pushEvent({
@@ -13,7 +16,7 @@ class GTM {
       'gtm.start': new Date().getTime()
     })
 
-    if (this.options.pageTracking && (!this.options.respectDoNotTrack || !this.hasDNT())) {
+    if (this.options.pageTracking) {
       this.initPageTracking()
     }
   }
