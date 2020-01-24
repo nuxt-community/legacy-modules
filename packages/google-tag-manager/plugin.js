@@ -6,6 +6,12 @@ class GTM {
     this.options = options
   }
   init() {
+
+    if (!this.options.presetScriptsOnServerSide) {
+      this.ctx.app.head.script.push(this.options.head.script[0])
+      this.ctx.app.head.noscript.push(this.options.head.noscript[0])
+    }
+
     window[this.options.layer] = window[this.options.layer] || []
 
     this.pushEvent({
@@ -54,10 +60,15 @@ class GTM {
 
 export default function(ctx, inject) {
   const options = <%= JSON.stringify(options) %>
+  const autoInit = options.autoInitOnClientSide
 
   // Create a new Auth instance
   const $gtm = new GTM(ctx, options)
   inject('gtm', $gtm)
+
+  if (!options.autoInitOnClientSide) {
+    return
+  }
 
   $gtm.init()
 }
