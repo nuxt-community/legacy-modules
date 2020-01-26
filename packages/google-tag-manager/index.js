@@ -46,6 +46,9 @@ module.exports = async function nuxtTagManager(_options) {
     .join('&')
 
   // sanitization before to avoid errors like "cannot push to undefined"
+  const headScriptId = 'google-tag-manager-script'
+  const bodyScriptId = 'google-tag-manager-noscript'
+
   options.head = options.head || {}
   options.head.script = options.head.script || []
   options.head.noscript = options.head.noscript || []
@@ -56,17 +59,20 @@ module.exports = async function nuxtTagManager(_options) {
 
   const gtmScript = {
     src: (options.scriptURL || '//www.googletagmanager.com/gtm.js') + '?' + queryString,
+    id: headScriptId,
     async: true
   }
   const gtmNoScript = {
     hid: 'gtm-noscript',
     innerHTML: `<iframe src="${(options.noscriptURL || '//www.googletagmanager.com/ns.html')}?${queryString}" height="0" width="0" style="display:none;visibility:hidden"></iframe>`,
+    id: bodyScriptId,
     pbody: true
   }
 
   options.head.script.push(gtmScript)
   options.head.noscript.push(gtmNoScript)
 
+  // Preset scripts on server side
   if (options.presetScriptsOnServerSide) {
     // Add google tag manager script to head
     this.options.head.script.push(gtmScript)
