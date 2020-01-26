@@ -66,6 +66,11 @@ You can optionally set `autoInitOnClientSide` and `presetScriptsOnServerSide`. I
 | `autoInitOnClientSide`      | true          | Send GTM event automatically. Also it is inserting GTM script and noscript elements, if there aren't presetted on server side. |
 | `presetScriptsOnServerSide` | true          | It is inserting GTM script on server side. It can be blocked with value `false`.                                               |
 
+To initialize GTM programmatically you can use:
+```js
+this.$gtm.init()
+```
+
 ### Router Integration
 
 You can optionally set `pageTracking` option to `true` to track page views.
