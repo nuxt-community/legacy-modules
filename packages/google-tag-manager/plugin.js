@@ -7,20 +7,15 @@ class GTM {
   }
   init() {
 
+    // insert scripts on client side if it not preseted on server side
     if (!this.options.presetScriptsOnServerSide) {
-      const isUniversalMode = this.ctx.nuxtState
-
-      this.ctx.app.head.script.push(this.options.head.script[0])
-      this.ctx.app.head.noscript.push(this.options.head.noscript[0])
-
-      // insert scripts on client side
       const headScriptId = 'google-tag-manager-script'
       const bodyScriptId = 'google-tag-manager-noscript'
 
       let headScript = document.querySelector(`script#${headScriptId}`)
       let bodyScript = document.querySelector(`script#${bodyScriptId}`)
 
-      if (isUniversalMode && !headScript && !bodyScript) {
+      if (!headScript && !bodyScript) {
         headScript = document.createElement('script')
         headScript.id = headScriptId
         headScript.src = this.options.head.script[0].src
