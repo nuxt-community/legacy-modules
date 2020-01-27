@@ -23,7 +23,7 @@ class GTM {
 
         bodyScript = document.createElement('noscript')
         bodyScript.id = bodyScriptId
-        bodyScript.text = this.options.head.noscript[0].innerHTML
+        bodyScript.innerHTML = this.options.head.noscript[0].innerHTML
 
         document.querySelector('head').append(headScript)
         document.querySelector('body').append(bodyScript)
