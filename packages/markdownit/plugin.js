@@ -1,5 +1,7 @@
 import MarkdownIt from 'markdown-it'
 
+const handlePlugin = (plugin) => plugin.default || plugin
+
 export default ({ app }, inject) => {
 <%
 const plugins = options.use || []
@@ -14,7 +16,7 @@ options = options === '{}' ? undefined : options
     const plugin = hasOpts ? config.shift(): config
     const opts = hasOpts ? config : []
 %>
-  md.use(require('<%= plugin %>')<% for(opt of opts) { %>, <%= serialize(opt) %> <% } %>)
+  md.use(handlePlugin(require('<%= plugin %>'))<% for(opt of opts) { %>, <%= serialize(opt) %> <% } %>)
 <% } %>
   inject('md', md)
 }
