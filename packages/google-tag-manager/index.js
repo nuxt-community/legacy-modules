@@ -62,11 +62,12 @@ module.exports = async function nuxtTagManager(_options) {
     id: headScriptId,
     async: true
   }
+
   const gtmNoScript = {
     hid: 'gtm-noscript',
-    innerHTML: `<iframe src="${(options.noscriptURL || '//www.googletagmanager.com/ns.html')}?${queryString}" height="0" width="0" style="display:none;visibility:hidden"></iframe>`,
     id: bodyScriptId,
-    pbody: true
+    pbody: true,
+    innerHTML: `<iframe src="${(options.noscriptURL || '//www.googletagmanager.com/ns.html')}?${queryString}" height="0" width="0" title="Google Tag Manager Script" style="display:none;visibility:hidden"></iframe>`
   }
 
   options.head.script.push(gtmScript)
