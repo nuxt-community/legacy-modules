@@ -10,6 +10,7 @@ module.exports = async function nuxtTagManager(_options) {
     respectDoNotTrack: false,
     dev: true,
     query: {},
+    scriptDefer: false,
     scriptURL: '//www.googletagmanager.com/gtm.js',
     noscriptURL: '//www.googletagmanager.com/ns.html',
     env: {} // env is supported for backward compability and is alias of query
@@ -51,7 +52,8 @@ module.exports = async function nuxtTagManager(_options) {
   // Add google tag manager script to head
   this.options.head.script.push({
     src: (options.scriptURL || '//www.googletagmanager.com/gtm.js') + '?' + queryString,
-    async: true
+    async: (!options.scriptDefer),
+    defer: options.scriptDefer
   })
 
   // prepend google tag manager <noscript> fallback to <body>

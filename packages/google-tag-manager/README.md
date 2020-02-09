@@ -52,6 +52,7 @@ id: () => {
     gtm_preview:     '...',
     gtm_cookies_win: '...'
   },
+  scriptDefer: false,
   scriptURL: '//example.com',
   noscriptURL: '//example.com'
 }
