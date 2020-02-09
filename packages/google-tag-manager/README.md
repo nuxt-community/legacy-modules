@@ -54,8 +54,22 @@ id: () => {
   },
   scriptDefer: false,
   scriptURL: '//example.com',
-  noscriptURL: '//example.com'
+  noscriptURL: '//example.com',
+  autoInitOnClientSide: true,
+  presetScriptsOnServerSide: true
 }
+```
+### GTM initialisation
+You can optionally set `autoInitOnClientSide` and `presetScriptsOnServerSide`. It can be helpful for full blocking Google Tag Manager before direct user selection. For example GDPR realisation or other.
+
+| Option name                 | Default value | Description                                                                                                                    |
+|-----------------------------|---------------|--------------------------------------------------------------------------------------------------------------------------------|
+| `autoInitOnClientSide`      | true          | Send GTM event automatically. Also it is inserting GTM script and noscript elements, if there aren't presetted on server side. |
+| `presetScriptsOnServerSide` | true          | It is inserting GTM script on server side. It can be blocked with value `false`.                                               |
+
+To initialize GTM programmatically you can use:
+```js
+this.$gtm.init()
 ```
 
 ### Router Integration

@@ -6,6 +6,30 @@ class GTM {
     this.options = options
   }
   init() {
+
+    // insert scripts on client side if it not preseted on server side
+    if (!this.options.presetScriptsOnServerSide) {
+      const headScriptId = 'google-tag-manager-script'
+      const bodyScriptId = 'google-tag-manager-noscript'
+
+      let headScript = document.querySelector(`script#${headScriptId}`)
+      let bodyScript = document.querySelector(`script#${bodyScriptId}`)
+
+      if (!headScript && !bodyScript) {
+        headScript = document.createElement('script')
+        headScript.id = headScriptId
+        headScript.src = this.options.head.script[0].src
+        headScript.async = this.options.head.script[0].async
+
+        bodyScript = document.createElement('noscript')
+        bodyScript.id = bodyScriptId
+        bodyScript.innerHTML = this.options.head.noscript[0].innerHTML
+
+        document.querySelector('head').append(headScript)
+        document.querySelector('body').append(bodyScript)
+      }
+    }
+
     window[this.options.layer] = window[this.options.layer] || []
 
     this.pushEvent({
@@ -21,7 +45,13 @@ class GTM {
   initPageTracking() {
     this.ctx.app.router.afterEach((to, from) => {
       setTimeout(() => {
-        window[this.options.layer].push(to.gtm || { event: this.options.pageViewEventName, pageType: 'PageView', pageUrl: to.fullPath, routeName: to.name })
+        window[this.options.layer]
+          .push(to.gtm || {
+            routeName: to.name,
+            pageType: 'PageView',
+            pageUrl: to.fullPath,
+            event: this.options.pageViewEventName
+          })
       }, 0)
     })
   }
@@ -58,20 +88,31 @@ class GTM {
   }
 
   hasDNT() {
-    return window.doNotTrack === '1' ||
+    return (
+      window.doNotTrack === '1' ||
       navigator.doNotTrack === 'yes' ||
       navigator.doNotTrack === '1' ||
       navigator.msDoNotTrack === '1' ||
-      (window.external && window.external.msTrackingProtectionEnabled && window.external.msTrackingProtectionEnabled())
+      (
+        window.external &&
+        window.external.msTrackingProtectionEnabled &&
+        window.external.msTrackingProtectionEnabled()
+      )
+    )
   }
 }
 
 export default function(ctx, inject) {
   const options = <%= JSON.stringify(options) %>
+  const autoInit = options.autoInitOnClientSide
 
   // Create a new Auth instance
   const $gtm = new GTM(ctx, options)
   inject('gtm', $gtm)
+
+  if (!options.autoInitOnClientSide) {
+    return
+  }
 
   $gtm.init()
 }

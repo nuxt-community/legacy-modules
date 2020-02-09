@@ -13,7 +13,9 @@ module.exports = async function nuxtTagManager(_options) {
     scriptDefer: false,
     scriptURL: '//www.googletagmanager.com/gtm.js',
     noscriptURL: '//www.googletagmanager.com/ns.html',
-    env: {} // env is supported for backward compability and is alias of query
+    env: {}, // env is supported for backward compability and is alias of query
+    autoInitOnClientSide: true,
+    presetScriptsOnServerSide: true
   })
 
   // Don't include when run in dev mode unless dev: true is configured
@@ -45,28 +47,46 @@ module.exports = async function nuxtTagManager(_options) {
     .join('&')
 
   // sanitization before to avoid errors like "cannot push to undefined"
-  this.options.head = this.options.head || {}
-  this.options.head.noscript = this.options.head.noscript || []
-  this.options.head.script = this.options.head.script || []
+  const headScriptId = 'google-tag-manager-script'
+  const bodyScriptId = 'google-tag-manager-noscript'
 
-  // Add google tag manager script to head
-  this.options.head.script.push({
+  options.head = options.head || {}
+  options.head.script = options.head.script || []
+  options.head.noscript = options.head.noscript || []
+
+  this.options.head = this.options.head || {}
+  this.options.head.script = this.options.head.script || []
+  this.options.head.noscript = this.options.head.noscript || []
+
+  const gtmScript = {
     src: (options.scriptURL || '//www.googletagmanager.com/gtm.js') + '?' + queryString,
+    id: headScriptId,
     async: (!options.scriptDefer),
     defer: options.scriptDefer
   })
 
-  // prepend google tag manager <noscript> fallback to <body>
-  this.options.head.noscript.push({
+  const gtmNoScript = {
     hid: 'gtm-noscript',
-    innerHTML: `<iframe src="${(options.noscriptURL || '//www.googletagmanager.com/ns.html')}?${queryString}" height="0" width="0" title="Google Tag Manager Script" style="display:none;visibility:hidden"></iframe>`,
+    id: bodyScriptId,
     pbody: true,
-    'aria-hidden': true
-  })
+    innerHTML: `<iframe src="${(options.noscriptURL || '//www.googletagmanager.com/ns.html')}?${queryString}" height="0" width="0" title="Google Tag Manager Script" style="display:none;visibility:hidden"></iframe>`
+  }
 
-  // disables sanitazion for gtm noscript as we're using .innerHTML
-  this.options.head.__dangerouslyDisableSanitizersByTagID = this.options.head.__dangerouslyDisableSanitizersByTagID || {};
-  this.options.head.__dangerouslyDisableSanitizersByTagID['gtm-noscript'] = ['innerHTML']
+  options.head.script.push(gtmScript)
+  options.head.noscript.push(gtmNoScript)
+
+  // Preset scripts on server side
+  if (options.presetScriptsOnServerSide) {
+    // Add google tag manager script to head
+    this.options.head.script.push(gtmScript)
+
+    // prepend google tag manager <noscript> fallback to <body>
+    this.options.head.noscript.push(gtmNoScript)
+
+    // disables sanitazion for gtm noscript as we're using .innerHTML
+    this.options.head.__dangerouslyDisableSanitizersByTagID = this.options.head.__dangerouslyDisableSanitizersByTagID || {};
+    this.options.head.__dangerouslyDisableSanitizersByTagID['gtm-noscript'] = ['innerHTML']
+  }
 
   // Register plugin
   this.addPlugin({
