@@ -10,6 +10,7 @@ module.exports = async function nuxtTagManager(_options) {
     respectDoNotTrack: false,
     dev: true,
     query: {},
+    scriptDefer: false,
     scriptURL: '//www.googletagmanager.com/gtm.js',
     noscriptURL: '//www.googletagmanager.com/ns.html',
     env: {}, // env is supported for backward compability and is alias of query
@@ -60,8 +61,9 @@ module.exports = async function nuxtTagManager(_options) {
   const gtmScript = {
     src: (options.scriptURL || '//www.googletagmanager.com/gtm.js') + '?' + queryString,
     id: headScriptId,
-    async: true
-  }
+    async: (!options.scriptDefer),
+    defer: options.scriptDefer
+  })
 
   const gtmNoScript = {
     hid: 'gtm-noscript',

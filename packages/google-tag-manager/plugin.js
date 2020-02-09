@@ -73,6 +73,20 @@ class GTM {
     }
   }
 
+  pushData(obj) {
+    try {
+      if (!window || !window[this.options.layer]) {
+        throw new Error('missing GTM dataLayer')
+      }
+      if (typeof obj !== 'object') {
+        throw new Error('data should be an object')
+      }
+      window[this.options.layer].push(obj)
+    } catch (err) {
+      console.error('[ERROR] [GTM]', err)
+    }
+  }
+
   hasDNT() {
     return (
       window.doNotTrack === '1' ||

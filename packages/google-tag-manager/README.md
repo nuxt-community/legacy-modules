@@ -52,6 +52,7 @@ id: () => {
     gtm_preview:     '...',
     gtm_cookies_win: '...'
   },
+  scriptDefer: false,
   scriptURL: '//example.com',
   noscriptURL: '//example.com',
   autoInitOnClientSide: true,
@@ -86,4 +87,11 @@ The default event name for page views is "nuxtRoute", you can change it by setti
 You can push events into the configured `layer`:
 ```js
 this.$gtm.pushEvent({ event: 'myEvent', ...someAttributes })
+```
+
+### Pushing data
+
+You can push data into the configured `layer`:
+```js
+this.$gtm.pushData({ 'key': 'value', 'other-key': 'other-value'})
 ```
