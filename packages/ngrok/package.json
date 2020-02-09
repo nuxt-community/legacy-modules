@@ -10,6 +10,6 @@
   "main": "index.js",
   "dependencies": {
     "chalk": "^2.4.2",
-    "ngrok": "^3.2.5"
+    "ngrok": "^3.2.7"
   }
 }
