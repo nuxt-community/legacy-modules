@@ -9,8 +9,6 @@
 - [browserconfig](packages/browserconfig)
 - [bulma](packages/bulma)
 - [component-cache](packages/component-cache)
-- [font-awesome](packages/font-awesome)
-- [google-tag-manager](packages/google-tag-manager)
 - [localtunnel](packages/localtunnel)
 - [markdownit](packages/markdownit)
 - [ngrok](packages/ngrok)
