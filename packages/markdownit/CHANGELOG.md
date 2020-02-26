@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.9](https://github.com/nuxt/modules/compare/@nuxtjs/markdownit@1.2.8...@nuxtjs/markdownit@1.2.9) (2020-02-26)
+
+
+### Bug Fixes
+
+* **markdownit:** typo ([#351](https://github.com/nuxt/modules/issues/351)) ([cb8fea7](https://github.com/nuxt/modules/commit/cb8fea7afa550448b074a41298564cd0b3c00a9d)), closes [#349](https://github.com/nuxt/modules/issues/349)
+
+
+
+
+
 ## [1.2.8](https://github.com/nuxt/modules/compare/@nuxtjs/markdownit@1.2.7...@nuxtjs/markdownit@1.2.8) (2020-02-26)
 
 
