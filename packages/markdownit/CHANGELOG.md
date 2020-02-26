@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.8](https://github.com/nuxt/modules/compare/@nuxtjs/markdownit@1.2.7...@nuxtjs/markdownit@1.2.8) (2020-02-26)
+
+
+### Bug Fixes
+
+* **markdownit:** `preset` configuration value was ignored ([#340](https://github.com/nuxt/modules/issues/340)) ([776ecd1](https://github.com/nuxt/modules/commit/776ecd1e9731d4c9a43554991a1ec48aff22fecc))
+* **markdownit:** intropDefault for plugin imports ([#347](https://github.com/nuxt/modules/issues/347)) ([fdeef36](https://github.com/nuxt/modules/commit/fdeef360f5961b0ac22b7374d53b653ddb790e94))
+* **markdownit:** prevent mutating options (fixes [#216](https://github.com/nuxt/modules/issues/216)) ([#348](https://github.com/nuxt/modules/issues/348)) ([152f3b9](https://github.com/nuxt/modules/commit/152f3b92f1959ccb2ebb397c339717b619c748ef))
+
+
+
+
+
 ## [1.2.7](https://github.com/nuxt/modules/compare/@nuxtjs/markdownit@1.2.6...@nuxtjs/markdownit@1.2.7) (2019-10-07)
 
 **Note:** Version bump only for package @nuxtjs/markdownit

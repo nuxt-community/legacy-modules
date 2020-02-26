@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.7](https://github.com/nuxt/modules/compare/@nuxtjs/bulma@1.2.6...@nuxtjs/bulma@1.2.7) (2020-02-26)
+
+
+### Bug Fixes
+
+* **bulma:** import order of the stylesheet ([#346](https://github.com/nuxt/modules/issues/346)) ([230f7fa](https://github.com/nuxt/modules/commit/230f7fa30e2bb27371c7d9acea67ab4215a6d08a))
+
+
+
+
+
 ## [1.2.6](https://github.com/nuxt/modules/compare/@nuxtjs/bulma@1.2.5...@nuxtjs/bulma@1.2.6) (2019-11-01)
 
 **Note:** Version bump only for package @nuxtjs/bulma

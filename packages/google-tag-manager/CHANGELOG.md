@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.4.0](https://github.com/nuxt-community/modules/compare/@nuxtjs/google-tag-manager@2.3.1...@nuxtjs/google-tag-manager@2.4.0) (2020-02-26)
+
+
+### Features
+
+* **google-tag-manager:** add pushData method ([#334](https://github.com/nuxt-community/modules/issues/334)) ([9365354](https://github.com/nuxt-community/modules/commit/9365354b324371dcc94296bec53b93b8f105416c))
+* **google-tag-manager:** changes for AA accessibility ([#338](https://github.com/nuxt-community/modules/issues/338)) ([81228aa](https://github.com/nuxt-community/modules/commit/81228aaf76fa543cfc3c26f83768481840b53088))
+* **google-tag-manager:** improved initialisation flow ([#344](https://github.com/nuxt-community/modules/issues/344)) ([53011d4](https://github.com/nuxt-community/modules/commit/53011d43bd0007bdf09fe19ca5558b6c55f1a71a))
+
+
+
+
+
 ## [2.3.1](https://github.com/nuxt-community/modules/compare/@nuxtjs/google-tag-manager@2.3.0...@nuxtjs/google-tag-manager@2.3.1) (2019-11-01)
 
 
