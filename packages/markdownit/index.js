@@ -60,7 +60,7 @@ module.exports = function nuxtMarkdownit (options) {
     this.addPlugin({
       src: path.resolve(__dirname, 'plugin.js'),
       fileName: 'markdown-it.js',
-      options: Object.asign({}, _options)
+      options: Object.assign({}, _options)
     })
   }
 }
