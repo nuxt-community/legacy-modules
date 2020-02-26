@@ -63,7 +63,7 @@ module.exports = async function nuxtTagManager(_options) {
     id: headScriptId,
     async: (!options.scriptDefer),
     defer: options.scriptDefer
-  })
+  }
 
   const gtmNoScript = {
     hid: 'gtm-noscript',
