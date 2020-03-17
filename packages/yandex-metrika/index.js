@@ -6,7 +6,7 @@ module.exports = function yandexMetrika (options) {
     return
   }
   
-  const metrikaUrl = (options.useCDN ? 'https://cdn.jsdelivr.net/npm/yandex-metrica-watch' : 'https://mc.yandex.ru/metrika') + '/tag.js'; // add https://cdn.jsdelivr.net/npm/yandex-metrica-watch/watch.js
+  const metrikaUrl = (options.useCDN ? 'https://cdn.jsdelivr.net/npm/yandex-metrica-watch' : 'https://mc.yandex.ru/metrika') + '/tag.js' // add https://cdn.jsdelivr.net/npm/yandex-metrica-watch/watch.js
   
   // Script preload
   this.options.head.link.push({
@@ -18,11 +18,15 @@ module.exports = function yandexMetrika (options) {
   // Add yandex metrika script to head
   this.options.head.script.push({
     src: metrikaUrl,
-    async: 'true'
+    async: true
   })
 
   // Register plugin
-  this.addPlugin({src: path.resolve(__dirname, 'plugin.js'), ssr: false, options})
+  this.addPlugin({
+    src: path.resolve(__dirname, 'plugin.js'), 
+    ssr: false,
+    options
+  })
 }
 
 module.exports.meta = require('./package.json')
