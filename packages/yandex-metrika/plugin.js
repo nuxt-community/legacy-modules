@@ -7,13 +7,13 @@ export default ({ app: { router } }) => {
   })
 
   function create() {
-    window['yaCounter<%= options.id %>'] = new Ya.Metrika2(<%= JSON.stringify(options) %>)
+    ym(<%= options.id %>, "init", <%= JSON.stringify(options) %>);
     router.afterEach((to, from) => {
       if (!ready) {
         // Don't record a duplicate hit for the initial navigation.
         return
       }
-      window['yaCounter<%= options.id %>'].hit(to.fullPath, {
+      ym(<%= options.id %>, 'hit', to.fullPath, {
         referer: from.fullPath
         // TODO: pass title: <new page title>
         // This will need special handling because router.afterEach is called *before* DOM is updated.
@@ -21,13 +21,15 @@ export default ({ app: { router } }) => {
     })
   }
 
-  if (window.Ya && window.Ya.Metrika2) {
-    // Yandex.Metrika API is already available.
-    create()
-  } else {
-    // Yandex.Metrika has not loaded yet, register a callback.
-    (function (w, c) {
-      (w[c] = w[c] || []).push(create)
-    })(window, 'yandex_metrika_callbacks')
+  if (window.ym === undefined) {
+    // Yandex.Metrika has not loaded yet, create ym method.
+    (function (m, i, k, a) {
+      m[i] = m[i] || function () {
+        (m[i].a = m[i].a || []).push(arguments)
+      }
+      m[i].l = 1 * new Date()
+    })
+    (window, "ym")
   }
+  create()
 }
