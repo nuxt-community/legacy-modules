@@ -6,6 +6,7 @@
 
 ## Setup
 - Add `@nuxtjs/toast` dependency using yarn or npm to your project
+- Add `@nuxtjs/toast` to `compilerOptions`/`types` section of `tsconfig.json` to add typescript support [optional]
 - Add `@nuxtjs/toast` to `modules` section of `nuxt.config.js`
 
 ```js
