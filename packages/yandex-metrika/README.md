@@ -32,13 +32,28 @@ You can set environment variable `NODE_ENV` to `production` for testing in dev m
 
 ## Options
 For more information:
-- [Documetation for Ya.Metrika](https://yandex.com/support/metrica/code/counter-initialize.xml)
-- [hit method](https://yandex.com/support/metrica/objects/hit.xml)
+- [Documetation for Ya.Metrika](https://yandex.com/support/metrica/code/counter-initialize.html)
+- [hit method](https://yandex.com/support/metrica/objects/hit.html)
 
 ### `id`
 - Required
 
-### `webvisor`
-### `clickmap`
-### `trackLinks`
 ### `accurateTrackBounce`
+### `childIframe`
+### `clickmap`
+### `defer`
+### `ecommerce`
+### `params`
+### `userParams`
+### `trackHash`
+### `trackLinks`
+### `trustedDomains`
+### `type`
+### `useCDN`
+### `ut`
+### `webvisor`
+### `triggerEvent`
+
+
+
+
