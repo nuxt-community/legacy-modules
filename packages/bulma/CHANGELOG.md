@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.3.0](https://github.com/nuxt/modules/compare/@nuxtjs/bulma@1.2.7...@nuxtjs/bulma@1.3.0) (2020-07-14)
+
+
+### Features
+
+* **bulma:** update to v0.9.0 ([#361](https://github.com/nuxt/modules/issues/361)) ([81716cc](https://github.com/nuxt/modules/commit/81716ccc56f55203af9aa451ec2cb9245906c773))
+
+
+
+
+
 ## [1.2.7](https://github.com/nuxt/modules/compare/@nuxtjs/bulma@1.2.6...@nuxtjs/bulma@1.2.7) (2020-02-26)
 
 
