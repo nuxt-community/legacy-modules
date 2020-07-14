@@ -10,6 +10,6 @@
     "access": "public"
   },
   "dependencies": {
-    "vue-toasted": "^1.1.27"
+    "vue-toasted": "^1.1.28"
   }
 }
