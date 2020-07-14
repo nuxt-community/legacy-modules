@@ -9,7 +9,7 @@
   },
   "main": "index.js",
   "dependencies": {
-    "chalk": "^3.0.0",
+    "chalk": "^4.1.0",
     "ngrok": "^3.2.7"
   }
 }
