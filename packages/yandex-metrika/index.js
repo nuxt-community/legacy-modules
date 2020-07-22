@@ -8,6 +8,8 @@ module.exports = function yandexMetrika (options) {
 
   const metrikaUrl = (options.useCDN ? 'https://cdn.jsdelivr.net/npm/yandex-metrica-watch' : 'https://mc.yandex.ru/metrika') + '/tag.js' // add https://cdn.jsdelivr.net/npm/yandex-metrica-watch/watch.js
 
+  options.metrikaUrl = metrikaUrl
+
   // Script preload
   this.options.head.link.push({
     href: metrikaUrl,
@@ -15,11 +17,6 @@ module.exports = function yandexMetrika (options) {
     as: 'script'
   })
 
-  // Add yandex metrika script to head
-  this.options.head.script.push({
-    src: metrikaUrl,
-    async: 'true'
-  })
 
   // Register plugin
   this.addPlugin({ src: path.resolve(__dirname, 'plugin.js'), ssr: false, options })
