@@ -8,15 +8,15 @@ export default ({ app: { router } }) => {
 
   function create() {
 
-    router.afterEach((to, from) => {
-      if (!ready) {
-        // Don't record a duplicate hit for the initial navigation.
-        (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-          m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
-        (window, document, "script", '<%= options.metrikaUrl %>', "ym");
+    if (!ready) {
+      // Don't record a duplicate hit for the initial navigation.
+      (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+      (window, document, "script", '<%= options.metrikaUrl %>', "ym")
 
-        ym(<%= options.id %>, "init", <%= JSON.stringify(options) %>)
-      }
+      ym(<%= options.id %>, "init", <%= JSON.stringify(options) %>)
+    }
+    router.afterEach((to, from) => {
       ym(<%= options.id %>, 'hit', to.fullPath, {
         referer: from.fullPath
         // TODO: pass title: <new page title>
