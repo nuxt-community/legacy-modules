@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.2.0](https://github.com/nuxt/modules/compare/@nuxtjs/yandex-metrika@1.1.0...@nuxtjs/yandex-metrika@1.2.0) (2020-07-23)
+
+
+### Features
+
+* **yandex-metrika:** update loading script ([#371](https://github.com/nuxt/modules/issues/371)) ([3e9711c](https://github.com/nuxt/modules/commit/3e9711c61cf1be2a4c6c75c35c3838c721764626))
+
+
+
+
+
 # [1.1.0](https://github.com/nuxt/modules/compare/@nuxtjs/yandex-metrika@1.0.3...@nuxtjs/yandex-metrika@1.1.0) (2020-07-14)
 
 
