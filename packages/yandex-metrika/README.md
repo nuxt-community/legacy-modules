@@ -14,6 +14,14 @@ You can set environment variable `NODE_ENV` to `production` for testing in dev m
 - Add `@nuxtjs/yandex-metrika` to `modules` section of `nuxt.config.js`
 ```js
 {
+  modules: ['@nuxtjs/yandex-metrika'],
+}
+```
+
+## Configure
+You can pass options directly in module declaration.
+```js
+{
   modules: [
     [
       '@nuxtjs/yandex-metrika',
@@ -28,7 +36,21 @@ You can set environment variable `NODE_ENV` to `production` for testing in dev m
     ],
   ]
 }
-````
+```
+Or you can specify `yandexMetrika` key.
+```js
+{
+  modules: ['@nuxtjs/yandex-metrika'],
+  yandexMetrika: {
+    id: 'XXXXXX',
+    webvisor: true,
+    // clickmap:true,
+    // useCDN:false,
+    // trackLinks:true,
+    // accurateTrackBounce:true,
+  },
+}
+```
 
 ## Options
 For more information:
