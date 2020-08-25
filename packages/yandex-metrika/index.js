@@ -1,10 +1,12 @@
 const path = require('path')
 
-module.exports = function yandexMetrika (options) {
+module.exports = function yandexMetrika (moduleOptions) {
   // Don't include on dev mode
   if (this.options.dev && process.env.NODE_ENV !== 'production') {
     return
   }
+
+  const options = { ...(moduleOptions || {}), ...(this.options.yandexMetrika || {}) }
 
   const metrikaUrl = (options.useCDN ? 'https://cdn.jsdelivr.net/npm/yandex-metrica-watch' : 'https://mc.yandex.ru/metrika') + '/tag.js' // add https://cdn.jsdelivr.net/npm/yandex-metrica-watch/watch.js
 
