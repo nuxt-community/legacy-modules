@@ -6,7 +6,7 @@ module.exports = function yandexMetrika (moduleOptions) {
     return
   }
 
-  const options = { ...moduleOptions, ...(this.options.yandexMetrika || {}) }
+  const options = { ...(moduleOptions || {}), ...(this.options.yandexMetrika || {}) }
 
   const metrikaUrl = (options.useCDN ? 'https://cdn.jsdelivr.net/npm/yandex-metrica-watch' : 'https://mc.yandex.ru/metrika') + '/tag.js' // add https://cdn.jsdelivr.net/npm/yandex-metrica-watch/watch.js
 
