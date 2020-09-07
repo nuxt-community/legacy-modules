@@ -6,7 +6,7 @@ module.exports = function nuxtToast (moduleOptions) {
   // Register plugin
   this.addPlugin({
     src: path.resolve(__dirname, 'plugin.js'),
-    ssr: false,
+    ssr: true,
     fileName: 'toast.js',
     options: {
       register,
