@@ -13,12 +13,14 @@ module.exports = function yandexMetrika (moduleOptions) {
   options.metrikaUrl = metrikaUrl
 
   // Script preload
-  this.options.head.link.push({
-    href: metrikaUrl,
-    rel: 'preload',
-    as: 'script'
-  })
-
+  if (!options.disablePreload) {
+    this.options.head.link.push({
+      href: metrikaUrl,
+      rel: 'preload',
+      as: 'script',
+      crossorigin: true,
+    })
+  }  
 
   // Register plugin
   this.addPlugin({ src: path.resolve(__dirname, 'plugin.js'), ssr: false, options })
