@@ -1,5 +1,6 @@
 export default ({ app: { router } }) => {
   let ready = false
+  let basePath = (router.options.base || '/').replace(/\/$/, '')
 
   router.onReady(() => {
     // Mark when the router has completed the initial navigation.
@@ -17,8 +18,10 @@ export default ({ app: { router } }) => {
       ym(<%= options.id %>, "init", <%= JSON.stringify(options) %>)
     }
     router.afterEach((to, from) => {
-      ym(<%= options.id %>, 'hit', to.fullPath, {
-        referer: from.fullPath
+      let toPath = basePath + to.fullPath
+      let fromPath = basePath + from.fullPath
+      ym(<%= options.id %>, 'hit', toPath, {
+        referer: fromPath
         // TODO: pass title: <new page title>
         // This will need special handling because router.afterEach is called *before* DOM is updated.
       })
