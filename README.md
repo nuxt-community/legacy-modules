@@ -11,7 +11,6 @@
 - [component-cache](packages/component-cache)
 - [localtunnel](packages/localtunnel)
 - [markdownit](packages/markdownit)
-- [ngrok](packages/ngrok)
 - [plugin-utils](packages/plugin-utils)
 - [toast](packages/toast)
 - [vendor](packages/vendor)
