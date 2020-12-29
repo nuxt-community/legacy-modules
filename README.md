@@ -2,7 +2,7 @@
 
 ⚠️ This is a mono repository for some smaller nuxt modules.
 
-**👉 You probably want to see [Awesome Nuxt](https://github.com/nuxt-community/awesome-nuxt#modules) for many more ready-to-use modules.**
+**👉 You probably want to see [modules.nuxtjs.org](https://modules.nuxtjs.org) for many more ready-to-use modules.**
 
 ## Packages
 
@@ -11,7 +11,6 @@
 - [component-cache](packages/component-cache)
 - [localtunnel](packages/localtunnel)
 - [markdownit](packages/markdownit)
-- [ngrok](packages/ngrok)
 - [plugin-utils](packages/plugin-utils)
 - [toast](packages/toast)
 - [vendor](packages/vendor)
