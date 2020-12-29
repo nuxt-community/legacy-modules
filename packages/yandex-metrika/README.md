@@ -10,8 +10,10 @@ This plugins automatically sends first page and route change events to yandex me
 You can set environment variable `NODE_ENV` to `production` for testing in dev mode.
 
 ## Setup
+
 - Add `@nuxtjs/yandex-metrika` dependency using yarn or npm to your project
 - Add `@nuxtjs/yandex-metrika` to `modules` section of `nuxt.config.js`
+
 ```js
 {
   modules: ['@nuxtjs/yandex-metrika'],
@@ -19,7 +21,9 @@ You can set environment variable `NODE_ENV` to `production` for testing in dev m
 ```
 
 ## Configure
-You can pass options directly in module declaration.
+
+You can pass options directly in module declaration:
+
 ```js
 {
   modules: [
@@ -28,37 +32,65 @@ You can pass options directly in module declaration.
       {
         id: 'XXXXXX',
         webvisor: true,
-        // clickmap:true,
-        // useCDN:false,
-        // trackLinks:true,
-        // accurateTrackBounce:true,
+        // clickmap: true,
+        // useCDN: false,
+        // trackLinks: true,
+        // accurateTrackBounce: true,
       }
-    ],
+    ]
   ]
 }
 ```
-Or you can specify `yandexMetrika` key.
+
+Or you can specify `yandexMetrika` key:
+
 ```js
 {
   modules: ['@nuxtjs/yandex-metrika'],
   yandexMetrika: {
     id: 'XXXXXX',
-    webvisor: true,
-    // clickmap:true,
-    // useCDN:false,
-    // trackLinks:true,
-    // accurateTrackBounce:true,
-  },
+    // ...
+  }
+}
+```
+
+In Nuxt 2.13+, you can also use public runtime config:
+
+```js
+{
+  modules: ['@nuxtjs/yandex-metrika'],
+  publicRuntimeConfig: {
+    yandexMetrika: {
+      id: process.env.YANDEX_METRIKA_ID,
+      // ...
+    }
+  }
 }
 ```
 
 ## Options
+
 For more information:
 - [Documetation for Ya.Metrika](https://yandex.com/support/metrica/code/counter-initialize.html)
 - [hit method](https://yandex.com/support/metrica/objects/hit.html)
 
 ### `id`
+
 - Required
+
+### `useRuntimeConfig`
+
+- Default: `yandexMetrika`
+
+Public runtime config key. Set to `false` to disable runtime configuration.
+
+### `useCDN`
+
+- Default: false
+
+Load metrika script from <https://cdn.jsdelivr.net/npm/yandex-metrica-watch/watch.js>.
+
+This option can not be provided via runtime config.
 
 ### `accurateTrackBounce`
 ### `childIframe`
@@ -71,11 +103,6 @@ For more information:
 ### `trackLinks`
 ### `trustedDomains`
 ### `type`
-### `useCDN`
 ### `ut`
 ### `webvisor`
 ### `triggerEvent`
-
-
-
-

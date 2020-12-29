@@ -6,7 +6,11 @@ module.exports = function yandexMetrika (moduleOptions) {
     return
   }
 
-  const options = { ...(moduleOptions || {}), ...(this.options.yandexMetrika || {}) }
+  const options = {
+    useRuntimeConfig: this.options.publicRuntimeConfig ? 'yandexMetrika' : undefined,
+    ...this.options.yandexMetrika,
+    ...moduleOptions
+  }
 
   const metrikaUrl = (options.useCDN ? 'https://cdn.jsdelivr.net/npm/yandex-metrica-watch' : 'https://mc.yandex.ru/metrika') + '/tag.js' // add https://cdn.jsdelivr.net/npm/yandex-metrica-watch/watch.js
 
@@ -18,7 +22,6 @@ module.exports = function yandexMetrika (moduleOptions) {
     rel: 'preload',
     as: 'script'
   })
-
 
   // Register plugin
   this.addPlugin({ src: path.resolve(__dirname, 'plugin.js'), ssr: false, options })
