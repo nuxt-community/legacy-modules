@@ -14,6 +14,6 @@
     "raw-loader": "^4.0.2"
   },
   "devDependencies": {
-    "@types/markdown-it": "^10.0.3"
+    "@types/markdown-it": "^12.0.0"
   }
 }
