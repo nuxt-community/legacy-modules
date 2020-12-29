@@ -7,6 +7,7 @@ export default ({ app: { router }, $config }) => {
   const { id, ...metrikaOptions } = options
 
   let ready = false
+  const basePath = (router.options.base || '/').replace(/\/$/, '')
 
   router.onReady(() => {
     // Mark when the router has completed the initial navigation.
@@ -24,8 +25,8 @@ export default ({ app: { router }, $config }) => {
       ym(id, "init", metrikaOptions)
     }
     router.afterEach((to, from) => {
-      ym(id, 'hit', to.fullPath, {
-        referer: from.fullPath
+      ym(id, 'hit', basePath + to.fullPath, {
+        referer: basePath + from.fullPath
         // TODO: pass title: <new page title>
         // This will need special handling because router.afterEach is called *before* DOM is updated.
       })
