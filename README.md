@@ -13,7 +13,6 @@
 - [plugin-utils](packages/plugin-utils)
 - [toast](packages/toast)
 - [vendor](packages/vendor)
-- [yandex-metrika](packages/yandex-metrika)
 
 ## Want to create your own module ?
 
