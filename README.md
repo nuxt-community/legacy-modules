@@ -8,7 +8,6 @@
 
 - [browserconfig](packages/browserconfig)
 - [bulma](packages/bulma)
-- [component-cache](packages/component-cache)
 - [localtunnel](packages/localtunnel)
 - [plugin-utils](packages/plugin-utils)
 - [toast](packages/toast)
