@@ -18,7 +18,7 @@ module.exports = function yandexMetrika (moduleOptions) {
       href: metrikaUrl,
       rel: 'preload',
       as: 'script',
-      crossorigin: true,
+      crossorigin: 'use-credentials',
     })
   }  
 
