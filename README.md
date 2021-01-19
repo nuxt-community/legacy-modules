@@ -7,7 +7,6 @@
 ## Packages
 
 - [browserconfig](packages/browserconfig)
-- [bulma](packages/bulma)
 - [localtunnel](packages/localtunnel)
 - [plugin-utils](packages/plugin-utils)
 - [toast](packages/toast)
