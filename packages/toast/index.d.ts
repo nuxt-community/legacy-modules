@@ -25,3 +25,9 @@ declare module 'vue/types/vue' {
     $toast: Toasted
   }
 }
+
+declare module 'vuex/types/index' {
+  interface Store<S> {
+    $toast: Toasted
+  }
+}
