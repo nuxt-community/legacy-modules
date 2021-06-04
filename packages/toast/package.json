@@ -4,8 +4,8 @@
   "license": "MIT",
   "main": "index.js",
   "types": "index.d.ts",
-  "repository": "https://github.com/nuxt/modules",
-  "homepage": "https://github.com/nuxt/modules/tree/master/packages/toast",
+  "repository": "https://github.com/nuxt-community/community-modules",
+  "homepage": "https://github.com/nuxt-community/community-modules/tree/master/packages/toast",
   "publishConfig": {
     "access": "public"
   },
