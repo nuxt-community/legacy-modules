@@ -11,7 +11,7 @@ if (host === '0.0.0.0') {
 
 module.exports = function nuxtLocaltunnel (options) {
   // Only include on dev mode
-  if (!this.options.dev) {
+  if (!this.options.dev || options.disabled) {
     return
   }
 
