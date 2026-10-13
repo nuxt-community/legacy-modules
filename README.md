@@ -1,3 +1,6 @@
+> [!NOTE]
+> This repository is archived. It was built for Nuxt 2, which reached end of life on June 30, 2024.
+
 # Nuxt Modules
 
 ⚠️ This is a mono repository for some smaller nuxt modules.
